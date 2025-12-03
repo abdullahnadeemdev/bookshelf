@@ -10,12 +10,13 @@ const Hero = () => {
         READING MAKES THE WORLD HUGE
       </p>
 
-      <div className="flex flex-col sm:flex-row gap-4 mx-auto">
-        <div className="flex-1 bg-grayBg rounded-xl text-start p-4 w-fit max-w-3xl relative overflow-hidden">
-          <p className="text-wrap text-lg mb-7 xs:text-2xl xs:mb-10 text-center sm:text-start sm:text-xl sm:mb-3 sm:pr-20 md:text-2xl md:mb-7 md:pr-30 lg:text-3xl lg:mb-7 lg:pr-50 xl:text-4xl xl:pr-80 xl:mb-13 relative z-20">
+      <div className="flex flex-col xs:flex-row gap-4">
+        <div className="flex-1 bg-grayBg rounded-xl text-start p-4 w-fit xs:min-w-[200px] sm:min-w-[296px] lg:max-w-3xl relative overflow-hidden">
+          <p className="text-wrap text-lg mb-7  xs:mb-10 text-center sm:text-start sm:text-xl sm:mb-3 sm:pr-20 md:text-2xl md:mb-7 md:pr-30 lg:text-3xl lg:mb-7 lg:pr-50 xl:text-4xl xl:pr-80 xl:mb-13 relative z-20">
             FIND SOMETHING TO READ
           </p>
-          <p className="text-wrap text-center mb-9 text-sm xs:text-base xs:mb-15 sm:text-start sm:text-xs sm:mb-4 sm:pr-10 md:text-sm md:mb-7 md:pr-18 lg:text-base lg:pr-36 lg:mb-10 xl:text-lg relative xl:mb-34 xl:pr-66 z-20">
+
+          <p className="text-wrap text-center mb-9 text-sm xs:text-base xs:mb-15 sm:text-start sm:text-xs sm:mb-9 sm:pr-10 md:text-sm md:mb-7 md:pr-18 lg:text-base lg:pr-36 lg:mb-10 xl:text-lg relative xl:mb-34 xl:pr-66 z-20">
             Fancy something unusual and unpredictable? Funny or exciting? No
             problem. Check out the collections we have prepared for you.
           </p>
@@ -27,10 +28,10 @@ const Hero = () => {
             BROWSE NOW
           </Button>
 
-          <SearchIcon className="absolute lg:top-3 lg:-right-20 -right-25 top-14 md:h-60! md:w-80! lg:h-90! lg:w-80! xl:h-130! xl:w-110! z-10  rotate-90 stroke-blackC! stroke-1!" />
+          <SearchIcon className="absolute sm:top-8 lg:top-3 lg:-right-20 md:-right-25 -right-17 top-14 sm:h-60! sm:w-60! md:h-60! md:w-80! lg:h-90! lg:w-80! xl:h-130! xl:w-110! z-10  rotate-90 stroke-blackC! stroke-1!" />
         </div>
 
-        <div className="rounded-xl relative flex-1">
+        <div className="rounded-xl relative xs:min-w-[200px] sm:min-w-[296px] flex-1">
           <div className="lg:h-80 lg:w-120 xl:w-170 xl:h-110">
             <img
               src={HeroImg}

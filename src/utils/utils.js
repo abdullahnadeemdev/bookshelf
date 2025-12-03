@@ -73,7 +73,7 @@ export const ArrayBestSellers = [
     people: 120,
     saleP: "16.50",
   },
-  { comts: 9999 },
+  { title: "SEE ALL" },
   {
     image: Master,
     author: "Mikhail Bulgakov",
