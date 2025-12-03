@@ -1,11 +1,13 @@
+import BestSellers from "../../components/home/BestSellers";
 import Hero from "../../components/home/Hero";
 
 const Index = () => {
   return (
-    <div>
-      <div className="max-w-[1440px]">
+    <div className="">
+      {/* <div className="flex items-center justify-center ">
         <Hero />
-      </div>
+      </div> */}
+      <BestSellers />
     </div>
   );
 };

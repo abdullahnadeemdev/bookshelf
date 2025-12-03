@@ -5,7 +5,7 @@ import { Stamp } from "../../assets/svgs";
 
 const Hero = () => {
   return (
-    <div className="text-center mb-10">
+    <div className="text-center mb-10 max-w-[1440px]">
       <p className="py-6 text-2xl xs:text-4xl sm:text-4xl md:text-6xl lg:text-[83px] text-grayBg font-semibold text-wrap ">
         READING MAKES THE WORLD HUGE
       </p>

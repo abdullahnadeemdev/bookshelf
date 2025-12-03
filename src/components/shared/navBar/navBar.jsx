@@ -14,7 +14,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full max-w-[1440px] px-4">
       <div className="bg-grayBg rounded-2xl w-full p-6 hidden md:block">
         <div className=" flex items-center justify-between">
           <div className="flex items-center gap-2 ">
