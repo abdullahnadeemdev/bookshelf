@@ -3,6 +3,9 @@
 @theme{
   --color-grayBg:#2a2c2e;
   --color-yellow:#f4ce47;
-  --color-grayBg:#2a2c2e;
+  --color-blackC:#1a1b1d;
+
+
+  --breakpoint-xs:26.5rem;
 
 }

@@ -24,7 +24,7 @@ const NavBar = () => {
             </p>
           </div>
 
-          <ul className="list-none flex gap-1 text-xs lg:text-base lg:gap-3 xl:gap-5 xl:text-lg ">
+          <ul className="list-none flex gap-2.5 text-xs sm:text-sm lg:text-base lg:gap-3 xl:gap-5 xl:text-lg ">
             {menuArr.map((item, index) => (
               <li key={index}>{item}</li>
             ))}
