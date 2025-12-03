@@ -38,7 +38,7 @@ const Hero = () => {
               className="object-cover object-center w-full h-full rounded-xl"
             />
           </div>
-          <Stamp className="absolute top-3 left-3 h-10 w-10 md:h-12! md:w-12! lg:top-8 lg:left-8" />
+          <Stamp className="absolute top-3 left-3 h-10 w-10 md:h-12 md:w-12 lg:top-8 lg:left-8" />
         </div>
       </div>
     </div>

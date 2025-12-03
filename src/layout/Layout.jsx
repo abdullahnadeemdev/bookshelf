@@ -2,7 +2,7 @@ import NavBar from "../components/shared/navBar/navBar";
 
 const Layout = ({ children }) => {
   return (
-    <div className="flex flex-col items-center mx-auto w-full max-w-[1440px] font-work bg-black h-screen text-white p-6">
+    <div className="flex flex-col items-center mx-auto w-full  font-work  h-screen text-white bg-whiteBg p-6">
       <NavBar />
       {/* Childerns */}
       <div className="w-full h-full ">
