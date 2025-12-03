@@ -1,11 +1,103 @@
-import AfterDark from "../../../assets/images/Murakami.png";
-import { Bookmark, Comment, Star } from "../../../assets/svgs";
 import Card from "./Card";
+import { ArrayBestSellers as array } from "../../../utils/utils";
+
 const BestSellers = () => {
+  // const arrayBestSellers = [
+  //   {
+  //     image: AfterDark,
+  //     author: "Murakami",
+  //     title: "After Dark",
+  //     comts: 5,
+  //     star: 4.0,
+  //     people: 100,
+  //     price: "$15.5",
+  //     saleP: "10.50",
+  //   },
+  //   {
+  //     image: Godfather,
+  //     author: "Mario Puzo",
+  //     title: "The Godfather",
+  //     comts: 15,
+  //     star: 4.9,
+  //     people: 85,
+  //     saleP: "14.50",
+  //   },
+  //   {
+  //     image: BeyondTheSun,
+  //     author: "Daniel Cargallo",
+  //     title: "She Beyond Sun",
+  //     comts: 14,
+  //     star: 4.6,
+  //     people: 165,
+  //     price: "$19.50",
+  //     saleP: "15.00",
+  //   },
+  //   {
+  //     image: IAmErik,
+  //     author: "Erik Spiekermann",
+  //     title: "Hello I am Erik",
+  //     comts: 25,
+  //     star: 4.5,
+  //     people: 120,
+  //     price: "@15.50",
+  //     saleP: "10.50",
+  //   },
+  //   {
+  //     image: Ness,
+  //     author: "Patrick Ness",
+  //     title: "More Than This",
+  //     comts: 42,
+  //     star: 4.4,
+  //     people: 48,
+  //     saleP: "20.00",
+  //   },
+  //   {
+  //     image: Memoirs,
+  //     author: "C.R. Brunt",
+  //     title: "From the Memoirs of a Non-Enemy combatant",
+  //     comts: 25,
+  //     star: 4.5,
+  //     people: 120,
+  //     saleP: "16.50",
+  //   },
+  //   { comts: 9999 },
+  //   {
+  //     image: Master,
+  //     author: "Mikhail Bulgakov",
+  //     title: "The Master & Margarita",
+  //     comts: 35,
+  //     star: 4.3,
+  //     people: 30,
+  //     saleP: "10.50",
+  //   },
+  //   {
+  //     image: Norman,
+  //     author: "Donald Norman",
+  //     title: "The Design of Everyday Things",
+  //     comts: 28,
+  //     star: 4.2,
+  //     people: 20,
+  //     saleP: "9.50",
+  //   },
+  // ];
   return (
-    <div className="h-screen max-w-[1440px]">
-      <h1 className="font-semibold text-2xl">BESTSELLERS</h1>
-      <Card />
+    <div className="h-fit  mb-10 2xl:h-screen max-w-[1440px] px-4">
+      <h1 className="font-semibold text-4xl py-10 pl-6">BESTSELLERS</h1>
+      <div className="flex justify-evenly gap-3 flex-wrap">
+        {array.map((item, index) => (
+          <Card
+            key={index}
+            image={item.image}
+            author={item.author}
+            title={item.title}
+            comts={item.comts}
+            star={item.star}
+            people={item.people}
+            price={item.price}
+            saleP={item.saleP}
+          />
+        ))}
+      </div>
     </div>
   );
 };
