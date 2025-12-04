@@ -10,14 +10,16 @@ const Card = (props) => {
         <div
           className="
             flex
-            min-h-48 min-w-65
+            flex-1
             text-black
             bg-yellow
             rounded-2xl
             items-center justify-center
             sm:text-4xl
-            md:w-90
-            lg:w-110 lg:h-70
+            min-w-72 min-h-48 max-w-104 max-h-auto
+            sm:max-w-74
+            md:min-w-90
+            lg:min-w-110 lg:min-h-70
           "
         >
           <h1>SEE ALL</h1>
@@ -26,7 +28,7 @@ const Card = (props) => {
         <div
           className="
             flex
-            w-fit
+            flex-1
             p-4
             bg-white
             rounded-2xl
@@ -62,7 +64,6 @@ const Card = (props) => {
             <div
               className="
                 flex
-                bg-amber-300
                 justify-between
                 md:w-45 md:mb-4
                 lg:w-60 lg:mb-6
@@ -87,7 +88,6 @@ const Card = (props) => {
                     w-26 h-7
                     mb-1
                     font-semibold text-wrap text-xs
-                    bg-green-300
                     sm:max-w-46
                     md:text-base
                     lg:overflow-visible lg:h-10
