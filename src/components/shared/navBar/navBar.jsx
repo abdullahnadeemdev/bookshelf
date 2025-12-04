@@ -1,4 +1,4 @@
-import { Logo } from "../../../assets/svgs";
+import { Logo } from "../../../assets/icons";
 import { CartIcon } from "../../../assets/icons";
 import { SearchIcon } from "../../../assets/icons";
 import { BookmarkIcon } from "../../../assets/icons";

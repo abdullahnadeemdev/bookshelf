@@ -1,7 +1,7 @@
 import HeroImg from "../../../assets/images/tipo.jpg";
 import Button from "../../shared/button/Button";
 import { SearchIcon } from "../../../assets/icons";
-import { Stamp } from "../../../assets/svgs";
+import { Stamp } from "../../../assets/icons";
 
 const Hero = () => {
   return (

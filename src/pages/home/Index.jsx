@@ -1,6 +1,7 @@
 import BestSellers from "../../components/home/bestSellers/BestSellers";
 import CallToAction from "../../components/home/callToAction/CallToAction";
 import Hero from "../../components/home/hero/Hero";
+import PopularAuthor from "../../components/home/popularAuthor/PopularAuthor";
 
 const Index = () => {
   return (
@@ -13,6 +14,10 @@ const Index = () => {
       </div>
       <div className="p-6">
         <CallToAction />
+      </div>
+
+      <div>
+        <PopularAuthor />
       </div>
     </div>
   );

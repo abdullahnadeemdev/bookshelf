@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Bookmark, Comment, Star } from "../../../assets/svgs";
+import { Bookmark, Comment, Star } from "../../../assets/icons";
 const Card = (props) => {
   //   console.log("props.index", props.comts);
   //   props.comts === 9999 ? setCheck(true) : '';
