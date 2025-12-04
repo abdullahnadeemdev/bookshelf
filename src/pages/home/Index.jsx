@@ -16,7 +16,7 @@ const Index = () => {
         <CallToAction />
       </div>
 
-      <div>
+      <div className="bg-blackC ">
         <PopularAuthor />
       </div>
     </div>

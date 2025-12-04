@@ -138,4 +138,5 @@ export const authorsArray = [
     author: "Mikhail Bulgakov",
     book: "24 books",
   },
+  { author: "SEE ALL" },
 ];
