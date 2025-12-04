@@ -28,8 +28,8 @@ const Hero = () => {
       <div
         className="
           flex flex-col
-          max-w-[1400px] max-h-[348px] h-auto
-          justify-evenly xs:flex-row gap-4
+          sm:max-w-[1400px] max-w-auto max-h-auto sm:max-h-[348px] h-auto
+          justify-evenly sm:flex-row gap-4
         "
       >
         <div
@@ -42,52 +42,20 @@ const Hero = () => {
             relative
           "
         >
-          {/* <div className="flex-1 bg-grayBg rounded-xl text-start p-4 w-fit xs:min-w-[200px] sm:min-w-[296px] lg:max-w-3xl relative overflow-hidden"> */}
-          <p
-            className="
-              z-20
-              mb-7
-              text-wrap text-lg text-center
-              xs:mb-10 relative
-              sm:mb-3 sm:pr-20 sm:text-start sm:text-2xl
-              md:max-w-110 md:mb-3 md:text-3xl
-              lg:max-w-140 lg:mb-8 lg:pr-36 lg:text-4xl
-              xl:mb-5 xl:pr-66
-              2xl:mb-5 2xl:pr-86
-            "
-          >
-            FIND SOMETHING TO READ
-          </p>
+          <div className="relative z-20 min-w-65 flex flex-col justify-between h-full gap-[31px] xs:gap-0">
+            <p className="text-wrap text-lg xl:text-4xl xl:max-w-80 lg:text-2xl lg:max-w-50 md:max-w-40">
+              FIND SOMETHING TO READ
+            </p>
 
-          <p
-            className="
-              z-20
-              mb-9
-              text-wrap text-center text-sm
-              xs:text-base xs:mb-15 relative
-              sm:mb-0 sm:pr-12 sm:text-start sm:text-sm
-              md:max-w-90 md:pr-8 md:text-sm md:mb-0
-              lg:max-w-146 lg:pr-48 lg:mb-8
-              xl:max-w-150 xl:pr-28 xl:mb-6 xl:text-lg
-              2xl:pr-58 2xl:mb-0
-            "
-          >
-            Fancy something unusual and unpredictable? Funny or exciting? No
-            problem. Check out the collections we have prepared for you.
-          </p>
+            <p className="text-wrap  text-sm xl:text-lg xl:max-w-90 lg:text-base lg:max-w-66 md:max-w-55">
+              Fancy something unusual and unpredictable? Funny or exciting? No
+              problem. Check out the collections we have prepared for you.
+            </p>
 
-          <Button
-            variant="outline"
-            className="
-              z-20
-              relative left-[28%]
-              sm:left-0 sm:-bottom-2
-              md:-bottom-16
-              2xl:-bottom-20
-            "
-          >
-            BROWSE NOW
-          </Button>
+            <Button variant="outline" className="">
+              BROWSE NOW
+            </Button>
+          </div>
 
           <SearchIcon
             className="
@@ -101,9 +69,10 @@ const Hero = () => {
 
         <div
           className="
+          sm:max-h-full sm:w-auto
+          max-h-[225px] overflow-hidden
             flex-1
-            relative
-          "
+            relative"
         >
           <img
             src={HeroImg}
