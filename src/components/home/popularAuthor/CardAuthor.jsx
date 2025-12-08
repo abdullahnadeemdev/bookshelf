@@ -23,7 +23,8 @@ const CardAuthor = (props) => {
           className="
             flex flex-col
             xs:flex-row
-            h-[20vh]
+            h-[30vh]
+            xs:h-[20vh]
             max-w-[400px]
             text-black
             bg-white
@@ -32,18 +33,20 @@ const CardAuthor = (props) => {
         >
           <div
             className="
-            h-10
+            h-40
+            flex
+            justify-center
             xs:h-full
               lg:min-w-10 lg:max-w-40 lg:max-h-49
-              flex-4
-              sm:flex-3
+              
+              xs:flex-4
             "
           >
             <img
               src={props.image}
               alt=""
               className="
-                object-cover
+                object-fill
                 h-full w-full
                 rounded-l-2xl
                 grayscale-100
@@ -54,7 +57,7 @@ const CardAuthor = (props) => {
             className="
               w-full
               px-2
-              flex-5
+              xs:flex-5
             "
           >
             <div
