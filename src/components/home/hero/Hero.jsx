@@ -16,14 +16,11 @@ const Hero = () => {
       <p
         className="
         
-          py-6
-          text-2xl text-grayBg font-semibold text-wrap
-          xs:text-4xl
-          sm:text-4xl
-          md:text-6xl
-          lg:text-[83px]
+        text-black
+          heroHeading
           
         "
+        // style={font-size:"calc(min(75px, 18px + (75 - 18) * ((100vw - 320px) / (1248 - 320))))"}
         // grid
         //   grid-cols-[minmax(24px, 100px)]
       >
@@ -47,7 +44,7 @@ const Hero = () => {
             relative
           "
         >
-          <div className="relative z-20 min-w-65 flex flex-col justify-between h-full gap-[31px] xs:gap-0">
+          <div className="relative z-20 min-w-65 xs:min-h-66 flex flex-col justify-between h-full gap-8 xs:gap-0">
             <p className="text-wrap text-lg xl:text-4xl xl:max-w-80 lg:text-2xl lg:max-w-50 md:max-w-40">
               FIND SOMETHING TO READ
             </p>
@@ -73,9 +70,7 @@ const Hero = () => {
         </div>
 
         <div
-          className=" xs:w-[80%]
-          sm:max-h-full sm:w-auto
-          max-h-[225px] overflow-hidden
+          className="overflow-hidden
             flex-1
             relative"
         >

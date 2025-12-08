@@ -14,7 +14,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className="w-full max-w-[1440px] px-4">
+    <div className="w-full max-w-[1440px] px-4 z-50 ">
       <div className="bg-grayBg rounded-2xl w-full p-6 hidden md:block">
         <div className=" flex items-center justify-between">
           <div className="flex items-center gap-2 ">
@@ -61,7 +61,7 @@ const NavBar = () => {
         <div
           className={`absolute top-7 sm:top-11 bg-black mt-5 rounded-lg ${
             click ? "border border-grey " : ""
-          } w-9/12`}
+          } w-[96%]`}
         >
           {click ? (
             <ul className="font-semibold w-fit">

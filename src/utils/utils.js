@@ -75,7 +75,7 @@ export const ArrayBestSellers = [
   {
     image: Memoirs,
     author: "C.R. Brunt",
-    title: "From the Memoirs of a Non-Enemy combatant",
+    title: "From the Memoirs of a Non-Enemy",
     comts: 25,
     star: 4.5,
     people: 120,

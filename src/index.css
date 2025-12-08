@@ -12,5 +12,7 @@
   /* 480 */
   --breakpoint-xs:26.56rem;
 
-
+}
+.heroHeading{
+    font-size: calc(min(94px, 18px + (75 - 18) * ((100vw - 320px) / (1440 - 320))));
 }
