@@ -14,3 +14,5 @@ export { StarIcon } from "../icons/StarIcon";
 export { InstagramIcon } from "../icons/InstagramIcon";
 export { FacebookIcon } from "../icons/FacebookIcon";
 export { TwitterIcon } from "../icons/TwitterIcon";
+export { CloseIcon } from "../icons/CloseIcon";
+export { DropArrowIcon } from "../icons/DropArrowIcon";
