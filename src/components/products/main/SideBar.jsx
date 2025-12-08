@@ -3,7 +3,7 @@ import { DropArrowIcon } from "../../../assets/icons";
 
 const SideBar = () => {
   return (
-    <div className="bg-whiteBg w-75 text-black p-4 rounded-xl">
+    <div className="bg-whiteBg w-75 text-black p-4 rounded-xl mt-4">
       <div>
         <h3 className="text-2xl font-semibold ">Categories</h3>
         <input

@@ -3,7 +3,7 @@ import { Bookmark, Comment, Star } from "../../../assets/icons";
 
 const Card = (props) => {
   return (
-    <div className="bg-whiteBg p-4 h-fit rounded-xl">
+    <div className="bg-whiteBg p-4 h-fit rounded-xl mt-4">
       <div className="h-[45vh] w-[21vw]  relative">
         <img
           src={props.image}
