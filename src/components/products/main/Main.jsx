@@ -1,7 +1,7 @@
-import React from "react";
-
 import FilterBar from "./filterBar";
 import SideBar from "./SideBar";
+import { ArrayProducts as array } from "../../../utils/utils";
+import Card from "./Card";
 
 const Main = () => {
   return (
@@ -9,11 +9,25 @@ const Main = () => {
       <div>
         <FilterBar />
       </div>
-      <div className="bg-grayBg mt-10">
+      <div className="bg-grayBg mt-10 flex gap-2">
         <div>
           <SideBar />
         </div>
-        <div></div>
+        <div className="flex justify-evenly gap-3 flex-wrap">
+          {array.map((item, index) => (
+            <Card
+              key={index}
+              image={item.image}
+              author={item.author}
+              title={item.title}
+              comts={item.comts}
+              star={item.star}
+              people={item.people}
+              price={item.price}
+              saleP={item.saleP}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
