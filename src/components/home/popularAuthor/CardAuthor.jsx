@@ -7,31 +7,77 @@ const CardAuthor = (props) => {
       {props.author === "SEE ALL" ? (
         <div
           className="
-              flex
-              text-black
-              bg-yellow
-              rounded-2xl
-              items-center justify-center
-w-[19vw] h-[25vh] lg:h-[20vh]             
-            "
+            flex
+            w-full h-[25vh]
+            text-black
+            bg-yellow
+            rounded-2xl
+            items-center justify-center
+            sm:w-[30vw]
+            lg:w-[19vw] lg:h-[20vh]
+          "
         >
-          <h1>SEE ALL</h1>
+          <h1 className="font-bold md:text-2xl">SEE ALL</h1>
         </div>
       ) : (
-        <div className="flex lg:flex-row flex-col sm:w-[30vw] lg:w-[19vw] h-[25vh] lg:h-[20vh] bg-white rounded-2xl text-black ">
-          <div className="lg:min-w-10 lg:max-w-40 lg:max-h-49 min-h-28 max-h-28 min-w-fit w-full ">
+        <div
+          className="
+            flex flex-col
+            h-[25vh]
+            text-black
+            bg-white
+            rounded-2xl
+            sm:w-[30vw]
+            lg:flex-row lg:w-[19vw] lg:h-[20vh]
+          "
+        >
+          <div
+            className="
+              min-h-28 max-h-28 min-w-fit w-full
+              lg:min-w-10 lg:max-w-40 lg:max-h-49
+            "
+          >
             <img
               src={props.image}
               alt=""
-              className="object-cover h-full w-full rounded-l-2xl grayscale-100"
+              className="
+                object-cover
+                h-full w-full
+                rounded-l-2xl
+                grayscale-100
+              "
             />
           </div>
-          <div className="w-full px-2">
-            <div className="flex md:mb-4 justify-between mt-2 items-center ">
-              <p className="w-20">{props.book}</p>
+          <div
+            className="
+              w-full
+              px-2
+            "
+          >
+            <div
+              className="
+                flex
+                mt-2
+                justify-between items-center
+                md:mb-4
+              "
+            >
+              <p
+                className="
+                  w-20
+                "
+              >
+                {props.book}
+              </p>
               {props.book ? <Bookmark /> : ""}
             </div>
-            <p className="sm:text-base lg:text-xl lg:max-w-30 text-wrap">
+            <p
+              className="
+                text-wrap
+                sm:text-base
+                lg:max-w-30 lg:text-xl
+              "
+            >
               {props.author}
             </p>
           </div>

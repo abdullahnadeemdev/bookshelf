@@ -1,3 +1,4 @@
+import Footer from "../components/shared/footer/Footer";
 import NavBar from "../components/shared/navBar/navBar";
 
 const Layout = ({ children }) => {
@@ -8,7 +9,9 @@ const Layout = ({ children }) => {
       <div className="w-full">
         <main>{children}</main>
       </div>
-      footer
+      <div className="bg-grayBg w-full">
+        <Footer />
+      </div>
     </div>
   );
 };
