@@ -2,6 +2,7 @@ import BestSellers from "../../components/home/bestSellers/BestSellers";
 import CallToAction from "../../components/home/callToAction/CallToAction";
 import Hero from "../../components/home/hero/Hero";
 import PopularAuthor from "../../components/home/popularAuthor/PopularAuthor";
+import Recommendation from "../../components/home/recommendSection/Recommendation";
 
 const Index = () => {
   return (
@@ -18,6 +19,10 @@ const Index = () => {
 
       <div className="bg-blackC ">
         <PopularAuthor />
+      </div>
+
+      <div className="p-6">
+        <Recommendation />
       </div>
     </div>
   );

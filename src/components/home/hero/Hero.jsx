@@ -7,6 +7,7 @@ const Hero = () => {
   return (
     <div
       className="
+      min-w-[320px]
         max-w-[1440px]
         mb-10 px-4
         text-center
@@ -72,7 +73,7 @@ const Hero = () => {
         </div>
 
         <div
-          className="
+          className=" xs:w-[80%]
           sm:max-h-full sm:w-auto
           max-h-[225px] overflow-hidden
             flex-1

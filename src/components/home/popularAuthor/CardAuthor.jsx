@@ -18,8 +18,8 @@ w-[19vw] h-[25vh] lg:h-[20vh]
           <h1>SEE ALL</h1>
         </div>
       ) : (
-        <div className="flex lg:flex-row flex-col w-[19vw] h-[25vh] lg:h-[20vh] bg-white rounded-2xl text-black ">
-          <div className="lg:min-w-10 lg:max-w-40 lg:max-h-49 min-h-28 max-h-28 w-full ">
+        <div className="flex lg:flex-row flex-col sm:w-[30vw] lg:w-[19vw] h-[25vh] lg:h-[20vh] bg-white rounded-2xl text-black ">
+          <div className="lg:min-w-10 lg:max-w-40 lg:max-h-49 min-h-28 max-h-28 min-w-fit w-full ">
             <img
               src={props.image}
               alt=""

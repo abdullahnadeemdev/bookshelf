@@ -9,3 +9,5 @@ export { Stamp } from "../icons/Stamp";
 export { Bookmark } from "../icons/Bookmark";
 export { Comment } from "../icons/Comment";
 export { Star } from "../icons/Star";
+export { ModuloIcon } from "../icons/ModuloIcon";
+export { StarIcon } from "../icons/StarIcon";
