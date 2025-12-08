@@ -2,27 +2,24 @@ import { Bookmark } from "../../../assets/icons";
 import Fyodor from "../../../assets/images/Fyodor-Dostoyevskiy.jpg";
 
 const CardAuthor = (props) => {
-  //   console.log("props", props);
   return (
     <>
       {props.author === "SEE ALL" ? (
         <div
-          //   className="w-100 bg-amber-800"
           className="
               flex
               text-black
               bg-yellow
               rounded-2xl
               items-center justify-center
-              w-[23.5vw] max-h-49
-             
+w-[19vw] h-[25vh] lg:h-[20vh]             
             "
         >
           <h1>SEE ALL</h1>
         </div>
       ) : (
-        <div className="w-[23.5vw] h-[20vh] bg-white rounded-2xl text-black flex ">
-          <div className="min-w-10 max-w-30 max-h-49 ">
+        <div className="flex lg:flex-row flex-col w-[19vw] h-[25vh] lg:h-[20vh] bg-white rounded-2xl text-black ">
+          <div className="lg:min-w-10 lg:max-w-40 lg:max-h-49 min-h-28 max-h-28 w-full ">
             <img
               src={props.image}
               alt=""
@@ -30,11 +27,13 @@ const CardAuthor = (props) => {
             />
           </div>
           <div className="w-full px-2">
-            <div className="flex mb-4 justify-between mt-2 items-center ">
+            <div className="flex md:mb-4 justify-between mt-2 items-center ">
               <p className="w-20">{props.book}</p>
               {props.book ? <Bookmark /> : ""}
             </div>
-            <p className="text-2xl max-w-30">{props.author}</p>
+            <p className="sm:text-base lg:text-xl xl:text-2xl lg:max-w-30 text-wrap">
+              {props.author}
+            </p>
           </div>
         </div>
       )}

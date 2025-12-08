@@ -14,13 +14,17 @@ const Hero = () => {
     >
       <p
         className="
+        
           py-6
           text-2xl text-grayBg font-semibold text-wrap
           xs:text-4xl
           sm:text-4xl
           md:text-6xl
           lg:text-[83px]
+          
         "
+        // grid
+        //   grid-cols-[minmax(24px, 100px)]
       >
         READING MAKES THE WORLD HUGE
       </p>

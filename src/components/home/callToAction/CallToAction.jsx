@@ -2,7 +2,7 @@ import { ArrowIcon } from "../../../assets/icons/ArrowIcon";
 
 const CallToAction = () => {
   return (
-    <div className="bg-grayBg rounded-2xl sm:max-h-60 p-6 flex flex-col sm:flex-row justify-between">
+    <div className="bg-grayBg rounded-2xl sm:max-h-60 p-6 flex flex-col sm:flex-row justify-between max-w-[1440px] px-4 mx-auto">
       <div className="flex flex-col gap-8 ">
         <h1 className="text-xl md:text-2xl lg:text-4xl">
           DECIDING WHAT TO READ NEXT?
