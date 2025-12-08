@@ -5,7 +5,7 @@ export const Bookmark = ({ classname, ...props }) => {
     <svg
       viewBox="0 0 40 40"
       fill="none"
-      className={`h-7 w-7 lg:h-10 lg:w-10 ${classname}`}
+      className={`h-7 w-7  lg:h-10  lg:w-10 ${classname}`}
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >

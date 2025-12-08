@@ -23,7 +23,7 @@ w-[19vw] h-[25vh] lg:h-[20vh]
             <img
               src={props.image}
               alt=""
-              className="object-cover h-full w-full rounded-l-2xl"
+              className="object-cover h-full w-full rounded-l-2xl grayscale-100"
             />
           </div>
           <div className="w-full px-2">
@@ -31,7 +31,7 @@ w-[19vw] h-[25vh] lg:h-[20vh]
               <p className="w-20">{props.book}</p>
               {props.book ? <Bookmark /> : ""}
             </div>
-            <p className="sm:text-base lg:text-xl xl:text-2xl lg:max-w-30 text-wrap">
+            <p className="sm:text-base lg:text-xl lg:max-w-30 text-wrap">
               {props.author}
             </p>
           </div>
