@@ -16,3 +16,4 @@ export { FacebookIcon } from "../icons/FacebookIcon";
 export { TwitterIcon } from "../icons/TwitterIcon";
 export { CloseIcon } from "../icons/CloseIcon";
 export { DropArrowIcon } from "../icons/DropArrowIcon";
+export { RightArrowIcon } from "../icons/RightArrowIcon";
