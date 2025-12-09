@@ -1,13 +1,12 @@
-import Master from "../../../assets/images/master.png";
 import { Bookmark, Comment, Star } from "../../../assets/icons";
 
 const Card = (props) => {
   return (
-    <div className="bg-whiteBg p-4 h-fit rounded-xl mt-4">
-      <div className="h-[45vh] w-[22.5vw]  relative">
+    <div className="bg-whiteBg p-2 lg:p-4 h-fit rounded-xl md:mt-4">
+      <div className="h-60 w-60 xs:h-40 xs:w-44 sm:h-40 sm:w-45 md:h-40 md:w-41.5 lg:h-[45vh] lg:w-[21vw]  relative">
         <img
           src={props.image}
-          className="h-full w-full object-cover rounded-xl"
+          className="h-full w-full object-fit lg:object-fit rounded-xl"
           alt=""
         />
         <Bookmark classname="absolute top-2 right-2" />
@@ -29,8 +28,11 @@ const Card = (props) => {
           <p
             className="
                               text-wrap text-xs
-                              md:text-base
                               
+                              w-30 h-8
+                              md:text-base
+                              md:w-40 md:h-12
+                              lg:w-50 
                               
                             "
           >
@@ -38,7 +40,7 @@ const Card = (props) => {
           </p>
           <div className="flex gap-2 ">
             <span
-              className="flex w-fit px-1 text-sm border rounded-full items-center gap-1
+              className="flex w-fit px-1 text-sm border rounded-full items-center gap-0.5 md:gap-1
                           md:p-1 md:px-3 md:text-base"
             >
               <p>{props.comts}</p>
@@ -46,7 +48,7 @@ const Card = (props) => {
             </span>
 
             <span
-              className="flex w-fit px-1 text-sm border rounded-full items-center gap-1
+              className="flex w-fit px-1 text-sm border rounded-full items-center gap-0.5 md:gap-1
                           md:p-1 md:px-3 md:text-base "
             >
               <p>{props.star}</p>
@@ -56,8 +58,10 @@ const Card = (props) => {
           </div>
 
           <span className="flex gap-1">
-            <p className="text-greyText text-lg line-through">{props.price}</p>
-            <p className="text-lg">${props.saleP}</p>
+            <p className="text-greyText md:text-lg line-through">
+              {props.price}
+            </p>
+            <p className="md:text-lg">${props.saleP}</p>
           </span>
         </div>
       </div>

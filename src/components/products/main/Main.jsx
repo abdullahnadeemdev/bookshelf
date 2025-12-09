@@ -6,14 +6,14 @@ import Card from "./Card";
 const Main = () => {
   return (
     <div className="max-w-[1440px] mx-auto px-4 py-10">
-      <div>
+      <div className="">
         <FilterBar />
       </div>
       <div className="bg-grayBg mt-10 flex gap-2">
-        <div>
+        <div className="hidden md:block">
           <SideBar />
         </div>
-        <div className="flex justify-evenly gap-3 flex-wrap">
+        <div className="flex justify-around gap-2 md:gap-3 flex-wrap">
           {array.map((item, index) => (
             <Card
               key={index}
