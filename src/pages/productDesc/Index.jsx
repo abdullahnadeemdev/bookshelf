@@ -1,5 +1,5 @@
 import React from "react";
-import ProductDesc from "../../components/products/productDesc/ProductDesc";
+import ProductDesc from "../../components/products/productDesc/Index";
 
 const Index = () => {
   return (
