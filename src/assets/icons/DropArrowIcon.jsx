@@ -3,7 +3,7 @@ import React from "react";
 export const DropArrowIcon = ({ fill, classname, ...props }) => {
   return (
     <svg
-      className={`h-1 w-2 md:h-2 md:w-3  ${classname}`}
+      className={`h-1 w-2 md:h-2 md:w-3   ${classname}`}
       viewBox="0 0 12 8"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
