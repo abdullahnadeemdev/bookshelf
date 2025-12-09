@@ -15,6 +15,11 @@ import JK from "../assets/images/JK-Rowling.jpg";
 import Matthew from "../assets/images/Matthew-Carter.jpg";
 import Mikhail from "../assets/images/Mikhail-Bulgakov.jpg";
 
+import Geo from "../assets/images/Geo.png";
+import Lisa from "../assets/images/Lisa.png";
+import Anne from "../assets/images/Anne.png";
+import Flo from "../assets/images/Flo.png";
+
 export const menuArr = [
   "Books",
   "Authors",
@@ -287,5 +292,40 @@ export const suggestionArray = [
     image: IAmErik,
     author: "Erik Spiekermann",
     title: "Hello I am Erik",
+  },
+];
+
+export const customerReviewArray = [
+  {
+    image: Geo,
+    name: "Geoffrey Mott",
+    date: "11 october 2025",
+    rating: "4",
+    review:
+      "Muscle by Alan Trotter is a fresh piece of noir fiction. Our main characters are the two crooks Box and _____. They are on the hunt for odd jobs that most of us, hopefully, would not be willing to fulfill. It felt reminiscent of both A Clockwork Orange and The Time Machine. I guess that can seem like a strange combination, but Alan Trotter made it work.When Box and _____. encounter a private detective and this strange writer, events quickly start to unravel. Oh, and there is a girl of course! Ixsas",
+  },
+  {
+    image: Lisa,
+    name: "Lisa Anderson",
+    date: "11 november 2025",
+    rating: "2",
+    review:
+      "Oh I really disliked this in the end. What middling interest I had was completely lost by the fifth and last section.This is the story of two tough guys, goons for hire, as they pick up odd jobs roughing up guys, collecting debts and breaking hands. All written as a kind of Chandler pastiche, but possibly more of a parody.One of the goons, Box, passes the time reading sci-fi stories from pulp magazines an acquaintance writes for. Then, as the story progresses and the pair's jobs take a dark turn",
+  },
+  {
+    image: Anne,
+    name: "Anne Powell",
+    date: "12 october 2025",
+    rating: "3",
+    review:
+      "Read a great review in the Guardian and took a chance. I should have paid more attention to the comparison with The New York Trilogy, my least favourite Auster experience.This does noir tropes really well with women always called “twists” or “frails”, but I wasn’t really on board for the final section where it all gets a bit meta. I’m down for literary noir, but this was no Motherless Brooklyn.",
+  },
+  {
+    image: Flo,
+    name: "Florencio Dorrance",
+    date: "11 december 2025",
+    rating: "5",
+    review:
+      "This is fantastic, and could have been written just for me. Grimly funny absurdist-existentialist noir that incorporates pulp sci-fi as well as hardboiled crime fiction elements to become a surprisingly powerful examination of the lasting impact of male violence in its many forms.It also does one of my favourite things, which is to recount other fictional stories within its own pages, a Vonnegut-style technique I never seem to tire of. The ending, too, which some have complained about, I think works perfectly.Phenomenally entertaining and sneakily profound.",
   },
 ];

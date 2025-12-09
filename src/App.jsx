@@ -9,7 +9,9 @@ function App() {
       <div className="">
         {/* <Home /> */}
         {/* <Products /> */}
-        <ProductDesc />
+        <div className="bg-whiteBg">
+          <ProductDesc />
+        </div>
       </div>
     </Layout>
   );

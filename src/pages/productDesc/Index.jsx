@@ -3,7 +3,7 @@ import ProductDesc from "../../components/products/productDesc/Index";
 
 const Index = () => {
   return (
-    <div>
+    <div className="h-fit">
       <ProductDesc />
     </div>
   );
