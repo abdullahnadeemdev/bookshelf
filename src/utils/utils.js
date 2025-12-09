@@ -256,3 +256,36 @@ export const ArrayProducts = [
     saleP: "20.00",
   },
 ];
+
+export const suggestionArray = [
+  {
+    image: AfterDark,
+    author: "Murakami",
+    title: "After Dark",
+  },
+  {
+    image: Godfather,
+    author: "Mario Puzo",
+    title: "The Godfather",
+  },
+  {
+    image: BeyondTheSun,
+    author: "Daniel Cargallo",
+    title: "She Beyond Sun",
+  },
+  {
+    image: IAmErik,
+    author: "Erik Spiekermann",
+    title: "Hello I am Erik",
+  },
+  {
+    image: Ness,
+    author: "Patrick Ness",
+    title: "More Than This",
+  },
+  {
+    image: IAmErik,
+    author: "Erik Spiekermann",
+    title: "Hello I am Erik",
+  },
+];
