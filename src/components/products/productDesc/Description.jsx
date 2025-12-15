@@ -1,3 +1,4 @@
+import { useLocation, useParams } from "react-router";
 import {
   ArrowIcon,
   Bookmark,
@@ -8,10 +9,14 @@ import Muscle from "../../../assets/images/Muscle.png";
 import Button from "../../shared/button/Button";
 
 const Description = () => {
+  const { state } = useLocation();
+  console.log("state", state);
+  const param = useParams();
+
   return (
     <div className="p-8 bg-grayBg rounded-2xl">
       <span className="flex gap-1 mb-5">
-        <p>Home | Books | All Books |</p>
+        <p>Home | Books | All Books |{param}</p>
         <p className="text-greyText">Muscle, Alan Trotter</p>
       </span>
 

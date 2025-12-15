@@ -1,8 +1,29 @@
+import { NavLink } from "react-router";
 import { Bookmark, Comment, Star } from "../../../assets/icons";
 
 const Card = (props) => {
   return (
-    <div className="bg-whiteBg p-2 lg:p-4 h-fit rounded-xl md:mt-4">
+    <NavLink
+      to="/books"
+      className="bg-whiteBg p-2 lg:p-4 h-fit rounded-xl md:mt-4"
+      state={{
+        img: props.image,
+        author: props.author,
+        title: props.title,
+        comments: props.comts,
+        star: props.star,
+        people: props.people,
+        price: props.price,
+        salePrice: props.saleP,
+        type: props.type,
+        publishDate: props.publishDate,
+        language: props.lang,
+        pages: props.pages,
+        readTime: props.readTime,
+        cover: props.cover,
+        publisher: props.publisher,
+      }}
+    >
       <div className="h-60 w-60 xs:h-40 xs:w-44 sm:h-40 sm:w-45 md:h-40 md:w-41.5 lg:h-[45vh] lg:w-[21vw]  relative">
         <img
           src={props.image}
@@ -65,7 +86,7 @@ const Card = (props) => {
           </span>
         </div>
       </div>
-    </div>
+    </NavLink>
   );
 };
 

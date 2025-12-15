@@ -9,15 +9,7 @@ function App() {
   return (
     <Layout>
       <div className="">
-        <Router />
-        {/* <Home />
-        <Products />
-        <div className="bg-whiteBg">
-          <ProductDesc />
-        </div>
-        <div className="">
-          <Checkout />
-        </div> */}
+        <Router />\
       </div>
     </Layout>
   );

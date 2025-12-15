@@ -4,9 +4,8 @@ import { ArrayProducts as array } from "../../../utils/utils";
 import Card from "./Card";
 
 const Main = () => {
-  const handleClick = () => {};
   return (
-    <div className="max-w-[1440px] mx-auto px-4 py-10" onClick={handleClick}>
+    <div className="max-w-[1440px] mx-auto px-4 py-10">
       <div className="">
         <FilterBar />
       </div>
