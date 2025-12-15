@@ -8,7 +8,7 @@ const Index = () => {
     <div className="">
       <div className=" my-5 px-4 max-w-[1440px] mx-auto rounded-2xl">
         <Description />
-        <Suggestion />
+        {/* <Suggestion /> */}
         <Review />
       </div>
     </div>

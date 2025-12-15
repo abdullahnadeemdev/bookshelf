@@ -6,10 +6,13 @@ import ContactInfo from "./ContactInfo";
 import CloseCard from "../CloseCard";
 import Shipping from "../checkout2/Shipping";
 import Payment from "../checkout3/Payment";
+import { useLocation, useParams } from "react-router";
 
 const Index = () => {
+  const loc = useLocation();
+  console.log("loc", loc.pathname);
   return (
-    <div className="p-8 text-white rounded-2xl  max-w-[1440px] bg-grayBg ">
+    <div className="p-8 text-white rounded-2xl  max-w-[1440px] bg-grayBg m-5">
       <div className="flex gap-2 items-center font-light mb-10">
         <span className="flex gap-2 items-center">
           <DropArrowIcon classname="rotate-90 md:h-5 md:w-5 fill-white" />

@@ -6,7 +6,7 @@ import { MenuIcon } from "../../../assets/icons";
 import Button from "../button/Button";
 import { useState } from "react";
 import { menuArr } from "../../../utils/utils";
-import { NavLink } from "react-router";
+import { NavLink, useLocation } from "react-router";
 import { useRef } from "react";
 import { Link } from "react-scroll";
 
@@ -22,33 +22,46 @@ const NavBar = () => {
   //     behavior: "smooth",
   //   });
   // };
+  const loc = useLocation();
+  const path = loc.pathname;
+  console.log("path", path);
 
   return (
     <div className="w-full max-w-[1440px] px-4 z-50 sticky top-0">
       <div className="bg-grayBg rounded-2xl w-full p-6 hidden md:block">
         <div className=" flex items-center justify-between">
-          <div className="flex items-center gap-2 ">
-            <Logo className="h-7 w-8 lg:h-9 lg:w-10" />
-            <p className="font-semibold text-lg lg:text-2xl xl:text-3xl">
-              BOOKSHELF
-            </p>
-          </div>
+          <NavLink to="/">
+            <div className="flex items-center gap-2 ">
+              <Logo className="h-7 w-8 lg:h-9 lg:w-10" />
+              <p className="font-semibold text-lg lg:text-2xl xl:text-3xl">
+                BOOKSHELF
+              </p>
+            </div>
+          </NavLink>
 
           <ul className="list-none flex gap-2.5 text-xs sm:text-sm lg:text-base lg:gap-3 xl:gap-5 xl:text-lg ">
-            {/* {menuArr.map((item, index) => ( */}
-            <Link to="/books">Books</Link>
+            <NavLink
+              to="/books"
+              className={path === "/books" ? "text-yellow" : "text-whiteBg"}
+            >
+              Books
+            </NavLink>
+
             <Link to="authors" smooth={true} duration={1000}>
               Authors
             </Link>
+
             <Link to="bestSellers" smooth={true} duration={1000}>
               What to Read?
             </Link>
+
             <Link to="recommend" smooth={true} duration={1000}>
               Gift Ideas
             </Link>
+
             <Link>About Us</Link>
-            {/* ))} */}
           </ul>
+
           <div className="flex items-center ">
             <ul className="flex gap-0.5 lg:gap-2 xl:gap-5 mr-3">
               <li>

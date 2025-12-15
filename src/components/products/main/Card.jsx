@@ -24,7 +24,7 @@ const Card = (props) => {
           </span>
         </div>
 
-        <div className="flex flex-col justify-between gap-5">
+        <div className="flex flex-col justify-between gap-0">
           <p
             className="
                               text-wrap text-xs
@@ -38,7 +38,7 @@ const Card = (props) => {
           >
             {props.title}
           </p>
-          <div className="flex gap-2 ">
+          <div className="flex gap-2 mb-5">
             <span
               className="flex w-fit px-1 text-sm border rounded-full items-center gap-0.5 md:gap-1
                           md:p-1 md:px-3 md:text-base"
