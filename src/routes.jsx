@@ -2,18 +2,18 @@ import Home from "./pages/home/Index";
 import Products from "./pages/products/index";
 import Authors from "./components/home/popularAuthor/PopularAuthor";
 import { Route, Routes } from "react-router";
+import ContactInfo from "./components/checkout/checkout1/ContactInfo";
+import Payment from "./components/checkout/checkout3/Payment";
+import Shipping from "./components/checkout/checkout2/Shipping";
 
 const Router = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/home">
-        <Route index element={<Home />} />
-        {/* <Route path=":author" element= {<Authors />} /> */}
-        {/*  <Route path=":bestSeller" element={<Authors />} />
-        <Route path=":recommendation" element={<Authors />} /> */}
-      </Route>
-      <Route path="/books" element={<Products />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/contact" element={<ContactInfo />} />
+      <Route path="/shipping" element={<Shipping />} />
+      <Route path="/payment" element={<Payment />} />
       {/* <Route path="" element={"a"} />
       <Route path="" element={"a"} />
       <Route path="" element={"a"} /> */}

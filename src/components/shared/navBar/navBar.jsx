@@ -7,6 +7,8 @@ import Button from "../button/Button";
 import { useState } from "react";
 import { menuArr } from "../../../utils/utils";
 import { NavLink } from "react-router";
+import { useRef } from "react";
+import { Link } from "react-scroll";
 
 const NavBar = () => {
   const [click, setClick] = useState(false);
@@ -14,8 +16,15 @@ const NavBar = () => {
     setClick(!click);
   };
 
+  // const scrollSection = (elementRef) => {
+  //   window.scrollTo({
+  //     top: elementRef.current.offsetTop,
+  //     behavior: "smooth",
+  //   });
+  // };
+
   return (
-    <div className="w-full max-w-[1440px] px-4 z-50 ">
+    <div className="w-full max-w-[1440px] px-4 z-50 sticky top-0">
       <div className="bg-grayBg rounded-2xl w-full p-6 hidden md:block">
         <div className=" flex items-center justify-between">
           <div className="flex items-center gap-2 ">
@@ -27,11 +36,17 @@ const NavBar = () => {
 
           <ul className="list-none flex gap-2.5 text-xs sm:text-sm lg:text-base lg:gap-3 xl:gap-5 xl:text-lg ">
             {/* {menuArr.map((item, index) => ( */}
-            <NavLink to="/books">Books</NavLink>
-            <NavLink to="/home/authors">Authors</NavLink>
-            <NavLink to="/home/bestSellers">What to Read?</NavLink>
-            <NavLink to="/home/recommendation">Gift Ideas</NavLink>
-            <NavLink>About Us</NavLink>
+            <Link to="/books">Books</Link>
+            <Link to="authors" smooth={true} duration={1000}>
+              Authors
+            </Link>
+            <Link to="bestSellers" smooth={true} duration={1000}>
+              What to Read?
+            </Link>
+            <Link to="recommend" smooth={true} duration={1000}>
+              Gift Ideas
+            </Link>
+            <Link>About Us</Link>
             {/* ))} */}
           </ul>
           <div className="flex items-center ">

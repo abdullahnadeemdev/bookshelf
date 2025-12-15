@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import BestSellers from "../../components/home/bestSellers/BestSellers";
 import CallToAction from "../../components/home/callToAction/CallToAction";
 import Hero from "../../components/home/hero/Hero";
@@ -10,18 +11,30 @@ const Index = () => {
       <div className="flex items-center justify-center ">
         <Hero />
       </div>
-      <div className="flex items-center justify-center bg-blackC">
+      <div
+        className="flex items-center justify-center bg-blackC"
+        id="bestSellers"
+        // ref={bestSeller}
+      >
         <BestSellers />
       </div>
       <div className="py-6 px-5.5">
         <CallToAction />
       </div>
 
-      <div className="bg-blackC ">
+      <div
+        className="bg-blackC "
+        id="authors"
+        // ref={popularAuthor}
+      >
         <PopularAuthor />
       </div>
 
-      <div className="py-6 px-5">
+      <div
+        className="py-6 px-5"
+        id="recommend"
+        // ref={recommendation}
+      >
         <Recommendation />
       </div>
     </div>
