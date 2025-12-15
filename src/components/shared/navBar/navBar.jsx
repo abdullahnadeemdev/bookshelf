@@ -22,9 +22,9 @@ const NavBar = () => {
   //     behavior: "smooth",
   //   });
   // };
-  const loc = useLocation();
-  const path = loc.pathname;
-  console.log("path", path);
+  // const loc = useLocation();
+  // const path = loc.pathname;
+  // console.log("path", path);
 
   return (
     <div className="w-full max-w-[1440px] px-4 z-50 sticky top-0">
