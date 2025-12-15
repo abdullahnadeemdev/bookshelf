@@ -8,12 +8,12 @@ const Index = () => {
   return (
     <div className="">
       <div className="flex items-center justify-center ">
-        <Hero /> {/* add min max to h1 */}
+        <Hero />
       </div>
       <div className="flex items-center justify-center bg-blackC">
         <BestSellers />
       </div>
-      <div className="p-6">
+      <div className="py-6 px-5.5">
         <CallToAction />
       </div>
 
@@ -21,7 +21,7 @@ const Index = () => {
         <PopularAuthor />
       </div>
 
-      <div className="p-6">
+      <div className="py-6 px-5">
         <Recommendation />
       </div>
     </div>

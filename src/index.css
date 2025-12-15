@@ -19,5 +19,5 @@
 
 }
 .heroHeading{
-    font-size: calc(min(94px, 18px + (75 - 18) * ((100vw - 320px) / (1440 - 320))));
+    font-size: calc(min(98px, 17px + (87 - 18) * ((100vw - 320px) / (1440 - 320))));
 }

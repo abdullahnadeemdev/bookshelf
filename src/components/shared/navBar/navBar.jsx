@@ -6,6 +6,7 @@ import { MenuIcon } from "../../../assets/icons";
 import Button from "../button/Button";
 import { useState } from "react";
 import { menuArr } from "../../../utils/utils";
+import { NavLink } from "react-router";
 
 const NavBar = () => {
   const [click, setClick] = useState(false);
@@ -25,9 +26,13 @@ const NavBar = () => {
           </div>
 
           <ul className="list-none flex gap-2.5 text-xs sm:text-sm lg:text-base lg:gap-3 xl:gap-5 xl:text-lg ">
-            {menuArr.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
+            {/* {menuArr.map((item, index) => ( */}
+            <NavLink to="/books">Books</NavLink>
+            <NavLink to="/home/authors">Authors</NavLink>
+            <NavLink to="/home/bestSellers">What to Read?</NavLink>
+            <NavLink to="/home/recommendation">Gift Ideas</NavLink>
+            <NavLink>About Us</NavLink>
+            {/* ))} */}
           </ul>
           <div className="flex items-center ">
             <ul className="flex gap-0.5 lg:gap-2 xl:gap-5 mr-3">

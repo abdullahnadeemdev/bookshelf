@@ -19,7 +19,7 @@ const Card = (props) => {
             min-w-72 min-h-48 max-w-104 max-h-auto
             sm:max-w-74
             md:min-w-90
-            lg:min-w-110 lg:min-h-70
+            lg:min-w-113.5 lg:min-h-70
           "
         >
           <h1>SEE ALL</h1>
@@ -35,7 +35,7 @@ const Card = (props) => {
             xs:max-w-104 gap-3
             sm:max-w-74
             md:min-w-90
-            lg:min-w-110
+            lg:min-w-113.5
           "
         >
           <div
@@ -44,7 +44,7 @@ const Card = (props) => {
               h-40 w-25
               rounded-2xl
               md:h-50 md:w-35
-              lg:h-56 lg:w-60
+              lg:h-59 lg:w-60
             "
           >
             <img

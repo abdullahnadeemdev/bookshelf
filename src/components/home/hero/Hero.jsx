@@ -15,14 +15,9 @@ const Hero = () => {
     >
       <p
         className="
-        
         text-black
-          heroHeading
-          
+          heroHeading 
         "
-        // style={font-size:"calc(min(75px, 18px + (75 - 18) * ((100vw - 320px) / (1248 - 320))))"}
-        // grid
-        //   grid-cols-[minmax(24px, 100px)]
       >
         READING MAKES THE WORLD HUGE
       </p>
@@ -54,7 +49,7 @@ const Hero = () => {
               problem. Check out the collections we have prepared for you.
             </p>
 
-            <Button variant="outline" className="">
+            <Button variant="outline" className="text-yellow">
               BROWSE NOW
             </Button>
           </div>
