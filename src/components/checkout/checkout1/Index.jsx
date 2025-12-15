@@ -31,10 +31,10 @@ const Index = () => {
 
       <div className="flex justify-between">
         <div className="justify-center">
-          <CloseCard />
-          {/* <ContactInfo /> */}
+          {/* <CloseCard /> */}
+          <ContactInfo />
           {/* <Shipping /> */}
-          <Payment />
+          {/* <Payment /> */}
         </div>
 
         <OrderSummay />

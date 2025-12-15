@@ -4,13 +4,7 @@ import Button from "../../shared/button/Button";
 const Payment = () => {
   return (
     <div className="w-150 mt-5">
-      {/* <div className="flex justify-between items-center"> */}
-      <h2 className="text-2xl font-light">SHIPPING METHOD</h2>
-      {/* <span className="flex gap-1">
-          <p className="text-greyText ">Already have an account?</p>
-          <p className="">Sign in</p>
-        </span> */}
-      {/* </div> */}
+      <h2 className="text-2xl font-light">PAYMENT</h2>
 
       <input
         type="text"
