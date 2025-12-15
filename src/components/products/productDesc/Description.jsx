@@ -10,21 +10,24 @@ import Button from "../../shared/button/Button";
 
 const Description = () => {
   const { state } = useLocation();
-  console.log("state", state);
-  const param = useParams();
+  console.log("state", state.author);
+  // const params = useParams();
+  // console.log("param", params);
 
   return (
     <div className="p-8 bg-grayBg rounded-2xl">
       <span className="flex gap-1 mb-5">
-        <p>Home | Books | All Books |{param}</p>
-        <p className="text-greyText">Muscle, Alan Trotter</p>
+        <p>Home | Books | All Books |</p>
+        <p className="text-greyText">
+          {state.title}, {state.author}
+        </p>
       </span>
 
       <div className="flex justify-between ">
         <div className="flex-2 flex flex-col xs:flex-row gap-5">
           <div className="xs:w-60 sm:w-80 sm:h-125 relative">
             <img
-              src={Muscle}
+              src={state.img}
               alt=""
               className="h-full w-full object-cover rounded-2xl"
             />
@@ -32,15 +35,17 @@ const Description = () => {
           </div>
 
           <div>
-            <p className="text-xl font-light">Alan Trotter</p>
-            <p className="text-3xl font-semibold my-5">MUSCLE</p>
+            <p className="text-xl font-light">{state.author}</p>
+            <p className="text-3xl font-semibold my-5">{state.title}</p>
 
             <div className="flex flex-col sm:flex-row gap-5 sm:items-center">
               <span className="flex gap-1 items-center text-lg">
                 <Star />
-                <p>4.5 (100)</p>
+                <p>
+                  {state.star} ({state.people})
+                </p>
               </span>
-              <p className="underline">4 reviews</p>
+              <p className="underline">{state.comments} reviews</p>
             </div>
 
             <div className="hidden sm:flex  gap-5 list-none">
@@ -55,19 +60,18 @@ const Description = () => {
               </span>
 
               <span className="my-5 font-light">
-                <li className="mt-1">Novel</li>
-                <li className="mt-1">May 2007</li>
-                <li className="mt-1">English</li>
-                <li className="mt-1">208</li>
-                <li className="mt-1">4-6 hours</li>
-                <li className="mt-1">Hardcover</li>
-                <li className="mt-1">Harvil Secker</li>
+                <li className="mt-1">{state.type}</li>
+                <li className="mt-1">{state.publishDate}</li>
+                <li className="mt-1">{state.language}</li>
+                <li className="mt-1">{state.pages}</li>
+                <li className="mt-1">{state.cover}</li>
+                <li className="mt-1">{state.publisher}</li>
               </span>
             </div>
 
             <span className="flex flex-row xs:flex-col sm:flex-row gap-4 my-5 font-semibold text-3xl sm:text-4xl">
-              <p className="text-greyText">$12.50</p>
-              <p>$10.50</p>
+              <p className="text-greyText">{state.price}</p>
+              <p>{state.salePrice}</p>
             </span>
 
             <div className="flex xs:block">

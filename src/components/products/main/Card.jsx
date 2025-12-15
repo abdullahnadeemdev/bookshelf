@@ -4,7 +4,7 @@ import { Bookmark, Comment, Star } from "../../../assets/icons";
 const Card = (props) => {
   return (
     <NavLink
-      to="/books"
+      to={`/books/${props.title}`}
       className="bg-whiteBg p-2 lg:p-4 h-fit rounded-xl md:mt-4"
       state={{
         img: props.image,
@@ -82,7 +82,7 @@ const Card = (props) => {
             <p className="text-greyText md:text-lg line-through">
               {props.price}
             </p>
-            <p className="md:text-lg">${props.saleP}</p>
+            <p className="md:text-lg ml-1">{props.saleP}</p>
           </span>
         </div>
       </div>

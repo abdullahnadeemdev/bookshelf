@@ -25,6 +25,13 @@ const Main = () => {
               people={item.people}
               price={item.price}
               saleP={item.saleP}
+              type={item.type}
+              publishDate={item.publishDate}
+              lang={item.lang}
+              pages={item.pages}
+              readTime={item.readTime}
+              cover={item.cover}
+              publisher={item.publisher}
             />
           ))}
           <svg

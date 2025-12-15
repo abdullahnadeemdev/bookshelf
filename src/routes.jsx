@@ -9,13 +9,14 @@ import Index from "./components/checkout/checkout1/Index";
 import ProductsDesc from "./pages/productDesc/Index";
 
 const Router = () => {
-  const { state } = useLocation();
+  //   const { state } = useLocation();
 
-  console.log("state in routesss", state);
+  //   console.log("state in routesss", state);
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/books" element={<Products />} />
+
       <Route path="/books/:title" element={<ProductsDesc />} />
       <Route path="/checkout" element={<Index />} />
 

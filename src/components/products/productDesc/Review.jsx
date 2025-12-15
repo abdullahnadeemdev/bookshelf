@@ -14,8 +14,9 @@ const Review = () => {
         </Button>
       </div>
       <div className="flex flex-wrap justify-around gap-4">
-        {array.map((item) => (
+        {array.map((item, index) => (
           <ReviewCard
+            key={index}
             name={item.name}
             review={item.review}
             rating={item.rating}

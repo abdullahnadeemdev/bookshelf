@@ -42,7 +42,9 @@ const NavBar = () => {
           <ul className="list-none flex gap-2.5 text-xs sm:text-sm lg:text-base lg:gap-3 xl:gap-5 xl:text-lg ">
             <NavLink
               to="/books"
-              className={path === "/books" ? "text-yellow" : "text-whiteBg"}
+              className={({ isActive }) =>
+                isActive ? "text-yellow" : "text-whiteBg"
+              }
             >
               Books
             </NavLink>
