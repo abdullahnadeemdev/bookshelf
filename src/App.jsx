@@ -3,19 +3,21 @@ import Home from "./pages/home/Index";
 import Products from "./pages/products/index";
 import ProductDesc from "./pages/productDesc/Index";
 import Checkout from "./pages/checkout/Index";
+import Router from "./routes";
 
 function App() {
   return (
     <Layout>
       <div className="">
+        <Router />
         {/* <Home />
         <Products />
         <div className="bg-whiteBg">
           <ProductDesc />
-        </div> */}
+        </div>
         <div className="">
           <Checkout />
-        </div>
+        </div> */}
       </div>
     </Layout>
   );
