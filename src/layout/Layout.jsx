@@ -3,12 +3,8 @@ import Footer from "../components/shared/footer/Footer";
 import NavBar from "../components/shared/navBar/navBar";
 
 const Layout = ({ children }) => {
-  // const bestSeller = useRef(null);
-  // const popularAuthor = useRef(null);
-  // const recommendation = useRef(null);
   return (
     <div className="flex flex-col items-center w-full h-screen text-white bg-whiteBg py-6">
-      {/* <NavBar bs={bestSeller} pa={popularAuthor} rec={recommendation} /> */}
       <NavBar />
       {/* Childerns */}
       <div className="w-full">
