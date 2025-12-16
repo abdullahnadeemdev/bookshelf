@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { DropArrowIcon } from "../../../assets/icons";
-import Button from "../../shared/button/Button";
 import OrderSummay from "../OrderSummay";
 import ContactInfo from "./ContactInfo";
 import CloseCard from "../CloseCard";
 import Shipping from "../checkout2/Shipping";
 import Payment from "../checkout3/Payment";
-import { Link, Outlet, useLocation, useParams } from "react-router";
 
 const Index = () => {
   const [orderState, setOrderState] = useState({

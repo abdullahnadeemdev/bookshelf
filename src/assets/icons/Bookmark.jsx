@@ -1,10 +1,8 @@
-import React from "react";
-
-export const Bookmark = ({ classname, ...props }) => {
+export const Bookmark = ({ classname, fillClr, ...props }) => {
   return (
     <svg
       viewBox="0 0 40 40"
-      fill="none"
+      fill={fillClr}
       className={`h-7 w-7  lg:h-10  lg:w-10 ${classname}`}
       xmlns="http://www.w3.org/2000/svg"
       {...props}

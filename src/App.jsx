@@ -4,12 +4,14 @@ import Products from "./pages/products/index";
 import ProductDesc from "./pages/productDesc/Index";
 import Checkout from "./pages/checkout/Index";
 import Router from "./routes";
+import Index from "./pages/bookmarks/Index";
 
 function App() {
   return (
     <Layout>
       <div className="">
-        <Router />\
+        {/* <Router /> */}
+        <Index />
       </div>
     </Layout>
   );

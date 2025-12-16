@@ -1,4 +1,4 @@
-import Card from "./Card";
+import Card from "../../../pages/bookmarks/Card";
 import { ArrayBestSellers as array } from "../../../utils/utils";
 
 const BestSellers = () => {

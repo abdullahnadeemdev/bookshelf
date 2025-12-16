@@ -1,8 +1,15 @@
 import { useState } from "react";
-import { Bookmark, Comment, Star } from "../../../assets/icons";
+import { Bookmark } from "../../assets/icons/Bookmark";
+import { Comment, Star } from "../../assets/icons";
 const Card = (props) => {
   //   console.log("props.index", props.comts);
   //   props.comts === 9999 ? setCheck(true) : '';
+
+  const [clr, setClr] = useState("#1a1b1d");
+
+  const handleBookmark = () => {
+    clr === "white" ? setClr("#1a1b1d") : setClr("white");
+  };
 
   return (
     <>
@@ -96,7 +103,9 @@ const Card = (props) => {
                   {props.title}
                 </p>
               </span>
-              <Bookmark />
+              <div onClick={handleBookmark}>
+                <Bookmark fillClr={"white"} />
+              </div>
             </div>
 
             <span
@@ -150,7 +159,6 @@ const Card = (props) => {
                   text-lg
                 "
               >
-                {" "}
                 ${props.saleP}
               </p>
             </span>
