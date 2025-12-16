@@ -1,6 +1,7 @@
 import Home from "./pages/home/Index";
 import Products from "./pages/products/index";
 import Authors from "./components/home/popularAuthor/PopularAuthor";
+import Bookmarks from "./pages/bookmarks/Index";
 import { Outlet, Route, Routes, useLocation } from "react-router";
 // import ContactInfo from "./components/checkout/checkout1/ContactInfo";
 // import Payment from "./components/checkout/checkout3/Payment";
@@ -21,6 +22,7 @@ const Router = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/books" element={<Products />} />
+      <Route path="/bookmark" element={<Bookmarks />} />
 
       <Route path="/books/:title" element={<ProductsDesc />} />
       <Route path="/checkout" element={<Index />}>

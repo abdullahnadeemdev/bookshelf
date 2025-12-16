@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Bookmark } from "../../assets/icons/Bookmark";
 import { Comment, Star } from "../../assets/icons";
-const Card = (props) => {
+const CardBookmark = (props) => {
   //   console.log("props.index", props.comts);
   //   props.comts === 9999 ? setCheck(true) : '';
 
@@ -9,6 +9,7 @@ const Card = (props) => {
 
   const handleBookmark = () => {
     clr === "white" ? setClr("#1a1b1d") : setClr("white");
+    localStorage.setItem("bookmarks");
   };
 
   return (
@@ -169,4 +170,4 @@ const Card = (props) => {
   );
 };
 
-export default Card;
+export default CardBookmark;

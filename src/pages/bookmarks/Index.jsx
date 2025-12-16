@@ -1,4 +1,4 @@
-import Card from "./Card";
+import CardBookmark from "./CardBookmark";
 import { ArrayBestSellers as array } from "../../utils/utils";
 
 const Index = () => {
@@ -7,7 +7,7 @@ const Index = () => {
       <h1 className="font-semibold text-4xl py-10">Favourite Books</h1>
       <div className="flex justify-evenly gap-3 flex-wrap">
         {array.map((item, index) => (
-          <Card
+          <CardBookmark
             key={index}
             image={item.image}
             author={item.author}

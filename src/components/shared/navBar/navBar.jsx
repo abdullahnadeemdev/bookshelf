@@ -16,16 +16,6 @@ const NavBar = () => {
     setClick(!click);
   };
 
-  // const scrollSection = (elementRef) => {
-  //   window.scrollTo({
-  //     top: elementRef.current.offsetTop,
-  //     behavior: "smooth",
-  //   });
-  // };
-  // const loc = useLocation();
-  // const path = loc.pathname;
-  // console.log("path", path);
-
   return (
     <div className="w-full max-w-[1440px] px-4 z-50 sticky top-0">
       <div className="bg-grayBg rounded-2xl w-full p-6 hidden md:block">
@@ -69,9 +59,9 @@ const NavBar = () => {
               <li>
                 <SearchIcon className="h-4 w-4 lg:h-5.5 lg:w-5.5" />
               </li>
-              <li>
+              <NavLink to="/bookmark">
                 <BookmarkIcon className=" h-3.5 w-3.5 lg:h-5 lg:w-5" />
-              </li>
+              </NavLink>
               <li>
                 <CartIcon className=" h-3.5 w-3.5 lg:h-5 lg:w-5" />
               </li>

@@ -10,8 +10,8 @@ function App() {
   return (
     <Layout>
       <div className="">
-        {/* <Router /> */}
-        <Index />
+        <Router />
+        {/* <Index /> */}
       </div>
     </Layout>
   );
