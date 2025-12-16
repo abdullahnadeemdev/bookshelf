@@ -9,7 +9,6 @@ const CardBookmark = (props) => {
 
   const handleBookmark = () => {
     clr === "white" ? setClr("#1a1b1d") : setClr("white");
-    localStorage.setItem("bookmarks");
   };
 
   return (
