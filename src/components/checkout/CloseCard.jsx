@@ -1,19 +1,30 @@
 import React from "react";
 
-const CloseCard = () => {
+const CloseCard = (props) => {
+  // console.log("props", props);
+  // console.log("props var of close", props.hint);
+  let name = props.hint;
+  // console.log("name", name);
+  const handleClick = () => {
+    console.log("props.var beforeee", props.var);
+    props.fun((prev) => ({ ...prev, name: false }));
+    console.log("props.var after", props.var);
+  };
   return (
     <div className="bg-blackC rounded-2xl p-4 w-150">
       <div className="flex justify-between">
-        <p>CONTACT INFORMATION</p>
-        <p>EDIT</p>
+        <p>{props.head}</p>
+        <button className="underline" onClick={handleClick}>
+          EDIT
+        </button>
       </div>
       <div className="flex justify-between">
-        <p>Name</p>
-        <p>Bahruz Akhundov</p>
+        <p>{props.title}</p>
+        <p>{props.info}</p>
       </div>
       <div className="flex justify-between">
-        <p>Contact</p>
-        <p>+352064666</p>
+        <p>{props.title2}</p>
+        <p>{props.info2}</p>
       </div>
     </div>
   );
