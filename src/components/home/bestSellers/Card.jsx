@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Bookmark, Comment, Star } from "../../../assets/icons";
+import { NavLink } from "react-router";
 const Card = (props) => {
-  //   console.log("props.index", props.comts);
-  //   props.comts === 9999 ? setCheck(true) : '';
+  let booksArray = JSON.parse(localStorage.getItem("bookmarks")) || [];
 
-  const [clr, setClr] = useState("#1a1b1d");
+  const checkBookMark = booksArray.find((b) => b.title === props.title);
+
+  const [clr, setClr] = useState(checkBookMark ? "white" : "#1a1b1d");
   const book = {
     image: props.image,
     author: props.author,
@@ -14,11 +16,19 @@ const Card = (props) => {
     people: props.people,
     price: props.price,
     saleP: props.saleP,
+    type: props.type,
+    publishDate: props.publishDate,
+    lang: props.lang,
+    pages: props.pages,
+    readTime: props.readTime,
+    cover: props.cover,
+    publisher: props.publisher,
   };
 
-  const handleBookmark = () => {
+  const handleBookmark = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     clr === "white" ? setClr("#1a1b1d") : setClr("white");
-    let booksArray = JSON.parse(localStorage.getItem("bookmarks")) || [];
 
     if (clr !== "white") {
       booksArray.push(book);
@@ -30,7 +40,26 @@ const Card = (props) => {
   };
 
   return (
-    <>
+    <NavLink
+      to={`/books/${props.title}`}
+      state={{
+        img: props.image,
+        author: props.author,
+        title: props.title,
+        comments: props.comts,
+        star: props.star,
+        people: props.people,
+        price: props.price,
+        salePrice: props.saleP,
+        type: props.type,
+        publishDate: props.publishDate,
+        language: props.lang,
+        pages: props.pages,
+        readTime: props.readTime,
+        cover: props.cover,
+        publisher: props.publisher,
+      }}
+    >
       {props.title === "SEE ALL" ? (
         <div
           className="
@@ -92,6 +121,7 @@ const Card = (props) => {
                 justify-between
                 md:w-45 md:mb-4
                 lg:w-60 lg:mb-6
+             
               "
             >
               <span
@@ -121,8 +151,8 @@ const Card = (props) => {
                   {props.title}
                 </p>
               </span>
-              <div onClick={handleBookmark}>
-                <Bookmark fillClr={clr} />
+              <div onClick={(e) => handleBookmark(e)}>
+                <Bookmark fillClr={clr} classname="" />
               </div>
             </div>
 
@@ -183,7 +213,7 @@ const Card = (props) => {
           </div>
         </div>
       )}
-    </>
+    </NavLink>
   );
 };
 

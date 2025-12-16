@@ -2,6 +2,19 @@ import { NavLink } from "react-router";
 import { Bookmark, Comment, Star } from "../../../assets/icons";
 
 const Card = (props) => {
+  const handleBookmark = (e) => {
+    e.preventDefault();
+    e.stopPropogation();
+    // clr === "white" ? setClr("#1a1b1d") : setClr("white");
+
+    // if (clr !== "white") {
+    booksArray.push(book);
+    localStorage.setItem("bookmarks", JSON.stringify(booksArray));
+    // } else {
+    const updatedArray = booksArray.filter((b) => b.title !== props.title);
+    localStorage.setItem("bookmarks", JSON.stringify(updatedArray));
+  };
+
   return (
     <NavLink
       to={`/books/${props.title}`}
@@ -30,7 +43,9 @@ const Card = (props) => {
           className="h-full w-full object-fit lg:object-fit rounded-xl"
           alt=""
         />
-        <Bookmark classname="absolute top-2 right-2" />
+        <div onClick={(e) => handleBookmark(e)}>
+          <Bookmark classname="absolute z-30 top-2 right-2" />
+        </div>
       </div>
 
       <div className="text-black">

@@ -1,5 +1,5 @@
 import Card from "./Card";
-import { ArrayBestSellers as array } from "../../../utils/utils";
+import { ArrayProducts as array } from "../../../utils/utils";
 
 const BestSellers = () => {
   return (
@@ -17,6 +17,13 @@ const BestSellers = () => {
             people={item.people}
             price={item.price}
             saleP={item.saleP}
+            type={item.type}
+            publishDate={item.publishDate}
+            lang={item.lang}
+            pages={item.pages}
+            readTime={item.readTime}
+            cover={item.cover}
+            publisher={item.publisher}
           />
         ))}
       </div>
