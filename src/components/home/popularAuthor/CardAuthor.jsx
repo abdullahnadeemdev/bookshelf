@@ -75,7 +75,7 @@ const CardAuthor = (props) => {
               >
                 {props.book}
               </p>
-              {props.book ? <Bookmark /> : ""}
+              {props.book ? <Bookmark fillClr="#2a2c2e" /> : ""}
             </div>
             <p
               className="

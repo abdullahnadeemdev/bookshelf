@@ -6,7 +6,7 @@ const Card = (props) => {
 
   const checkBookMark = booksArray.find((b) => b.title === props.title);
 
-  const [clr, setClr] = useState(checkBookMark ? "white" : "#1a1b1d");
+  const [clr, setClr] = useState(checkBookMark ? "white" : "#2a2c2e");
   const book = {
     image: props.image,
     author: props.author,
