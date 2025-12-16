@@ -5,10 +5,15 @@ import { useLocation } from "react-router";
 const ContactInfo = (props) => {
   // console.log(props);
   const handleClick = () => {
+    console.log("XONTACT props.var before", props.var);
+
     props.fun((prev) => ({
       ...prev,
       contactBtn: false,
+      shipBtn: true,
+      editContactBtn: false,
     }));
+    console.log("XONTACT props.var before", props.var);
   };
   return (
     <div className="w-150">

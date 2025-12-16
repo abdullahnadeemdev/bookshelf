@@ -3,7 +3,14 @@ import Button from "../../shared/button/Button";
 
 const Shipping = (props) => {
   const handleClick = () => {
-    props.fun((prev) => ({ ...prev, shipBtn: false }));
+    console.log("SHIPPIN props.var before", props.var);
+    props.fun((prev) => ({
+      ...prev,
+      shipBtn: false,
+      editShipBtn: false,
+      paymentBtn: true,
+    }));
+    console.log("SHIPPIN props.var after", props.var);
   };
   return (
     <div className="w-150 mt-5">
@@ -12,15 +19,15 @@ const Shipping = (props) => {
       <div className="flex items-center gap-4">
         <input
           type="text"
-          name=""
-          id=""
+          name="date"
+          id="date"
           className="border h-13 p-3 my-5 bg-white rounded-2xl w-full text-grayBg"
           placeholder="Today "
         />
         <input
           type="text"
-          name=""
-          id=""
+          name="time"
+          id="time"
           className="border h-13 p-3 bg-white rounded-2xl w-full text-grayBg"
           placeholder="Time"
         />

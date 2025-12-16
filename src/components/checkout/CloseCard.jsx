@@ -3,12 +3,14 @@ import React from "react";
 const CloseCard = (props) => {
   // console.log("props", props);
   // console.log("props var of close", props.hint);
-  let name = props.hint;
-  // console.log("name", name);
+  let { hint } = props;
+  let { hint2 } = props;
+  // console.log("name", hint);
+
   const handleClick = () => {
-    console.log("props.var beforeee", props.var);
-    props.fun((prev) => ({ ...prev, name: false }));
-    console.log("props.var after", props.var);
+    console.log("CLOSED props.var beforeee", props.var);
+    props.fun((prev) => ({ ...prev, [hint]: true }));
+    console.log("CLOSED props.var after", props.var);
   };
   return (
     <div className="bg-blackC rounded-2xl p-4 w-150">

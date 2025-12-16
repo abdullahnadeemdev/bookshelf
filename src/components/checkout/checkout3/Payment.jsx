@@ -3,7 +3,7 @@ import Button from "../../shared/button/Button";
 
 const Payment = (props) => {
   const handleClick = () => {
-    props.fun((prev) => ({ ...prev, shipBtn: false }));
+    props.fun((prev) => ({ ...prev, paymentBtn: false }));
   };
   return (
     <div className="w-150 mt-5">
@@ -31,25 +31,25 @@ const Payment = (props) => {
 
       <input
         type="text"
-        name="address"
-        id="address"
+        name="cardnum"
+        id="cardnum"
         className="border mt-2 h-13 p-3 bg-white rounded-2xl w-full text-grayBg"
-        placeholder="Address"
+        placeholder="Card Number"
       />
       <div className="flex items-center gap-4">
         <input
           type="text"
-          name=""
-          id=""
+          name="expiry"
+          id="expiry"
           className="border h-13 p-3 my-5 bg-white rounded-2xl w-full text-grayBg"
-          placeholder="Today "
+          placeholder="Expiration "
         />
         <input
           type="text"
-          name=""
-          id=""
+          name="cvv"
+          id="cvv"
           className="border h-13 p-3 bg-white rounded-2xl w-full text-grayBg"
-          placeholder="Time"
+          placeholder="CVV"
         />
       </div>
 
