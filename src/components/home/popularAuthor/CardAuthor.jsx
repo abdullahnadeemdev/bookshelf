@@ -36,7 +36,7 @@ const CardAuthor = (props) => {
             flex
             justify-center
             h-full
-            lg:min-w-10 lg:max-w-40 lg:max-h-49
+            lg:min-w-10 lg:max-w-40 lg:max-h-59
             flex-4
             "
           >
