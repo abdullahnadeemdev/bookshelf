@@ -1,9 +1,47 @@
-import React from "react";
+import { useState } from "react";
 import Button from "../../shared/button/Button";
 
 const Payment = (props) => {
+  const array = JSON.parse(sessionStorage.getItem("paymentInfo")) || [];
+  const [inputInfo, setInputInfo] = useState({
+    methodCheck: "",
+  });
+
+  const [error, setError] = useState({
+    methodError: true,
+  });
+
+  const handleChange = (e) => {
+    let { value, name } = e.target;
+    setInputInfo({
+      ...inputInfo,
+      [name]: value,
+    });
+  };
+
+  const validate = () => {
+    if (!inputInfo.methodCheck) {
+      setError({
+        ...error,
+        methodError: true,
+      });
+    }
+
+    if (error.methodError) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+
   const handleClick = () => {
-    props.fun((prev) => ({ ...prev, paymentBtn: false }));
+    if (validate()) {
+      sessionStorage.setItem(
+        "paymentInfo",
+        JSON.stringify([...prevInfo, inputInfo])
+      );
+      props.fun((prev) => ({ ...prev, paymentBtn: false }));
+    }
   };
   return (
     <div className="w-150 mt-5">
@@ -15,6 +53,9 @@ const Payment = (props) => {
               type="radio"
               className="bg-blackC mr-1"
               name="deliveryType"
+              value="card"
+              checked={inputInfo.methodCheck === "card"}
+              onChange={handleChange}
             />
             By card
           </label>
@@ -23,6 +64,9 @@ const Payment = (props) => {
               type="radio"
               className="bg-blackC mr-1"
               name="deliveryType"
+              value="cod"
+              checked={inputInfo.methodCheck === "cod"}
+              onChange={handleChange}
             />
             Payment upon delivery
           </label>

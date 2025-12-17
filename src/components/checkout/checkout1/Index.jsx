@@ -17,6 +17,16 @@ const Index = () => {
   // const loc = useLocation();
   // const path = loc.pathname;
   // console.log("loc", loc.pathname);
+
+  let state = "";
+
+  if (orderState.contactBtn || orderState.editContactBtn) {
+    state = "contact";
+  } else if (orderState.shipBtn || orderState.editShipBtn) {
+    state = "shipping";
+  } else if (orderState.paymentBtn) {
+    state = "payment";
+  }
   return (
     <div className="max-w-[1440px] rounded-2xl   m-5 h-screen text-white ">
       <div className="p-8  rounded-2xl  bg-grayBg  ">
@@ -24,16 +34,26 @@ const Index = () => {
           <span className="flex gap-2 items-center">
             <DropArrowIcon classname="rotate-90 md:h-5 md:w-5 fill-white" />
             <p>BACK |</p>
-            <p>CONTACT INFORMATION</p>
+            <p className={state === "contact" && "text-yellow"}>
+              CONTACT INFORMATION
+            </p>
             <DropArrowIcon classname="rotate-270 md:h-5 stroke-1 md:w-5 fill-white" />
           </span>
 
-          <span className="flex gap-2 items-center">
+          <span
+            className={`flex gap-2 items-center ${
+              state === "shipping" && "text-yellow"
+            }`}
+          >
             SHIPPING METHOD
             <DropArrowIcon classname="rotate-270 md:h-5 stroke-1 md:w-5 fill-white" />
           </span>
 
-          <span className="flex gap-2 items-center">
+          <span
+            className={`flex gap-2 items-center ${
+              state === "payment" && "text-yellow"
+            }`}
+          >
             PAYMENT
             <DropArrowIcon classname="rotate-270 md:h-5 stroke-1 md:w-5 fill-white" />
           </span>
