@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import BestSellers from "../../components/home/bestSellers/BestSellers";
 import CallToAction from "../../components/home/callToAction/CallToAction";
 import Hero from "../../components/home/hero/Hero";
