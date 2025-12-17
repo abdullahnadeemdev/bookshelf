@@ -5,11 +5,12 @@ import {
   RightArrowIcon,
   Star,
 } from "../../../assets/icons";
-import Muscle from "../../../assets/images/Muscle.png";
 import Button from "../../shared/button/Button";
 
 const Description = () => {
   const { state } = useLocation();
+  // console.log("props", props.cartData);
+  // console.log("props number", props.cartData.length);
   // console.log("state", state.author);
   // const params = useParams();
   // console.log("param", params);
@@ -76,7 +77,13 @@ const Description = () => {
 
             <div className="flex xs:block">
               <Button className="mr-2 min-w-29 ">BUY NOW</Button>
-              <Button variant="outline" className="min-w-29 xs:mt-2 text-white">
+              <Button
+                variant="outline"
+                className="min-w-29 xs:mt-2 text-white"
+                // onClick={() =>
+                //   props.addToCartHandler({ price: 100, name: "producttttt" })
+                // }
+              >
                 ADD TO CART
               </Button>
             </div>
