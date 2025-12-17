@@ -66,10 +66,12 @@ const NavBar = () => {
                 <BookmarkIcon className=" h-3.5 w-3.5 lg:h-5 lg:w-5" />
               </NavLink>
               <li>
-                <p className="absolute font-bold w-6 h-6 top-0 right-28 bg-red rounded-full text-center">
-                  {num}
-                </p>
-                <CartIcon className=" h-3.5 w-3.5 lg:h-5 lg:w-5" />
+                <NavLink to="/cart">
+                  <p className="absolute font-bold w-6 h-6 top-0 right-28 bg-red rounded-full text-center">
+                    {num}
+                  </p>
+                  <CartIcon className=" h-3.5 w-3.5 lg:h-5 lg:w-5" />
+                </NavLink>
               </li>
             </ul>
             <div>
