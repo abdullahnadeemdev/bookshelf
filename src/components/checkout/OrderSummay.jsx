@@ -9,7 +9,7 @@ const OrderSummay = () => {
     return acc + price * item.quantity;
   }, 0.0);
 
-  console.log("totalPrice", totalPrice);
+  // console.log("totalPrice", totalPrice);
 
   return (
     <div className="hidden md:block">
@@ -30,22 +30,15 @@ const OrderSummay = () => {
           </thead>
 
           <tbody>
-            {array.map((item) => {
+            {array.map((item, index) => {
               return (
-                <tr>
+                <tr key={index}>
                   <td className="py-1.5">{item.title}</td>
                   <td className="py-1.5 text-center ">{item.quantity}</td>
                   <td className="py-1.5 text-right ">{item.price}</td>
                 </tr>
               );
             })}
-            {/* <tr></tr> */}
-
-            {/* <tr>
-              <td className="py-1.5">Muscle</td>
-              <td className="py-1.5 text-center ">1</td>
-              <td className="py-1.5 text-right ">$22.5</td>
-            </tr> */}
 
             <tr className="text-base">
               <td className="py-1.5 font-semibold">Subtotal</td>
