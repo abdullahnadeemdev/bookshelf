@@ -2,13 +2,22 @@ import React from "react";
 import Button from "../shared/button/Button";
 
 const OrderSummay = () => {
+  const array = JSON.parse(localStorage.getItem("cart"));
+  let totalQuantity = array.reduce((acc, item) => acc + item.quantity, 0);
+  let totalPrice = array.reduce((acc, item) => {
+    const price = parseFloat(item.price.slice(1));
+    return acc + price * item.quantity;
+  }, 0.0);
+
+  console.log("totalPrice", totalPrice);
+
   return (
     <div className="hidden md:block">
       <div className="bg-blackC rounded-2xl p-6 w-100 ">
-        <div className="flex justify-between items-center mb-2">
-          <h2 className="text-xl font-normal tracking-wider">ORDER SUMMARY</h2>
+        <div className="justify-between items-center mb-2">
+          <h2 className="text-2xl font-normal text-center">ORDER SUMMARY</h2>
 
-          <p className="text-base underline">EDIT</p>
+          {/* <p className="text-base underline">EDIT</p> */}
         </div>
 
         <table className="w-full table-auto text-sm">
@@ -21,22 +30,27 @@ const OrderSummay = () => {
           </thead>
 
           <tbody>
-            <tr>
-              <td className="py-1.5">Hello I am Erik</td>
-              <td className="py-1.5 text-center ">1</td>
-              <td className="py-1.5 text-right ">$10.5</td>
-            </tr>
+            {array.map((item) => {
+              return (
+                <tr>
+                  <td className="py-1.5">{item.title}</td>
+                  <td className="py-1.5 text-center ">{item.quantity}</td>
+                  <td className="py-1.5 text-right ">{item.price}</td>
+                </tr>
+              );
+            })}
+            {/* <tr></tr> */}
 
-            <tr>
+            {/* <tr>
               <td className="py-1.5">Muscle</td>
               <td className="py-1.5 text-center ">1</td>
               <td className="py-1.5 text-right ">$22.5</td>
-            </tr>
+            </tr> */}
 
             <tr className="text-base">
               <td className="py-1.5 font-semibold">Subtotal</td>
-              <td className="py-1.5 text-center ">2</td>
-              <td className="py-1.5 text-right ">$33.0</td>
+              <td className="py-1.5 text-center ">{totalQuantity}</td>
+              <td className="py-1.5 text-right ">${totalPrice}</td>
             </tr>
 
             <tr>
@@ -49,7 +63,7 @@ const OrderSummay = () => {
               <td className="pt-2 pb-2 text-xl  font-medium">TOTAL</td>
               <td className="pt-2 pb-2"></td>
               <td className="pt-2 pb-2 text-xl text-right font-medium">
-                $33.0
+                ${totalPrice}
               </td>
             </tr>
           </tbody>

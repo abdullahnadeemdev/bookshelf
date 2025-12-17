@@ -3,7 +3,6 @@ import Button from "../shared/button/Button";
 import CartRow from "./cartRow";
 
 // console.log("I work", ArrayBestSellers);
-const array = JSON.parse(localStorage.getItem("cart"));
 // console.log("array", array);
 
 const Cart = () => {
@@ -34,7 +33,7 @@ const Cart = () => {
           />
         ))
       ) : (
-        <p className="p-10 text-center text-red-600">Your cart is empty.</p>
+        <p className="p-10 text-center text-red">Your cart is empty.</p>
       )}
 
       <div className="flex flex-col items-end p-4 mx-4 border-t mt-4">

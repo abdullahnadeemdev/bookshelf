@@ -16,6 +16,9 @@ const NavBar = () => {
     setClick(!click);
   };
 
+  let num = JSON.parse(localStorage.getItem("cart")).length;
+  // console.log("num in navbar new", num);
+
   return (
     <div className="w-full max-w-[1440px] px-4 z-50 sticky top-0">
       <div className="bg-grayBg rounded-2xl w-full p-6 hidden md:block">
@@ -54,7 +57,7 @@ const NavBar = () => {
             <Link>About Us</Link>
           </ul>
 
-          <div className="flex items-center ">
+          <div className="flex items-center relative">
             <ul className="flex gap-0.5 lg:gap-2 xl:gap-5 mr-3">
               <li>
                 <SearchIcon className="h-4 w-4 lg:h-5.5 lg:w-5.5" />
@@ -63,6 +66,9 @@ const NavBar = () => {
                 <BookmarkIcon className=" h-3.5 w-3.5 lg:h-5 lg:w-5" />
               </NavLink>
               <li>
+                <p className="absolute font-bold w-6 h-6 top-0 right-28 bg-red rounded-full text-center">
+                  {num}
+                </p>
                 <CartIcon className=" h-3.5 w-3.5 lg:h-5 lg:w-5" />
               </li>
             </ul>

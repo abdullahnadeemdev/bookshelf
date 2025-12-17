@@ -6,7 +6,7 @@ const CartRow = (props) => {
   // console.log("props price", props);
   const price = parseFloat(props.price);
   const quantity = props.quantity;
-  console.log("word word", props);
+  // console.log("word word", props);
   return (
     <div className="p-4 text-black">
       <div className="flex items-center border-b py-4">
