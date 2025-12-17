@@ -414,3 +414,55 @@ export const customerReviewArray = [
       "This is fantastic, and could have been written just for me. Grimly funny absurdist-existentialist noir that incorporates pulp sci-fi as well as hardboiled crime fiction elements to become a surprisingly powerful examination of the lasting impact of male violence in its many forms.It also does one of my favourite things, which is to recount other fictional stories within its own pages, a Vonnegut-style technique I never seem to tire of. The ending, too, which some have complained about, I think works perfectly.Phenomenally entertaining and sneakily profound.",
   },
 ];
+
+export const id = () => {
+  const alphabet = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+  ];
+
+  let id = "";
+  let check = false;
+  for (let i = 0; id.length < 8; i++) {
+    let element = Math.floor(Math.random() * 10);
+    if (!check) {
+      if (element % 2 !== 0) {
+        for (let i = 0; i < 3; i++) {
+          element = alphabet[Math.floor(Math.random() * 10)];
+          id += element;
+          if (i === 2) {
+            check = true;
+          }
+        }
+      }
+    } else {
+      id = id + String(+element);
+    }
+  }
+  console.log("iiiiddddd", id);
+  return id;
+};

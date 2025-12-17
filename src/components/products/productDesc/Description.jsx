@@ -1,19 +1,53 @@
-import { useLocation, useParams } from "react-router";
+import { useLocation } from "react-router";
 import {
-  ArrowIcon,
   Bookmark,
   RightArrowIcon,
   Star,
+  ArrowIcon,
 } from "../../../assets/icons";
 import Button from "../../shared/button/Button";
+import { id } from "../../../utils/utils";
+import { useState } from "react";
 
 const Description = () => {
+  const [quant, setQuant] = useState(1);
   const { state } = useLocation();
-  // console.log("props", props.cartData);
-  // console.log("props number", props.cartData.length);
-  // console.log("state", state.author);
-  // const params = useParams();
-  // console.log("param", params);
+
+  if (!state) {
+    return (
+      <div className="p-8 text-white">
+        <p>Product data lost. Please go back and select a book again.</p>
+      </div>
+    );
+  }
+
+  const cartData = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const productInfo = {
+    id: id(),
+    title: state.title,
+    author: state.author,
+    price: state.salePrice,
+    quantity: quant,
+    image: state.img,
+  };
+
+  const handleCart = () => {
+    const isDuplicate = cartData.some((item) => item.title === state.title);
+
+    if (isDuplicate) {
+      const updatedCart = cartData.map((item) =>
+        item.title === state.title
+          ? { ...item, quantity: item.quantity + quant }
+          : item
+      );
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+    } else {
+      localStorage.setItem("cart", JSON.stringify([...cartData, productInfo]));
+    }
+    window.location.reload();
+    alert("Added to cart!");
+  };
 
   return (
     <div className="p-8 bg-grayBg rounded-2xl">
@@ -29,7 +63,7 @@ const Description = () => {
           <div className="xs:w-60 sm:w-80 sm:h-125 relative">
             <img
               src={state.img}
-              alt=""
+              alt={state.title}
               className="h-full w-full object-cover rounded-2xl"
             />
             <Bookmark classname="absolute top-3 right-3" />
@@ -49,14 +83,13 @@ const Description = () => {
               <p className="underline">{state.comments} reviews</p>
             </div>
 
-            <div className="hidden sm:flex  gap-5 list-none">
+            <div className="hidden sm:flex gap-5 list-none">
               <span className="font-semibold my-5">
                 <li className="mt-1">Category</li>
                 <li className="mt-1">Publish date</li>
                 <li className="mt-1">Language</li>
                 <li className="mt-1">Pages</li>
-                <li className="mt-1">Read time</li>
-                <li className="mt-1">Type</li>
+                <li className="mt-1">Cover</li>
                 <li className="mt-1">Publisher</li>
               </span>
 
@@ -70,31 +103,32 @@ const Description = () => {
               </span>
             </div>
 
-            <span className="flex flex-row xs:flex-col sm:flex-row gap-4 my-5 font-semibold text-3xl sm:text-4xl">
-              <p className="text-greyText">{state.price}</p>
+            <span className="flex gap-4 my-5 font-semibold text-3xl sm:text-4xl">
+              <p className="text-greyText line-through">{state.price}</p>
               <p>{state.salePrice}</p>
             </span>
 
             <div className="flex xs:block">
-              <Button className="mr-2 min-w-29 ">BUY NOW</Button>
+              <Button className="mr-2 min-w-29">BUY NOW</Button>
               <Button
                 variant="outline"
                 className="min-w-29 xs:mt-2 text-white"
-                // onClick={() =>
-                //   props.addToCartHandler({ price: 100, name: "producttttt" })
-                // }
+                onClick={handleCart}
               >
                 ADD TO CART
               </Button>
             </div>
           </div>
         </div>
+
         <div className="flex-1 rounded-2xl hidden lg:block">
           <div className="bg-whiteBg text-black font-light rounded-2xl p-6 mb-3">
             <span className="flex justify-between ">
               <p className="text-xl font-normal">PLOT SUMMARY</p>
+
               <RightArrowIcon />
             </span>
+
             <p className="text-wrap my-3 max-h-72 overflow-hidden">
               In a hard-boiled city of crooks, grifts and rackets lurk a pair of
               toughs: Box and _____. They're the kind of men capable of
@@ -108,12 +142,14 @@ const Description = () => {
               collapse, a ceaselessly imaginative story of violence, boredom and
               madness.
             </p>
+
             <p className="underline mt-3 font-normal">READ PREVIEW</p>
           </div>
 
           <div className="bg-whiteBg text-black font-light rounded-2xl p-5 w-full ">
             <span className="flex justify-between items-center">
               <p className="text-xl font-normal">Reception</p>
+
               <ArrowIcon classname="h-8 w-10" />
             </span>
           </div>

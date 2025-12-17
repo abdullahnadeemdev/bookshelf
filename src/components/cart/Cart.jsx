@@ -1,30 +1,52 @@
-import React from "react";
-import { ArrayBestSellers } from "../../utils/utils";
-
+import { NavLink } from "react-router";
+import Button from "../shared/button/Button";
 import CartRow from "./cartRow";
 
 // console.log("I work", ArrayBestSellers);
+const array = JSON.parse(localStorage.getItem("cart"));
+// console.log("array", array);
 
 const Cart = () => {
+  const array = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const grandTotal = array.reduce((acc, item) => {
+    const price = parseFloat(item.price.replace("$", ""));
+    return acc + price * item.quantity;
+  }, 0);
+
   return (
     <div className="text-black">
-      <p>hello</p>
       <div className="flex border-b p-4 mx-4 font-bold">
         <div className="flex-3">PRODUCT DETAILS</div>
         <div className="flex-1 text-center">QUANTITY</div>
         <div className="flex-1 text-right">PRICE</div>
       </div>
-      {ArrayBestSellers.map((item) => (
-        <CartRow
-          image={item.image}
-          title={item.title}
-          price={item.saleP}
-          author={item.author}
-        />
-      ))}
-      <p>hello</p>
+
+      {array.length > 0 ? (
+        array.map((item) => (
+          <CartRow
+            key={item.id}
+            image={item.image}
+            title={item.title}
+            price={parseFloat(item.price.replace("$", ""))}
+            author={item.author}
+            quantity={item.quantity}
+          />
+        ))
+      ) : (
+        <p className="p-10 text-center text-red-600">Your cart is empty.</p>
+      )}
+
+      <div className="flex flex-col items-end p-4 mx-4 border-t mt-4">
+        <div className="flex gap-10">
+          <p className="font-bold">TOTAL</p>
+          <p className="font-bold text-xl">${grandTotal}</p>
+        </div>
+        <NavLink to="/checkout">
+          <Button className="mt-4 ">PROCEED TO CHECKOUT</Button>
+        </NavLink>
+      </div>
     </div>
   );
 };
-
 export default Cart;

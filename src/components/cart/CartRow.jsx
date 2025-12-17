@@ -3,7 +3,10 @@ import Anne from "../../assets/images/Anne.png";
 import Button from "../shared/button/Button";
 
 const CartRow = (props) => {
-  //   console.log("props", props);
+  // console.log("props price", props);
+  const price = parseFloat(props.price);
+  const quantity = props.quantity;
+  console.log("word word", props);
   return (
     <div className="p-4 text-black">
       <div className="flex items-center border-b py-4">
@@ -17,8 +20,8 @@ const CartRow = (props) => {
             </div>
           </div>
         </div>
-        <div className="flex-1 text-center">- 2 +</div>
-        <div className="flex-1 text-right">{props.price}</div>
+        <div className="flex-1 text-center">{quantity}</div>
+        <div className="flex-1 text-right">${price * quantity}</div>
       </div>
     </div>
   );
