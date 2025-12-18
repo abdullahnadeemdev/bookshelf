@@ -33,7 +33,9 @@ const Cart = () => {
           />
         ))
       ) : (
-        <p className="p-10 text-center text-red">Your cart is empty.</p>
+        <p className="p-10 text-center font-semibold text-2xl text-red">
+          Your cart is empty.
+        </p>
       )}
 
       <div className="flex flex-col items-end p-4 mx-4 border-t mt-4">

@@ -3,10 +3,20 @@ import Anne from "../../assets/images/Anne.png";
 import Button from "../shared/button/Button";
 
 const CartRow = (props) => {
+  const arrayCart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const handleRemove = () => {
+    if (arrayCart.length > 0) {
+      const newCart = arrayCart.filter((item) => item.title !== props.title);
+      localStorage.setItem("cart", JSON.stringify(newCart));
+      window.location.reload();
+    } else {
+      console.log("cart is empty");
+    }
+  };
   // console.log("props price", props);
   const price = parseFloat(props.price);
   const quantity = props.quantity;
-  // console.log("word word", props);
   return (
     <div className="p-4 text-black">
       <div className="flex items-center border-b py-4">
@@ -16,7 +26,9 @@ const CartRow = (props) => {
             <div>
               <p className="font-semibold">{props.title}</p>
               <p className="text-gray-500">{props.author}</p>
-              <button className="text-red-500 text-sm">Remove</button>
+              <button className="text-red-500 text-sm" onClick={handleRemove}>
+                Remove
+              </button>
             </div>
           </div>
         </div>

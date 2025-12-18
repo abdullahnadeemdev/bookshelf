@@ -1,14 +1,17 @@
 import { useState } from "react";
+import { CautionIcon } from "../../../assets/icons";
 import Button from "../../shared/button/Button";
 
 const Payment = (props) => {
+  // console.log("props", props);
   const array = JSON.parse(sessionStorage.getItem("paymentInfo")) || [];
+
   const [inputInfo, setInputInfo] = useState({
     methodCheck: "",
   });
 
   const [error, setError] = useState({
-    methodError: true,
+    methodError: "",
   });
 
   const handleChange = (e) => {
@@ -20,14 +23,16 @@ const Payment = (props) => {
   };
 
   const validate = () => {
+    let error2 = { methodE: false };
     if (!inputInfo.methodCheck) {
-      setError({
-        ...error,
-        methodError: true,
-      });
+      setError((prev) => ({
+        ...prev,
+        methodError: "delivery type not selected",
+      }));
+      error2.methodE = true;
     }
 
-    if (error.methodError) {
+    if (error2.methodE) {
       return false;
     } else {
       return true;
@@ -52,18 +57,19 @@ const Payment = (props) => {
             <input
               type="radio"
               className="bg-blackC mr-1"
-              name="deliveryType"
+              name="methodCheck"
               value="card"
               checked={inputInfo.methodCheck === "card"}
               onChange={handleChange}
             />
             By card
           </label>
+
           <label>
             <input
               type="radio"
               className="bg-blackC mr-1"
-              name="deliveryType"
+              name="methodCheck"
               value="cod"
               checked={inputInfo.methodCheck === "cod"}
               onChange={handleChange}
@@ -73,32 +79,41 @@ const Payment = (props) => {
         </span>
       </div>
 
-      <input
-        type="text"
-        name="cardnum"
-        id="cardnum"
-        className="border mt-2 h-13 p-3 bg-white rounded-2xl w-full text-grayBg"
-        placeholder="Card Number"
-      />
-      <div className="flex items-center gap-4">
-        <input
-          type="text"
-          name="expiry"
-          id="expiry"
-          className="border h-13 p-3 my-5 bg-white rounded-2xl w-full text-grayBg"
-          placeholder="Expiration "
-        />
-        <input
-          type="text"
-          name="cvv"
-          id="cvv"
-          className="border h-13 p-3 bg-white rounded-2xl w-full text-grayBg"
-          placeholder="CVV"
-        />
-      </div>
+      {inputInfo.methodCheck !== "cod" ? (
+        <div>
+          <input
+            type="text"
+            name="cardnum"
+            id="cardnum"
+            className="border mt-2 h-13 p-3 bg-white rounded-2xl w-full text-grayBg"
+            placeholder="Card Number"
+          />
+          <div className="flex items-center gap-4">
+            <input
+              type="text"
+              name="expiry"
+              id="expiry"
+              className="border h-13 p-3 my-5 bg-white rounded-2xl w-full text-grayBg"
+              placeholder="Expiration "
+            />
+            <span className="relative">
+              <input
+                type="text"
+                name="cvv"
+                id="cvv"
+                className="border h-13 p-3 bg-white rounded-2xl w-full text-grayBg"
+                placeholder="CVV"
+              />
+              <CautionIcon className="absolute top-4 right-4" />
+            </span>
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
 
       <Button className="mt-5 w-full" onClick={handleClick}>
-        CONTINUE TO PAYMENT
+        Order
       </Button>
     </div>
   );

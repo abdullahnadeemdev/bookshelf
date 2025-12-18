@@ -15,8 +15,8 @@ const NavBar = () => {
   const handleClick = () => {
     setClick(!click);
   };
-
-  let num = JSON.parse(localStorage.getItem("cart")).length;
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let num = cart?.length;
   // console.log("num in navbar new", num);
 
   return (
