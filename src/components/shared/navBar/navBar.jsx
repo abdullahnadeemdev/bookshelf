@@ -32,7 +32,7 @@ const NavBar = () => {
             </div>
           </NavLink>
 
-          <ul className="list-none flex gap-2.5 text-xs sm:text-sm lg:text-base lg:gap-3 xl:gap-5 xl:text-lg ">
+          <ul className="list-none flex gap-2.5 text-xs sm:text-sm lg:text-base lg:gap-3 xl:gap-5 xl:text-lg cursor-pointer">
             <NavLink
               to="/books"
               className={({ isActive }) =>
