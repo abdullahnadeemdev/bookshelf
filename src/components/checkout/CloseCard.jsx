@@ -1,6 +1,7 @@
 const CloseCard = (props) => {
   let btn = props.btn;
   let btn2 = props.fBtn;
+  // let btn2 = props.fBtn;
   let func = props.fun;
 
   const handleClick = () => {

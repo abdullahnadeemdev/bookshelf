@@ -8,9 +8,9 @@ import Payment from "../checkout3/Payment";
 
 const Index = () => {
   const [orderState, setOrderState] = useState({
-    contactBtn: false,
+    contactBtn: true,
     shipBtn: false,
-    paymentBtn: true,
+    paymentBtn: false,
   });
 
   return (
