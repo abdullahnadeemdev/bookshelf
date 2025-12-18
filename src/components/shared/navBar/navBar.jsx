@@ -7,7 +7,6 @@ import Button from "../button/Button";
 import { useState } from "react";
 import { menuArr } from "../../../utils/utils";
 import { NavLink, useLocation } from "react-router";
-import { useRef } from "react";
 import { Link } from "react-scroll";
 
 const NavBar = () => {
