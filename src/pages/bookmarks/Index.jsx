@@ -1,5 +1,4 @@
 import CardBookmark from "./CardBookmark";
-import { ArrayBestSellers as array } from "../../utils/utils";
 
 const Index = () => {
   let booksArray = JSON.parse(localStorage.getItem("bookmarks")) || [];

@@ -4,7 +4,7 @@ import { NavLink } from "react-router";
 const Card = (props) => {
   let booksArray = JSON.parse(localStorage.getItem("bookmarks")) || [];
 
-  const checkBookMark = booksArray.find((b) => b.title === props.title);
+  const checkBookMark = booksArray?.find((b) => b.title === props.title);
 
   const [clr, setClr] = useState(checkBookMark ? "white" : "#2a2c2e");
   const book = {
@@ -28,11 +28,12 @@ const Card = (props) => {
   const handleBookmark = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    clr === "white" ? setClr("#1a1b1d") : setClr("white");
 
     if (clr !== "white") {
       booksArray.push(book);
       localStorage.setItem("bookmarks", JSON.stringify(booksArray));
+      clr === "white" ? setClr("#1a1b1d") : setClr("white");
+      window.location.reload();
     } else {
       const updatedArray = booksArray.filter((b) => b.title !== props.title);
       localStorage.setItem("bookmarks", JSON.stringify(updatedArray));
@@ -207,7 +208,7 @@ const Card = (props) => {
                   text-lg
                 "
               >
-                ${props.saleP}
+                {props.saleP}
               </p>
             </span>
           </div>

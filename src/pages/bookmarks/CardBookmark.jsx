@@ -2,18 +2,25 @@ import { useState } from "react";
 import { Bookmark } from "../../assets/icons/Bookmark";
 import { Comment, Star } from "../../assets/icons";
 const CardBookmark = (props) => {
-  //   console.log("props.index", props.comts);
-  //   props.comts === 9999 ? setCheck(true) : '';
+  const [clr, setClr] = useState("white");
 
-  const [clr, setClr] = useState("#1a1b1d");
+  const array = JSON.parse(localStorage.getItem("bookmarks")) || [];
+  // console.log("array", array);
 
   const handleBookmark = () => {
     clr === "white" ? setClr("#1a1b1d") : setClr("white");
+    if (array.length > 0) {
+      let newarr = array.filter((item) => item.title !== props.title);
+      localStorage.setItem("bookmarks", JSON.stringify(newarr));
+      window.location.reload();
+    } else {
+      console.log("array is not found");
+    }
   };
 
   return (
     <>
-      {props.title === "SEE ALL" ? (
+      {/* {props.title === "SEE ALL" ? (
         <div
           className="
             flex
@@ -31,9 +38,10 @@ const CardBookmark = (props) => {
         >
           <h1>SEE ALL</h1>
         </div>
-      ) : (
-        <div
-          className="
+      ) : */}
+      {/* ( */}
+      <div
+        className="
             flex
             flex-1
             p-4
@@ -44,53 +52,53 @@ const CardBookmark = (props) => {
             md:min-w-90
             lg:min-w-113.5
           "
-        >
-          <div
-            className="
+      >
+        <div
+          className="
               overflow-hidden
               h-40 w-25
               rounded-2xl
               md:h-50 md:w-35
               lg:h-59 lg:w-60
             "
-          >
-            <img
-              src={props.image}
-              alt="AfterDark book"
-              className="
+        >
+          <img
+            src={props.image}
+            alt="AfterDark book"
+            className="
                 object-cover
                 h-full w-full
               "
-            />
-          </div>
-          <div
-            className="
+          />
+        </div>
+        <div
+          className="
               text-black
             "
-          >
-            <div
-              className="
+        >
+          <div
+            className="
                 flex
                 justify-between
                 md:w-45 md:mb-4
                 lg:w-60 lg:mb-6
               "
-            >
-              <span
-                className="
+          >
+            <span
+              className="
                   pr-2
                 "
-              >
-                <p
-                  className="
+            >
+              <p
+                className="
                     text-sm
                     md:text-base
                   "
-                >
-                  {props.author}
-                </p>
-                <p
-                  className="
+              >
+                {props.author}
+              </p>
+              <p
+                className="
                     overflow-hidden
                     w-26 h-7
                     mb-1
@@ -99,17 +107,17 @@ const CardBookmark = (props) => {
                     md:text-base
                     lg:overflow-visible lg:h-10
                   "
-                >
-                  {props.title}
-                </p>
-              </span>
-              <div onClick={handleBookmark}>
-                <Bookmark fillClr={"white"} />
-              </div>
+              >
+                {props.title}
+              </p>
+            </span>
+            <div onClick={handleBookmark}>
+              <Bookmark fillClr={clr} />
             </div>
+          </div>
 
-            <span
-              className="
+          <span
+            className="
                 flex
                 w-fit
                 mt-2 px-1.5 mb-2
@@ -118,13 +126,13 @@ const CardBookmark = (props) => {
                 items-center gap-1
                 md:mt-0 md:p-1 md:px-3 md:text-base
               "
-            >
-              <p>{props.comts}</p>
-              <Comment />
-            </span>
+          >
+            <p>{props.comts}</p>
+            <Comment />
+          </span>
 
-            <span
-              className="
+          <span
+            className="
                 flex
                 w-fit
                 mb-4 px-1
@@ -134,37 +142,37 @@ const CardBookmark = (props) => {
                 md:p-1 md:px-3 md:mb-6 md:text-base
                 lg:mb-8
               "
-            >
-              <p>{props.star}</p>
-              <Star />
-              <p>({props.people})</p>
-            </span>
+          >
+            <p>{props.star}</p>
+            <Star />
+            <p>({props.people})</p>
+          </span>
 
-            <span
-              className="
+          <span
+            className="
                 flex
                 gap-1
               "
-            >
-              <p
-                className="
+          >
+            <p
+              className="
                   text-greyText text-lg
                   line-through
                 "
-              >
-                {props.price}
-              </p>
-              <p
-                className="
+            >
+              {props.price}
+            </p>
+            <p
+              className="
                   text-lg
                 "
-              >
-                ${props.saleP}
-              </p>
-            </span>
-          </div>
+            >
+              {props.saleP}
+            </p>
+          </span>
         </div>
-      )}
+      </div>
+      {/* )} */}
     </>
   );
 };

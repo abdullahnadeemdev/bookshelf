@@ -1,20 +1,60 @@
 import { NavLink } from "react-router";
 import { Bookmark, Comment, Star } from "../../../assets/icons";
+import { useState } from "react";
 
 const Card = (props) => {
-  const handleBookmark = (e) => {
-    e.preventDefault();
-    e.stopPropogation();
-    // clr === "white" ? setClr("#1a1b1d") : setClr("white");
+  // const handleBookmark = (e) => {
+  //   e.preventDefault();
+  //   e.stopPropogation();
+  //   clr === "white" ? setClr("#1a1b1d") : setClr("white");
 
-    // if (clr !== "white") {
-    booksArray.push(book);
-    localStorage.setItem("bookmarks", JSON.stringify(booksArray));
-    // } else {
-    const updatedArray = booksArray.filter((b) => b.title !== props.title);
-    localStorage.setItem("bookmarks", JSON.stringify(updatedArray));
+  //   if (clr !== "white") {
+  //     booksArray.push(book);
+  //     localStorage.setItem("bookmarks", JSON.stringify(booksArray));
+  //   } else {
+  //     const updatedArray = booksArray.filter((b) => b.title !== props.title);
+  //     localStorage.setItem("bookmarks", JSON.stringify(updatedArray));
+  //   }
+  // };
+
+  let booksArray = JSON.parse(localStorage.getItem("bookmarks")) || [];
+
+  const checkBookMark = booksArray?.find((b) => b.title === props.title);
+
+  const [clr, setClr] = useState(checkBookMark ? "white" : "#2a2c2e");
+  const book = {
+    image: props.image,
+    author: props.author,
+    title: props.title,
+    comts: props.comts,
+    star: props.star,
+    people: props.people,
+    price: props.price,
+    saleP: props.saleP,
+    type: props.type,
+    publishDate: props.publishDate,
+    lang: props.lang,
+    pages: props.pages,
+    readTime: props.readTime,
+    cover: props.cover,
+    publisher: props.publisher,
   };
 
+  const handleBookmark = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (clr !== "white") {
+      booksArray.push(book);
+      console.log("booksArray", booksArray);
+      localStorage.setItem("bookmarks", JSON.stringify(booksArray));
+      clr === "white" ? setClr("#1a1b1d") : setClr("white");
+      window.location.reload();
+    } else {
+      const updatedArray = booksArray.filter((b) => b.title !== props.title);
+      localStorage.setItem("bookmarks", JSON.stringify(updatedArray));
+    }
+  };
   return (
     <NavLink
       to={`/books/${props.title}`}
@@ -44,7 +84,7 @@ const Card = (props) => {
           alt=""
         />
         <div onClick={(e) => handleBookmark(e)}>
-          <Bookmark classname="absolute z-30 top-2 right-2" />
+          <Bookmark fillClr={clr} classname="absolute z-30 top-2 right-2" />
         </div>
       </div>
 
