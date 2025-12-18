@@ -12,9 +12,11 @@
   --color-lightGrayBg:#3b3d3f;
   --color-grayBg:#2a2c2e;
   --color-darkGrey:#20201F;
+
+    --color-red:oklch(57.7% 0.245 27.325);
+
   
   
-  --color-red:oklch(57.7% 0.245 27.325);
   /* 480 */
   --breakpoint-xs:26.56rem;
 
