@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
-import Navbar from "../components/shared/navbar/Navbar";
-import { loginFalse } from "../components/services/actions/ActionLogin";
+import Navbar from "../shared/navBar/navBar";
+import { loginFalse } from "../services/actions/Actions";
 
 const mapState = (state) => ({
   data: state.isLogin,

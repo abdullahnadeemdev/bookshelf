@@ -1,8 +1,9 @@
-import { is_Login } from "../../../utils/mockUpData";
-import { is_LogOut } from "../../../utils/mockUpData";
+import { isLoginT } from "../../../utils/utils";
+import { isLoginF } from "../../../utils/utils";
 
 const getItem = () => {
-  const arr = JSON.parse(localStorage.getItem("Login")) || false;
+  const arr = JSON.parse(localStorage.getItem("Login")) || [];
+  return arr;
 };
 
 const logCheck = getItem();
@@ -13,13 +14,13 @@ const initialState = {
 
 export default function isLogin(state = initialState.login, action) {
   switch (action.type) {
-    case is_Login: {
+    case isLoginT: {
       //   console.log("state Reducer", state);
       //   console.log("action Reducer", action);
       //   console.log("action Reducer data", action.data);
       return (state = true);
     }
-    case is_LogOut: {
+    case isLoginF: {
       //   console.log("state Reducer", state);
       //   console.log("action Reducer", action);
       //   console.log("action Reducer data", action.data);

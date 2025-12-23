@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
-import Login from "../Pages/login/Login";
-import { loginTrue } from "../components/services/actions/ActionLogin";
+import Login from "../../pages/loginPage/Login";
+import { loginTrue } from "../services/actions/Actions";
 
 const mapState = (state) => ({
   data: state.isLogin,

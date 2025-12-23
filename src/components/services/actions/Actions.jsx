@@ -1,16 +1,16 @@
-import { isLogin } from "../../../utils/utils";
-import { isLogOut } from "../../../utils/utils";
+import { isLoginT } from "../../../utils/utils";
+import { isLoginF } from "../../../utils/utils";
 
 export const loginTrue = (data) => {
   return {
-    type: isLogin,
+    type: isLoginT,
     data: data,
   };
 };
 
 export const loginFalse = (data) => {
   return {
-    type: isLogOut,
+    type: isLoginF,
     data: data,
   };
 };

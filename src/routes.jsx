@@ -7,6 +7,7 @@ import { Route, Routes } from "react-router";
 import Index from "./components/checkout/checkout1/Index";
 import ProductsDesc from "./pages/productDesc/Index";
 import Login from "./components/container/LoginContainer";
+import SignUp from "./pages/signUp/SignUp";
 
 const Router = () => {
   return (
@@ -15,6 +16,7 @@ const Router = () => {
       <Route path="/books" element={<Products />} />
       <Route path="/bookmark" element={<Bookmarks />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/sign-up" element={<SignUp />} />
 
       <Route path="/books/:title" element={<ProductsDesc />} />
       <Route path="/checkout" element={<Index />}></Route>

@@ -3,19 +3,19 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router";
-// import { Provider } from "react-redux";
-// import RootReducer from "./components/services/reducer/RootReducer.jsx";
-// import { configureStore } from "@reduxjs/toolkit";
+import { Provider } from "react-redux";
+import RootReducer from "./components/services/reducer/RootReducer.jsx";
+import { configureStore } from "@reduxjs/toolkit";
 
-// const store = configureStore({ reducer: RootReducer });
-// console.log("store", store);
+const store = configureStore({ reducer: RootReducer });
+console.log("store", store);
 
 createRoot(document.getElementById("root")).render(
-  // <Provider store={store}>
-  <BrowserRouter>
-    <StrictMode>
-      <App />
-    </StrictMode>
-  </BrowserRouter>
-  // </Provider>
+  <Provider store={store}>
+    <BrowserRouter>
+      <StrictMode>
+        <App />
+      </StrictMode>
+    </BrowserRouter>
+  </Provider>
 );

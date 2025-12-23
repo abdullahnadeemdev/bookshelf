@@ -102,7 +102,7 @@ const Login = (props) => {
               <input
                 type="email"
                 className={`border block pl-1 indent-2 mx-auto rounded-lg border-chineseViolet w-full h-10 text-lg ${
-                  error.email ? "border-redBorder" : "border-chineseViolet"
+                  error.email ? "border-red" : "border-chineseViolet"
                 }`}
                 placeholder="Email"
                 name="email"
@@ -110,23 +110,21 @@ const Login = (props) => {
                 onChange={handleChange}
               />
               {error?.email && (
-                <p className="text-redBorder text-start">{error.email}</p>
+                <p className="text-red text-start">{error.email}</p>
               )}
             </div>
             <div className="mb-1">
               <input
                 type="password"
                 className={`border block pl-1 indent-2 mx-auto rounded-lg border-chineseViolet w-full h-10 text-lg ${
-                  error.pw ? "border-redBorder" : "border-chineseViolet"
+                  error.pw ? "border-red" : "border-chineseViolet"
                 }`}
                 placeholder="Password"
                 name="pw"
                 value={values.pw}
                 onChange={handleChange}
               />
-              {error?.pw && (
-                <p className="text-redBorder text-start ">{error.pw}</p>
-              )}
+              {error?.pw && <p className="text-red text-start ">{error.pw}</p>}
             </div>
 
             <NavLink
