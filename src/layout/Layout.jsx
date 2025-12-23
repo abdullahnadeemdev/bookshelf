@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import Footer from "../components/shared/footer/Footer";
-import NavBar from "../components/shared/navBar/navBar";
-
+// import NavBar from "../components/shared/navBar/navBar";
+import Navbar from "../components/container/Navbar";
 const Layout = ({ children }) => {
   return (
     <>

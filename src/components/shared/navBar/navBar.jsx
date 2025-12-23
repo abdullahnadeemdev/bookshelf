@@ -6,17 +6,27 @@ import { MenuIcon } from "../../../assets/icons";
 import Button from "../button/Button";
 import { useState } from "react";
 import { menuArr } from "../../../utils/utils";
-import { NavLink, useLocation } from "react-router";
+import { NavLink, useLocation, useNavigate } from "react-router";
 import { Link } from "react-scroll";
 
 const NavBar = () => {
+  const location = useLocation().pathname;
+  const navigate = useNavigate();
+
   const [click, setClick] = useState(false);
   const handleClick = () => {
     setClick(!click);
   };
+
+  // const handleNav = () => {
+  //   if (location !== "/books") {
+  //     navigate("/books");
+  //     scrollTo("/authors");
+  //   }
+  // };
+
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   let num = cart?.length;
-  // console.log("num in navbar new", num);
 
   return (
     <div className="w-full max-w-[1440px] px-4 z-50 sticky top-0">
@@ -41,7 +51,12 @@ const NavBar = () => {
               Books
             </NavLink>
 
-            <Link to="authors" smooth={true} duration={1000}>
+            <Link
+              to="authors"
+              smooth={true}
+              duration={1000}
+              // onClick={handleNav}
+            >
               Authors
             </Link>
 

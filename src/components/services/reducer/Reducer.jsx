@@ -1,15 +1,31 @@
-// import { ADD_TO_CART } from "../Constants";
+import { is_Login } from "../../../utils/mockUpData";
+import { is_LogOut } from "../../../utils/mockUpData";
 
-// const initialState = {
-//   cartData: [],
-// };
+const getItem = () => {
+  const arr = JSON.parse(localStorage.getItem("Login")) || false;
+};
 
-// export default function cartItems(state = [], action) {
-//   switch (action.type) {
-//     case ADD_TO_CART:
-//       return [...state, { cartData: action.data }];
-//       break;
-//     default:
-//       return state;
-//   }
-// }
+const logCheck = getItem();
+
+const initialState = {
+  login: logCheck,
+};
+
+export default function isLogin(state = initialState.login, action) {
+  switch (action.type) {
+    case is_Login: {
+      //   console.log("state Reducer", state);
+      //   console.log("action Reducer", action);
+      //   console.log("action Reducer data", action.data);
+      return (state = true);
+    }
+    case is_LogOut: {
+      //   console.log("state Reducer", state);
+      //   console.log("action Reducer", action);
+      //   console.log("action Reducer data", action.data);
+      return (state = false);
+    }
+    default:
+      return state;
+  }
+}

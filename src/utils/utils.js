@@ -20,6 +20,9 @@ import Lisa from "../assets/images/Lisa.png";
 import Anne from "../assets/images/Anne.png";
 import Flo from "../assets/images/Flo.png";
 
+export const isLogin = "loginT";
+export const isLogOut = "loginF";
+
 export const menuArr = [
   "Books",
   "Authors",
