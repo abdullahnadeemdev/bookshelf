@@ -1,13 +1,19 @@
 import FilterBar from "./filterBar";
 import SideBar from "./SideBar";
-import { ArrayProducts as array } from "../../../utils/utils";
+import { ArrayProducts } from "../../../utils/utils";
 import Card from "./Card";
+import { useState } from "react";
 
 const Main = () => {
+  const [query, setQuery] = useState("");
+  console.log("Main query", query);
+  const array = ArrayProducts.filter((item) =>
+    item.title.toLowerCase().includes(query)
+  );
   return (
     <div className="max-w-[1440px] mx-auto px-4 py-10">
       <div className="">
-        <FilterBar />
+        <FilterBar queryFunc={setQuery} />
       </div>
       <div className="bg-grayBg mt-10 flex gap-2">
         <div className="hidden md:block">

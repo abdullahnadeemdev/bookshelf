@@ -1,7 +1,8 @@
 import React from "react";
 import { CloseIcon, DropArrowIcon } from "../../../assets/icons";
 
-const FilterBar = () => {
+const FilterBar = ({ queryFunc }) => {
+  // console.log("props props props props", queryFunc);
   return (
     <div className="flex flex-row items-center w-full justify-center sm:justify-between ">
       <div className="flex w-full gap-16">
@@ -31,6 +32,10 @@ const FilterBar = () => {
             type="text"
             className="border p-2 rounded-lg h-[5vh] "
             placeholder="Search"
+            name="searchInput"
+            onChange={(e) => {
+              queryFunc(e.target.value);
+            }}
           />
 
           <DropArrowIcon classname="absolute top-2 right-4 " fill="white" />
