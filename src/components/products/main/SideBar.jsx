@@ -1,16 +1,33 @@
+import { useState } from "react";
 import { DropArrowIcon } from "../../../assets/icons";
+import { getTrackBackground, Range } from "react-range";
 
 const SideBar = ({ setFilter, filter }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log("name", name);
-    console.log("value", value);
 
     setFilter((prev) => ({
       ...prev,
       [name]: value,
     }));
   };
+
+  const handleReset = () => {
+    setValues([5, 120]);
+  };
+
+  const handlePriceChange = (newValues) => {
+    setValues(newValues);
+    setFilter((prev) => ({
+      ...prev,
+      price: newValues,
+    }));
+  };
+
+  const min = 5;
+  const max = 120;
+
+  const [values, setValues] = useState([min, max]);
 
   return (
     <div className="bg-whiteBg w-[20vw] text-black p-4 rounded-xl mt-4">
@@ -143,13 +160,55 @@ const SideBar = ({ setFilter, filter }) => {
           Price
         </h3>
 
-        <div className="flex gap-2 lg:gap-4 items-center">
-          <p className="bg-g rounded-lg bg-lGrayBg py-2 px-3">$5</p>
+        <div className="flex gap-2 lg:gap-4 items-center justify-between">
+          <p className="bg-g rounded-lg bg-lGrayBg py-2 px-3">${values[0]}</p>
           <p>to</p>
-          <p className="bg-g rounded-lg bg-lGrayBg py-2 px-3">$60</p>
+          <p className="bg-g rounded-lg bg-lGrayBg py-2 px-3">${values[1]}</p>
         </div>
-        <span className="border ">slider</span>
-        <p className="text-sm underline mt-2">Reset</p>
+
+        <Range
+          step={5}
+          min={min}
+          max={max}
+          values={values}
+          onChange={handlePriceChange}
+          renderTrack={({ props, children }) => (
+            <div
+              {...props}
+              style={{
+                ...props.style,
+                height: "6px",
+                width: "90%",
+                background: getTrackBackground({
+                  values,
+                  colors: ["#ccc", "#1a1b1d", "#ccc"],
+                  min,
+                  max,
+                }),
+              }}
+            >
+              {children}
+            </div>
+          )}
+          renderThumb={({ props }) => (
+            <div
+              {...props}
+              key={props.key}
+              style={{
+                ...props.style,
+                height: "18px",
+                width: "18px",
+                backgroundColor: "#1a1b1d",
+                borderRadius: "50%",
+                outline: "none",
+              }}
+            ></div>
+          )}
+        />
+
+        <button onClick={handleReset} className="text-sm underline mt-2">
+          Reset
+        </button>
       </div>
 
       <div>

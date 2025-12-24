@@ -39,10 +39,14 @@ const Main = () => {
     const star =
       filter.ratingCheck === "" ? true : item.star > filter.ratingCheck;
 
-    return queryCheck && lang && year && publishH && cover && star;
-  });
+    const itemPrice = parseFloat(item.saleP.replace("$", ""));
+    const [minPrice, maxPrice] = filter.price || [0, 120];
+    const matchesPrice = itemPrice >= minPrice && itemPrice <= maxPrice;
 
-  // setResult(array.length);
+    return (
+      queryCheck && lang && year && publishH && cover && star && matchesPrice
+    );
+  });
 
   return (
     <div className="max-w-[1440px] mx-auto px-4 py-10">

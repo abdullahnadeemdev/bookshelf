@@ -15,6 +15,7 @@ const BestSellers = () => {
         {newArr.map((item, index) =>
           index === 6 ? (
             <div
+              key={index}
               onClick={handLeClick}
               className="
             flex

@@ -41,7 +41,7 @@ const FilterBar = ({ queryFunc, setFilter, filterObj }) => {
 
             {activeFilters.map(([key, value]) => (
               <>
-                {console.log("heyyyyyy", key, value)}
+                {/* {console.log("heyyyyyy", key, value)} */}
                 <li
                   key={key}
                   className="bg-lightGrayBg px-3 py-2.5 rounded-full flex items-center gap-2 text-white"
