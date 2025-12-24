@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Bookmark, Comment, Star } from "../../../assets/icons";
 import { NavLink } from "react-router";
 const Card = (props) => {
+  const isAuth = props.data;
+
   const [isBookmarked, setIsBookmarked] = useState(() => {
     const saved = JSON.parse(localStorage.getItem("bookmarks")) || [];
     return saved.some((b) => b.title === props.title);
@@ -138,7 +140,7 @@ const Card = (props) => {
                 </p>
               </span>
               <div onClick={(e) => handleBookmark(e)}>
-                <Bookmark fill={isBookmarked ? "white" : "#2a2c2e"} />
+                <Bookmark fill={isAuth && isBookmarked ? "white" : "#2a2c2e"} />
               </div>
             </div>
 

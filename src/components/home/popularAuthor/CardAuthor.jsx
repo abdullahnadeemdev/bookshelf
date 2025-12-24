@@ -1,10 +1,17 @@
+import { useNavigate } from "react-router";
 import { Bookmark } from "../../../assets/icons";
 
 const CardAuthor = (props) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/authorsPopular");
+  };
   return (
     <>
       {props.author === "SEE ALL" ? (
         <div
+          onClick={handleClick}
           className="
             flex
             w-full  h-[25vh]

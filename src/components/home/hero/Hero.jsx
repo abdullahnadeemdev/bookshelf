@@ -2,8 +2,14 @@ import HeroImg from "../../../assets/images/tipo.jpg";
 import Button from "../../shared/button/Button";
 import { SearchIcon } from "../../../assets/icons";
 import { Stamp } from "../../../assets/icons";
+import { useNavigate } from "react-router";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const handleBrowse = () => {
+    navigate("/books");
+  };
   return (
     <div
       className="
@@ -49,7 +55,11 @@ const Hero = () => {
               problem. Check out the collections we have prepared for you.
             </p>
 
-            <Button variant="outline" className="text-yellow">
+            <Button
+              variant="outline"
+              className="text-yellow hover:bg-yellow hover:text-blackC"
+              onClick={handleBrowse}
+            >
               BROWSE NOW
             </Button>
           </div>

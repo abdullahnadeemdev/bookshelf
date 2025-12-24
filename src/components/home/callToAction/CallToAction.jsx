@@ -1,6 +1,11 @@
+import { useNavigate } from "react-router";
 import { ArrowIcon } from "../../../assets/icons/ArrowIcon";
 
 const CallToAction = () => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/books");
+  };
   return (
     <div className="bg-grayBg rounded-2xl sm:max-h-60 p-6 flex flex-col sm:flex-row justify-between max-w-[1440px] px-4 mx-auto">
       <div className="flex flex-col gap-8 ">
@@ -13,7 +18,10 @@ const CallToAction = () => {
           recommendations.
         </p>
       </div>
-      <div className="bg-yellow w-fit flex items-center justify-center rounded-2xl ">
+      <div
+        className="bg-yellow w-fit flex items-center justify-center rounded-2xl "
+        onClick={handleClick}
+      >
         <ArrowIcon classname="w-10 h-10 sm:h-20 sm:w-30 md:h-30 md:w-40 lg:h-45 lg:w-45" />
       </div>
     </div>
