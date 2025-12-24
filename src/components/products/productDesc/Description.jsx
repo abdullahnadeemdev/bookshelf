@@ -1,4 +1,4 @@
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import {
   Bookmark,
   RightArrowIcon,
@@ -9,7 +9,10 @@ import Button from "../../shared/button/Button";
 import { id } from "../../../utils/utils";
 import { useState } from "react";
 
-const Description = () => {
+const Description = (props) => {
+  console.log("desc props", props.data);
+
+  const isAuth = props.data;
   const [quant, setQuant] = useState(1);
   const { state } = useLocation();
 
@@ -31,22 +34,29 @@ const Description = () => {
     quantity: quant,
     image: state.img,
   };
-
+  const navigate = useNavigate();
   const handleCart = () => {
-    const isDuplicate = cartData.some((item) => item.title === state.title);
+    if (isAuth) {
+      const isDuplicate = cartData.some((item) => item.title === state.title);
 
-    if (isDuplicate) {
-      const updatedCart = cartData.map((item) =>
-        item.title === state.title
-          ? { ...item, quantity: item.quantity + quant }
-          : item
-      );
-      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      if (isDuplicate) {
+        const updatedCart = cartData.map((item) =>
+          item.title === state.title
+            ? { ...item, quantity: item.quantity + quant }
+            : item
+        );
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+      } else {
+        localStorage.setItem(
+          "cart",
+          JSON.stringify([...cartData, productInfo])
+        );
+      }
+      window.location.reload();
     } else {
-      localStorage.setItem("cart", JSON.stringify([...cartData, productInfo]));
+      alert("Login First!!!");
+      navigate("/login");
     }
-    window.location.reload();
-    alert("Added to cart!");
   };
 
   return (

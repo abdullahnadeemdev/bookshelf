@@ -1,6 +1,5 @@
 import React from "react";
-import Description from "./Description.jsx";
-// import Description from "../../container/DescContainer.jsx";
+import Description from "../../container/DescriptionContainer.jsx";
 import Suggestion from "./Suggestion.jsx";
 import Review from "./Review.jsx";
 import { useLocation } from "react-router";

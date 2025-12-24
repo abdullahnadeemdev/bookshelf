@@ -9,9 +9,11 @@ import { menuArr } from "../../../utils/utils";
 import { NavLink, useLocation, useNavigate } from "react-router";
 import { Link } from "react-scroll";
 
-const NavBar = () => {
-  const location = useLocation().pathname;
-  const navigate = useNavigate();
+const NavBar = (props) => {
+  console.log("porps Navbar", props.data);
+  const isAuth = props.data;
+  // const location = useLocation().pathname;
+  // const navigate = useNavigate();
 
   const [click, setClick] = useState(false);
   const handleClick = () => {
@@ -81,18 +83,27 @@ const NavBar = () => {
               </NavLink>
               <li>
                 <NavLink to="/cart">
-                  <p className="absolute font-bold w-6 h-6 top-0 right-28 bg-red rounded-full text-center">
-                    {num}
-                  </p>
+                  {isAuth ? (
+                    <p className="absolute font-bold w-6 h-6 top-0 right-28 bg-red rounded-full text-center">
+                      {num}
+                    </p>
+                  ) : (
+                    ""
+                  )}
+
                   <CartIcon className=" h-3.5 w-3.5 lg:h-5 lg:w-5" />
                 </NavLink>
               </li>
             </ul>
-            <div>
-              <NavLink to="/login">
-                <Button className="ml:2 lg:ml-4">LOGIN</Button>
-              </NavLink>
-            </div>
+            {!isAuth ? (
+              <div>
+                <NavLink to="/login">
+                  <Button className="ml:2 lg:ml-4">LOGIN</Button>
+                </NavLink>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>

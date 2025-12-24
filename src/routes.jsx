@@ -8,6 +8,7 @@ import Login from "./components/container/LoginContainer";
 import SignUp from "./pages/signUp/SignUp";
 
 import { Route, Routes, Navigate } from "react-router";
+import PageNotFound from "./pages/pageNotFound/PageNotFound";
 
 const Router = (props) => {
   const isAuth = props.data;
@@ -41,6 +42,7 @@ const Router = (props) => {
       />
 
       <Route path="*" element={<Navigate to="/" />} />
+      {/* <Route path="*" element={<PageNotFound auth={isAuth} />} /> */}
     </Routes>
   );
 };
