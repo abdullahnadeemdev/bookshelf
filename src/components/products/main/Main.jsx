@@ -47,33 +47,43 @@ const Main = () => {
   return (
     <div className="max-w-[1440px] mx-auto px-4 py-10">
       <div className="">
-        <FilterBar queryFunc={setQuery} setFilter={setFilter} />
+        <FilterBar
+          queryFunc={setQuery}
+          setFilter={setFilter}
+          filterObj={filter}
+        />
       </div>
       <div className="bg-grayBg mt-10 flex gap-2">
         <div className="hidden md:block">
           <SideBar setFilter={setFilter} filter={filter} />
         </div>
         <div className="flex justify-around gap-2 md:gap-3 flex-wrap">
-          {array.map((item, index) => (
-            <Card
-              key={index}
-              image={item.image}
-              author={item.author}
-              title={item.title}
-              comts={item.comts}
-              star={item.star}
-              people={item.people}
-              price={item.price}
-              saleP={item.saleP}
-              type={item.type}
-              publishDate={item.publishDate}
-              lang={item.lang}
-              pages={item.pages}
-              readTime={item.readTime}
-              cover={item.cover}
-              publisher={item.publisher}
-            />
-          ))}
+          {array.length > 0 ? (
+            array.map((item, index) => (
+              <Card
+                key={index}
+                image={item.image}
+                author={item.author}
+                title={item.title}
+                comts={item.comts}
+                star={item.star}
+                people={item.people}
+                price={item.price}
+                saleP={item.saleP}
+                type={item.type}
+                publishDate={item.publishDate}
+                lang={item.lang}
+                pages={item.pages}
+                readTime={item.readTime}
+                cover={item.cover}
+                publisher={item.publisher}
+              />
+            ))
+          ) : (
+            <p className="text-red text-4xl  w-full text-center font-bold pt-[20%]">
+              No books found
+            </p>
+          )}
 
           <svg
             width={524}

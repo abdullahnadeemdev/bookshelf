@@ -2,41 +2,26 @@ import { useState } from "react";
 import { Bookmark, Comment, Star } from "../../../assets/icons";
 import { NavLink } from "react-router";
 const Card = (props) => {
-  let booksArray = JSON.parse(localStorage.getItem("bookmarks")) || [];
-
-  const checkBookMark = booksArray?.find((b) => b.title === props.title);
-
-  const [clr, setClr] = useState(checkBookMark ? "white" : "#2a2c2e");
-  const book = {
-    image: props.image,
-    author: props.author,
-    title: props.title,
-    comts: props.comts,
-    star: props.star,
-    people: props.people,
-    price: props.price,
-    saleP: props.saleP,
-    type: props.type,
-    publishDate: props.publishDate,
-    lang: props.lang,
-    pages: props.pages,
-    readTime: props.readTime,
-    cover: props.cover,
-    publisher: props.publisher,
-  };
+  const [isBookmarked, setIsBookmarked] = useState(() => {
+    const saved = JSON.parse(localStorage.getItem("bookmarks")) || [];
+    return saved.some((b) => b.title === props.title);
+  });
 
   const handleBookmark = (e) => {
     e.preventDefault();
     e.stopPropagation();
 
-    if (clr !== "white") {
-      booksArray.push(book);
-      localStorage.setItem("bookmarks", JSON.stringify(booksArray));
-      clr === "white" ? setClr("#1a1b1d") : setClr("white");
-      window.location.reload();
+    const currentBookmarks =
+      JSON.parse(localStorage.getItem("bookmarks")) || [];
+
+    if (!isBookmarked) {
+      const updated = [...currentBookmarks, props];
+      localStorage.setItem("bookmarks", JSON.stringify(updated));
+      setIsBookmarked(true);
     } else {
-      const updatedArray = booksArray.filter((b) => b.title !== props.title);
-      localStorage.setItem("bookmarks", JSON.stringify(updatedArray));
+      const updated = currentBookmarks.filter((b) => b.title !== props.title);
+      localStorage.setItem("bookmarks", JSON.stringify(updated));
+      setIsBookmarked(false);
     }
   };
 
@@ -153,7 +138,7 @@ const Card = (props) => {
                 </p>
               </span>
               <div onClick={(e) => handleBookmark(e)}>
-                <Bookmark fillClr={clr} classname="" />
+                <Bookmark fill={isBookmarked ? "white" : "#2a2c2e"} />
               </div>
             </div>
 

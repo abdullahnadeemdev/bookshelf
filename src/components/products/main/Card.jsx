@@ -3,25 +3,11 @@ import { Bookmark, Comment, Star } from "../../../assets/icons";
 import { useState } from "react";
 
 const Card = (props) => {
-  // const handleBookmark = (e) => {
-  //   e.preventDefault();
-  //   e.stopPropogation();
-  //   clr === "white" ? setClr("#1a1b1d") : setClr("white");
+  const [isBookmarked, setIsBookmarked] = useState(() => {
+    const booksArray = JSON.parse(localStorage.getItem("bookmarks")) || [];
+    return booksArray.some((b) => b.title === props.title);
+  });
 
-  //   if (clr !== "white") {
-  //     booksArray.push(book);
-  //     localStorage.setItem("bookmarks", JSON.stringify(booksArray));
-  //   } else {
-  //     const updatedArray = booksArray.filter((b) => b.title !== props.title);
-  //     localStorage.setItem("bookmarks", JSON.stringify(updatedArray));
-  //   }
-  // };
-
-  let booksArray = JSON.parse(localStorage.getItem("bookmarks")) || [];
-
-  const checkBookMark = booksArray?.find((b) => b.title === props.title);
-
-  const [clr, setClr] = useState(checkBookMark ? "white" : "#2a2c2e");
   const book = {
     image: props.image,
     author: props.author,
@@ -44,15 +30,20 @@ const Card = (props) => {
     e.preventDefault();
     e.stopPropagation();
 
-    if (clr !== "white") {
-      booksArray.push(book);
-      console.log("booksArray", booksArray);
-      localStorage.setItem("bookmarks", JSON.stringify(booksArray));
-      clr === "white" ? setClr("#1a1b1d") : setClr("white");
-      window.location.reload();
+    const currentBookmarks = JSON.parse(
+      localStorage.getItem("bookmarks") || []
+    );
+
+    if (!isBookmarked) {
+      const updated = [...currentBookmarks, props];
+      localStorage.setItem("bookmarks", JSON.stringify(updated));
+      setIsBookmarked(true);
     } else {
-      const updatedArray = booksArray.filter((b) => b.title !== props.title);
+      const updatedArray = currentBookmarks.filter(
+        (b) => b.title !== props.title
+      );
       localStorage.setItem("bookmarks", JSON.stringify(updatedArray));
+      setIsBookmarked(false);
     }
   };
   return (
@@ -84,7 +75,10 @@ const Card = (props) => {
           alt=""
         />
         <div onClick={(e) => handleBookmark(e)}>
-          <Bookmark fillClr={clr} classname="absolute z-30 top-2 right-2" />
+          <Bookmark
+            fill={isBookmarked ? "white" : "#2a2c2e"}
+            classname="absolute z-30 top-2 right-2"
+          />
         </div>
       </div>
 

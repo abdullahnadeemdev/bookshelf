@@ -6,26 +6,16 @@ import { MenuIcon } from "../../../assets/icons";
 import Button from "../button/Button";
 import { useState } from "react";
 import { menuArr } from "../../../utils/utils";
-import { NavLink, useLocation, useNavigate } from "react-router";
+import { NavLink } from "react-router";
 import { Link } from "react-scroll";
 
 const NavBar = (props) => {
-  // console.log("porps Navbar", props.data);
   const isAuth = props.data;
-  // const location = useLocation().pathname;
-  // const navigate = useNavigate();
 
   const [click, setClick] = useState(false);
   const handleClick = () => {
     setClick(!click);
   };
-
-  // const handleNav = () => {
-  //   if (location !== "/books") {
-  //     navigate("/books");
-  //     scrollTo("/authors");
-  //   }
-  // };
 
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   let num = cart?.length;
@@ -53,22 +43,32 @@ const NavBar = (props) => {
               Books
             </NavLink>
 
-            <Link
-              to="authors"
-              smooth={true}
-              duration={1000}
-              // onClick={handleNav}
+            <NavLink
+              to="/authorsPopular"
+              className={({ isActive }) =>
+                isActive ? "text-yellow" : "text-whiteBg"
+              }
             >
               Authors
-            </Link>
+            </NavLink>
 
-            <Link to="bestSellers" smooth={true} duration={1000}>
+            <NavLink
+              to="/bookmark"
+              className={({ isActive }) =>
+                isActive ? "text-yellow" : "text-whiteBg"
+              }
+            >
               What to Read?
-            </Link>
+            </NavLink>
 
-            <Link to="recommend" smooth={true} duration={1000}>
+            <NavLink
+              to="/books"
+              className={({ isActive }) =>
+                isActive ? "text-yellow" : "text-whiteBg"
+              }
+            >
               Gift Ideas
-            </Link>
+            </NavLink>
 
             <Link>About Us</Link>
           </ul>
@@ -84,7 +84,7 @@ const NavBar = (props) => {
               <li>
                 <NavLink to="/cart">
                   {isAuth ? (
-                    <p className="absolute font-bold w-6 h-6 top-0 right-28 bg-red rounded-full text-center">
+                    <p className="absolute font-bold w-6 h-6 -top-2 right-1 bg-red rounded-full text-center">
                       {num}
                     </p>
                   ) : (
