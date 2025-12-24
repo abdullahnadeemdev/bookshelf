@@ -5,19 +5,53 @@ import Card from "./Card";
 import { useState } from "react";
 
 const Main = () => {
+  // const [result, setResult] = useState(0);
   const [query, setQuery] = useState("");
-  console.log("Main query", query);
-  const array = ArrayProducts.filter((item) =>
-    item.title.toLowerCase().includes(query)
-  );
+
+  const [filter, setFilter] = useState({
+    categoryInput: "",
+    yearsInput: "",
+    language: "",
+    price: "",
+    publishH: "",
+    coverType: "",
+    ratingCheck: "",
+  });
+
+  // console.log("Main query", query);
+
+  const array = ArrayProducts.filter((item) => {
+    const queryCheck = item.title.toLowerCase().includes(query.toLowerCase());
+
+    const lang =
+      filter.language === "" ? true : item.lang.includes(filter.language);
+
+    const year =
+      !filter.yearsInput || filter.yearsInput === "none"
+        ? true
+        : item.publishDate.includes(filter.yearsInput);
+
+    const publishH =
+      filter.publishH === "" ? true : item.publisher.includes(filter.publishH);
+
+    const cover =
+      filter.coverType === "" ? true : item.cover.includes(filter.coverType);
+    const star =
+      filter.ratingCheck === "" ? true : item.star > filter.ratingCheck;
+
+    return queryCheck && lang && year && publishH && cover && star;
+  });
+
+  // setResult(array.length);
+
   return (
     <div className="max-w-[1440px] mx-auto px-4 py-10">
       <div className="">
-        <FilterBar queryFunc={setQuery} />
+        <FilterBar queryFunc={setQuery} setFilter={setFilter} />
       </div>
       <div className="bg-grayBg mt-10 flex gap-2">
         <div className="hidden md:block">
-          <SideBar />
+          <SideBar setFilter={setFilter} filter={filter} />
         </div>
         <div className="flex justify-around gap-2 md:gap-3 flex-wrap">
           {array.map((item, index) => (
@@ -40,6 +74,7 @@ const Main = () => {
               publisher={item.publisher}
             />
           ))}
+
           <svg
             width={524}
             height={40}

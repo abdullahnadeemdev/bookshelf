@@ -1,7 +1,19 @@
 import React from "react";
 import { CloseIcon, DropArrowIcon } from "../../../assets/icons";
+import Button from "../../shared/button/Button";
 
-const FilterBar = ({ queryFunc }) => {
+const FilterBar = ({ queryFunc, setFilter }) => {
+  const handleReset = () => {
+    setFilter({
+      categoryInput: "",
+      yearsInput: "",
+      language: "",
+      price: "",
+      publishH: "",
+      coverType: "",
+      ratingCheck: "",
+    });
+  };
   // console.log("props props props props", queryFunc);
   return (
     <div className="flex flex-row items-center w-full justify-center sm:justify-between ">
@@ -12,14 +24,22 @@ const FilterBar = ({ queryFunc }) => {
         </div>
         <div className="hidden lg:block">
           <ul className="flex gap-2">
-            <li className="bg-darkGrey px-3 py-2 rounded-full">Reset all</li>
+            <Button
+              className="bg-darkGrey! text-whiteBg! px-3 py-2 rounded-full"
+              onClick={handleReset}
+            >
+              Reset all
+            </Button>
+
             <li className="bg-lightGrayBg px-3 py-2.5 rounded-full flex gap-2">
               <p>English</p> <CloseIcon />
             </li>
+
             <li className="bg-lightGrayBg px-3 py-2.5 rounded-full flex gap-2">
               <p>Hardcover</p>
               <CloseIcon />
             </li>
+
             <li className="bg-lightGrayBg px-3 py-2.5 rounded-full flex gap-2">
               <p> Rib Knits</p> <CloseIcon />
             </li>

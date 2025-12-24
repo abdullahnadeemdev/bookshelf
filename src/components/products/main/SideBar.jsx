@@ -1,7 +1,17 @@
-import React from "react";
 import { DropArrowIcon } from "../../../assets/icons";
 
-const SideBar = () => {
+const SideBar = ({ setFilter, filter }) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    console.log("name", name);
+    console.log("value", value);
+
+    setFilter((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
   return (
     <div className="bg-whiteBg w-[20vw] text-black p-4 rounded-xl mt-4">
       <div>
@@ -50,14 +60,31 @@ const SideBar = () => {
           PUBLISH DATE
         </h3>
         <span className="relative">
-          <input
-            type="text"
+          <select
+            type="input"
             name="yearsInput"
+            onChange={handleChange}
             id="yearsInput"
-            className="p-2 border text-black border-black rounded-xl my-3 w-[12vw]"
+            className="py-2 px-3  border text-black border-black rounded-xl my-3 w-[12vw]"
             placeholder="All Years"
-          />
-          <DropArrowIcon classname="absolute top-2 right-4 " />
+          >
+            <option className="max-w-3" value="none">
+              none
+            </option>
+            <option className="max-w-3" value="2007">
+              2007
+            </option>
+            <option className="max-w-3" value="2005">
+              2005
+            </option>
+            <option className="max-w-3" value="2006">
+              2006
+            </option>
+            <option className="max-w-3" value="2008">
+              2008
+            </option>
+          </select>
+          {/* <DropArrowIcon classname="absolute top-2 right-4 " /> */}
         </span>
       </div>
 
@@ -67,20 +94,45 @@ const SideBar = () => {
         </h3>
         <div className="flex flex-col gap-2">
           <span className="flex gap-1 mt-2">
-            <input type="checkbox" name="engCheck" />
-            <label htmlFor="engCheck" className="">
+            <label className="">
+              <input
+                className="mr-1"
+                value="English"
+                checked={filter.language === "English"}
+                onChange={handleChange}
+                type="checkbox"
+                name="language"
+              />
               English
             </label>
           </span>
 
           <span className="flex gap-1">
-            <input type="checkbox" name="russianCheck" />
-            <label htmlFor="russianCheck">Russian</label>
+            <label>
+              <input
+                className="mr-1"
+                onChange={handleChange}
+                value="Russian"
+                checked={filter.language === "Russian"}
+                type="checkbox"
+                name="language"
+              />
+              Russian
+            </label>
           </span>
 
           <span className="flex gap-1 mb-2">
-            <input type="checkbox" name="urduCheck" />
-            <label htmlFor="urduCheck">Urdu</label>
+            <label>
+              <input
+                className="mr-1"
+                value="Urdu"
+                checked={filter.language === "Urdu"}
+                onChange={handleChange}
+                type="checkbox"
+                name="language"
+              />
+              Urdu
+            </label>
           </span>
         </div>
 
@@ -107,29 +159,67 @@ const SideBar = () => {
 
         <div className="flex flex-col lg:gap-2">
           <span className="flex gap-1 mt-2">
-            <input type="checkbox" name="ribCheck" />
-            <label htmlFor="ribCheck" className="">
+            <label className="">
+              <input
+                className="mr-1"
+                onChange={handleChange}
+                value="Rib Knits"
+                type="checkbox"
+                name="publishH"
+              />
               Rib Knits
             </label>
           </span>
 
           <span className="flex gap-1">
-            <input type="checkbox" name="panneCheck" />
-            <label htmlFor="panneCheck">Panne Velvet</label>
+            <label>
+              <input
+                className="mr-1"
+                value="Panne Velvet"
+                onChange={handleChange}
+                type="checkbox"
+                name="publishH"
+              />
+              Panne Velvet
+            </label>
           </span>
 
           <span className="flex gap-1 mb-2">
-            <input type="checkbox" name="fabricCheck" />
-            <label htmlFor="fabricCheck">Elasticized Fabrics</label>
+            <label>
+              <input
+                className="mr-1"
+                value="Elasticized Fabrics"
+                type="checkbox"
+                onChange={handleChange}
+                name="publishH"
+              />
+              Elasticized Fabrics
+            </label>
           </span>
 
           <span className="flex gap-1 mb-2">
-            <input type="checkbox" name="dottedCheck" />
-            <label htmlFor="dottedCheck">Dotted Swiss</label>
+            <label>
+              <input
+                className="mr-1"
+                value="Dotted Swiss"
+                onChange={handleChange}
+                type="checkbox"
+                name="publishH"
+              />
+              Dotted Swiss
+            </label>
           </span>
           <span className="flex gap-1 mb-2">
-            <input type="checkbox" name="dKnitCheck" />
-            <label htmlFor="dKnitCheck">Double Knit</label>
+            <label>
+              <input
+                className="mr-1"
+                value="Double Knit"
+                type="checkbox"
+                onChange={handleChange}
+                name="publishH"
+              />
+              Double Knit
+            </label>
           </span>
         </div>
 
@@ -143,15 +233,29 @@ const SideBar = () => {
 
         <div className="flex flex-col gap-2">
           <span className="flex gap-1 mt-2">
-            <input type="radio" name="hardCoverRadio" />
-            <label htmlFor="hardCoverRadio" className="">
+            <label className="">
+              <input
+                className="mr-1"
+                onChange={handleChange}
+                value="Hardcover"
+                type="radio"
+                name="coverType"
+              />
               Hardcover
             </label>
           </span>
 
           <span className="flex gap-1">
-            <input type="radio" name="softCoverRadio" />
-            <label htmlFor="softCoverRadio">Softcover</label>
+            <label>
+              <input
+                className="mr-1"
+                onChange={handleChange}
+                value="Softcover"
+                type="radio"
+                name="coverType"
+              />
+              Softcover
+            </label>
           </span>
         </div>
       </div>
@@ -161,8 +265,14 @@ const SideBar = () => {
           OTHER
         </h3>
         <span className="flex gap-2 mt-2">
-          <input type="checkbox" name="ratingCheck" />
-          <label htmlFor="ratingCheck" className="">
+          <label className="">
+            <input
+              className="mr-1"
+              value="4"
+              type="checkbox"
+              onChange={handleChange}
+              name="ratingCheck"
+            />
             4+ stars
           </label>
         </span>
