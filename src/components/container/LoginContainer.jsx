@@ -8,7 +8,7 @@ const mapState = (state) => ({
 
 const mapDispatch = (dispatch) => ({
   userLogin: (data) => {
-    console.log("data container", data);
+    // console.log("data Login container", data);
     return dispatch(loginTrue(data));
   },
 });

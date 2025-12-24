@@ -89,7 +89,9 @@ const NavBar = () => {
               </li>
             </ul>
             <div>
-              <Button className="ml:2 lg:ml-4">LOGIN</Button>
+              <NavLink to="/login">
+                <Button className="ml:2 lg:ml-4">LOGIN</Button>
+              </NavLink>
             </div>
           </div>
         </div>

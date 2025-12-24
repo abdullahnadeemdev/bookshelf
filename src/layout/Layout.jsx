@@ -2,19 +2,35 @@ import { useRef } from "react";
 import Footer from "../components/shared/footer/Footer";
 // import NavBar from "../components/shared/navBar/navBar";
 import NavbarContainer from "../components/container/NavbarContainer";
+import { useLocation } from "react-router";
 
 const Layout = ({ children }) => {
+  const loc = useLocation().pathname;
+  console.log("loc", loc);
+
+  const handleNavbar = () => {
+    if (loc === "/login" || loc === "/sign-up") {
+      return false;
+    } else {
+      return true;
+    }
+  };
   return (
     <>
       <div className="flex flex-col items-center w-full text-white bg-whiteBg py-6">
-        <NavbarContainer />
+        {handleNavbar() ? <NavbarContainer /> : ""}
+
         {/* Childerns */}
         <div className="w-full">
           <main>{children}</main>
         </div>
-        <div className="bg-grayBg w-full">
-          <Footer />
-        </div>
+        {handleNavbar() ? (
+          <div className="bg-grayBg w-full">
+            <Footer />
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </>
   );
