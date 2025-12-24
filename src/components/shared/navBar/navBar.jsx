@@ -10,7 +10,7 @@ import { NavLink, useLocation, useNavigate } from "react-router";
 import { Link } from "react-scroll";
 
 const NavBar = (props) => {
-  console.log("porps Navbar", props.data);
+  // console.log("porps Navbar", props.data);
   const isAuth = props.data;
   // const location = useLocation().pathname;
   // const navigate = useNavigate();

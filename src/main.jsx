@@ -8,7 +8,7 @@ import RootReducer from "./components/services/reducer/RootReducer.jsx";
 import { configureStore } from "@reduxjs/toolkit";
 
 const store = configureStore({ reducer: RootReducer });
-console.log("store", store);
+// console.log("store", store);
 
 createRoot(document.getElementById("root")).render(
   <Provider store={store}>

@@ -6,7 +6,7 @@ import { useLocation } from "react-router";
 
 const Layout = ({ children }) => {
   const loc = useLocation().pathname;
-  console.log("loc", loc);
+  // console.log("loc", loc);
 
   const handleNavbar = () => {
     if (loc === "/login" || loc === "/sign-up") {
@@ -17,7 +17,7 @@ const Layout = ({ children }) => {
   };
   return (
     <>
-      <div className="flex flex-col items-center w-full text-white bg-whiteBg py-6">
+      <div className="flex flex-col items-center w-full text-white bg-whiteBg pt-6">
         {handleNavbar() ? <NavbarContainer /> : ""}
 
         {/* Childerns */}
