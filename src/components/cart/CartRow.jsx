@@ -1,20 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import Anne from "../../assets/images/Anne.png";
 import Button from "../shared/button/Button";
 
 const CartRow = (props) => {
-  const arrayCart = JSON.parse(localStorage.getItem("cart")) || [];
+  const [cartItems, setCartItems] = useState(() => {
+    return JSON.parse(localStorage.getItem("cart")) || [];
+  });
 
-  const handleRemove = () => {
-    if (arrayCart.length > 0) {
-      const newCart = arrayCart.filter((item) => item.title !== props.title);
-      localStorage.setItem("cart", JSON.stringify(newCart));
-      window.location.reload();
-    } else {
-      console.log("cart is empty");
-    }
+  const removeItem = (title) => {
+    const updatedCart = cartItems.filter((item) => item.title !== props.title);
+
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    setCartItems(updatedCart);
   };
-  // console.log("props price", props);
   const price = parseFloat(props.price);
   const quantity = props.quantity;
   return (
@@ -26,7 +24,7 @@ const CartRow = (props) => {
             <div>
               <p className="font-semibold">{props.title}</p>
               <p className="text-gray-500">{props.author}</p>
-              <button className="text-red-500 text-sm" onClick={handleRemove}>
+              <button className="text-red-500 text-sm" onClick={removeItem}>
                 Remove
               </button>
             </div>

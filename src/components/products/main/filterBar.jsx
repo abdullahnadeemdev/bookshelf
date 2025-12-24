@@ -15,8 +15,8 @@ const FilterBar = ({ queryFunc, setFilter, filterObj }) => {
     });
   };
 
-  Object.filter = (obj, checking) =>
-    Object.fromEntries(Object.entries(obj).filter(checking));
+  // Object.filter = (obj, checking) =>
+  //   Object.fromEntries(Object.entries(obj).filter(checking));
 
   const activeFilters = Object.entries(filterObj).filter(([key, value]) => {
     return Array.isArray(value) ? value.length > 0 : value !== "";

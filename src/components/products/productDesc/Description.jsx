@@ -10,7 +10,9 @@ import { id } from "../../../utils/utils";
 import { useState } from "react";
 
 const Description = (props) => {
-  console.log("desc props", props.data);
+  const [cartItems, setCartItems] = useState(() => {
+    return JSON.parse(localStorage.getItem("cart")) || [];
+  });
 
   const isAuth = props.data;
   const [quant, setQuant] = useState(1);
@@ -24,7 +26,7 @@ const Description = (props) => {
     );
   }
 
-  const cartData = JSON.parse(localStorage.getItem("cart")) || [];
+  // const cartData = JSON.parse(localStorage.getItem("cart")) || [];
 
   const productInfo = {
     id: id(),
@@ -34,28 +36,33 @@ const Description = (props) => {
     quantity: quant,
     image: state.img,
   };
-  const navigate = useNavigate();
-  const handleCart = () => {
-    if (isAuth) {
-      const isDuplicate = cartData.some((item) => item.title === state.title);
 
-      if (isDuplicate) {
-        const updatedCart = cartData.map((item) =>
-          item.title === state.title
-            ? { ...item, quantity: item.quantity + quant }
-            : item
-        );
-        localStorage.setItem("cart", JSON.stringify(updatedCart));
-      } else {
-        localStorage.setItem(
-          "cart",
-          JSON.stringify([...cartData, productInfo])
-        );
-      }
-      window.location.reload();
-    } else {
+  const navigate = useNavigate();
+
+  const handleCart = () => {
+    if (!isAuth) {
       alert("Login First!!!");
       navigate("/login");
+      return;
+    }
+
+    const isDuplicate = cartItems?.some((item) => item.title === state.title);
+    let updatedCart;
+
+    if (isDuplicate) {
+      updatedCart = cartItems.map((item) =>
+        item.title === state.title
+          ? { ...item, quantity: item.quantity + quant }
+          : item
+      );
+      setCartItems(updatedCart);
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      alert("Added to cart!");
+    } else {
+      updatedCart = [...cartItems, productInfo];
+      setCartItems(updatedCart);
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      alert("Added to cart!");
     }
   };
 
