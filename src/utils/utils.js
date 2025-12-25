@@ -23,6 +23,9 @@ import Flo from "../assets/images/Flo.png";
 export const isLoginT = "loginT";
 export const isLoginF = "loginF";
 
+export const addItemsToCart = "addItemsToCart";
+export const removeItemsFromCart = "removeItemsFromCart";
+
 export const menuArr = [
   "Books",
   "Authors",

@@ -9,33 +9,22 @@ const getItem = () => {
     return false;
   }
 };
-// console.log("getItem()", getItem());
-
 const logCheck = getItem();
-// console.log("getItem()", logCheck);
 
 const initialState = {
   login: logCheck,
 };
-// console.log("initialState.login()", initialState.login);
 
 const isLogin = (state = initialState.login, action) => {
-  if (!logCheck) {
-    switch (action.type) {
-      case isLoginT: {
-        //   console.log("state Reducer", state);
-        //   console.log("action Reducer", action);
-        //   console.log("action Reducer data", action.data);
-        return (state = true);
-      }
-      case isLoginF: {
-        return (state = false);
-      }
-      default:
-        return state;
+  switch (action.type) {
+    case isLoginT: {
+      return (state = true);
     }
-  } else {
-    console.log("I WORK");
+    case isLoginF: {
+      return (state = false);
+    }
+    default:
+      return state;
   }
 };
 

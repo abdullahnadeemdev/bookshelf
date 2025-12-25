@@ -1,11 +1,5 @@
-import React, { useState } from "react";
-
 const CartRow = (props) => {
-  // const [cartItems, setCartItems] = useState(() => {
-  //   return JSON.parse(localStorage.getItem("cart")) || [];
-  // });
-
-  // console.log("before cartItems", cartItems);
+  console.log("propspropspropsCARTRrow", props);
 
   const removeItem = () => {
     const updatedCart = props.cartItems.filter(
@@ -13,9 +7,8 @@ const CartRow = (props) => {
     );
 
     props.setCartItems(updatedCart);
+    props.cartItemsDelete(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-    // console.log("after cartItems", cartItems);
-    // window.location.reload();
   };
   const price = parseFloat(props.price);
   const quantity = props.quantity;

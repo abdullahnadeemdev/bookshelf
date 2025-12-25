@@ -10,9 +10,13 @@ import { id } from "../../../utils/utils";
 import { useState } from "react";
 
 const Description = (props) => {
+  // console.log("propspropsprops", props);
+
   const [cartItems, setCartItems] = useState(() => {
     return JSON.parse(localStorage.getItem("cart")) || [];
   });
+
+  const cartState = (data) => props.cartItemsInfo(data);
 
   const isAuth = props.data;
   const [quant, setQuant] = useState(1);
@@ -56,6 +60,7 @@ const Description = (props) => {
           : item
       );
       setCartItems(updatedCart);
+      cartState({ updatedCart });
       localStorage.setItem("cart", JSON.stringify(updatedCart));
       alert("Added to cart!");
     } else {

@@ -12,7 +12,7 @@ const CardBookmark = (props) => {
     if (array.length > 0) {
       let newarr = array.filter((item) => item.title !== props.title);
       localStorage.setItem("bookmarks", JSON.stringify(newarr));
-      window.location.reload();
+      // window.location.reload();
     } else {
       console.log("array is not found");
     }

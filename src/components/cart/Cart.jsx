@@ -1,6 +1,6 @@
 import { NavLink } from "react-router";
 import Button from "../shared/button/Button";
-import CartRow from "./cartRow";
+import CartRow from "../container/CartRowContainer";
 import { useState } from "react";
 
 const Cart = () => {

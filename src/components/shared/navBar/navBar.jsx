@@ -17,8 +17,7 @@ const NavBar = (props) => {
     setClick(!click);
   };
 
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  let num = cart?.length;
+  let num = props.item.length;
 
   return (
     <div className="w-full max-w-[1440px] px-4 z-50 sticky top-0">

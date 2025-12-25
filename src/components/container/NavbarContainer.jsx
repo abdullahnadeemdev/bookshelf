@@ -4,6 +4,7 @@ import { loginFalse } from "../services/actions/Actions";
 
 const mapState = (state) => ({
   data: state.isLogin,
+  item: state.cartData,
 });
 
 const mapDispatch = (dispatch) => ({
