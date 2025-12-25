@@ -1,17 +1,21 @@
 import React, { useState } from "react";
-import Anne from "../../assets/images/Anne.png";
-import Button from "../shared/button/Button";
 
 const CartRow = (props) => {
-  const [cartItems, setCartItems] = useState(() => {
-    return JSON.parse(localStorage.getItem("cart")) || [];
-  });
+  // const [cartItems, setCartItems] = useState(() => {
+  //   return JSON.parse(localStorage.getItem("cart")) || [];
+  // });
 
-  const removeItem = (title) => {
-    const updatedCart = cartItems.filter((item) => item.title !== props.title);
+  // console.log("before cartItems", cartItems);
 
+  const removeItem = () => {
+    const updatedCart = props.cartItems.filter(
+      (item) => item.title !== props.title
+    );
+
+    props.setCartItems(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-    setCartItems(updatedCart);
+    // console.log("after cartItems", cartItems);
+    // window.location.reload();
   };
   const price = parseFloat(props.price);
   const quantity = props.quantity;

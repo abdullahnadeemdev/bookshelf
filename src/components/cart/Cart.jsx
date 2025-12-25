@@ -1,14 +1,14 @@
 import { NavLink } from "react-router";
 import Button from "../shared/button/Button";
 import CartRow from "./cartRow";
-
-// console.log("I work", ArrayBestSellers);
-// console.log("array", array);
+import { useState } from "react";
 
 const Cart = () => {
-  const array = JSON.parse(localStorage.getItem("cart")) || [];
+  const [cartItems, setCartItems] = useState(() => {
+    return JSON.parse(localStorage.getItem("cart")) || [];
+  });
 
-  const grandTotal = array.reduce((acc, item) => {
+  const grandTotal = cartItems.reduce((acc, item) => {
     const price = parseFloat(item.price.replace("$", ""));
     return acc + price * item.quantity;
   }, 0);
@@ -21,9 +21,11 @@ const Cart = () => {
         <div className="flex-1 text-right">PRICE</div>
       </div>
 
-      {array.length > 0 ? (
-        array.map((item) => (
+      {cartItems.length > 0 ? (
+        cartItems.map((item) => (
           <CartRow
+            cartItems={cartItems}
+            setCartItems={setCartItems}
             key={item.id}
             image={item.image}
             title={item.title}

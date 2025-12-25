@@ -7,7 +7,6 @@ import ProductsDesc from "./pages/productDesc/Index";
 import Login from "./components/container/LoginContainer";
 import SignUp from "./pages/signUp/SignUp";
 import AuthorsPopular from "./pages/authorPage/Index";
-
 import { Route, Routes, Navigate } from "react-router";
 import PageNotFound from "./pages/pageNotFound/PageNotFound";
 

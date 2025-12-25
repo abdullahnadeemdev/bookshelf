@@ -3,8 +3,8 @@ import { useState } from "react";
 import Button from "../../components/shared/button/Button";
 
 const Login = (props) => {
-  console.log("Login props", props);
-  console.log("Login loginState props", props?.data);
+  // console.log("Login props", props);
+  // console.log("Login loginState props", props?.data);
 
   const navigate = useNavigate();
 
@@ -58,6 +58,7 @@ const Login = (props) => {
           return false;
         }
       });
+
       if (user) {
         if (user.pw === values.pw) {
           user.isLogin = true;
