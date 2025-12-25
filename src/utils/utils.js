@@ -25,6 +25,7 @@ export const isLoginF = "loginF";
 
 export const addItemsToCart = "addItemsToCart";
 export const removeItemsFromCart = "removeItemsFromCart";
+export const addItemsDuplicate = "addItemsDuplicate";
 
 export const menuArr = [
   "Books",

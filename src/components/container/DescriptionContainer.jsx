@@ -11,6 +11,9 @@ const mapDispatch = (dispatch) => ({
   cartItemsInfo: (item) => {
     return dispatch(addItem(item));
   },
+  duplicateCartItemsInfo: (item) => {
+    return dispatch(addItem(item));
+  },
 });
 
 export default connect(mapState, mapDispatch)(Description);

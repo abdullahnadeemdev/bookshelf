@@ -9,7 +9,6 @@ const mapState = (state) => ({
 
 const mapDispatch = (dispatch) => ({
   userLogOut: (data) => {
-    console.log("data container Navbar", data);
     return dispatch(loginFalse(data));
   },
 });

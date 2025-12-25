@@ -2,6 +2,7 @@ import { isLoginT } from "../../../utils/utils";
 import { isLoginF } from "../../../utils/utils";
 import { addItemsToCart } from "../../../utils/utils";
 import { removeItemsFromCart } from "../../../utils/utils";
+import { addItemsDuplicate } from "../../../utils/utils";
 
 export const loginTrue = (data) => {
   return {
@@ -20,6 +21,12 @@ export const loginFalse = (data) => {
 export const addItem = (item) => {
   return {
     type: addItemsToCart,
+    item: item,
+  };
+};
+export const addDuplicateItem = (item) => {
+  return {
+    type: addItemsDuplicate,
     item: item,
   };
 };
