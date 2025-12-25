@@ -4,7 +4,7 @@ const Index = () => {
   let booksArray = JSON.parse(localStorage.getItem("bookmarks")) || [];
 
   return (
-    <div className="h-fit pb-10 mb-10 lg:h-screen max-w-[1440px] px-4 bg-blackC">
+    <div className=" pb-10 my-10 h-screen max-w-[1440px] px-4 bg-blackC">
       <h1 className="font-semibold text-4xl py-10">Favourite Books</h1>
       <div className="flex justify-evenly gap-3 flex-wrap">
         {booksArray.length > 0 ? (

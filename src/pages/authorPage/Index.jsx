@@ -4,7 +4,7 @@ import CardAuthor from "./CardAuthor";
 const Index = () => {
   return (
     <div
-      className="h-fit mt-10 lg:h-screen max-w-[1440px] px-0.5 mx-auto bg-blackC "
+      className=" my-10 h-screen max-w-[1440px] px-0.5 mx-auto bg-blackC "
       id="authors"
     >
       <h1 className="font-semibold text-4xl py-10 pl-6">POPULAR AUTHORS</h1>

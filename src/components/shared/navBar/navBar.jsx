@@ -20,7 +20,7 @@ const NavBar = (props) => {
   let num = props.item.length;
 
   return (
-    <div className="w-full max-w-[1440px] px-4 z-50 sticky top-0">
+    <div className="w-full max-w-[1440px] px-4 z-50 md:sticky top-0">
       <div className="bg-grayBg rounded-2xl w-full p-6 hidden md:block">
         <div className=" flex items-center justify-between">
           <NavLink to="/">
@@ -83,7 +83,7 @@ const NavBar = (props) => {
               <li>
                 <NavLink to="/cart">
                   {isAuth ? (
-                    <p className="absolute font-bold w-6 h-6 -top-2 right-1 bg-red rounded-full text-center">
+                    <p className="absolute font-bold text-xs sm:text-sm sm:h-4.5 sm:w-4 lg:text-xl lg:w-6 lg:h-6 -top-2 right-1 bg-red rounded-full text-center">
                       {num}
                     </p>
                   ) : (
@@ -118,20 +118,43 @@ const NavBar = (props) => {
           </span>
         </div>
         <div
-          className={`absolute top-7 sm:top-11 bg-black mt-5 rounded-lg ${
+          className={`absolute top-7 sm:top-11 mx-2 bg-black mt-2 rounded-lg ${
             click ? "border border-grey " : ""
           } w-[96%]`}
         >
           {click ? (
-            <ul className="font-semibold w-fit">
-              {menuArr.map((e, index) => (
-                <li
-                  key={index}
-                  className="px-4 py-3 text-lg rounded-sm hover:cursor-pointer hover:text-purple hover:bg-grey"
-                >
-                  {e}
-                </li>
-              ))}
+            <ul className="mx-2">
+              <NavLink
+                to="/books"
+                className="w-full block font-semibold bg-black text-yellow hover:bg-yellow rounded-2xl mt-1 hover:text-black px-3 py-4 text-lg transition-all duration-300 cursor-pointer "
+              >
+                Books
+              </NavLink>
+
+              <NavLink
+                to="/authorsPopular"
+                className="w-full block font-semibold bg-black text-yellow hover:bg-yellow rounded-2xl hover:text-black px-3 py-4 text-lg transition-all duration-300 cursor-pointer "
+              >
+                Authors
+              </NavLink>
+
+              <NavLink
+                to="/bookmark"
+                className="w-full block font-semibold bg-black text-yellow hover:bg-yellow rounded-2xl hover:text-black px-3 py-4 text-lg transition-all duration-300 cursor-pointer "
+              >
+                What to Read?
+              </NavLink>
+
+              <NavLink
+                to="/books"
+                className="w-full block font-semibold bg-black text-yellow hover:bg-yellow rounded-2xl hover:text-black px-3 py-4 text-lg transition-all duration-300 cursor-pointer "
+              >
+                Gift Ideas
+              </NavLink>
+
+              <NavLink className="w-full block font-semibold mb-1 bg-black text-yellow hover:bg-yellow hover:text-black px-3 py-4 text-lg transition-all duration-300 cursor-pointer ">
+                About Us
+              </NavLink>
             </ul>
           ) : (
             ""
