@@ -6,6 +6,7 @@ import Index from "./components/checkout/checkout1/Index";
 import ProductsDesc from "./pages/productDesc/Index";
 import Login from "./components/container/LoginContainer";
 import SignUp from "./pages/signUp/SignUp";
+import UserPage from "./pages/userPage/UserPage";
 import AuthorsPopular from "./pages/authorPage/Index";
 import { Route, Routes, Navigate } from "react-router";
 import PageNotFound from "./pages/pageNotFound/PageNotFound";
@@ -40,6 +41,10 @@ const Router = (props) => {
       <Route
         path="/checkout"
         element={isAuth ? <Index /> : <Navigate to="/login" />}
+      />
+      <Route
+        path="/userPage"
+        element={isAuth ? <UserPage /> : <Navigate to="/login" />}
       />
       <Route
         path="/cart"

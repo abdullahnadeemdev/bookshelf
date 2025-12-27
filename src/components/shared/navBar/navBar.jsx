@@ -12,8 +12,8 @@ import { Link } from "react-scroll";
 const NavBar = (props) => {
   const isAuth = props.data;
   const getLogin = () => {
-    const arr = JSON.parse(localStorage.getItem("logIn"));
-    return arr.email;
+    const arr = JSON.parse(localStorage.getItem("logIn")) || "";
+    return arr?.email;
   };
   const em = getLogin();
   const [click, setClick] = useState(false);

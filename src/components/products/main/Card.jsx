@@ -3,8 +3,15 @@ import { Bookmark, Comment, Star } from "../../../assets/icons";
 import { useState } from "react";
 
 const Card = (props) => {
+  const getLogin = () => {
+    const user = JSON.parse(localStorage.getItem("logIn")) || {};
+    return user?.email || "";
+  };
+  const em = getLogin();
+
   const [isBookmarked, setIsBookmarked] = useState(() => {
-    const booksArray = JSON.parse(localStorage.getItem("bookmarks")) || [];
+    const array = JSON.parse(localStorage.getItem("bookmarks")) || [];
+    const booksArray = array.filter((item) => item.email === em);
     return booksArray.some((b) => b.title === props.title);
   });
 

@@ -1,4 +1,4 @@
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import Button from "../shared/button/Button";
 import CartRow from "../container/CartRowContainer";
 import { useState } from "react";
@@ -19,6 +19,14 @@ const Cart = () => {
     const price = parseFloat(item.price.replace("$", ""));
     return acc + price * item.quantity;
   }, 0);
+  const navigate = useNavigate();
+  const handleClick = () => {
+    if (cartItems.length > 0) {
+      navigate("/checkout");
+    } else {
+      console.log("cart is empty");
+    }
+  };
 
   return (
     <div className="text-black">
@@ -52,9 +60,9 @@ const Cart = () => {
           <p className="font-bold">TOTAL</p>
           <p className="font-bold text-xl">${grandTotal}</p>
         </div>
-        <NavLink to="/checkout">
-          <Button className="mt-4 ">PROCEED TO CHECKOUT</Button>
-        </NavLink>
+        <Button className="mt-4 " onClick={handleClick}>
+          PROCEED TO CHECKOUT
+        </Button>
       </div>
     </div>
   );

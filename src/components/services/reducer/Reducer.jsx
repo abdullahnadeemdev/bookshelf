@@ -1,28 +1,22 @@
-import { isLoginT } from "../../../utils/utils";
-import { isLoginF } from "../../../utils/utils";
+import { isLoginT, isLoginF } from "../../../utils/utils";
 
 const getItem = () => {
-  const arr = JSON.parse(localStorage.getItem("logIn")) || [];
-  if (arr.length > 0) {
-    return arr;
-  } else {
-    return false;
+  const user = JSON.parse(localStorage.getItem("logIn"));
+
+  if (user && user.isLogin === true) {
+    return true;
   }
-};
-const logCheck = getItem();
-
-const initialState = {
-  login: logCheck,
+  return false;
 };
 
-const isLogin = (state = initialState.login, action) => {
+const initialState = getItem();
+
+const isLogin = (state = initialState, action) => {
   switch (action.type) {
-    case isLoginT: {
-      return (state = true);
-    }
-    case isLoginF: {
-      return (state = false);
-    }
+    case isLoginT:
+      return true;
+    case isLoginF:
+      return false;
     default:
       return state;
   }
