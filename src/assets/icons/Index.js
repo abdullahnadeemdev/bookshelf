@@ -18,3 +18,4 @@ export { CloseIcon } from "../icons/CloseIcon";
 export { DropArrowIcon } from "../icons/DropArrowIcon";
 export { RightArrowIcon } from "../icons/RightArrowIcon";
 export { CautionIcon } from "../icons/CautionIcon";
+export { UserIcon } from "../icons/UserIcon";

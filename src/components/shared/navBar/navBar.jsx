@@ -1,4 +1,4 @@
-import { Logo } from "../../../assets/icons";
+import { Logo, UserIcon } from "../../../assets/icons";
 import { CartIcon } from "../../../assets/icons";
 import { SearchIcon } from "../../../assets/icons";
 import { BookmarkIcon } from "../../../assets/icons";
@@ -78,9 +78,9 @@ const NavBar = (props) => {
 
           <div className="flex items-center relative">
             <ul className="flex gap-0.5 lg:gap-2 xl:gap-5 mr-3">
-              <li>
-                <SearchIcon className="h-4 w-4 lg:h-5.5 lg:w-5.5" />
-              </li>
+              <NavLink to="/userPage">
+                <UserIcon className="h-4 w-4 lg:h-5.5 lg:w-5.5" />
+              </NavLink>
               <NavLink to="/bookmark">
                 <BookmarkIcon className=" h-3.5 w-3.5 lg:h-5 lg:w-5" />
               </NavLink>
