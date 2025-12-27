@@ -9,6 +9,13 @@ const Card = (props) => {
     return saved.some((b) => b.title === props.title);
   });
 
+  const getLogin = () => {
+    const user = JSON.parse(localStorage.getItem("logIn")) || {};
+    return user?.email || "";
+  };
+
+  const em = getLogin();
+
   const handleBookmark = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -17,7 +24,7 @@ const Card = (props) => {
       JSON.parse(localStorage.getItem("bookmarks")) || [];
 
     if (!isBookmarked) {
-      const updated = [...currentBookmarks, props];
+      const updated = [...currentBookmarks, { ...props, email: em }];
       localStorage.setItem("bookmarks", JSON.stringify(updated));
       setIsBookmarked(true);
     } else {

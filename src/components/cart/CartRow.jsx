@@ -1,5 +1,5 @@
 const CartRow = (props) => {
-  console.log("propspropspropsCARTRrow", props);
+  // console.log("propspropspropsCARTRrow", props);
 
   const removeItem = () => {
     const updatedCart = props.cartItems.filter(

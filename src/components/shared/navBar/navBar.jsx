@@ -11,13 +11,17 @@ import { Link } from "react-scroll";
 
 const NavBar = (props) => {
   const isAuth = props.data;
-
+  const getLogin = () => {
+    const arr = JSON.parse(localStorage.getItem("logIn"));
+    return arr.email;
+  };
+  const em = getLogin();
   const [click, setClick] = useState(false);
   const handleClick = () => {
     setClick(!click);
   };
-
-  let num = props.item.length;
+  // console.log("props", props.item);
+  let num = props.item.filter((item) => item.email === em).length;
 
   return (
     <div className="w-full max-w-[1440px] px-4 z-50 md:sticky top-0">

@@ -6,6 +6,11 @@ const CardBookmark = (props) => {
 
   const array = JSON.parse(localStorage.getItem("bookmarks")) || [];
   // console.log("array", array);
+  const getLogin = () => {
+    const user = JSON.parse(localStorage.getItem("logIn")) || {};
+    return user?.email || "";
+  };
+  const em = getLogin();
 
   const handleBookmark = () => {
     clr === "white" ? setClr("#1a1b1d") : setClr("white");

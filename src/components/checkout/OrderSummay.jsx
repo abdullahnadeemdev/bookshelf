@@ -1,15 +1,19 @@
 import React from "react";
 import Button from "../shared/button/Button";
+import { useLocation } from "react-router";
 
 const OrderSummay = () => {
   const array = JSON.parse(localStorage.getItem("cart"));
+
   let totalQuantity = array.reduce((acc, item) => acc + item.quantity, 0);
+
   let totalPrice = array.reduce((acc, item) => {
     const price = parseFloat(item.price.slice(1));
     return acc + price * item.quantity;
   }, 0.0);
 
-  // console.log("totalPrice", totalPrice);
+  const { state } = useLocation();
+  // console.log("state of OrderSummay", state);
 
   return (
     <div className="hidden md:block">

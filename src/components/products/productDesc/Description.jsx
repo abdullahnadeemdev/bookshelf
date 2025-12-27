@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router";
+import { NavLink, useLocation, useNavigate } from "react-router";
 import {
   Bookmark,
   RightArrowIcon,
@@ -13,6 +13,11 @@ const Description = (props) => {
   const [cartItems, setCartItems] = useState(() => {
     return JSON.parse(localStorage.getItem("cart")) || [];
   });
+
+  const getLogin = () => {
+    const user = JSON.parse(localStorage.getItem("logIn")) || {};
+    return user?.email || "";
+  };
 
   const isAuth = props.data;
   const [quant, setQuant] = useState(1);
@@ -39,6 +44,9 @@ const Description = (props) => {
 
   const navigate = useNavigate();
 
+  // const handlePayment = () => {};
+  const em = getLogin();
+
   const handleCart = () => {
     if (!isAuth) {
       alert("Login First!!!");
@@ -52,16 +60,15 @@ const Description = (props) => {
     if (isDuplicate) {
       updatedCart = cartItems.map((item) =>
         item.title === state.title
-          ? { ...item, quantity: item.quantity + quant }
+          ? { ...item, quantity: item.quantity + quant, email: em }
           : item
       );
       setCartItems(updatedCart);
       props.cartItemsInfo(updatedCart);
-      // props.duplicateCartItemsInfo(updatedCart);
       localStorage.setItem("cart", JSON.stringify(updatedCart));
       alert("Updated cart!");
     } else {
-      updatedCart = [...cartItems, productInfo];
+      updatedCart = [...cartItems, { ...productInfo, email: em }];
       setCartItems(updatedCart);
       props.cartItemsInfo(updatedCart);
       localStorage.setItem("cart", JSON.stringify(updatedCart));
@@ -129,7 +136,29 @@ const Description = (props) => {
             </span>
 
             <div className="flex xs:block">
-              <Button className="mr-2 min-w-29">BUY NOW</Button>
+              <NavLink
+                to="/checkout"
+                className="min-w-29 xs:mt-2 text-white p-2 lg:p-4 h-fit rounded-xl md:mt-4"
+                state={{
+                  img: state.image,
+                  author: state.author,
+                  title: state.title,
+                  comments: state.comts,
+                  star: state.star,
+                  people: state.people,
+                  price: state.price,
+                  salePrice: state.saleP,
+                  type: state.type,
+                  publishDate: state.publishDate,
+                  language: state.lang,
+                  pages: state.pages,
+                  readTime: state.readTime,
+                  cover: state.cover,
+                  publisher: state.publisher,
+                }}
+              >
+                <Button className="mr-2 min-w-29">BUY NOW</Button>
+              </NavLink>
               <Button
                 variant="outline"
                 className="min-w-29 xs:mt-2 text-white"

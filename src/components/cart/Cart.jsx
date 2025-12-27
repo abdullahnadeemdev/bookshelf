@@ -4,8 +4,15 @@ import CartRow from "../container/CartRowContainer";
 import { useState } from "react";
 
 const Cart = () => {
+  const getLogin = () => {
+    const user = JSON.parse(localStorage.getItem("logIn")) || {};
+    return user?.email || "";
+  };
+
   const [cartItems, setCartItems] = useState(() => {
-    return JSON.parse(localStorage.getItem("cart")) || [];
+    const em = getLogin();
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    return cart?.filter((item) => item.email === em);
   });
 
   const grandTotal = cartItems.reduce((acc, item) => {
