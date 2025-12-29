@@ -5,6 +5,7 @@ import ContactInfo from "./ContactInfo";
 import CloseCard from "../CloseCard";
 import Shipping from "../checkout2/Shipping";
 import Payment from "../checkout3/Payment";
+import { Link } from "react-router";
 
 const Index = () => {
   const [orderState, setOrderState] = useState({
@@ -16,16 +17,18 @@ const Index = () => {
   const [disc, setDisc] = useState("");
 
   return (
-    <div className="max-w-[1440px] rounded-2xl   m-5 h-screen text-white ">
-      <div className="p-8  rounded-2xl  bg-grayBg  ">
-        <div className="flex gap-2 items-center font-light mb-10">
+    <div className="max-w-[1440px] rounded-2xl m-5 h-screen text-white ">
+      <div className="p-8 rounded-2xl bg-grayBg  ">
+        <div className="flex gap-2 items-center  font-light mb-10">
           <span className="flex gap-2 items-center">
-            <DropArrowIcon classname="rotate-90 md:h-5 md:w-5 fill-white" />
-            <p>BACK |</p>
+            <DropArrowIcon classname="rotate-90 md:h-4 md:w-4 fill-white" />
+            <Link to="/cart">
+              <p>BACK |</p>
+            </Link>
             <p className={orderState.contactBtn ? "text-yellow" : ""}>
               CONTACT INFORMATION
             </p>
-            <DropArrowIcon classname="rotate-270 md:h-5 stroke-1 md:w-5 fill-white" />
+            <DropArrowIcon classname="rotate-270 md:h-4 stroke-1 md:w-4 fill-white" />
           </span>
 
           <span
@@ -34,7 +37,7 @@ const Index = () => {
             }`}
           >
             SHIPPING METHOD
-            <DropArrowIcon classname="rotate-270 md:h-5 stroke-1 md:w-5 fill-white" />
+            <DropArrowIcon classname="rotate-270 md:h-4 stroke-1 md:w-4 fill-white" />
           </span>
 
           <span
@@ -43,11 +46,11 @@ const Index = () => {
             }`}
           >
             PAYMENT
-            <DropArrowIcon classname="rotate-270 md:h-5 stroke-1 md:w-5 fill-white" />
+            <DropArrowIcon classname="rotate-270 md:h-4 stroke-1 md:w-4 fill-white" />
           </span>
         </div>
 
-        <div className="flex justify-between">
+        <div className="flex flex-col xl:flex-row justify-between ">
           <div>
             <ContactInfo var={orderState} fun={setOrderState} />
             {!orderState.contactBtn && (
@@ -57,8 +60,9 @@ const Index = () => {
               </>
             )}
           </div>
-
-          <OrderSummay setDisc={setDisc} disc={disc} />
+          <div className="mt-10 xl:mt-0 max-w-[400px]">
+            <OrderSummay setDisc={setDisc} disc={disc} />
+          </div>
         </div>
       </div>
     </div>
