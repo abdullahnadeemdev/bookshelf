@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import {
   FacebookIcon,
   InstagramIcon,
@@ -16,9 +17,17 @@ const Footer = () => {
           <h3 className="font-bold  md:text-xl lg:text-2xl">BIG BOOKSHELF</h3>
         </div>
         <div className="flex items-center gap-4">
-          <InstagramIcon />
-          <FacebookIcon />
-          <TwitterIcon />
+          <Link to="https://www.instagram.com/">
+            <InstagramIcon />
+          </Link>
+
+          <Link to="https://www.facebook.com/">
+            <FacebookIcon />
+          </Link>
+
+          <Link to="https://x.com/">
+            <TwitterIcon />
+          </Link>
         </div>
       </div>
 
