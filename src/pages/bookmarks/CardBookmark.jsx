@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Bookmark } from "../../assets/icons/Bookmark";
 import { Comment, Star } from "../../assets/icons";
 const CardBookmark = (props) => {
-  const [clr, setClr] = useState("#1a1b1d");
+  const [clr, setClr] = useState("white");
 
   const array = JSON.parse(localStorage.getItem("bookmarks")) || [];
   const getLogin = () => {
@@ -17,6 +17,7 @@ const CardBookmark = (props) => {
     if (array.length > 0) {
       let newarr = array.filter((item) => item.title !== props.title);
       localStorage.setItem("bookmarks", JSON.stringify(newarr));
+      window.location.reload();
     } else {
       console.log("array is not found");
     }
