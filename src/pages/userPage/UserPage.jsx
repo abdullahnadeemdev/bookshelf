@@ -1,12 +1,14 @@
 import { useState } from "react";
 import Button from "../../components/shared/button/Button";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 
 const UserProfile = () => {
   const fetchData = () => {
     let arr = JSON.parse(localStorage.getItem("logIn"));
     return arr || {};
   };
+
+  const navigate = useNavigate();
 
   const getItem = () => {
     const arr = JSON.parse(localStorage.getItem("signIn"));
@@ -160,7 +162,7 @@ const UserProfile = () => {
 
   const logoutClick = () => {
     localStorage.removeItem("logIn");
-    window.location.reload;
+    navigate("/");
   };
 
   return (

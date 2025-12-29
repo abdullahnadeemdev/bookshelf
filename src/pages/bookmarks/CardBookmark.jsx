@@ -2,14 +2,14 @@ import { useState } from "react";
 import { Bookmark } from "../../assets/icons/Bookmark";
 import { Comment, Star } from "../../assets/icons";
 const CardBookmark = (props) => {
-  const [clr, setClr] = useState("white");
+  const [clr, setClr] = useState("#1a1b1d");
 
   const array = JSON.parse(localStorage.getItem("bookmarks")) || [];
-  // console.log("array", array);
   const getLogin = () => {
     const user = JSON.parse(localStorage.getItem("logIn")) || {};
     return user?.email || "";
   };
+
   const em = getLogin();
 
   const handleBookmark = () => {
@@ -17,7 +17,6 @@ const CardBookmark = (props) => {
     if (array.length > 0) {
       let newarr = array.filter((item) => item.title !== props.title);
       localStorage.setItem("bookmarks", JSON.stringify(newarr));
-      // window.location.reload();
     } else {
       console.log("array is not found");
     }
@@ -25,26 +24,6 @@ const CardBookmark = (props) => {
 
   return (
     <>
-      {/* {props.title === "SEE ALL" ? (
-        <div
-          className="
-            flex
-            flex-1
-            text-black
-            bg-yellow
-            rounded-2xl
-            items-center justify-center
-            sm:text-4xl
-            min-w-72 min-h-48 max-w-104 max-h-auto
-            sm:max-w-74
-            md:min-w-90
-            lg:min-w-113.5 lg:min-h-70
-          "
-        >
-          <h1>SEE ALL</h1>
-        </div>
-      ) : */}
-      {/* ( */}
       <div
         className="
             flex
@@ -177,7 +156,6 @@ const CardBookmark = (props) => {
           </span>
         </div>
       </div>
-      {/* )} */}
     </>
   );
 };
