@@ -57,42 +57,42 @@ const Main = () => {
           filterObj={filter}
         />
       </div>
-      <div className="bg-grayBg mt-10 flex gap-2">
+      <div className="bg-grayBg mt-10 flex  gap-2">
         <div className="hidden md:block">
           <SideBar setFilter={setFilter} filter={filter} />
         </div>
-        <div className="flex justify-around gap-2 md:gap-3 flex-wrap">
-          {array.length > 0 ? (
-            array.map((item, index) => (
-              <Card
-                key={index}
-                image={item.image}
-                author={item.author}
-                title={item.title}
-                comts={item.comts}
-                star={item.star}
-                people={item.people}
-                price={item.price}
-                saleP={item.saleP}
-                type={item.type}
-                publishDate={item.publishDate}
-                lang={item.lang}
-                pages={item.pages}
-                readTime={item.readTime}
-                cover={item.cover}
-                publisher={item.publisher}
-              />
-            ))
-          ) : (
-            <p className="text-red text-4xl  w-full text-center font-bold pt-[20%]">
-              No books found
-            </p>
-          )}
-
+        <div className="md:w-[80vw] w-full">
+          <div className="flex justify-around gap-2 md:gap-3 flex-wrap ">
+            {array.length > 0 ? (
+              array.map((item, index) => (
+                <Card
+                  key={index}
+                  image={item.image}
+                  author={item.author}
+                  title={item.title}
+                  comts={item.comts}
+                  star={item.star}
+                  people={item.people}
+                  price={item.price}
+                  saleP={item.saleP}
+                  type={item.type}
+                  publishDate={item.publishDate}
+                  lang={item.lang}
+                  pages={item.pages}
+                  readTime={item.readTime}
+                  cover={item.cover}
+                  publisher={item.publisher}
+                />
+              ))
+            ) : (
+              <p className="text-red text-4xl  w-full text-center font-bold pt-[20%]">
+                No books found
+              </p>
+            )}
+          </div>
           <svg
-            width={524}
             height={40}
-            className="mt-10 hidden md:block"
+            className="mt-10 hidden md:block mx-auto w-max"
             viewBox="0 0 524 40"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
