@@ -22,7 +22,7 @@ const OrderSummay = (props) => {
     return props.disc === "books123" ? totalPrice - 3 : totalPrice;
   };
 
-  console.log("handleClick", handleClick());
+  // console.log("handleClick", handleClick());
 
   const { state } = useLocation();
   // console.log("state of OrderSummay", state);
