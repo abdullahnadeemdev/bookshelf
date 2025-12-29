@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
   // console.log("loc", loc);
 
   const handleNavbar = () => {
-    if (loc === "/login" || loc === "/sign-up") {
+    if (loc === "/login" || loc === "/sign-up" || loc === "/forgot-password") {
       return false;
     } else {
       return true;
