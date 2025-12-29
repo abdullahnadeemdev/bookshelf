@@ -46,9 +46,7 @@ const FilterBar = ({ queryFunc, setFilter, filterObj }) => {
                   key={key}
                   className="bg-lightGrayBg px-3 py-2.5 rounded-full flex items-center gap-2 text-white"
                 >
-                  <p className="text-sm font-medium">
-                    {Array.isArray(value) ? value.join(" ") : value}
-                  </p>
+                  <p className="text-sm font-medium">{value}</p>
                   <button
                     onClick={() =>
                       setFilter((prev) => ({ ...prev, [key]: "" }))
@@ -60,15 +58,6 @@ const FilterBar = ({ queryFunc, setFilter, filterObj }) => {
                 </li>
               </>
             ))}
-
-            {/* <li className="bg-lightGrayBg px-3 py-2.5 rounded-full flex gap-2">
-              <p>Hardcover</p>
-              <CloseIcon />
-            </li>
-
-            <li className="bg-lightGrayBg px-3 py-2.5 rounded-full flex gap-2">
-              <p> Rib Knits</p> <CloseIcon />
-            </li> */}
           </ul>
         </div>
       </div>
