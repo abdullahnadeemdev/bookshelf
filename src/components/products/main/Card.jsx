@@ -9,12 +9,6 @@ const Card = (props) => {
   };
   const em = getLogin();
 
-  const [isBookmarked, setIsBookmarked] = useState(() => {
-    const array = JSON.parse(localStorage.getItem("bookmarks")) || [];
-    const booksArray = array.filter((item) => item.email === em);
-    return booksArray.some((b) => b.title === props.title);
-  });
-
   const book = {
     image: props.image,
     author: props.author,
@@ -32,6 +26,12 @@ const Card = (props) => {
     cover: props.cover,
     publisher: props.publisher,
   };
+
+  const [isBookmarked, setIsBookmarked] = useState(() => {
+    const array = JSON.parse(localStorage.getItem("bookmarks")) || [];
+    const booksArray = array.filter((item) => item.email === em);
+    return booksArray.some((b) => b.title === book?.title);
+  });
 
   const handleBookmark = (e) => {
     e.preventDefault();
@@ -85,6 +85,7 @@ const Card = (props) => {
           <Bookmark
             fill={isBookmarked ? "white" : "#2a2c2e"}
             classname="absolute z-30 top-2 right-2"
+            onChange={handleBookmark}
           />
         </div>
       </div>

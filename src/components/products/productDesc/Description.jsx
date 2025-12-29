@@ -10,18 +10,20 @@ import { id } from "../../../utils/utils";
 import { useState } from "react";
 
 const Description = (props) => {
+  console.log("props", props);
   const [cartItems, setCartItems] = useState(() => {
     return JSON.parse(localStorage.getItem("cart")) || [];
   });
 
+  const { state } = useLocation();
   const getLogin = () => {
     const user = JSON.parse(localStorage.getItem("logIn")) || {};
     return user?.email || "";
   };
+  const em = getLogin();
 
   const isAuth = props.data;
   const [quant, setQuant] = useState(1);
-  const { state } = useLocation();
 
   if (!state) {
     return (
@@ -30,8 +32,6 @@ const Description = (props) => {
       </div>
     );
   }
-
-  // const cartData = JSON.parse(localStorage.getItem("cart")) || [];
 
   const productInfo = {
     id: id(),
@@ -42,10 +42,30 @@ const Description = (props) => {
     image: state.img,
   };
 
-  const navigate = useNavigate();
+  const [isBookmarked, setIsBookmarked] = useState(() => {
+    const saved = JSON.parse(localStorage.getItem("bookmarks")) || [];
+    return saved.some((b) => b.title === state.title && b.email === em);
+  });
 
-  // const handlePayment = () => {};
-  const em = getLogin();
+  const handleBookmark = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const currentBookmarks =
+      JSON.parse(localStorage.getItem("bookmarks")) || [];
+
+    if (!isBookmarked) {
+      const updated = [...currentBookmarks, { ...productInfo, email: em }];
+      localStorage.setItem("bookmarks", JSON.stringify(updated));
+      setIsBookmarked(true);
+    } else {
+      const updated = currentBookmarks.filter((b) => b.title !== state.title);
+      localStorage.setItem("bookmarks", JSON.stringify(updated));
+      setIsBookmarked(false);
+    }
+  };
+
+  const navigate = useNavigate();
 
   const handleCart = () => {
     if (!isAuth) {
@@ -93,7 +113,11 @@ const Description = (props) => {
               alt={state.title}
               className="h-full w-full object-cover rounded-2xl"
             />
-            <Bookmark classname="absolute top-3 right-3" />
+            <Bookmark
+              fill={isAuth && isBookmarked ? "white" : "#2a2c2e"}
+              classname="absolute top-3 right-3"
+              onClick={handleBookmark}
+            />
           </div>
 
           <div>
