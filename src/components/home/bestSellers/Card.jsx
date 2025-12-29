@@ -15,7 +15,7 @@ const Card = (props) => {
     return saved.some((b) => b.title === props.title && b.email === em);
   });
 
-  console.log("isBookmarked", isBookmarked);
+  // console.log("isBookmarked", isBookmarked);
 
   const handleBookmark = (e) => {
     e.preventDefault();

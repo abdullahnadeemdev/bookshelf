@@ -187,7 +187,7 @@ const UserProfile = () => {
                 disabled={!isEdit}
               />
               {error?.name && (
-                <p className="text-redBorder text-start">{error.name}</p>
+                <p className="text-red text-start">{error.name}</p>
               )}
               {/* {console.log(isEdit)} */}
             </div>
@@ -205,7 +205,7 @@ const UserProfile = () => {
                 disabled={!isEdit}
               />
               {error?.email && (
-                <p className="text-redBorder text-start">{error.email}</p>
+                <p className="text-red text-start">{error.email}</p>
               )}
             </div>
             <div className="text-start mb-6">
@@ -221,9 +221,7 @@ const UserProfile = () => {
                 }`}
                 disabled={!isEdit}
               />
-              {error?.pw && (
-                <p className="text-redBorder text-start">{error.pw}</p>
-              )}
+              {error?.pw && <p className="text-red text-start">{error.pw}</p>}
             </div>
 
             <div className="flex justify-between">

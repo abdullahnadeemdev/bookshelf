@@ -85,7 +85,7 @@ const Email = (prop) => {
               <input
                 type="text"
                 className={`border block pl-1 indent-2 mx-auto rounded-lg border-chineseViolet w-full h-10 text-lg 
-                    ${error.email ? "border-redBorder" : "border-chineseViolet"}
+                    ${error.email ? "border-red" : "border-chineseViolet"}
                 `}
                 placeholder="Email"
                 name="email"
@@ -93,7 +93,7 @@ const Email = (prop) => {
                 onChange={handleChange}
               />
               {error?.email && (
-                <p className="text-redBorder text-start">{error.email}</p>
+                <p className="text-red text-start">{error.email}</p>
               )}
             </div>
             <Button className="w-full mb-2  mt-4" type="submit">

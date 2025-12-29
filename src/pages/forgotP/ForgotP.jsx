@@ -7,7 +7,7 @@ const ForgotP = () => {
     show: false,
     data: "",
   });
-
+  console.log(">>>>>>>>>", next);
   return (
     <div>
       {next.show ? (

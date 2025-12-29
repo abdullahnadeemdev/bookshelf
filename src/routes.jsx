@@ -10,7 +10,7 @@ import UserPage from "./pages/userPage/UserPage";
 import AuthorsPopular from "./pages/authorPage/Index";
 import { Route, Routes, Navigate } from "react-router";
 import PageNotFound from "./pages/pageNotFound/PageNotFound";
-import Email from "./components/forgotP/Email";
+import ForgotP from "./pages/forgotP/ForgotP";
 
 const Router = (props) => {
   const isAuth = props.data;
@@ -20,7 +20,7 @@ const Router = (props) => {
       <Route path="/" element={<Home />} />
       <Route path="/books" element={<Products />} />
       <Route path="/books/:title" element={<ProductsDesc />} />
-      <Route path="/forgot-password" element={<Email />} />
+      <Route path="/forgot-password" element={<ForgotP />} />
 
       <Route
         path="/login"
