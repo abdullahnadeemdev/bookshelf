@@ -25,7 +25,7 @@ const FilterBar = ({ queryFunc, setFilter, filterObj }) => {
   // console.log(activeFilters);
   return (
     <div className="flex flex-row items-center w-full justify-center sm:justify-between ">
-      <div className="flex w-full gap-16">
+      <div className="flex w-full gap-16 items-center">
         <div className="sm:flex gap-2 text-2xl hidden">
           <p className="">FILTER</p>
           <p className="text-darkGreyText">120 results</p>
@@ -61,7 +61,7 @@ const FilterBar = ({ queryFunc, setFilter, filterObj }) => {
           </ul>
         </div>
       </div>
-      <div>
+      <div className="">
         <span className="relative -left-24">
           <input
             type="text"
