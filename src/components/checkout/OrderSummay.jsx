@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../shared/button/Button";
 import { useLocation } from "react-router";
 
-const OrderSummay = () => {
+const OrderSummay = (props) => {
   const array = JSON.parse(localStorage.getItem("cart"));
+  const [click, setClick] = useState(false);
 
   let totalQuantity = array.reduce((acc, item) => acc + item.quantity, 0);
 
@@ -11,6 +12,17 @@ const OrderSummay = () => {
     const price = parseFloat(item.price.slice(1));
     return acc + price * item.quantity;
   }, 0.0);
+
+  const handleDisc = (e) => {
+    props.setDisc(e.target.value);
+    console.log(props.disc);
+  };
+
+  const handleClick = () => {
+    return props.disc === "books123" ? totalPrice - 3 : totalPrice;
+  };
+
+  console.log("handleClick", handleClick());
 
   const { state } = useLocation();
   // console.log("state of OrderSummay", state);
@@ -60,7 +72,7 @@ const OrderSummay = () => {
               <td className="pt-2 pb-2 text-xl  font-medium">TOTAL</td>
               <td className="pt-2 pb-2"></td>
               <td className="pt-2 pb-2 text-xl text-right font-medium">
-                ${totalPrice}
+                ${handleClick()}
               </td>
             </tr>
           </tbody>
@@ -72,8 +84,13 @@ const OrderSummay = () => {
           type="text"
           className="border rounded-2xl text-lightGrayBg p-4 bg-white h-13 mt-5 w-[75%] mr-2"
           placeholder="Promocode"
+          name="disCount"
+          value={props.disc}
+          onChange={handleDisc}
         />
-        <Button className="font-bold!  bg-darkGreyText!">Apply</Button>
+        <Button className="font-bold! bg-darkGreyText!" onClick={handleClick}>
+          Apply
+        </Button>
       </span>
     </div>
   );

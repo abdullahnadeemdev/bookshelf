@@ -13,6 +13,8 @@ const Index = () => {
     paymentBtn: false,
   });
 
+  const [disc, setDisc] = useState("");
+
   return (
     <div className="max-w-[1440px] rounded-2xl   m-5 h-screen text-white ">
       <div className="p-8  rounded-2xl  bg-grayBg  ">
@@ -56,7 +58,7 @@ const Index = () => {
             )}
           </div>
 
-          <OrderSummay />
+          <OrderSummay setDisc={setDisc} disc={disc} />
         </div>
       </div>
     </div>
