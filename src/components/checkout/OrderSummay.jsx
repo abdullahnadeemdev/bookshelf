@@ -3,15 +3,29 @@ import Button from "../shared/button/Button";
 import { useLocation } from "react-router";
 
 const OrderSummay = (props) => {
-  const array = JSON.parse(localStorage.getItem("cart"));
+  const { state } = useLocation();
+  let array = [];
+  if (!state) {
+    array = JSON.parse(localStorage.getItem("cart")) || [];
+  } else {
+    array = [
+      {
+        title: state.title,
+        quantity: 1,
+        price: state.salePrice || state.price || "$0",
+      },
+    ];
+  }
+
   const [click, setClick] = useState(false);
 
-  let totalQuantity = array.reduce((acc, item) => acc + item.quantity, 0);
+  let totalQuantity = array.reduce((acc, item) => acc + item.quantity, 0) || 1;
 
-  let totalPrice = array.reduce((acc, item) => {
-    const price = parseFloat(item.price.slice(1));
-    return acc + price * item.quantity;
-  }, 0.0);
+  let totalPrice =
+    array?.reduce((acc, item) => {
+      const price = parseFloat(item?.price?.slice(1));
+      return acc + price * item.quantity;
+    }, 0.0) || array[0].price;
 
   const handleDisc = (e) => {
     props.setDisc(e.target.value);
@@ -22,18 +36,11 @@ const OrderSummay = (props) => {
     return props.disc === "books123" ? totalPrice - 3 : totalPrice;
   };
 
-  // console.log("handleClick", handleClick());
-
-  const { state } = useLocation();
-  // console.log("state of OrderSummay", state);
-
   return (
     <div className="hidden md:block">
       <div className="bg-blackC rounded-2xl p-6 w-100 ">
         <div className="justify-between items-center mb-2">
           <h2 className="text-2xl font-normal text-center">ORDER SUMMARY</h2>
-
-          {/* <p className="text-base underline">EDIT</p> */}
         </div>
 
         <table className="w-full table-auto text-sm">

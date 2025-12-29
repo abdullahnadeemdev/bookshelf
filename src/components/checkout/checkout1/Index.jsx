@@ -5,7 +5,7 @@ import ContactInfo from "./ContactInfo";
 import CloseCard from "../CloseCard";
 import Shipping from "../checkout2/Shipping";
 import Payment from "../checkout3/Payment";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 
 const Index = () => {
   const [orderState, setOrderState] = useState({
