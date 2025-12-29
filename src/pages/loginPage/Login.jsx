@@ -130,12 +130,12 @@ const Login = (props) => {
               {error?.pw && <p className="text-red text-start ">{error.pw}</p>}
             </div>
 
-            {/* <NavLink
+            <NavLink
               to="/forgot-password"
               className="text-start text-sm hover:underline hover:text-blue-500 block"
             >
               Forgot password?
-            </NavLink> */}
+            </NavLink>
 
             <Button className="w-full mb-2 mt-8" type="submit">
               Log In
