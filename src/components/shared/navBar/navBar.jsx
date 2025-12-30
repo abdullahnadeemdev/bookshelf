@@ -87,7 +87,10 @@ const NavBar = (props) => {
               <li>
                 <NavLink to="/cart">
                   {isAuth ? (
-                    <p className="absolute pb-7 font-bold text-xs sm:text-sm sm:h-3 sm:w-3 lg:text-xl lg:w-6 lg:h-6 -top-2 right-1 bg-red rounded-full text-center">
+                    <p
+                      className="absolute xl:pb-7 font-bold text-xs  h-4 w-4 pb-4
+                     sm:w-3 xl:text-xl xl:w-6 lxl:h-6 -top-1.5 right-2 xl:-top-2 xl:right-1 bg-red rounded-full text-center"
+                    >
                       {num}
                     </p>
                   ) : (
