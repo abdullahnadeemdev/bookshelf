@@ -25,10 +25,10 @@ const BestSellers = () => {
             rounded-2xl
             items-center justify-center
             sm:text-4xl
-            min-w-72 min-h-48 max-w-104 max-h-auto
+            min-w-42 min-h-48 max-w-71 max-h-auto
             sm:max-w-74
             md:min-w-90
-            lg:min-w-113.5 lg:min-h-70
+            lg:min-w-113.5 lg:min-h-62
           "
             >
               <h1>SEE ALL</h1>
