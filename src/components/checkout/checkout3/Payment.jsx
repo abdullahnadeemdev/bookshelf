@@ -121,7 +121,9 @@ const Payment = (props) => {
         JSON.stringify([...array, inputInfo])
       );
       props.fun((prev) => ({ ...prev, paymentBtn: false }));
+      localStorage.removeItem("cart");
       navigate("/");
+      window.location.reload();
     } else {
       console.log("error running");
     }
