@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Bookmark } from "../../assets/icons/Bookmark";
 import { Comment, Star } from "../../assets/icons";
+import { NavLink } from "react-router";
 const CardBookmark = (props) => {
   const [clr, setClr] = useState("white");
 
@@ -24,7 +25,26 @@ const CardBookmark = (props) => {
   };
 
   return (
-    <>
+    <NavLink
+      to={`/books/${props.title}`}
+      state={{
+        img: props.image,
+        author: props.author,
+        title: props.title,
+        comments: props.comts,
+        star: props.star,
+        people: props.people,
+        price: props.price,
+        salePrice: props.saleP,
+        type: props.type,
+        publishDate: props.publishDate,
+        language: props.lang,
+        pages: props.pages,
+        readTime: props.readTime,
+        cover: props.cover,
+        publisher: props.publisher,
+      }}
+    >
       <div
         className="
             flex
@@ -157,7 +177,7 @@ const CardBookmark = (props) => {
           </span>
         </div>
       </div>
-    </>
+    </NavLink>
   );
 };
 
