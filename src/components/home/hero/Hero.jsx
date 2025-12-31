@@ -23,6 +23,7 @@ const Hero = () => {
         className="
         text-black
           heroHeading 
+          hidden md:block
         "
       >
         READING MAKES THE WORLD HUGE
