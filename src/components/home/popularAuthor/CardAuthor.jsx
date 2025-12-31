@@ -1,8 +1,14 @@
 import { useNavigate } from "react-router";
 import { Bookmark } from "../../../assets/icons";
+import { useState } from "react";
 
 const CardAuthor = (props) => {
   const navigate = useNavigate();
+  const [clr, setClr] = useState("#2a2c2e");
+
+  const handleBookmark = () => {
+    clr === "#2a2c2e" ? setClr("white") : setClr("#2a2c2e");
+  };
 
   const handleClick = () => {
     navigate("/authorsPopular");
@@ -82,7 +88,11 @@ const CardAuthor = (props) => {
               >
                 {props.book}
               </p>
-              {props.book ? <Bookmark fillClr="#2a2c2e" /> : ""}
+              {props.book ? (
+                <Bookmark fill={clr} onClick={handleBookmark} />
+              ) : (
+                ""
+              )}
             </div>
             <p
               className="
