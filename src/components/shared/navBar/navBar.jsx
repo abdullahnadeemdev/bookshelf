@@ -24,8 +24,8 @@ const NavBar = (props) => {
   let num = props.item.filter((item) => item.email === em).length;
 
   return (
-    <div className="w-full max-w-[1440px] px-4 z-50 md:sticky top-0">
-      <div className="bg-grayBg rounded-[20px] w-full p-6 hidden md:block">
+    <div className="w-full max-w-[1440px] px-4  z-50 md:sticky top-3">
+      <div className="bg-grayBg rounded-[20px] max-w-[1404px] ml-px w-full p-6 hidden md:block">
         <div className=" flex items-center justify-between">
           <NavLink to="/">
             <div className="flex items-center gap-2 ">
