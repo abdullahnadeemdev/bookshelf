@@ -25,6 +25,7 @@ const Hero = () => {
         font-bold
           heroHeading 
           hidden md:block
+          
         "
       >
         READING MAKES THE WORLD HUGE
@@ -34,15 +35,17 @@ const Hero = () => {
         className="
           flex flex-col
           sm:max-w-[1400px] max-w-auto max-h-auto sm:max-h-[348px] h-auto
-          justify-evenly sm:flex-row gap-4
+          justify-evenly sm:flex-row gap-2
         "
       >
         <div
           className="
-             overflow-hidden
+            overflow-hidden
             p-7
+            max-h-[300px]
+            sm:min-h-[380px]
             sm:flex-1
-            flex-0
+           
             text-start
             bg-grayBg
             rounded-[19px]
@@ -73,22 +76,26 @@ const Hero = () => {
               z-10
               min-h-30 min-w-40 max-h-160 max-w-130 h-full
               absolute -right-17 top-10 rotate-85 stroke-1!
-              xl:min-h-100 xl:min-w-100 xl:-right-18 xl:-top-5
+              xl:min-h-110 xl:min-w-100 xl:-right-18 xl:-top-5
             "
           />
         </div>
 
         <div
-          className="overflow-hidden sm:flex-1
-          flex-0
+          className=" sm:flex-1 overflow-hidden
+           max-h-[300px]
+            sm:min-h-[380px]
             relative"
         >
           <img
             src={HeroImg}
             alt="bookImage"
             className="
-              object-cover
-              w-full h-full
+              object-fill
+              sm:object-cover
+              max-h-[300px]
+              sm:max-h-none
+              w-full sm:h-full
               rounded-[20px]
             "
           />
