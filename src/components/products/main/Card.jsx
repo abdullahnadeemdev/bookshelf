@@ -8,11 +8,12 @@ const Card = (props) => {
     return user?.email || "";
   };
   const em = getLogin();
+  const bookTitle = props.title;
 
   const book = {
     image: props.image,
     author: props.author,
-    title: props.title,
+    title: bookTitle,
     comts: props.comts,
     star: props.star,
     people: props.people,
@@ -47,7 +48,7 @@ const Card = (props) => {
       setIsBookmarked(true);
     } else {
       const updatedArray = currentBookmarks.filter(
-        (b) => b.title !== props.title
+        (b) => b.title !== bookTitle
       );
       localStorage.setItem("bookmarks", JSON.stringify(updatedArray));
       setIsBookmarked(false);
@@ -55,12 +56,12 @@ const Card = (props) => {
   };
   return (
     <NavLink
-      to={`/books/${props.title}`}
+      to={`/books/${bookTitle.replace(/\s+/g, "-")}`}
       className="bg-whiteBg p-2 lg:p-4 h-fit rounded-xl md:mt-4"
       state={{
         img: props.image,
         author: props.author,
-        title: props.title,
+        title: bookTitle,
         comments: props.comts,
         star: props.star,
         people: props.people,
@@ -114,7 +115,7 @@ const Card = (props) => {
                               
                             "
           >
-            {props.title}
+            {bookTitle}
           </p>
           <div className="flex gap-2 mb-5">
             <span

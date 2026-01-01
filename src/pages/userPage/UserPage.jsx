@@ -234,7 +234,7 @@ const UserProfile = () => {
               )}
 
               <Button onClick={logoutClick} className="ml-2">
-                LogOut
+                Logout
               </Button>
             </div>
           </form>

@@ -32,48 +32,7 @@ const SideBar = ({ setFilter, filter }) => {
   return (
     <div className="bg-whiteBg w-[20vw] text-black p-4 rounded-xl mt-4">
       <div>
-        <h3 className="text-lg  sm:text-xl md:text-2xl font-semibold">
-          Categories
-        </h3>
-        <input
-          type="text"
-          name="categoryInput"
-          id="categoryInput"
-          className="p-2 bg-lGrayBg rounded-xl my-3 w-[14vw] text-xs sm:text-sm md:text-base"
-          placeholder="FIND CATEGORY"
-        />
-        <span className="flex lg:gap-2 items-center">
-          <p className="text-xs sm:text-sm md:text-base">
-            Imaginative Literature
-          </p>
-          <DropArrowIcon classname=" mt-1 " />
-        </span>
-
-        <span className="flex lg:gap-2 items-center">
-          <p className="text-xs sm:text-sm md:text-base">
-            Scientific Literature
-          </p>
-          <DropArrowIcon classname=" mt-1 " />
-        </span>
-
-        <span className="flex lg:gap-2 items-center">
-          <p className="text-xs sm:text-sm md:text-base">Business</p>
-          <DropArrowIcon classname=" mt-1 " />
-        </span>
-
-        <span className="flex lg:gap-2 items-center">
-          <p className="text-xs sm:text-sm md:text-base">Educational</p>
-          <DropArrowIcon classname=" mt-1 " />
-        </span>
-
-        <span className="flex lg:gap-2 items-center">
-          <p className="text-xs sm:text-sm md:text-base">Other</p>
-          <DropArrowIcon classname=" mt-1 " />
-        </span>
-      </div>
-
-      <div>
-        <h3 className="mt-10 text-lg  sm:text-xl md:text-2xl font-semibold">
+        <h3 className=" text-lg  sm:text-xl md:text-2xl font-semibold">
           PUBLISH DATE
         </h3>
         <span className="relative">

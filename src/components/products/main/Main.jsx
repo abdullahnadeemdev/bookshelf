@@ -5,7 +5,6 @@ import Card from "./Card";
 import { useState } from "react";
 
 const Main = () => {
-  // const [result, setResult] = useState(0);
   const [query, setQuery] = useState("");
 
   const [filter, setFilter] = useState({
@@ -17,8 +16,6 @@ const Main = () => {
     coverType: "",
     ratingCheck: "",
   });
-
-  // console.log("Main query", query);
 
   const array = ArrayProducts.filter((item) => {
     const queryCheck = item.title.toLowerCase().includes(query.toLowerCase());
