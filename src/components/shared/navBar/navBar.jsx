@@ -36,7 +36,7 @@ const NavBar = (props) => {
             </div>
           </NavLink>
 
-          <ul className="list-none flex gap-5 text-xs lg:text-sm lg:gap-6 xl:gap-8 xl:text-base font-light cursor-pointer">
+          <ul className="list-none flex gap-5 text-xs lg:text-sm lg:gap-6 xl:gap-8 xl:text-base font-extralight cursor-pointer">
             <NavLink
               to="/books"
               className={({ isActive }) =>
