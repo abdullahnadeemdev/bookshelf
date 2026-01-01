@@ -47,7 +47,7 @@ const NavBar = (props) => {
             </NavLink>
 
             <NavLink
-              to="/authorsPopular"
+              to="/authors-popular"
               className={({ isActive }) =>
                 isActive ? "text-yellow" : "text-whiteBg"
               }
@@ -71,7 +71,7 @@ const NavBar = (props) => {
 
           <div className="flex items-center relative ">
             <ul className="flex gap-0.5 lg:gap-2 xl:gap-5 mr-3 ">
-              {/* <NavLink to="/userPage">
+              {/* <NavLink to="/user-page">
                 <UserIcon className="h-4 w-4 lg:h-5.5 lg:w-5.5" />
               </NavLink> */}
               <SearchIcon className=" h-3.5 w-3.5  lg:h-6.5! lg:w-6! stroke-white!" />
@@ -102,7 +102,7 @@ const NavBar = (props) => {
                 </NavLink>
               </div>
             ) : (
-              <NavLink to="/userPage">
+              <NavLink to="/user-page">
                 <Button className="ml:2 lg:ml-4">USER</Button>
               </NavLink>
             )}
@@ -135,7 +135,7 @@ const NavBar = (props) => {
               </NavLink>
 
               <NavLink
-                to="/authorsPopular"
+                to="/authors-popular"
                 className="w-full block font-semibold bg-black text-yellow hover:bg-yellow rounded-[20px] hover:text-black px-3 py-4 text-lg transition-all duration-300 cursor-pointer "
               >
                 Authors

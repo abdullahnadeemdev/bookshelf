@@ -11,7 +11,7 @@ const CardAuthor = (props) => {
   };
 
   const handleClick = () => {
-    navigate("/authorsPopular");
+    navigate("/authors-popular");
   };
   return (
     <>
