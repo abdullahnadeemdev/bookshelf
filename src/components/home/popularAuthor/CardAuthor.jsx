@@ -20,8 +20,8 @@ const CardAuthor = (props) => {
           onClick={handleClick}
           className="
             flex
-            w-full  h-[25vh]
-            md:h-[20vh]
+            w-full  
+            h-[18vh]
             text-black
             bg-yellow
             rounded-[20px]
@@ -35,8 +35,7 @@ const CardAuthor = (props) => {
         <div
           className="
             flex 
-            h-[25vh]
-            md:h-[20vh]
+            h-[18vh]
             max-w-[400px]
             text-black
             bg-white
@@ -45,11 +44,10 @@ const CardAuthor = (props) => {
         >
           <div
             className="
-            
             flex
             justify-center
             h-full
-            lg:min-w-10 lg:max-w-40 lg:max-h-59
+            lg:min-w-10 lg:max-w-40 lg:h-[18vh]
             flex-4
             "
           >
@@ -77,13 +75,14 @@ const CardAuthor = (props) => {
                 flex
                 mt-2
                 justify-between items-center
-                mb-3
-                xs:mb-8
+                mb-5
+                xs:mb-3
               "
             >
               <p
                 className="
                   w-20
+                  text-base
                 "
               >
                 {props.book}
@@ -97,8 +96,9 @@ const CardAuthor = (props) => {
             <p
               className="
                 text-wrap
-                sm:text-base
-                lg:max-w-30 lg:text-xl
+                sm:text-base md:text-xl
+                lg:max-w-40 lg:text-2xl
+                mb-10
               "
             >
               {props.author}
