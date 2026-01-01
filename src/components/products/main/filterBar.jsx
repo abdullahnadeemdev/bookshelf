@@ -2,7 +2,7 @@ import React from "react";
 import { CloseIcon, DropArrowIcon } from "../../../assets/icons";
 import Button from "../../shared/button/Button";
 
-const FilterBar = ({ queryFunc, setFilter, filterObj }) => {
+const FilterBar = ({ queryFunc, setFilter, filterObj, arrayNum }) => {
   const handleReset = () => {
     setFilter({
       categoryInput: "",
@@ -15,23 +15,19 @@ const FilterBar = ({ queryFunc, setFilter, filterObj }) => {
     });
   };
 
-  // Object.filter = (obj, checking) =>
-  //   Object.fromEntries(Object.entries(obj).filter(checking));
-
   const activeFilters = Object.entries(filterObj).filter(([key, value]) => {
     return Array.isArray(value) ? value.length > 0 : value !== "";
   });
 
-  // console.log(activeFilters);
   return (
     <div className="flex flex-row items-center w-full justify-center sm:justify-between ">
-      <div className="flex w-full gap-16 items-center">
+      <div className="flex w-full gap-16 items-center ">
         <div className="sm:flex gap-2 text-2xl hidden">
           <p className="">FILTER</p>
-          <p className="text-darkGreyText">120 results</p>
+          <p className="text-darkGreyText">{arrayNum} results</p>
         </div>
-        <div className="hidden lg:block">
-          <ul className="flex gap-2">
+        <div className="hidden lg:block ">
+          <ul className="flex gap-2 ">
             <Button
               className="bg-darkGrey! text-whiteBg! px-3 py-2 rounded-full"
               onClick={handleReset}
@@ -41,7 +37,6 @@ const FilterBar = ({ queryFunc, setFilter, filterObj }) => {
 
             {activeFilters.map(([key, value]) => (
               <>
-                {/* {console.log("heyyyyyy", key, value)} */}
                 <li
                   key={key}
                   className="bg-lightGrayBg px-3 py-2.5 rounded-full flex items-center gap-2 text-white"
@@ -61,12 +56,12 @@ const FilterBar = ({ queryFunc, setFilter, filterObj }) => {
           </ul>
         </div>
       </div>
-      <div className="">
-        <span className="relative -left-24">
+      <div className=" mr-4">
+        <span className="relative ">
           <input
             type="text"
-            className="border p-2 rounded-lg h-[5vh] "
-            placeholder="Search"
+            className="border p-2 rounded-lg h-[5vh] w-[20vw]"
+            placeholder="Featured"
             name="searchInput"
             onChange={(e) => {
               queryFunc(e.target.value);

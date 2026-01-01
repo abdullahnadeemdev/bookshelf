@@ -17,6 +17,7 @@ const Button = ({ children, variant, className, ...props }) => {
         }
         ${className}
       `}
+      {...props}
     >
       {children}
     </button>

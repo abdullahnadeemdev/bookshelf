@@ -52,6 +52,7 @@ const Main = () => {
           queryFunc={setQuery}
           setFilter={setFilter}
           filterObj={filter}
+          arrayNum={array.length}
         />
       </div>
       <div className="bg-grayBg mt-10 flex  gap-2">

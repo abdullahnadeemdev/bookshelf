@@ -10,12 +10,16 @@ import { id } from "../../../utils/utils";
 import { useState } from "react";
 
 const Description = (props) => {
-  console.log("props", props);
+  const cartArray = props.item;
+
+  // console.log("cartArray", cartArray);
+
   const [cartItems, setCartItems] = useState(() => {
     return JSON.parse(localStorage.getItem("cart")) || [];
   });
 
   const { state } = useLocation();
+
   const getLogin = () => {
     const user = JSON.parse(localStorage.getItem("logIn")) || {};
     return user?.email || "";
@@ -41,12 +45,26 @@ const Description = (props) => {
     quantity: quant,
     image: state.img,
   };
+  let product = [];
+  const checkP = () => {
+    cartArray.length > 0
+      ? product.push(cartArray.find((item) => item.title === productInfo.title))
+      : product;
+  };
+
+  // console.log(
+  //   "cartArray.find((item) => item.title === productInfo.title",
+  //   cartArray.find((item) => item.title === productInfo.title)
+  // );
+  checkP();
+  // console.log("product", product[0].quantity);
 
   const [isBookmarked, setIsBookmarked] = useState(() => {
     const saved = JSON.parse(localStorage.getItem("bookmarks")) || [];
     return saved.some((b) => b.title === state.title && b.email === em);
   });
 
+  const [num, setNum] = useState(productInfo.quantity);
   const handleBookmark = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -68,11 +86,11 @@ const Description = (props) => {
   const navigate = useNavigate();
 
   const handleCart = () => {
-    if (!isAuth) {
-      alert("Login First!!!");
-      navigate("/login");
-      return;
-    }
+    // if (!isAuth) {
+    //   alert("Login First!!!");
+    //   navigate("/login");
+    //   return;
+    // }
 
     const isDuplicate = cartItems?.some((item) => item.title === state.title);
     let updatedCart;
@@ -95,7 +113,7 @@ const Description = (props) => {
       alert("Added to cart!");
     }
   };
-
+  console.log("num", num);
   return (
     <div className="p-8 bg-grayBg rounded-[20px]">
       <span className="flex gap-1 mb-5">
@@ -114,7 +132,7 @@ const Description = (props) => {
               className="h-full w-full object-cover rounded-[20px]"
             />
             <Bookmark
-              fill={isAuth && isBookmarked ? "white" : "#2a2c2e"}
+              fill={isBookmarked ? "white" : "#2a2c2e"}
               classname="absolute top-3 right-3"
               onClick={handleBookmark}
             />
@@ -159,7 +177,7 @@ const Description = (props) => {
               <p>{state.salePrice}</p>
             </span>
 
-            <div className="flex xs:block">
+            <div className="flex ">
               <NavLink
                 to="/checkout"
                 className="min-w-29 xs:mt-2 text-white p-2 lg:p-4 h-fit rounded-xl md:mt-4"
@@ -183,13 +201,33 @@ const Description = (props) => {
               >
                 <Button className="mr-2 min-w-29">BUY NOW</Button>
               </NavLink>
-              <Button
-                variant="outline"
-                className="min-w-29 xs:mt-2 text-white"
-                onClick={handleCart}
-              >
-                ADD TO CART
-              </Button>
+              {product ? (
+                <button className="min-w-29 xs:mt-8 items-center justify-evenly flex h-14 text-black bg-whiteBg rounded-[20px]">
+                  <p
+                    className="flex items-center justify-center hover:bg-blackC"
+                    onClick={() => setNum((num) => (num > 1 ? num - 1 : num))}
+                  >
+                    -
+                  </p>
+                  <p className="bg-yellow h-14 w-10 flex items-center justify-center">
+                    {num}
+                  </p>
+                  <p
+                    className="flex items-center justify-center hover:bg-blackC"
+                    onClick={() => setNum((num) => num + 1)}
+                  >
+                    +
+                  </p>
+                </button>
+              ) : (
+                <Button
+                  variant="outline"
+                  className="min-w-29 xs:mt-2 text-white"
+                  onClick={handleCart}
+                >
+                  ADD TO CART
+                </Button>
+              )}
             </div>
           </div>
         </div>

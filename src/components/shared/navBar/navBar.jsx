@@ -15,13 +15,22 @@ const NavBar = (props) => {
     const arr = JSON.parse(localStorage.getItem("logIn")) || "";
     return arr?.email;
   };
+
+  const getBook = () => {
+    const arr = JSON.parse(localStorage.getItem("bookmarks")) || "";
+    return arr;
+  };
+
   const em = getLogin();
+
   const [click, setClick] = useState(false);
   const handleClick = () => {
     setClick(!click);
   };
   // console.log("props", props.item);
   let num = props.item.filter((item) => item.email === em).length;
+  let bookmark = getBook().length;
+  // console.log("bookmark", bookmark);
 
   return (
     <div className="w-full max-w-[1440px] px-4  z-50 md:sticky top-3">
@@ -76,19 +85,31 @@ const NavBar = (props) => {
               </NavLink> */}
               <SearchIcon className=" h-3.5 w-3.5  lg:h-6.5! lg:w-6! stroke-white!" />
               <NavLink to="/bookmark">
-                <BookmarkIcon className=" h-3.5 w-3.5 mt-0.5 lg:h-5.5! lg:w-5!" />
+                <p
+                  className="absolute xl:pb-7 font-bold text-xs  h-4 w-4 pb-4
+                        sm:w-3 xl:text-xl xl:w-6 lxl:h-6 -top-1.5 right-2 xl:top-1 xl:right-41 text-yellow text-center"
+                >
+                  {bookmark}
+                </p>
+                <BookmarkIcon className=" h-3.5 w-3.5 mt-0.5 lg:h-5.5! lg:w-5! " />
               </NavLink>
               <li>
                 <NavLink to="/cart">
                   {isAuth ? (
+                    // <p
+                    //   className="absolute xl:pb-7 font-bold text-xs  h-4 w-4 pb-4
+                    //  sm:w-3 xl:text-xl xl:w-6 lxl:h-6 -top-1.5 right-2 xl:-top-20 xl:right-10 bg-red rounded-full text-center"
+                    // >
+                    //   {num}
+                    // </p>
+                    ""
+                  ) : (
                     <p
                       className="absolute xl:pb-7 font-bold text-xs  h-4 w-4 pb-4
-                     sm:w-3 xl:text-xl xl:w-6 lxl:h-6 -top-1.5 right-2 xl:-top-2 xl:right-1 bg-red rounded-full text-center"
+                        sm:w-3 xl:text-xl xl:w-6 lxl:h-6 -top-1.5 right-2 xl:top-1 xl:right-30 text-yellow text-center"
                     >
                       {num}
                     </p>
-                  ) : (
-                    ""
                   )}
 
                   <CartIcon className=" h-3.5 w-3.5 lg:h-6! lg:w-6!" />
