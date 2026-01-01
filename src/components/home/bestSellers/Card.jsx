@@ -3,6 +3,7 @@ import { Bookmark, Comment, Star } from "../../../assets/icons";
 import { NavLink } from "react-router";
 const Card = (props) => {
   const isAuth = props.data;
+
   const getLogin = () => {
     const user = JSON.parse(localStorage.getItem("logIn")) || {};
     return user?.email || "";
@@ -69,7 +70,7 @@ const Card = (props) => {
             min-w-72 min-h-48 max-w-104 max-h-auto
             sm:max-w-74
             md:min-w-90
-            lg:min-w-113.5 lg:min-h-70
+            lg:min-w-[461px] lg:min-h-70
           "
         >
           <h1>SEE ALL</h1>
@@ -79,22 +80,22 @@ const Card = (props) => {
           className="
             flex
             flex-1
-            p-4
+            p-5
             bg-white
             rounded-[20px]
-            xs:max-w-104 gap-3
+            xs:max-w-104 gap-2
             sm:max-w-74
             md:min-w-90
-            lg:min-w-113.5
+            lg:min-w-[461px]
           "
         >
           <div
             className="
               overflow-hidden
               h-40 w-25
-              rounded-[20px]
+              rounded-[21px]
               md:h-50 md:w-35
-              lg:h-59 lg:w-60
+              lg:h-56 lg:w-40
             "
           >
             <img
@@ -109,14 +110,15 @@ const Card = (props) => {
           <div
             className="
               text-black
+              sm:w-63
             "
           >
             <div
               className="
-                flex
+                flex mt-1
                 justify-between
                 md:w-45 md:mb-4
-                lg:w-60 lg:mb-6
+                lg:w-full lg:mb-6 
              
               "
             >
@@ -127,8 +129,7 @@ const Card = (props) => {
               >
                 <p
                   className="
-                    text-sm
-                    md:text-base
+                    text-xs sm:text-sm
                   "
                 >
                   {props.author}
@@ -136,12 +137,13 @@ const Card = (props) => {
                 <p
                   className="
                     overflow-hidden
-                    w-26 h-7
+                    w-26 h-7 
                     mb-1
                     font-semibold text-wrap text-xs
-                    sm:max-w-46
-                    md:text-base
-                    lg:overflow-visible lg:h-10
+                    sm:max-w-50
+                    sm:min-w-40
+                    md:text-sm
+                    lg:h-9
                   "
                 >
                   {props.title}
@@ -170,12 +172,12 @@ const Card = (props) => {
             <span
               className="
                 flex
-                w-fit
+                w-fit 
                 mb-4 px-1
-                text-sm
+                text-xs
                 border rounded-full
                 items-center gap-1
-                md:p-1 md:px-3 md:mb-6 md:text-base
+                md:p-1 md:px-3 md:mb-6 md:text-sm lg:text-base
                 lg:mb-8
               "
             >

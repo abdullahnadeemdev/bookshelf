@@ -1,19 +1,30 @@
 import Card from "../../container/CardContainerBestSellers";
 import { ArrayProducts as array } from "../../../utils/utils";
 import { useNavigate } from "react-router";
+import useWindowDimensions from "../../shared/hooks/useWindow";
+import { useEffect, useState } from "react";
 
 const BestSellers = () => {
+  const [num, setNum] = useState(6);
   const newArr = array.slice(3);
   const navigate = useNavigate();
   const handLeClick = () => {
     navigate("/books");
   };
+  const { height, width } = useWindowDimensions();
+
+  // useEffect(() => {
+  //   height < 768 ? setNum(8) : "";
+  // }, [height]);
+
   return (
     <div className="h-fit  mb-10 2xl:h-screen max-w-[1440px] px-4">
-      <h1 className="font-semibold text-4xl py-10">BESTSELLERS</h1>
-      <div className="flex justify-evenly gap-3 flex-wrap">
+      <h1 className="font-semibold text-xl sm:text-2xl lg:text-4xl py-10">
+        BESTSELLERS
+      </h1>
+      <div className="flex justify-between gap-3 flex-wrap">
         {newArr.map((item, index) =>
-          index === 6 ? (
+          index === num ? (
             <div
               key={index}
               onClick={handLeClick}
