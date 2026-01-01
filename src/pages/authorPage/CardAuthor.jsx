@@ -12,7 +12,7 @@ const CardAuthor = (props) => {
             max-w-[400px]
             text-black
             bg-white
-            rounded-2xl
+            rounded-[20px]
           "
         >
           <div

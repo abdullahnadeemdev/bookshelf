@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
 
 @theme{
@@ -8,19 +9,17 @@
   --color-lGrayBg:#f0f0f0;
   --color-greyText:#bcbcbc;
   --color-darkGreyText:#676869;
-  
   --color-lightGrayBg:#3b3d3f;
   --color-grayBg:#2a2c2e;
   --color-darkGrey:#20201F;
-
     --color-red:oklch(57.7% 0.245 27.325);
 
   
-  
+  --font-Inter:'Inter',sans-serif;
   /* 480 */
   --breakpoint-xs:26.56rem;
 
 }
 .heroHeading{
-    font-size: calc(min(98px, 17px + (87 - 18) * ((100vw - 320px) / (1440 - 320))));
+    font-size: calc(min(96px, 15px + (87 - 18) * ((100vw - 320px) / (1440 - 320))));
 }

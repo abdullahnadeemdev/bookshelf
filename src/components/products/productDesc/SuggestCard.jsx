@@ -2,12 +2,12 @@ import { Bookmark } from "../../../assets/icons";
 
 const SuggestCard = (props) => {
   return (
-    <div className="bg-white p-1 xs:p-4 rounded-2xl w-fit">
+    <div className="bg-white p-1 xs:p-4 rounded-[20px] w-fit">
       <div className="xs:h-60 xs:w-fit md:w-50 xl:w-45 relative">
         <img
           src={props.image}
           alt=""
-          className="h-full w-full object-cover rounded-2xl"
+          className="h-full w-full object-cover rounded-[20px]"
         />
         <Bookmark classname="absolute top-3 right-2 lg:w-8! lg:h-8!" />
       </div>

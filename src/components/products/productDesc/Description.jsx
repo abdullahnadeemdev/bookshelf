@@ -97,7 +97,7 @@ const Description = (props) => {
   };
 
   return (
-    <div className="p-8 bg-grayBg rounded-2xl">
+    <div className="p-8 bg-grayBg rounded-[20px]">
       <span className="flex gap-1 mb-5">
         <p>Home | Books | All Books |</p>
         <p className="text-greyText">
@@ -111,7 +111,7 @@ const Description = (props) => {
             <img
               src={state.img}
               alt={state.title}
-              className="h-full w-full object-cover rounded-2xl"
+              className="h-full w-full object-cover rounded-[20px]"
             />
             <Bookmark
               fill={isAuth && isBookmarked ? "white" : "#2a2c2e"}
@@ -194,8 +194,8 @@ const Description = (props) => {
           </div>
         </div>
 
-        <div className="flex-1 rounded-2xl hidden lg:block">
-          <div className="bg-whiteBg text-black font-light rounded-2xl p-6 mb-3">
+        <div className="flex-1 rounded-[20px] hidden lg:block">
+          <div className="bg-whiteBg text-black font-light rounded-[20px] p-6 mb-3">
             <span className="flex justify-between ">
               <p className="text-xl font-normal">PLOT SUMMARY</p>
 
@@ -219,7 +219,7 @@ const Description = (props) => {
             <p className="underline mt-3 font-normal">READ PREVIEW</p>
           </div>
 
-          <div className="bg-whiteBg text-black font-light rounded-2xl p-5 w-full ">
+          <div className="bg-whiteBg text-black font-light rounded-[20px] p-5 w-full ">
             <span className="flex justify-between items-center">
               <p className="text-xl font-normal">Reception</p>
 

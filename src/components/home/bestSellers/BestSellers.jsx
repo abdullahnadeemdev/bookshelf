@@ -22,7 +22,7 @@ const BestSellers = () => {
             flex-1
             text-black
             bg-yellow
-            rounded-2xl
+            rounded-[20px]
             items-center justify-center
             sm:text-4xl
             min-w-42 min-h-48 max-w-71 max-h-auto

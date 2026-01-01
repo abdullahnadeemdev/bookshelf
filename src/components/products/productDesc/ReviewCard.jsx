@@ -3,7 +3,7 @@ import { Star } from "../../../assets/icons";
 
 const ReviewCard = (props) => {
   return (
-    <div className="bg-white rounded-2xl max-w-174 p-4 text-black ">
+    <div className="bg-white rounded-[20px] max-w-174 p-4 text-black ">
       <div className="flex justify-between text-black items-center">
         <div className=" flex items-center gap-2">
           <div className="h-10 w-10">

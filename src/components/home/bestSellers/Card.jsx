@@ -63,7 +63,7 @@ const Card = (props) => {
             flex-1
             text-black
             bg-yellow
-            rounded-2xl
+            rounded-[20px]
             items-center justify-center
             sm:text-4xl
             min-w-72 min-h-48 max-w-104 max-h-auto
@@ -81,7 +81,7 @@ const Card = (props) => {
             flex-1
             p-4
             bg-white
-            rounded-2xl
+            rounded-[20px]
             xs:max-w-104 gap-3
             sm:max-w-74
             md:min-w-90
@@ -92,7 +92,7 @@ const Card = (props) => {
             className="
               overflow-hidden
               h-40 w-25
-              rounded-2xl
+              rounded-[20px]
               md:h-50 md:w-35
               lg:h-59 lg:w-60
             "

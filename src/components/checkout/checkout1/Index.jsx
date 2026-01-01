@@ -17,8 +17,8 @@ const Index = () => {
   const [disc, setDisc] = useState("");
 
   return (
-    <div className="max-w-[1440px] rounded-2xl m-5 h-screen text-white ">
-      <div className="p-8 rounded-2xl bg-grayBg  ">
+    <div className="max-w-[1440px] rounded-[20px] m-5 h-screen text-white ">
+      <div className="p-8 rounded-[20px] bg-grayBg  ">
         <div className="flex gap-2 items-center  font-light mb-10">
           <span className="flex gap-2 items-center">
             <DropArrowIcon classname="rotate-90 md:h-4 md:w-4 fill-white" />

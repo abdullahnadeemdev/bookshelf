@@ -86,7 +86,7 @@ const Hero = () => {
             className="
               object-cover
               w-full h-full
-              rounded-2xl
+              rounded-[20px]
             "
           />
           <Stamp

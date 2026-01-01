@@ -172,7 +172,7 @@ const Payment = (props) => {
                 id="cardnum"
                 value={inputInfo.cardnum}
                 onChange={handleChange}
-                className="border mt-2 h-13 p-3 bg-white rounded-2xl w-full text-grayBg"
+                className="border mt-2 h-13 p-3 bg-white rounded-[20px] w-full text-grayBg"
                 placeholder="Card Number"
               />
               {error.cardnum && (
@@ -185,7 +185,7 @@ const Payment = (props) => {
                   value={inputInfo.expiry}
                   onChange={handleChange}
                   id="expiry"
-                  className="border h-13 p-3 my-5 bg-white rounded-2xl w-full text-grayBg"
+                  className="border h-13 p-3 my-5 bg-white rounded-[20px] w-full text-grayBg"
                   placeholder="Expiration  (MM/YY)"
                 />
                 {error.expiry && (
@@ -198,7 +198,7 @@ const Payment = (props) => {
                     id="cvv"
                     value={inputInfo.cvv}
                     onChange={handleChange}
-                    className="border h-13 p-3 bg-white rounded-2xl w-full text-grayBg"
+                    className="border h-13 p-3 bg-white rounded-[20px] w-full text-grayBg"
                     placeholder="CVV"
                   />
                   {error.cvv && (

@@ -67,14 +67,14 @@ const Shipping = (props) => {
                 type="text"
                 name="date"
                 id="date"
-                className="border h-13 p-3 my-5 bg-white rounded-2xl w-full text-grayBg"
+                className="border h-13 p-3 my-5 bg-white rounded-[20px] w-full text-grayBg"
                 placeholder="Today "
               />
               <input
                 type="text"
                 name="time"
                 id="time"
-                className="border h-13 p-3 bg-white rounded-2xl w-full text-grayBg"
+                className="border h-13 p-3 bg-white rounded-[20px] w-full text-grayBg"
                 placeholder="Time"
               />
             </div>
@@ -84,7 +84,7 @@ const Shipping = (props) => {
               id="address"
               onChange={handleChange}
               value={inputData.address}
-              className="border h-13 p-3 bg-white rounded-2xl w-full text-grayBg"
+              className="border h-13 p-3 bg-white rounded-[20px] w-full text-grayBg"
               placeholder="Address"
             />
             {error.addressError && (
@@ -95,7 +95,7 @@ const Shipping = (props) => {
               id="note"
               onChange={handleChange}
               value={inputData.note}
-              className="border mt-2 p-3 bg-white rounded-2xl w-full text-grayBg"
+              className="border mt-2 p-3 bg-white rounded-[20px] w-full text-grayBg"
               placeholder="note"
             ></textarea>
           </form>

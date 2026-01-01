@@ -38,7 +38,7 @@ const OrderSummay = (props) => {
 
   return (
     <div className="hidden md:block">
-      <div className="bg-blackC rounded-2xl p-6 w-100 ">
+      <div className="bg-blackC rounded-[20px] p-6 w-100 ">
         <div className="justify-between items-center mb-2">
           <h2 className="text-2xl font-normal text-center">ORDER SUMMARY</h2>
         </div>
@@ -89,7 +89,7 @@ const OrderSummay = (props) => {
       <span>
         <input
           type="text"
-          className="border rounded-2xl text-lightGrayBg p-4 bg-white h-13 mt-5 w-[75%] mr-2"
+          className="border rounded-[20px] text-lightGrayBg p-4 bg-white h-13 mt-5 w-[75%] mr-2"
           placeholder="Promocode"
           name="disCount"
           value={props.disc}

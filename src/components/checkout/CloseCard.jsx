@@ -8,7 +8,7 @@ const CloseCard = (props) => {
     func((prev) => ({ ...prev, [btn]: true, [btn2]: false }));
   };
   return (
-    <div className="bg-blackC rounded-2xl p-4 w-150">
+    <div className="bg-blackC rounded-[20px] p-4 w-150">
       <div className="flex justify-between">
         <p>{props.head}</p>
         <button className="underline" onClick={handleClick}>

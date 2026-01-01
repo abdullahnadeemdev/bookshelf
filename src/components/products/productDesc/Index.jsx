@@ -10,7 +10,7 @@ const Index = () => {
   // console.log("state in productdesc", state);
   return (
     <div className="">
-      <div className=" my-5 px-4 max-w-[1440px] mx-auto rounded-2xl">
+      <div className=" my-5 px-4 max-w-[1440px] mx-auto rounded-[20px]">
         <Description />
         <Suggestion />
         <Review />

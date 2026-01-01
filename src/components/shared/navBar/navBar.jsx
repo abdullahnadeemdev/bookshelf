@@ -25,18 +25,18 @@ const NavBar = (props) => {
 
   return (
     <div className="w-full max-w-[1440px] px-4 z-50 md:sticky top-0">
-      <div className="bg-grayBg rounded-2xl w-full p-6 hidden md:block">
+      <div className="bg-grayBg rounded-[20px] w-full p-6 hidden md:block">
         <div className=" flex items-center justify-between">
           <NavLink to="/">
             <div className="flex items-center gap-2 ">
               <Logo className="h-7 w-8 lg:h-9 lg:w-10" />
-              <p className="font-semibold text-lg lg:text-2xl xl:text-3xl">
-                BOOKSHELF
+              <p className="font-semibold text-base lg:text-lg xl:text-xl">
+                BIG BOOKSHELF
               </p>
             </div>
           </NavLink>
 
-          <ul className="list-none flex gap-2.5 text-xs sm:text-sm lg:text-base lg:gap-3 xl:gap-5 xl:text-lg cursor-pointer">
+          <ul className="list-none flex gap-5 text-xs lg:text-sm lg:gap-6 xl:gap-8 xl:text-base font-light cursor-pointer">
             <NavLink
               to="/books"
               className={({ isActive }) =>
@@ -64,25 +64,19 @@ const NavBar = (props) => {
               What to Read?
             </NavLink>
 
-            <NavLink
-              to="/books"
-              className={({ isActive }) =>
-                isActive ? "text-yellow" : "text-whiteBg"
-              }
-            >
-              Gift Ideas
-            </NavLink>
+            <NavLink to="/books">Gift Ideas</NavLink>
 
-            <Link>About Us</Link>
+            {/* <Link>About Us</Link> */}
           </ul>
 
-          <div className="flex items-center relative">
-            <ul className="flex gap-0.5 lg:gap-2 xl:gap-5 mr-3">
-              <NavLink to="/userPage">
+          <div className="flex items-center relative ">
+            <ul className="flex gap-0.5 lg:gap-2 xl:gap-5 mr-3 ">
+              {/* <NavLink to="/userPage">
                 <UserIcon className="h-4 w-4 lg:h-5.5 lg:w-5.5" />
-              </NavLink>
+              </NavLink> */}
+              <SearchIcon className=" h-3.5 w-3.5  lg:h-6.5! lg:w-6!" />
               <NavLink to="/bookmark">
-                <BookmarkIcon className=" h-3.5 w-3.5 lg:h-5 lg:w-5" />
+                <BookmarkIcon className=" h-3.5 w-3.5 mt-0.5 lg:h-5.5! lg:w-5!" />
               </NavLink>
               <li>
                 <NavLink to="/cart">
@@ -97,18 +91,20 @@ const NavBar = (props) => {
                     ""
                   )}
 
-                  <CartIcon className=" h-3.5 w-3.5 lg:h-5 lg:w-5" />
+                  <CartIcon className=" h-3.5 w-3.5 lg:h-6! lg:w-6!" />
                 </NavLink>
               </li>
             </ul>
             {!isAuth ? (
               <div>
                 <NavLink to="/login">
-                  <Button className="ml:2 lg:ml-4">LOGIN</Button>
+                  <Button className="ml:4 lg:ml-6">LOGIN</Button>
                 </NavLink>
               </div>
             ) : (
-              ""
+              <NavLink to="/userPage">
+                <Button className="ml:2 lg:ml-4">USER</Button>
+              </NavLink>
             )}
           </div>
         </div>
@@ -133,28 +129,28 @@ const NavBar = (props) => {
             <ul className="mx-2">
               <NavLink
                 to="/books"
-                className="w-full block font-semibold bg-black text-yellow hover:bg-yellow rounded-2xl mt-1 hover:text-black px-3 py-4 text-lg transition-all duration-300 cursor-pointer "
+                className="w-full block font-semibold bg-black text-yellow hover:bg-yellow rounded-[20px] mt-1 hover:text-black px-3 py-4 text-lg transition-all duration-300 cursor-pointer "
               >
                 Books
               </NavLink>
 
               <NavLink
                 to="/authorsPopular"
-                className="w-full block font-semibold bg-black text-yellow hover:bg-yellow rounded-2xl hover:text-black px-3 py-4 text-lg transition-all duration-300 cursor-pointer "
+                className="w-full block font-semibold bg-black text-yellow hover:bg-yellow rounded-[20px] hover:text-black px-3 py-4 text-lg transition-all duration-300 cursor-pointer "
               >
                 Authors
               </NavLink>
 
               <NavLink
                 to="/bookmark"
-                className="w-full block font-semibold bg-black text-yellow hover:bg-yellow rounded-2xl hover:text-black px-3 py-4 text-lg transition-all duration-300 cursor-pointer "
+                className="w-full block font-semibold bg-black text-yellow hover:bg-yellow rounded-[20px] hover:text-black px-3 py-4 text-lg transition-all duration-300 cursor-pointer "
               >
                 What to Read?
               </NavLink>
 
               <NavLink
                 to="/books"
-                className="w-full block font-semibold bg-black text-yellow hover:bg-yellow rounded-2xl hover:text-black px-3 py-4 text-lg transition-all duration-300 cursor-pointer "
+                className="w-full block font-semibold bg-black text-yellow hover:bg-yellow rounded-[20px] hover:text-black px-3 py-4 text-lg transition-all duration-300 cursor-pointer "
               >
                 Gift Ideas
               </NavLink>

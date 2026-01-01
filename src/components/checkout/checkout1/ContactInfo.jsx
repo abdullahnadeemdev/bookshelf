@@ -87,7 +87,7 @@ const ContactInfo = (props) => {
               id="nameIN"
               onChange={handleChange}
               value={inputData.nameIN}
-              className="border h-13 p-3 mt-5 bg-white rounded-2xl w-full text-grayBg"
+              className="border h-13 p-3 mt-5 bg-white rounded-[20px] w-full text-grayBg"
               placeholder="Name Surname "
             />
             {error?.nameError && (
@@ -99,7 +99,7 @@ const ContactInfo = (props) => {
               id="phoneIN"
               onChange={handleChange}
               value={inputData.phoneIN}
-              className="border h-13 p-3 mt-5 bg-white rounded-2xl w-full text-grayBg"
+              className="border h-13 p-3 mt-5 bg-white rounded-[20px] w-full text-grayBg"
               placeholder="Mobile"
             />
             {error?.phoneError && (

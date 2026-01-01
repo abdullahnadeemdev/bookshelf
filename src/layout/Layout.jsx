@@ -17,7 +17,7 @@ const Layout = ({ children }) => {
   };
   return (
     <>
-      <div className="flex flex-col items-center w-full text-white bg-whiteBg pt-6">
+      <div className="font-Inter flex flex-col items-center w-full text-white bg-whiteBg pt-6">
         {handleNavbar() ? <NavbarContainer /> : ""}
 
         {/* Childerns */}

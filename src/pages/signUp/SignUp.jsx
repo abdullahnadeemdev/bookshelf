@@ -142,7 +142,7 @@ const SignUp = (props) => {
   };
   return (
     <div className="w-full flex items-center h-[95vh]">
-      <div className=" sm:max-w-[500px] m-4 border  bg-blackC  rounded-2xl p-4 xs:p-6 sm:p-10 md:p-16 mx-auto">
+      <div className=" sm:max-w-[500px] m-4 border  bg-blackC  rounded-[20px] p-4 xs:p-6 sm:p-10 md:p-16 mx-auto">
         <div className="text-center w-full p-2 ">
           <h1 className="mb-8 xl:mb-10 text-chineseViolet font-semibold text-xl sm:text-2xl xl:text-4xl">
             SignUp

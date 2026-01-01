@@ -24,7 +24,7 @@ const CardAuthor = (props) => {
             md:h-[20vh]
             text-black
             bg-yellow
-            rounded-2xl
+            rounded-[20px]
             items-center justify-center
             max-w-100
           "
@@ -40,7 +40,7 @@ const CardAuthor = (props) => {
             max-w-[400px]
             text-black
             bg-white
-            rounded-2xl
+            rounded-[20px]
           "
         >
           <div
