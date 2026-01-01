@@ -74,7 +74,7 @@ const NavBar = (props) => {
               {/* <NavLink to="/userPage">
                 <UserIcon className="h-4 w-4 lg:h-5.5 lg:w-5.5" />
               </NavLink> */}
-              <SearchIcon className=" h-3.5 w-3.5  lg:h-6.5! lg:w-6!" />
+              <SearchIcon className=" h-3.5 w-3.5  lg:h-6.5! lg:w-6! stroke-white!" />
               <NavLink to="/bookmark">
                 <BookmarkIcon className=" h-3.5 w-3.5 mt-0.5 lg:h-5.5! lg:w-5!" />
               </NavLink>

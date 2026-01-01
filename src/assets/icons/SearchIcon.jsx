@@ -3,7 +3,7 @@ export const SearchIcon = ({ className, ...props }) => {
     <svg
       viewBox="0 0 24 24"
       fill="none"
-      className={`xl:h-7 xl:w-7 stroke-white stroke-2 ${className}`}
+      className={`xl:h-7 xl:w-7 stroke-searchIcon! stroke-2 ${className}`}
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >

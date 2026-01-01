@@ -21,7 +21,8 @@ const Hero = () => {
     >
       <p
         className="
-        text-black
+        text-blackC
+        font-bold
           heroHeading 
           hidden md:block
         "
@@ -38,11 +39,13 @@ const Hero = () => {
       >
         <div
           className="
-            flex-1 overflow-hidden
-            p-4
+             overflow-hidden
+            p-7
+            sm:flex-1
+            flex-0
             text-start
             bg-grayBg
-            rounded-xl
+            rounded-[19px]
             relative
           "
         >
@@ -51,14 +54,14 @@ const Hero = () => {
               FIND SOMETHING TO READ
             </p>
 
-            <p className="text-wrap  text-sm xl:text-lg xl:max-w-90 lg:text-base lg:max-w-66 md:max-w-55">
+            <p className="text-wrap font-extralight text-sm mb-2 xl:text-lg xl:max-w-92 lg:text-base lg:max-w-66 md:max-w-55">
               Fancy something unusual and unpredictable? Funny or exciting? No
               problem. Check out the collections we have prepared for you.
             </p>
 
             <Button
               variant="outline"
-              className="text-yellow hover:bg-yellow hover:text-blackC"
+              className="text-yellow hover:bg-yellow mt-5 hover:text-blackC"
               onClick={handleBrowse}
             >
               BROWSE NOW
@@ -69,15 +72,15 @@ const Hero = () => {
             className="
               z-10
               min-h-30 min-w-40 max-h-160 max-w-130 h-full
-              absolute -right-17 top-10 rotate-90 stroke-blackC! stroke-1!
-              xl:min-h-80 xl:min-w-90 xl:-right-20 xl:top-18
+              absolute -right-17 top-10 rotate-85 stroke-1!
+              xl:min-h-100 xl:min-w-100 xl:-right-18 xl:-top-5
             "
           />
         </div>
 
         <div
-          className="overflow-hidden
-            flex-1
+          className="overflow-hidden sm:flex-1
+          flex-0
             relative"
         >
           <img
@@ -92,7 +95,7 @@ const Hero = () => {
           <Stamp
             className="
               h-10 w-10
-              absolute top-3 left-3
+              absolute top-5 left-5
             "
           />
         </div>
