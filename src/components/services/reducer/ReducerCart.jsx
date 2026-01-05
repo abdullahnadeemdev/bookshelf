@@ -1,6 +1,5 @@
 import { addItemsToCart } from "../../../utils/utils";
 import { removeItemsFromCart } from "../../../utils/utils";
-// import { addDuplicateItem } from "../../../utils/utils";
 
 const getItems = () => {
   const arr = JSON.parse(localStorage.getItem("cart")) || [];
@@ -18,9 +17,6 @@ const cartData = (state = initialState.cartItem, action) => {
 
     case removeItemsFromCart:
       return action.item;
-
-    // case addDuplicateItem:
-    //   return action.item;
 
     default:
       return state;

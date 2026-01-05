@@ -8,6 +8,7 @@ const Card = (props) => {
     return user?.email || "";
   };
   const em = getLogin();
+
   const bookTitle = props.title;
 
   const book = {
@@ -31,25 +32,24 @@ const Card = (props) => {
   const [isBookmarked, setIsBookmarked] = useState(() => {
     const array = JSON.parse(localStorage.getItem("bookmarks")) || [];
     const booksArray = array.filter((item) => item.email === em);
-    return booksArray.some((b) => b.title === book?.title);
+    return booksArray.find((b) => b.title === book?.title);
   });
 
   const handleBookmark = (e) => {
     e.preventDefault();
     e.stopPropagation();
 
-    const currentBookmarks = JSON.parse(
-      localStorage.getItem("bookmarks") || []
-    );
+    const currentBookmarks = props.book;
 
     if (!isBookmarked) {
-      const updated = [...currentBookmarks, props];
+      const updated = [...currentBookmarks, { ...book, email: em }];
+      props.bookInfo(updated);
       localStorage.setItem("bookmarks", JSON.stringify(updated));
       setIsBookmarked(true);
     } else {
-      const updatedArray = currentBookmarks.filter(
-        (b) => b.title !== bookTitle
-      );
+      const updatedArray = [
+        currentBookmarks.filter((b) => b.title !== bookTitle),
+      ];
       localStorage.setItem("bookmarks", JSON.stringify(updatedArray));
       setIsBookmarked(false);
     }

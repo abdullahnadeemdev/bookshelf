@@ -21,6 +21,7 @@ const Router = (props) => {
       <Route path="/books" element={<Products />} />
       <Route path="/books/:title" element={<ProductsDesc />} />
       <Route path="/forgot-password" element={<ForgotP />} />
+      <Route path="/cart" element={<Cart />} />
 
       <Route
         path="/login"
@@ -47,10 +48,6 @@ const Router = (props) => {
       <Route
         path="/user-page"
         element={isAuth ? <UserPage /> : <Navigate to="/login" />}
-      />
-      <Route
-        path="/cart"
-        element={isAuth ? <Cart /> : <Navigate to="/login" />}
       />
 
       <Route path="*" element={<Navigate to="/" />} />

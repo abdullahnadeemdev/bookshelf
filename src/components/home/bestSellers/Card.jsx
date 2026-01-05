@@ -2,9 +2,6 @@ import { useState } from "react";
 import { Bookmark, Comment, Star } from "../../../assets/icons";
 import { NavLink } from "react-router";
 const Card = (props) => {
-  const isAuth = props.data;
-  // console.log("i am best seller card prop", props);
-
   const getLogin = () => {
     const user = JSON.parse(localStorage.getItem("logIn")) || {};
     return user?.email || "";
@@ -16,8 +13,6 @@ const Card = (props) => {
     const saved = JSON.parse(localStorage.getItem("bookmarks")) || [];
     return saved.some((b) => b.title === props.title && b.email === em);
   });
-
-  // console.log("isBookmarked", isBookmarked);
 
   const handleBookmark = (e) => {
     e.preventDefault();

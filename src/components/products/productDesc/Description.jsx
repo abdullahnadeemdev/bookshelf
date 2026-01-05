@@ -27,7 +27,6 @@ const Description = (props) => {
   const em = getLogin();
 
   const isAuth = props.data;
-  const [quant, setQuant] = useState(1);
 
   if (!state) {
     return (
@@ -37,20 +36,31 @@ const Description = (props) => {
     );
   }
 
+  const [num, setNum] = useState(1);
+
   const productInfo = {
     id: id(),
     title: state.title,
     author: state.author,
     price: state.salePrice,
-    quantity: quant,
+    quantity: num,
     image: state.img,
   };
+
   let product = [];
+
   const checkP = () => {
     cartArray.length > 0
       ? product.push(cartArray.find((item) => item.title === productInfo.title))
       : product;
   };
+
+  function sub() {
+    setNum((num) => (num > 1 ? num - 1 : num));
+  }
+  function add() {
+    setNum((num) => num + 1);
+  }
 
   // console.log(
   //   "cartArray.find((item) => item.title === productInfo.title",
@@ -64,7 +74,6 @@ const Description = (props) => {
     return saved.some((b) => b.title === state.title && b.email === em);
   });
 
-  const [num, setNum] = useState(productInfo.quantity);
   const handleBookmark = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -86,19 +95,13 @@ const Description = (props) => {
   const navigate = useNavigate();
 
   const handleCart = () => {
-    // if (!isAuth) {
-    //   alert("Login First!!!");
-    //   navigate("/login");
-    //   return;
-    // }
-
     const isDuplicate = cartItems?.some((item) => item.title === state.title);
     let updatedCart;
 
     if (isDuplicate) {
       updatedCart = cartItems.map((item) =>
         item.title === state.title
-          ? { ...item, quantity: item.quantity + quant, email: em }
+          ? { ...item, quantity: num, email: em }
           : item
       );
       setCartItems(updatedCart);
@@ -113,7 +116,17 @@ const Description = (props) => {
       alert("Added to cart!");
     }
   };
-  console.log("num", num);
+
+  const handleSub = () => {
+    sub();
+    // handleCart();
+  };
+
+  const handleAdd = () => {
+    add();
+    // handleCart();
+  };
+
   return (
     <div className="p-8 bg-grayBg rounded-[20px]">
       <span className="flex gap-1 mb-5">
@@ -177,7 +190,7 @@ const Description = (props) => {
               <p>{state.salePrice}</p>
             </span>
 
-            <div className="flex ">
+            <div className="flex items-center">
               <NavLink
                 to="/checkout"
                 className="min-w-29 xs:mt-2 text-white p-2 lg:p-4 h-fit rounded-xl md:mt-4"
@@ -199,13 +212,14 @@ const Description = (props) => {
                   publisher: state.publisher,
                 }}
               >
-                <Button className="mr-2 min-w-29">BUY NOW</Button>
+                <Button className="mr-2 min-w-39">BUY NOW</Button>
               </NavLink>
-              {product ? (
-                <button className="min-w-29 xs:mt-8 items-center justify-evenly flex h-14 text-black bg-whiteBg rounded-[20px]">
+
+              {product.length > 0 ? (
+                <button className="min-w-39 xs:mt-4 items-center justify-evenly flex h-14 text-black bg-whiteBg rounded-[20px]">
                   <p
                     className="flex items-center justify-center hover:bg-blackC"
-                    onClick={() => setNum((num) => (num > 1 ? num - 1 : num))}
+                    onClick={handleSub()}
                   >
                     -
                   </p>
@@ -214,7 +228,7 @@ const Description = (props) => {
                   </p>
                   <p
                     className="flex items-center justify-center hover:bg-blackC"
-                    onClick={() => setNum((num) => num + 1)}
+                    onClick={handleAdd()}
                   >
                     +
                   </p>
@@ -222,7 +236,7 @@ const Description = (props) => {
               ) : (
                 <Button
                   variant="outline"
-                  className="min-w-29 xs:mt-2 text-white"
+                  className="max-w-39 max-h-14 xs:mt-3  text-white"
                   onClick={handleCart}
                 >
                   ADD TO CART
@@ -253,15 +267,11 @@ const Description = (props) => {
               collapse, a ceaselessly imaginative story of violence, boredom and
               madness.
             </p>
-
-            <p className="underline mt-3 font-normal">READ PREVIEW</p>
           </div>
 
           <div className="bg-whiteBg text-black font-light rounded-[20px] p-5 w-full ">
             <span className="flex justify-between items-center">
-              <p className="text-xl font-normal">Reception</p>
-
-              <ArrowIcon classname="h-8 w-10" />
+              <p className="text-xl font-normal">Novel</p>
             </span>
           </div>
         </div>

@@ -111,8 +111,6 @@ const SideBar = ({ setFilter, filter }) => {
             </label>
           </span>
         </div>
-
-        <p className="underline text-sm">VIEW ALL</p>
       </div>
       <div>
         <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mt-10">
@@ -240,8 +238,6 @@ const SideBar = ({ setFilter, filter }) => {
             </label>
           </span>
         </div>
-
-        <p className="underline text-sm">VIEW ALL</p>
       </div>
 
       <div>
