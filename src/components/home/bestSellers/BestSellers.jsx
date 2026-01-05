@@ -18,8 +18,8 @@ const BestSellers = () => {
   // }, [height]);
 
   return (
-    <div className="h-fit  mb-10 2xl:h-screen max-w-[1440px] px-4">
-      <h1 className="font-semibold text-xl sm:text-2xl lg:text-4xl py-10">
+    <div className="h-fit 2xl:h-fit py-10 max-w-[1440px] px-4">
+      <h1 className="font-semibold text-xl sm:text-2xl lg:text-4xl ">
         BESTSELLERS
       </h1>
       <div className="flex justify-between gap-3 flex-wrap">

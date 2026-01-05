@@ -13,7 +13,6 @@ const Index = () => {
       <div
         className="flex items-center justify-center bg-blackC"
         id="bestSellers"
-        // ref={bestSeller}
       >
         <BestSellers />
       </div>
@@ -21,19 +20,11 @@ const Index = () => {
         <CallToAction />
       </div>
 
-      <div
-        className="bg-blackC "
-        id="authors"
-        // ref={popularAuthor}
-      >
+      <div className="bg-blackC " id="authors">
         <PopularAuthor />
       </div>
 
-      <div
-        className="py-6 px-5"
-        id="recommend"
-        // ref={recommendation}
-      >
+      <div className="py-6 px-5" id="recommend">
         <Recommendation />
       </div>
     </div>
