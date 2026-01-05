@@ -27,6 +27,10 @@ export const addItemsToCart = "addItemsToCart";
 export const removeItemsFromCart = "removeItemsFromCart";
 export const addItemsDuplicate = "addItemsDuplicate";
 
+export const addBooksToCart = "addBooksToCart";
+export const removeBooksFromCart = "removeBooksFromCart";
+export const addBooksDuplicate = "addBooksDuplicate";
+
 export const menuArr = [
   "Books",
   "Authors",

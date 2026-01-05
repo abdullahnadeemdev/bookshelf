@@ -3,6 +3,7 @@ import { Bookmark, Comment, Star } from "../../../assets/icons";
 import { NavLink } from "react-router";
 const Card = (props) => {
   const isAuth = props.data;
+  // console.log("i am best seller card prop", props);
 
   const getLogin = () => {
     const user = JSON.parse(localStorage.getItem("logIn")) || {};
@@ -22,15 +23,20 @@ const Card = (props) => {
     e.preventDefault();
     e.stopPropagation();
 
-    const currentBookmarks =
-      JSON.parse(localStorage.getItem("bookmarks")) || [];
+    const currentBookmarks = props.book;
+    const arr = Object.entries(props).filter(
+      ([key]) => key !== "book" && key !== "booksInfo"
+    );
+    const newArr = Object.fromEntries(arr);
 
     if (!isBookmarked) {
-      const updated = [...currentBookmarks, { ...props, email: em }];
+      const updated = [...currentBookmarks, { ...newArr, email: em }];
+      props.booksInfo(updated);
       localStorage.setItem("bookmarks", JSON.stringify(updated));
       setIsBookmarked(true);
     } else {
       const updated = currentBookmarks.filter((b) => b.title !== props.title);
+      props.booksInfo(updated);
       localStorage.setItem("bookmarks", JSON.stringify(updated));
       setIsBookmarked(false);
     }
@@ -150,7 +156,7 @@ const Card = (props) => {
                 </p>
               </span>
               <div onClick={(e) => handleBookmark(e)}>
-                <Bookmark fill={isAuth && isBookmarked ? "white" : "#2a2c2e"} />
+                <Bookmark fill={isBookmarked ? "white" : "#2a2c2e"} />
               </div>
             </div>
 
