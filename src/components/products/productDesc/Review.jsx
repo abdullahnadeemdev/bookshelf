@@ -9,9 +9,9 @@ const Review = () => {
         <h1 className="font-semibold text-xl xs:text-2xl text-black">
           READERS REVIEWS
         </h1>
-        <Button variant="outline" className="border-black ">
+        {/* <Button variant="outline" className="border-black ">
           ADD REVIEW
-        </Button>
+        </Button> */}
       </div>
       <div className="flex flex-wrap justify-around gap-4">
         {array.map((item, index) => (

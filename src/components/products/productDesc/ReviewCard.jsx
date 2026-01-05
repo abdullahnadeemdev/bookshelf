@@ -1,4 +1,3 @@
-import React from "react";
 import { Star } from "../../../assets/icons";
 
 const ReviewCard = (props) => {
@@ -22,7 +21,6 @@ const ReviewCard = (props) => {
         <p className="text-lg">{props.rating}</p>
       </span>
       <p className="text-sm mb-6 h-30 overflow-hidden">{props.review}</p>
-      <p className="underline text-lg">READ MORE</p>
     </div>
   );
 };

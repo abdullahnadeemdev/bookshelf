@@ -9,7 +9,10 @@ const SuggestCard = (props) => {
           alt=""
           className="h-full w-full object-cover rounded-[20px]"
         />
-        <Bookmark classname="absolute top-3 right-2 lg:w-8! lg:h-8!" />
+        <Bookmark
+          fillClr={"#2a2c2e"}
+          classname="absolute top-3 right-2 lg:w-8! lg:h-8!"
+        />
       </div>
       <div>
         <p className="text-sm text-darkGreyText mt-2">{props.author}</p>
