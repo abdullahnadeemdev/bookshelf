@@ -5,14 +5,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { addBookmark, removeBookmark } from "../../../features/bookMarkSlice";
 
 const Card = (props) => {
-  const user = useSelector((state) => state.auth.user) || null;
+  const user = useSelector((state) => state?.auth?.user?.email) || "";
 
   const bookTitle = props.title;
   const dispatch = useDispatch();
 
-  const currentBookmarks = useSelector((state) => state?.book?.bookMark) || [];
+  const currentBookmarks = useSelector((state) => state?.book?.items);
 
   const book = {
+    id: props.id,
     image: props.image,
     author: props.author,
     title: bookTitle,
@@ -30,10 +31,9 @@ const Card = (props) => {
     publisher: props.publisher,
   };
 
-  const [isBookmarked, setIsBookmarked] = useState(() => {
-    const booksArray = currentBookmarks.filter((item) => item.email === user);
-    return booksArray.find((b) => b.title === book?.title);
-  });
+  const [isBookmarked, setIsBookmarked] = useState(() =>
+    currentBookmarks.some((b) => b.title === props.title && b.email === user)
+  );
 
   const handleBookmark = (e) => {
     e.preventDefault();
@@ -44,19 +44,18 @@ const Card = (props) => {
       dispatch(addBookmark(updated));
       setIsBookmarked(true);
     } else {
-      const updatedArray = currentBookmarks.filter(
-        (b) => b.title !== book.title
-      );
-      dispatch(removeBookmark(book.title));
+      dispatch(removeBookmark(book.id));
       setIsBookmarked(false);
     }
   };
+
   return (
     <NavLink
       to={`/books/${bookTitle.replace(/\s+/g, "-")}`}
       className="bg-whiteBg p-2 lg:p-4 h-fit rounded-xl md:mt-4"
       state={{
         img: props.image,
+        id: props.id,
         author: props.author,
         title: bookTitle,
         comments: props.comts,

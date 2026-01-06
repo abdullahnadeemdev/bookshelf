@@ -9,7 +9,7 @@ const Card = (props) => {
 
   const dispatch = useDispatch();
 
-  const currentBookmarks = useSelector((state) => state.book.items);
+  const currentBookmarks = useSelector((state) => state?.book?.items);
   // console.log("currentBookmarks", currentBookmarks);
 
   const [isBookmarked, setIsBookmarked] = useState(() =>
@@ -24,8 +24,6 @@ const Card = (props) => {
 
     if (!isBookmarked) {
       const updated = { ...props, email: user };
-      // console.log("props", props);
-      // console.log("updated", updated);
       dispatch(addBookmark(updated));
       setIsBookmarked(true);
     } else {
@@ -39,6 +37,7 @@ const Card = (props) => {
       to={`/books/${props.title}`}
       state={{
         img: props.image,
+        id: props.id,
         author: props.author,
         title: props.title,
         comments: props.comts,

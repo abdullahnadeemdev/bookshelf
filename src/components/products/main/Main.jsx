@@ -65,6 +65,7 @@ const Main = () => {
               array.map((item, index) => (
                 <Card
                   key={index}
+                  id={item.id}
                   image={item.image}
                   author={item.author}
                   title={item.title}

@@ -12,7 +12,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateCart } from "../../../features/cartSlice";
 
 const Description = (props) => {
-  const cartArray = useSelector((state) => state.reducerCart.cartItems) || [];
+  const cartArray = useSelector((state) => state?.reducerCart?.cartItems) || [];
+  const user = useSelector((state) => state?.auth?.user?.email) || "";
+
   const dispatch = useDispatch();
 
   const [cartItems, setCartItems] = useState(() => {
@@ -20,13 +22,6 @@ const Description = (props) => {
   });
 
   const { state } = useLocation();
-
-  const getLogin = () => {
-    const user = JSON.parse(localStorage.getItem("logIn")) || {};
-    return user?.email || "";
-  };
-
-  const em = getLogin();
 
   if (!state) {
     return (
@@ -39,7 +34,7 @@ const Description = (props) => {
   const [num, setNum] = useState(1);
 
   const productInfo = {
-    id: id(),
+    id: state.id,
     title: state.title,
     author: state.author,
     price: state.salePrice,
@@ -65,27 +60,23 @@ const Description = (props) => {
   // }
 
   checkP();
-  // console.log("product", product);
+  const currentBookmarks = useSelector((state) => state?.book?.items);
 
-  const [isBookmarked, setIsBookmarked] = useState(() => {
-    const saved = JSON.parse(localStorage.getItem("bookmarks")) || [];
-    return saved.some((b) => b.title === state.title && b.email === em);
-  });
+  // console.log("product", product);
+  const [isBookmarked, setIsBookmarked] = useState(() =>
+    currentBookmarks.some((b) => b.title === props.title && b.email === user)
+  );
 
   const handleBookmark = (e) => {
     e.preventDefault();
     e.stopPropagation();
 
-    const currentBookmarks =
-      JSON.parse(localStorage.getItem("bookmarks")) || [];
-
     if (!isBookmarked) {
-      const updated = [...currentBookmarks, { ...productInfo, email: em }];
-      localStorage.setItem("bookmarks", JSON.stringify(updated));
+      const updated = { ...props, email: user };
+      dispatch(addBookmark(updated));
       setIsBookmarked(true);
     } else {
-      const updated = currentBookmarks.filter((b) => b.title !== state.title);
-      localStorage.setItem("bookmarks", JSON.stringify(updated));
+      dispatch(removeBookmark(props.id));
       setIsBookmarked(false);
     }
   };
