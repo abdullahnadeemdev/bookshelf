@@ -9,9 +9,6 @@ const initialState = {
   userList: [],
 };
 
-// const setLogin =
-// };
-
 export const loginSlice = createSlice({
   name: "auth",
   initialState,

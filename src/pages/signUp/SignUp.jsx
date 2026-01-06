@@ -7,12 +7,6 @@ import { signUp } from "../../features/loginSlice";
 const SignUp = (props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  // const getItem = () => {
-  //   const arr = JSON.parse(localStorage.getItem("signIn")) || [];
-  //   return arr;
-  // };
-
-  // const dataArr = getItem();
   const dataArr = useSelector((state) => state?.auth?.userList) || [];
 
   const [values, setValues] = useState({

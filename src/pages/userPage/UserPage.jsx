@@ -13,19 +13,9 @@ const UserProfile = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  // const getItem = () => {
-  //   const arr = JSON.parse(localStorage.getItem("signIn"));
-  //   return arr;
-  // };
-
   const dataArr = useSelector((state) => state?.auth?.userList) || [];
-  // const dataArr = getItem() || [];
-
-  //   console.log("urllllll", location.pathname);
 
   const userObj = useSelector((state) => state?.auth?.user);
-
-  // const getUser = userObj?.find((item) => item.isLogin);
 
   const [values, setValues] = useState({
     name: userObj?.name,
@@ -143,34 +133,17 @@ const UserProfile = () => {
           return item;
         }
       });
-      dispatch(signUp(newData));
 
-      //
-      //
-      // const newData = dataArr.map((item) => {
-      //   if (item.email === user.email) {
-      //     return (item = values);
-      //   } else {
-      //     return item;
-      //   }
-      // });
-      // console.log("user", user);
-      // console.log("newData", newData);
-      // console.log("dataArr", dataArr);
-      // localStorage.setItem("signIn", JSON.stringify(newData));
-      // localStorage.setItem("logIn", JSON.stringify(values));
+      dispatch(signUp(newData));
       setIsEdit(!isEdit);
     } else {
       console.log("error submitting form", values);
     }
-    // console.log("newData newData newData", newData);
   };
 
   const handleEdit = (e) => {
-    // e.stopPropagation();
     e.preventDefault();
     setIsEdit(!isEdit);
-    // console.log("isEdit", isEdit);
   };
 
   const logoutClick = () => {
@@ -202,7 +175,6 @@ const UserProfile = () => {
               {error?.name && (
                 <p className="text-red text-start">{error.name}</p>
               )}
-              {/* {console.log(isEdit)} */}
             </div>
             <div className="text-start">
               <p htmlFor="email">Email</p>
