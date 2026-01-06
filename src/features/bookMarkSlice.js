@@ -1,23 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const getBooks = () => {
-  const arr = JSON.parse(localStorage.getItem("bookmarks")) || [];
-  return arr;
-};
-
 const initialState = {
-  bookMark: getBooks(),
+  items: [],
 };
 
 export const bookMarkSlice = createSlice({
-  name: "bookmark",
+  name: "book",
   initialState,
   reducers: {
-    updateBookmark: (state, action) => {
-      state.bookMark = action.payload;
+    addBookmark: (state, action) => {
+      state.items.push(action.payload);
+    },
+    removeBookmark: (state, action) => {
+      state.items = state.items.filter((item) => item.id !== action.payload);
     },
   },
 });
 
 export default bookMarkSlice.reducer;
-export const { updateBookmark } = bookMarkSlice.actions;
+export const { addBookmark, removeBookmark } = bookMarkSlice.actions;

@@ -15,7 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Router = (props) => {
   const user = useSelector((state) => state?.auth?.user) || null;
-  console.log("user1", user);
+  // console.log("user1", user);
   // console.log("isAuth", isAuth);
 
   return (

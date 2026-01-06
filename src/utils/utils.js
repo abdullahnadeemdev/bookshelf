@@ -41,6 +41,7 @@ export const menuArr = [
 
 export const ArrayBestSellers = [
   {
+    id: "0001",
     image: AfterDark,
     author: "Murakami",
     title: "After Dark",
@@ -53,6 +54,7 @@ export const ArrayBestSellers = [
 
   {
     image: Godfather,
+    id: "0002",
     author: "Mario Puzo",
     title: "The Godfather",
     comts: 15,
@@ -62,6 +64,7 @@ export const ArrayBestSellers = [
   },
   {
     image: BeyondTheSun,
+    id: "0003",
     author: "Daniel Cargallo",
     title: "She Beyond Sun",
     comts: 14,
@@ -72,6 +75,7 @@ export const ArrayBestSellers = [
   },
   {
     image: IAmErik,
+    id: "0004",
     author: "Erik Spiekermann",
     title: "Hello I am Erik",
     comts: 25,
@@ -82,6 +86,7 @@ export const ArrayBestSellers = [
   },
   {
     image: Ness,
+    id: "0005",
     author: "Patrick Ness",
     title: "More Than This",
     comts: 42,
@@ -91,6 +96,7 @@ export const ArrayBestSellers = [
   },
   {
     image: Memoirs,
+    id: "0006",
     author: "C.R. Brunt",
     title: "From the Memoirs of a Non-Enemy",
     comts: 25,
@@ -101,6 +107,7 @@ export const ArrayBestSellers = [
   { title: "SEE ALL" },
   {
     image: Master,
+    id: "0007",
     author: "Mikhail Bulgakov",
     title: "The Master & Margarita",
     comts: 35,
@@ -110,6 +117,7 @@ export const ArrayBestSellers = [
   },
   {
     image: Norman,
+    id: "0008",
     author: "Donald Norman",
     title: "The Design of Everyday Things",
     comts: 28,
@@ -161,6 +169,7 @@ export const authorsArray = [
 export const ArrayProducts = [
   {
     image: AfterDark,
+    id: "0009",
     author: "Murakami",
     title: "After Dark",
     comts: 5,
@@ -178,6 +187,7 @@ export const ArrayProducts = [
   },
   {
     image: Godfather,
+    id: "0010",
     author: "Mario Puzo",
     title: "The Godfather",
     comts: 15,
@@ -194,6 +204,7 @@ export const ArrayProducts = [
   },
   {
     image: BeyondTheSun,
+    id: "0011",
     author: "Daniel Cargallo",
     title: "She Beyond Sun",
     comts: 14,
@@ -211,6 +222,7 @@ export const ArrayProducts = [
   },
   {
     image: IAmErik,
+    id: "0012",
     author: "Erik Spiekermann",
     title: "Hello I am Erik",
     comts: 25,
@@ -228,6 +240,7 @@ export const ArrayProducts = [
   },
   {
     image: Ness,
+    id: "0013",
     author: "Patrick Ness",
     title: "More Than This",
     comts: 42,
@@ -244,6 +257,7 @@ export const ArrayProducts = [
   },
   {
     image: IAmErik,
+    id: "0014",
     author: "Erik Spiekermann",
     title: "Hello I am Erik",
     comts: 25,
@@ -261,6 +275,7 @@ export const ArrayProducts = [
   },
   {
     image: Ness,
+    id: "0015",
     author: "Patrick Ness",
     title: "More Than This",
     comts: 42,
@@ -277,6 +292,7 @@ export const ArrayProducts = [
   },
   {
     image: Memoirs,
+    id: "0016",
     author: "C.R. Brunt",
     title: "From the Memoirs of a Non-Enemy",
     comts: 25,
@@ -293,6 +309,7 @@ export const ArrayProducts = [
   },
   {
     image: Master,
+    id: "0017",
     author: "Mikhail Bulgakov",
     title: "The Master & Margarita",
     comts: 35,
@@ -309,6 +326,7 @@ export const ArrayProducts = [
   },
   {
     image: Norman,
+    id: "0018",
     author: "Donald Norman",
     title: "The Design of Everyday Things",
     comts: 28,
@@ -325,6 +343,7 @@ export const ArrayProducts = [
   },
   {
     image: IAmErik,
+    id: "0019",
     author: "Erik Spiekermann",
     title: "Hello I am Erik",
     comts: 25,
@@ -342,6 +361,7 @@ export const ArrayProducts = [
   },
   {
     image: Ness,
+    id: "0020",
     author: "Patrick Ness",
     title: "More Than This",
     comts: 42,
@@ -474,6 +494,5 @@ export const id = () => {
       id = id + String(+element);
     }
   }
-  console.log("iiiiddddd", id);
   return id;
 };

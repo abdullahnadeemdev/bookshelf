@@ -19,8 +19,10 @@ const NavBar = () => {
 
   // let num = props.item.filter((item) => item.email === em).length;
   // let bookmark = props?.book?.filter((item) => item.email === em).length;
-  let num = useSelector((state) => state.reducerCart.cartItems.length);
-  let bookmark = useSelector((state) => state.reducerBookmark.bookMark.length);
+  // let num = useSelector((state) => state.reducerCart.cartItems.length);
+  // let bookmark = useSelector((state) => state.reducerBookmark.bookMark.length);
+  let num = 2;
+  let bookmark = 2;
 
   return (
     <div className="w-full max-w-[1440px] px-4  z-50 md:sticky top-3">

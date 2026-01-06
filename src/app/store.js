@@ -7,16 +7,8 @@ import persistStore from "redux-persist/es/persistStore";
 import { PERSIST } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-// export const store = configureStore({
-//   reducer: {
-//     reducerBookmark: bookmarkReducer,
-//     reducerCart: cartReducer,
-//     reducerLogin: loginReducer,
-//   },
-// });
-
 const reducers = combineReducers({
-  reducerBookmark: bookmarkReducer,
+  book: bookmarkReducer,
   reducerCart: cartReducer,
   auth: loginReducer,
 });
@@ -24,7 +16,6 @@ const reducers = combineReducers({
 const persistConfig = {
   key: "root",
   storage: storage,
-  // whitelist: ["auth"],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
