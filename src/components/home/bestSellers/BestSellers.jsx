@@ -1,4 +1,5 @@
-import Card from "../../container/CardContainerBestSellers";
+import Card from "./Card";
+// import Card from "../../container/CardContainerBestSellers";
 import { ArrayProducts as array } from "../../../utils/utils";
 import { useNavigate } from "react-router";
 import useWindowDimensions from "../../shared/hooks/useWindow";

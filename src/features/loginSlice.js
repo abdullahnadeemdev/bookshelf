@@ -1,25 +1,47 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const getLogin = () => {
-  const arr = JSON.parse(localStorage.getItem("login")) || {};
-  return arr;
+  const obj = JSON.parse(localStorage.getItem("login")) || {};
+  Object.keys(obj).length > 0 ? { obj } : null;
 };
 const initialState = {
-  isAuth: getLogin(),
+  user: null,
+  userList: [],
 };
 
+// const setLogin =
+// };
+
 export const loginSlice = createSlice({
-  name: "loginStatus",
+  name: "auth",
   initialState,
   reducers: {
-    loginTrue: (state, action) => {
-      state.isAuth = true;
+    signUp: (state, action) => {
+      state.userList.push(action.payload);
     },
-    loginFalse: (state, action) => {
-      state.isAuth = false;
+    login: (state, action) => {
+      const { email, pw } = action.payload;
+      const userData = state.userList?.find((item) => item?.email === email);
+
+      if (!userData) {
+        console.log("show toast user not found");
+      }
+
+      if (userData && !userData.pw === pw) {
+        console.log("show toast invalid creds");
+      }
+
+      if (userData) {
+        state.user = userData;
+      } else {
+        state.user = null;
+      }
+    },
+    logout: (state, action) => {
+      state.user = null;
     },
   },
 });
 
 export default loginSlice.reducer;
-export const { loginTrue, loginFalse } = loginSlice.actions;
+export const { login, signUp, logout } = loginSlice.actions;

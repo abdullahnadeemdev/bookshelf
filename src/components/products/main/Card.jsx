@@ -1,6 +1,8 @@
 import { NavLink } from "react-router";
 import { Bookmark, Comment, Star } from "../../../assets/icons";
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { updateBookmark } from "../../../features/bookMarkSlice";
 
 const Card = (props) => {
   const getLogin = () => {
@@ -10,6 +12,7 @@ const Card = (props) => {
   const em = getLogin();
 
   const bookTitle = props.title;
+  const dispatch = useDispatch();
 
   const book = {
     image: props.image,
@@ -35,21 +38,29 @@ const Card = (props) => {
     return booksArray.find((b) => b.title === book?.title);
   });
 
+  const currentBookmarks = useSelector(
+    (state) => state.reducerBookmark.bookMark
+  );
+
   const handleBookmark = (e) => {
     e.preventDefault();
     e.stopPropagation();
 
-    const currentBookmarks = props.book;
+    // const currentBookmarks = useSelector((state) => state.bookMark);
+    // const currentBookmarks = props.book;
 
     if (!isBookmarked) {
       const updated = [...currentBookmarks, { ...book, email: em }];
-      props.bookInfo(updated);
+      // props.bookInfo(updated);
+      dispatch(updateBookmark(updated));
       localStorage.setItem("bookmarks", JSON.stringify(updated));
       setIsBookmarked(true);
     } else {
-      const updatedArray = [
-        currentBookmarks.filter((b) => b.title !== bookTitle),
-      ];
+      const updatedArray = currentBookmarks.filter(
+        (b) => b.title !== book.title
+      );
+      // console.log("updatedArray", updatedArray);
+      dispatch(updateBookmark(updatedArray));
       localStorage.setItem("bookmarks", JSON.stringify(updatedArray));
       setIsBookmarked(false);
     }

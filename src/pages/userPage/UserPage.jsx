@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Button from "../../components/shared/button/Button";
 import { NavLink, useNavigate } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { logout, signUp } from "../../features/loginSlice";
 
 const UserProfile = () => {
   const fetchData = () => {
@@ -9,18 +11,19 @@ const UserProfile = () => {
   };
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const getItem = () => {
-    const arr = JSON.parse(localStorage.getItem("signIn"));
+  // const getItem = () => {
+  //   const arr = JSON.parse(localStorage.getItem("signIn"));
+  //   return arr;
+  // };
 
-    return arr;
-  };
-
-  const dataArr = getItem() || [];
+  const dataArr = useSelector((state) => state?.auth?.userList) || [];
+  // const dataArr = getItem() || [];
 
   //   console.log("urllllll", location.pathname);
 
-  const userObj = fetchData();
+  const userObj = useSelector((state) => state?.auth?.user);
 
   // const getUser = userObj?.find((item) => item.isLogin);
 
@@ -115,8 +118,6 @@ const UserProfile = () => {
       return true;
     }
   };
-  //   const user = getUser;
-  //   console.log("getUser", getUser);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -133,6 +134,7 @@ const UserProfile = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (validation()) {
       const newData = dataArr.map((item) => {
         if (item.email === user.email) {
@@ -141,11 +143,22 @@ const UserProfile = () => {
           return item;
         }
       });
+      dispatch(signUp(newData));
+
+      //
+      //
+      // const newData = dataArr.map((item) => {
+      //   if (item.email === user.email) {
+      //     return (item = values);
+      //   } else {
+      //     return item;
+      //   }
+      // });
       // console.log("user", user);
       // console.log("newData", newData);
       // console.log("dataArr", dataArr);
-      localStorage.setItem("signIn", JSON.stringify(newData));
-      localStorage.setItem("logIn", JSON.stringify(values));
+      // localStorage.setItem("signIn", JSON.stringify(newData));
+      // localStorage.setItem("logIn", JSON.stringify(values));
       setIsEdit(!isEdit);
     } else {
       console.log("error submitting form", values);
@@ -161,7 +174,7 @@ const UserProfile = () => {
   };
 
   const logoutClick = () => {
-    localStorage.removeItem("logIn");
+    dispatch(logout());
     navigate("/");
   };
 

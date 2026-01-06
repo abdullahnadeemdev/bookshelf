@@ -5,18 +5,15 @@ import App from "./App.jsx";
 import { BrowserRouter } from "react-router";
 import { Provider } from "react-redux";
 import { store } from "./app/store.js";
-// import RootReducer from "./components/services/reducer/RootReducer.jsx";
-// import { configureStore } from "@reduxjs/toolkit";
-
-// const store = configureStore({ reducer: RootReducer });
-// console.log("store", store);
+import { persistor } from "./app/store.js";
+import { PersistGate } from "redux-persist/integration/react";
 
 createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <BrowserRouter>
-      <StrictMode>
+      <PersistGate loading={null} persistor={persistor}>
         <App />
-      </StrictMode>
+      </PersistGate>
     </BrowserRouter>
   </Provider>
 );

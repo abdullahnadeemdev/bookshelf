@@ -8,9 +8,12 @@ import {
 import Button from "../../shared/button/Button";
 import { id } from "../../../utils/utils";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { updateCart } from "../../../features/cartSlice";
 
 const Description = (props) => {
-  const cartArray = props.item;
+  const cartArray = useSelector((state) => state.reducerCart.cartItems) || [];
+  const dispatch = useDispatch();
 
   const [cartItems, setCartItems] = useState(() => {
     return JSON.parse(localStorage.getItem("cart")) || [];
@@ -22,9 +25,8 @@ const Description = (props) => {
     const user = JSON.parse(localStorage.getItem("logIn")) || {};
     return user?.email || "";
   };
-  const em = getLogin();
 
-  const isAuth = props.data;
+  const em = getLogin();
 
   if (!state) {
     return (
@@ -63,7 +65,7 @@ const Description = (props) => {
   // }
 
   checkP();
-  console.log("product", product);
+  // console.log("product", product);
 
   const [isBookmarked, setIsBookmarked] = useState(() => {
     const saved = JSON.parse(localStorage.getItem("bookmarks")) || [];
@@ -88,8 +90,6 @@ const Description = (props) => {
     }
   };
 
-  const navigate = useNavigate();
-
   const handleCart = () => {
     const isDuplicate = cartItems?.some((item) => item.title === state.title);
     let updatedCart;
@@ -102,27 +102,17 @@ const Description = (props) => {
       );
 
       setCartItems(updatedCart);
-      props.cartItemsInfo(updatedCart);
+      dispatch(updateCart(updatedCart));
       localStorage.setItem("cart", JSON.stringify(updatedCart));
       alert("Updated cart!");
     } else {
       updatedCart = [...cartItems, { ...productInfo, email: em }];
       setCartItems(updatedCart);
-      props.cartItemsInfo(updatedCart);
+      dispatch(updateCart(updatedCart));
       localStorage.setItem("cart", JSON.stringify(updatedCart));
       alert("Added to cart!");
     }
   };
-
-  // const handleSub = () => {
-  //   // sub();
-  //   // handleCart();
-  // };
-
-  // const handleAdd = () => {
-  //   // add();
-  //   // handleCart();
-  // };
 
   return (
     <div className="p-8 bg-grayBg rounded-[20px]">
@@ -218,28 +208,6 @@ const Description = (props) => {
               >
                 ADD TO CART
               </Button>
-              {/* 
-              {product[0]?.title === productInfo?.title ? (
-                <button className="min-w-39 xs:mt-4 items-center justify-evenly flex h-14 text-black bg-whiteBg rounded-[20px]">
-                  <p
-                    className="flex items-center justify-center hover:bg-blackC"
-                    onClick={sub()}
-                  >
-                    -
-                  </p>
-                  <p className="bg-yellow h-14 w-10 flex items-center justify-center">
-                    {num}
-                  </p>
-                  <p
-                    className="flex items-center justify-center hover:bg-blackC"
-                    onClick={add()}
-                  >
-                    +
-                  </p>
-                </button>
-              ) : (
-                
-              )} */}
             </div>
           </div>
         </div>

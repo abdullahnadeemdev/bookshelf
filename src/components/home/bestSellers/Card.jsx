@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Bookmark, Comment, Star } from "../../../assets/icons";
 import { NavLink } from "react-router";
+import { useSelector, useDispatch } from "react-redux";
+import { updateBookmark } from "../../../features/bookMarkSlice";
+
 const Card = (props) => {
   const getLogin = () => {
     const user = JSON.parse(localStorage.getItem("logIn")) || {};
@@ -8,6 +11,12 @@ const Card = (props) => {
   };
 
   const em = getLogin();
+  const dispatch = useDispatch();
+  // console.log("dispatch1111111111111111111", dispatch);
+  const currentBookmarks = useSelector(
+    (state) => state.reducerBookmark.bookMark
+  );
+  // console.log("currentBookmarks", currentBookmarks);
 
   const [isBookmarked, setIsBookmarked] = useState(() => {
     const saved = JSON.parse(localStorage.getItem("bookmarks")) || [];
@@ -18,20 +27,22 @@ const Card = (props) => {
     e.preventDefault();
     e.stopPropagation();
 
-    const currentBookmarks = props.book;
-    const arr = Object.entries(props).filter(
-      ([key]) => key !== "book" && key !== "booksInfo"
-    );
-    const newArr = Object.fromEntries(arr);
+    // const currentBookmarks = props.book;
+    // const arr = Object.entries(props).filter(
+    //   ([key]) => key !== "book" && key !== "booksInfo" ////    OLD REDUX
+    // );
+    // const newArr = Object.fromEntries(arr);
 
     if (!isBookmarked) {
-      const updated = [...currentBookmarks, { ...newArr, email: em }];
-      props.booksInfo(updated);
+      const updated = [...currentBookmarks, { ...props, email: em }];
+      // props.booksInfo(updated);
+      dispatch(updateBookmark(updated));
       localStorage.setItem("bookmarks", JSON.stringify(updated));
       setIsBookmarked(true);
     } else {
       const updated = currentBookmarks.filter((b) => b.title !== props.title);
-      props.booksInfo(updated);
+      // props.booksInfo(updated);
+      dispatch(updateBookmark(updated));
       localStorage.setItem("bookmarks", JSON.stringify(updated));
       setIsBookmarked(false);
     }

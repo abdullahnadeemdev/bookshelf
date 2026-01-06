@@ -1,16 +1,19 @@
 import { NavLink, useNavigate } from "react-router";
 import { useState } from "react";
 import Button from "../../components/shared/button/Button";
+import { useDispatch, useSelector } from "react-redux";
+import { signUp } from "../../features/loginSlice";
 
 const SignUp = (props) => {
   const navigate = useNavigate();
-  const getItem = () => {
-    const arr = JSON.parse(localStorage.getItem("signIn")) || [];
+  const dispatch = useDispatch();
+  // const getItem = () => {
+  //   const arr = JSON.parse(localStorage.getItem("signIn")) || [];
+  //   return arr;
+  // };
 
-    return arr;
-  };
-
-  const dataArr = getItem();
+  // const dataArr = getItem();
+  const dataArr = useSelector((state) => state?.auth?.userList) || [];
 
   const [values, setValues] = useState({
     name: "",
@@ -118,10 +121,8 @@ const SignUp = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("validation", validation());
     if (validation()) {
-      console.log("welcome");
-      localStorage.setItem("signIn", JSON.stringify([...dataArr, values]));
+      dispatch(signUp(values));
       navigate("/login", { replace: true });
     } else {
       console.log("error", error);

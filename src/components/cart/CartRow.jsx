@@ -1,3 +1,6 @@
+import { useDispatch } from "react-redux";
+import { updateCart } from "../../features/cartSlice";
+
 const CartRow = (props) => {
   // console.log("propspropspropsCARTRrow", props);
 
@@ -10,6 +13,7 @@ const CartRow = (props) => {
     props.cartItemsDelete(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
+
   const price = parseFloat(props.price);
   const quantity = props.quantity;
   return (

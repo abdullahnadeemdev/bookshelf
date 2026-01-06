@@ -7,28 +7,20 @@ import Button from "../button/Button";
 import { useState } from "react";
 import { menuArr } from "../../../utils/utils";
 import { NavLink } from "react-router";
-import { Link } from "react-scroll";
+import { useSelector } from "react-redux";
 
-const NavBar = (props) => {
-  const isAuth = props.data;
-  const getLogin = () => {
-    const arr = JSON.parse(localStorage.getItem("logIn"));
-    return arr?.email || "";
-  };
-
-  const getBook = () => {
-    const arr = JSON.parse(localStorage.getItem("bookmarks")) || "";
-    return arr;
-  };
-
-  const em = getLogin();
+const NavBar = () => {
+  const user = useSelector((state) => state?.auth?.user) || "";
 
   const [click, setClick] = useState(false);
   const handleClick = () => {
     setClick(!click);
   };
-  let num = props.item.filter((item) => item.email === em).length;
-  let bookmark = props?.book?.filter((item) => item.email === em).length;
+
+  // let num = props.item.filter((item) => item.email === em).length;
+  // let bookmark = props?.book?.filter((item) => item.email === em).length;
+  let num = useSelector((state) => state.reducerCart.cartItems.length);
+  let bookmark = useSelector((state) => state.reducerBookmark.bookMark.length);
 
   return (
     <div className="w-full max-w-[1440px] px-4  z-50 md:sticky top-3">
@@ -109,15 +101,15 @@ const NavBar = (props) => {
                 </NavLink>
               </li>
             </ul>
-            {!isAuth ? (
+            {!user ? (
               <div>
                 <NavLink to="/login">
-                  <Button className="ml:4 lg:ml-6">LOGIN</Button>
+                  <Button className="ml:4 lg:ml-6 ">LOGIN</Button>
                 </NavLink>
               </div>
             ) : (
               <NavLink to="/user-page">
-                <Button className="ml:2 lg:ml-4">USER</Button>
+                <Button className="ml:2 lg:ml-4 2xl:min-w-25">USER</Button>
               </NavLink>
             )}
           </div>

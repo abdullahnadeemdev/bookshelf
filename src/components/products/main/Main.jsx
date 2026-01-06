@@ -1,7 +1,7 @@
 import FilterBar from "./filterBar";
 import SideBar from "./SideBar";
 import { ArrayProducts } from "../../../utils/utils";
-import Card from "../../container/ProductCardContainer";
+import Card from "./Card";
 import { useState } from "react";
 
 const Main = () => {

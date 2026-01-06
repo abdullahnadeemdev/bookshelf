@@ -4,16 +4,19 @@ import Bookmarks from "./pages/bookmarks/Index";
 import Cart from "./pages/cartPage/Index";
 import Index from "./components/checkout/checkout1/Index";
 import ProductsDesc from "./pages/productDesc/Index";
-import Login from "./components/container/LoginContainer";
+import Login from "./pages/loginPage/Login";
 import SignUp from "./pages/signUp/SignUp";
 import UserPage from "./pages/userPage/userPage";
 import AuthorsPopular from "./pages/authorPage/Index";
 import { Route, Routes, Navigate } from "react-router";
 import PageNotFound from "./pages/pageNotFound/PageNotFound";
 import ForgotP from "./pages/forgotP/ForgotP";
+import { useDispatch, useSelector } from "react-redux";
 
 const Router = (props) => {
-  const isAuth = props.data;
+  const user = useSelector((state) => state?.auth?.user) || null;
+  console.log("user1", user);
+  // console.log("isAuth", isAuth);
 
   return (
     <Routes>
@@ -23,35 +26,25 @@ const Router = (props) => {
       <Route path="/forgot-password" element={<ForgotP />} />
       <Route path="/cart" element={<Cart />} />
 
-      <Route
-        path="/login"
-        element={!isAuth ? <Login /> : <Navigate to="/" />}
-      />
+      <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />} />
       <Route
         path="/sign-up"
-        element={!isAuth ? <SignUp /> : <Navigate to="/" />}
+        element={!user ? <SignUp /> : <Navigate to="/" />}
       />
 
-      <Route
-        path="/bookmark"
-        element={isAuth ? <Bookmarks /> : <Navigate to="/login" />}
-      />
+      <Route path="/bookmark" element={<Bookmarks />} />
 
-      <Route
-        path="/authors-popular"
-        element={isAuth ? <AuthorsPopular /> : <Navigate to="/login" />}
-      />
+      <Route path="/authors-popular" element={<AuthorsPopular />} />
       <Route
         path="/checkout"
-        element={isAuth ? <Index /> : <Navigate to="/login" />}
+        element={user ? <Index /> : <Navigate to="/login" />}
       />
       <Route
         path="/user-page"
-        element={isAuth ? <UserPage /> : <Navigate to="/login" />}
+        element={user ? <UserPage /> : <Navigate to="/login" />}
       />
 
       <Route path="*" element={<Navigate to="/" />} />
-      {/* <Route path="*" element={<PageNotFound auth={isAuth} />} /> */}
     </Routes>
   );
 };

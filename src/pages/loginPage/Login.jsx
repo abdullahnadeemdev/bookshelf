@@ -1,10 +1,11 @@
 import { Link, NavLink, useNavigate } from "react-router";
 import { useState } from "react";
 import Button from "../../components/shared/button/Button";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../features/loginSlice";
 
-const Login = (props) => {
-  // console.log("Login props", props);
-  // console.log("Login loginState props", props?.data);
+const Login = () => {
+  const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
@@ -14,16 +15,16 @@ const Login = (props) => {
   };
 
   const dataArr = getItem();
+
   const [values, setValues] = useState({
     email: "",
     pw: "",
   });
+
   const [error, setError] = useState({
     email: "",
     pw: "",
   });
-
-  const loginStat = () => props.userLogin(true);
 
   const validation = () => {
     if (!values.email) {
@@ -51,37 +52,40 @@ const Login = (props) => {
     e.preventDefault();
 
     if (validation()) {
-      const user = dataArr.find((item) => {
-        if (item.email === values.email) {
-          return true;
-        } else {
-          return false;
-        }
-      });
+      // const user = dataArr.find((item) => {
+      //   if (item.email === values.email) {
+      //     return true;
+      //   } else {
+      //     return false;
+      //   }
+      // });
 
-      if (user) {
-        if (user.pw === values.pw) {
-          user.isLogin = true;
-          localStorage.setItem("logIn", JSON.stringify(user));
-          loginStat();
-          navigate("/books");
-        } else {
-          setError({
-            ...error,
-            pw: "Wrong user password",
-          });
-        }
-      } else {
-        setError({
-          ...error,
-          email: "Wrong email",
-        });
-      }
+      // if (user.pw === values.pw) {
+      // user.isLogin = true;
+      // localStorage.setItem("logIn", JSON.stringify(user));
+      dispatch(login({ email: values.email, pw: values.pw }));
+      navigate("/books");
+      // } else {
+      setError({
+        ...error,
+        pw: "Wrong user password",
+      });
+      // }
+
+      // if (user) {
+
+      // } else {
+      //   setError({
+      //     ...error,
+      //     email: "Wrong email",
+      //   });
+      // }
     } else {
       console.log("error", error);
       console.log("ingo", values);
     }
   };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setError({

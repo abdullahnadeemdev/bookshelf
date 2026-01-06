@@ -2,10 +2,12 @@ import { useState } from "react";
 import { Bookmark } from "../../assets/icons/Bookmark";
 import { Comment, Star } from "../../assets/icons";
 import { NavLink } from "react-router";
+
 const CardBookmark = (props) => {
   const [clr, setClr] = useState("white");
 
   const array = JSON.parse(localStorage.getItem("bookmarks")) || [];
+
   const getLogin = () => {
     const user = JSON.parse(localStorage.getItem("logIn")) || {};
     return user?.email || "";

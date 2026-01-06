@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from "react-router";
 import Button from "../shared/button/Button";
-import CartRow from "../container/CartRowContainer";
+import CartRow from "./CartRow";
 import { useState } from "react";
 
 const Cart = () => {
@@ -19,6 +19,7 @@ const Cart = () => {
     const price = parseFloat(item.price.replace("$", ""));
     return acc + price * item.quantity;
   }, 0);
+
   const navigate = useNavigate();
   const handleClick = () => {
     if (cartItems.length > 0) {
