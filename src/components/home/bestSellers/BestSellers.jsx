@@ -5,7 +5,7 @@ import useWindowDimensions from "../../shared/hooks/useWindow";
 import { useEffect, useState } from "react";
 
 const BestSellers = () => {
-  const [num, setNum] = useState(6);
+  const [num, setNum] = useState(8);
   const newArr = array.slice(3);
   const navigate = useNavigate();
   const handLeClick = () => {

@@ -12,8 +12,6 @@ import { useState } from "react";
 const Description = (props) => {
   const cartArray = props.item;
 
-  // console.log("cartArray", cartArray);
-
   const [cartItems, setCartItems] = useState(() => {
     return JSON.parse(localStorage.getItem("cart")) || [];
   });
@@ -55,19 +53,17 @@ const Description = (props) => {
       : product;
   };
 
-  function sub() {
-    setNum((num) => (num > 1 ? num - 1 : num));
-  }
-  function add() {
-    setNum((num) => num + 1);
-  }
+  // function sub() {
+  //   setNum((num) => (num > 1 ? num - 1 : num));
+  //   handleCart();
+  // }
+  // function add() {
+  //   setNum((num) => num + 1);
+  //   handleCart();
+  // }
 
-  // console.log(
-  //   "cartArray.find((item) => item.title === productInfo.title",
-  //   cartArray.find((item) => item.title === productInfo.title)
-  // );
   checkP();
-  // console.log("product", product[0].quantity);
+  console.log("product", product);
 
   const [isBookmarked, setIsBookmarked] = useState(() => {
     const saved = JSON.parse(localStorage.getItem("bookmarks")) || [];
@@ -104,6 +100,7 @@ const Description = (props) => {
           ? { ...item, quantity: num, email: em }
           : item
       );
+
       setCartItems(updatedCart);
       props.cartItemsInfo(updatedCart);
       localStorage.setItem("cart", JSON.stringify(updatedCart));
@@ -117,15 +114,15 @@ const Description = (props) => {
     }
   };
 
-  const handleSub = () => {
-    sub();
-    // handleCart();
-  };
+  // const handleSub = () => {
+  //   // sub();
+  //   // handleCart();
+  // };
 
-  const handleAdd = () => {
-    add();
-    // handleCart();
-  };
+  // const handleAdd = () => {
+  //   // add();
+  //   // handleCart();
+  // };
 
   return (
     <div className="p-8 bg-grayBg rounded-[20px]">
@@ -214,12 +211,19 @@ const Description = (props) => {
               >
                 <Button className="mr-2 min-w-39">BUY NOW</Button>
               </NavLink>
-
-              {product.length > 0 ? (
+              <Button
+                variant="outline"
+                className="max-w-39 max-h-14 xs:mt-3  text-white"
+                onClick={handleCart}
+              >
+                ADD TO CART
+              </Button>
+              {/* 
+              {product[0]?.title === productInfo?.title ? (
                 <button className="min-w-39 xs:mt-4 items-center justify-evenly flex h-14 text-black bg-whiteBg rounded-[20px]">
                   <p
                     className="flex items-center justify-center hover:bg-blackC"
-                    onClick={handleSub()}
+                    onClick={sub()}
                   >
                     -
                   </p>
@@ -228,20 +232,14 @@ const Description = (props) => {
                   </p>
                   <p
                     className="flex items-center justify-center hover:bg-blackC"
-                    onClick={handleAdd()}
+                    onClick={add()}
                   >
                     +
                   </p>
                 </button>
               ) : (
-                <Button
-                  variant="outline"
-                  className="max-w-39 max-h-14 xs:mt-3  text-white"
-                  onClick={handleCart}
-                >
-                  ADD TO CART
-                </Button>
-              )}
+                
+              )} */}
             </div>
           </div>
         </div>
