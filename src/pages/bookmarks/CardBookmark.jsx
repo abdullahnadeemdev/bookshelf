@@ -2,25 +2,21 @@ import { useState } from "react";
 import { Bookmark } from "../../assets/icons/Bookmark";
 import { Comment, Star } from "../../assets/icons";
 import { NavLink } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { removeBookmark } from "../../features/bookMarkSlice";
 
 const CardBookmark = (props) => {
   const [clr, setClr] = useState("white");
 
-  const array = JSON.parse(localStorage.getItem("bookmarks")) || [];
+  const array = useSelector((state) => state?.book?.items) || [];
+  const user = useSelector((state) => state?.auth?.user) || "";
 
-  const getLogin = () => {
-    const user = JSON.parse(localStorage.getItem("logIn")) || {};
-    return user?.email || "";
-  };
-
-  const em = getLogin();
+  const dispatch = useDispatch();
 
   const handleBookmark = () => {
     clr === "white" ? setClr("#1a1b1d") : setClr("white");
     if (array.length > 0) {
-      let newarr = array.filter((item) => item.title !== props.title);
-      localStorage.setItem("bookmarks", JSON.stringify(newarr));
-      window.location.reload();
+      dispatch(removeBookmark(props.id));
     } else {
       console.log("array is not found");
     }
@@ -30,6 +26,7 @@ const CardBookmark = (props) => {
     <NavLink
       to={`/books/${props.title}`}
       state={{
+        id: props.id,
         img: props.image,
         author: props.author,
         title: props.title,

@@ -1,7 +1,8 @@
+import { useSelector } from "react-redux";
 import CardBookmark from "./CardBookmark";
 
 const Index = () => {
-  let booksArray = JSON.parse(localStorage.getItem("bookmarks")) || [];
+  const booksArray = useSelector((state) => state?.book?.items) || [];
 
   return (
     <div className=" pb-10 my-10 h-screen max-w-[1440px] px-4 bg-blackC">
@@ -11,6 +12,7 @@ const Index = () => {
           booksArray?.map((item, index) => (
             <CardBookmark
               key={index}
+              id={item.id}
               image={item.image}
               author={item.author}
               title={item.title}
