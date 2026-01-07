@@ -1,37 +1,31 @@
 import { NavLink, useLocation, useNavigate } from "react-router";
-import {
-  Bookmark,
-  RightArrowIcon,
-  Star,
-  ArrowIcon,
-} from "../../../assets/icons";
+import { Bookmark, RightArrowIcon, Star } from "../../../assets/icons";
 import Button from "../../shared/button/Button";
-import { id } from "../../../utils/utils";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateCart } from "../../../features/cartSlice";
+import { addToCart, updateBookQuantity } from "../../../features/cartSlice";
+import { addBookmark, removeBookmark } from "../../../features/bookMarkSlice";
 
 const Description = (props) => {
-  const cartArray = useSelector((state) => state?.reducerCart?.cartItems) || [];
+  const cartArray = useSelector((state) => state?.cart?.cartItems) || [];
   const user = useSelector((state) => state?.auth?.user?.email) || "";
+  const currentBookmarks = useSelector((state) => state?.book?.items);
 
   const dispatch = useDispatch();
 
-  const [cartItems, setCartItems] = useState(() => {
-    return JSON.parse(localStorage.getItem("cart")) || [];
-  });
-
   const { state } = useLocation();
 
-  if (!state) {
-    return (
-      <div className="p-8 text-white">
-        <p>Product data lost. Please go back and select a book again.</p>
-      </div>
-    );
-  }
-
   const [num, setNum] = useState(1);
+
+  const [isBookmarked, setIsBookmarked] = useState(() =>
+    currentBookmarks.some((b) => b.title === props.title && b.email === user)
+  );
+  const [isClicked, setIsClicked] = useState(false);
+
+  const productQuantity =
+    cartArray.length > 0
+      ? cartArray.find((item) => item.id === state.id)
+      : null;
 
   const productInfo = {
     id: state.id,
@@ -41,31 +35,6 @@ const Description = (props) => {
     quantity: num,
     image: state.img,
   };
-
-  let product = [];
-
-  const checkP = () => {
-    cartArray.length > 0
-      ? product.push(cartArray.find((item) => item.title === productInfo.title))
-      : product;
-  };
-
-  // function sub() {
-  //   setNum((num) => (num > 1 ? num - 1 : num));
-  //   handleCart();
-  // }
-  // function add() {
-  //   setNum((num) => num + 1);
-  //   handleCart();
-  // }
-
-  checkP();
-  const currentBookmarks = useSelector((state) => state?.book?.items);
-
-  // console.log("product", product);
-  const [isBookmarked, setIsBookmarked] = useState(() =>
-    currentBookmarks.some((b) => b.title === props.title && b.email === user)
-  );
 
   const handleBookmark = (e) => {
     e.preventDefault();
@@ -82,29 +51,18 @@ const Description = (props) => {
   };
 
   const handleCart = () => {
-    const isDuplicate = cartItems?.some((item) => item.title === state.title);
-    let updatedCart;
+    setIsClicked(true);
+    const updatedCart = { ...productInfo, email: user };
 
-    if (isDuplicate) {
-      updatedCart = cartItems.map((item) =>
-        item.title === state.title
-          ? { ...item, quantity: num, email: em }
-          : item
-      );
-
-      setCartItems(updatedCart);
-      dispatch(updateCart(updatedCart));
-      localStorage.setItem("cart", JSON.stringify(updatedCart));
-      alert("Updated cart!");
-    } else {
-      updatedCart = [...cartItems, { ...productInfo, email: em }];
-      setCartItems(updatedCart);
-      dispatch(updateCart(updatedCart));
-      localStorage.setItem("cart", JSON.stringify(updatedCart));
-      alert("Added to cart!");
-    }
+    dispatch(addToCart(updatedCart));
+    alert("Added to cart!");
+    // }
   };
 
+  const handleQuantity = (e) => {
+    const { name } = e.target;
+    dispatch(updateBookQuantity({ id: state.id, type: name }));
+  };
   return (
     <div className="p-8 bg-grayBg rounded-[20px]">
       <span className="flex gap-1 mb-5">
@@ -174,6 +132,7 @@ const Description = (props) => {
                 className="min-w-29 xs:mt-2 text-white p-2 lg:p-4 h-fit rounded-xl md:mt-4"
                 state={{
                   img: state.image,
+                  id: state.id,
                   author: state.author,
                   title: state.title,
                   comments: state.comts,
@@ -192,13 +151,40 @@ const Description = (props) => {
               >
                 <Button className="mr-2 min-w-39">BUY NOW</Button>
               </NavLink>
-              <Button
-                variant="outline"
-                className="max-w-39 max-h-14 xs:mt-3  text-white"
-                onClick={handleCart}
-              >
-                ADD TO CART
-              </Button>
+
+              {productQuantity ? (
+                <span className="flex  items-center justify-between  text-white mt-3">
+                  <button
+                    className=" min-w-6 border-2 border-yellow px-4 py-3.5 rounded-l-2xl "
+                    onClick={
+                      productQuantity.quantity >= 0 ? handleQuantity : () => {}
+                    }
+                    name="-"
+                  >
+                    -
+                  </button>
+                  <p className="min-w-6 border-2 border-yellow px-4 py-3.5 text-center">
+                    {productQuantity.quantity}
+                  </p>
+                  <button
+                    className="min-w-6 border-2 border-yellow px-4 py-3.5 rounded-r-2xl"
+                    onClick={
+                      productQuantity.quantity >= 1 ? handleQuantity : () => {}
+                    }
+                    name="+"
+                  >
+                    +
+                  </button>
+                </span>
+              ) : (
+                <Button
+                  variant="outline"
+                  className="max-w-39 max-h-14 xs:mt-3  text-white"
+                  onClick={handleCart}
+                >
+                  ADD TO CART
+                </Button>
+              )}
             </div>
           </div>
         </div>

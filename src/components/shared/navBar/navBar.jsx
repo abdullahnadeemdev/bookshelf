@@ -19,7 +19,7 @@ const NavBar = () => {
 
   // let num = props.item.filter((item) => item.email === em).length;
   // let bookmark = props?.book?.filter((item) => item.email === em).length;
-  // let num = useSelector((state) => state.reducerCart.cartItems.length);
+  // let num = useSelector((state) => state.cart.cartItems.length);
   // let bookmark = useSelector((state) => state.reducerBookmark.bookMark.length);
   let num = 2;
   let bookmark = 2;

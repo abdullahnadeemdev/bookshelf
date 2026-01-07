@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { updateCart } from "../../features/cartSlice";
+import { addToCart } from "../../features/cartSlice";
 
 const CartRow = (props) => {
   // console.log("propspropspropsCARTRrow", props);

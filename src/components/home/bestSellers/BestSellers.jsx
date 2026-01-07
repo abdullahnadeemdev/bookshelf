@@ -12,7 +12,7 @@ const BestSellers = () => {
   const handLeClick = () => {
     navigate("/books");
   };
-  const { height, width } = useWindowDimensions();
+  // const { height, width } = useWindowDimensions();
 
   return (
     <div className="h-fit 2xl:h-fit py-10 max-w-[1440px] px-4">
