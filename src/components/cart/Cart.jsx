@@ -1,28 +1,36 @@
 import { NavLink, useNavigate } from "react-router";
 import Button from "../shared/button/Button";
 import CartRow from "./CartRow";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { id } from "../../utils/utils";
 
 const Cart = () => {
-  const getLogin = () => {
-    const user = JSON.parse(localStorage.getItem("logIn")) || {};
-    return user?.email || "";
-  };
+  const cartArray = useSelector((state) => state?.cart?.cartItems) || [];
+  const user = useSelector((state) => state?.auth?.user) || "";
 
-  const [cartItems, setCartItems] = useState(() => {
-    const em = getLogin();
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    return cart?.filter((item) => item.email === em);
-  });
+  const [grandTotal, setGrandTotal] = useState(0);
+  const [cartItems, setCartItems] = useState([]);
 
-  const grandTotal = cartItems.reduce((acc, item) => {
-    const price = parseFloat(item.price.replace("$", ""));
-    return acc + price * item.quantity;
-  }, 0);
+  useEffect(() => {
+    setCartItems(() => {
+      return cartArray?.filter((item) => item.email === user);
+    });
+  }, [cartArray]);
+
+  useEffect(() => {
+    const grandTotal = cartItems.reduce((acc, item) => {
+      const price = parseFloat(item.price.replace("$", ""));
+      return acc + price * item.quantity;
+    }, 0);
+    setGrandTotal(grandTotal);
+  }, [cartItems]);
+
+  // console.log("grandTotal", grandTotal);
 
   const navigate = useNavigate();
   const handleClick = () => {
-    if (cartItems.length > 0) {
+    if (cartItems.length > 0 && user !== "") {
       navigate("/checkout");
     } else {
       console.log("cart is empty");
@@ -30,7 +38,7 @@ const Cart = () => {
   };
 
   return (
-    <div className="text-black">
+    <div className="text-black sm:h-screen relative">
       <div className="flex border-b p-4 mx-4 font-bold">
         <div className="flex-3">PRODUCT DETAILS</div>
         <div className="flex-1 text-center">QUANTITY</div>
@@ -42,7 +50,8 @@ const Cart = () => {
           <CartRow
             cartItems={cartItems}
             setCartItems={setCartItems}
-            key={item.id}
+            key={id()}
+            id={item.id}
             image={item.image}
             title={item.title}
             price={parseFloat(item.price.replace("$", ""))}
@@ -56,12 +65,12 @@ const Cart = () => {
         </p>
       )}
 
-      <div className="flex flex-col items-end p-4 mx-4 border-t mt-4">
-        <div className="flex gap-10">
+      <div className="flex flex-col items-end p-4 mx-4  ">
+        <div className="flex gap-10  absolute bottom-27 ">
           <p className="font-bold">TOTAL</p>
           <p className="font-bold text-xl">${grandTotal}</p>
         </div>
-        <Button className="mt-4 " onClick={handleClick}>
+        <Button className="mt-4 absolute bottom-10" onClick={handleClick}>
           PROCEED TO CHECKOUT
         </Button>
       </div>

@@ -6,17 +6,13 @@ import { addBookmark, removeBookmark } from "../../../features/bookMarkSlice";
 
 const Card = (props) => {
   const user = useSelector((state) => state?.auth?.user?.email) || "";
+  const currentBookmarks = useSelector((state) => state?.book?.items);
 
   const dispatch = useDispatch();
-
-  const currentBookmarks = useSelector((state) => state?.book?.items);
-  // console.log("currentBookmarks", currentBookmarks);
 
   const [isBookmarked, setIsBookmarked] = useState(() =>
     currentBookmarks.some((b) => b.title === props.title && b.email === user)
   );
-
-  // console.log("isBookmarked", isBookmarked);
 
   const handleBookmark = (e) => {
     e.preventDefault();

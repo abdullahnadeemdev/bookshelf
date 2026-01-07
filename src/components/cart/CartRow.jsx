@@ -1,21 +1,24 @@
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../features/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, updateBookQuantity } from "../../features/cartSlice";
 
 const CartRow = (props) => {
-  // console.log("propspropspropsCARTRrow", props);
+  const cartItems = useSelector((state) => state?.cart?.cartItems);
+  const dispatch = useDispatch();
+
+  const productQuantity = cartItems?.find((item) => item.id === props.id);
 
   const removeItem = () => {
-    const updatedCart = props.cartItems.filter(
-      (item) => item.title !== props.title
-    );
-
-    props.setCartItems(updatedCart);
-    props.cartItemsDelete(updatedCart);
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    dispatch(updateBookQuantity({ id: props.id, type: "delt" }));
   };
 
-  const price = parseFloat(props.price);
-  const quantity = props.quantity;
+  const handleQuantity = (e) => {
+    const { name } = e.target;
+    dispatch(updateBookQuantity({ id: props.id, type: name }));
+  };
+
+  const price = props.price;
+  const quantity = productQuantity?.quantity;
+
   return (
     <div className="p-4 text-black">
       <div className="flex items-center border-b py-4">
@@ -31,7 +34,25 @@ const CartRow = (props) => {
             </div>
           </div>
         </div>
-        <div className="flex-1 text-center">{quantity}</div>
+        <span className="flex  items-center justify-between   mt-3">
+          <button
+            className=" min-w-6 border-2 border-yellow px-3 py-2.5 rounded-l-2xl "
+            onClick={quantity > 1 ? handleQuantity : () => {}}
+            name="-"
+          >
+            -
+          </button>
+          <p className="min-w-6 border-2 border-yellow px-3 py-2.5 text-center">
+            {quantity}
+          </p>
+          <button
+            className="min-w-6 border-2 border-yellow px-3 py-2.5 rounded-r-2xl"
+            onClick={quantity >= 1 ? handleQuantity : () => {}}
+            name="+"
+          >
+            +
+          </button>
+        </span>
         <div className="flex-1 text-right">${price * quantity}</div>
       </div>
     </div>

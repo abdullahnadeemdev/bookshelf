@@ -157,7 +157,7 @@ const Description = (props) => {
                   <button
                     className=" min-w-6 border-2 border-yellow px-4 py-3.5 rounded-l-2xl "
                     onClick={
-                      productQuantity.quantity >= 0 ? handleQuantity : () => {}
+                      productQuantity.quantity > 1 ? handleQuantity : () => {}
                     }
                     name="-"
                   >

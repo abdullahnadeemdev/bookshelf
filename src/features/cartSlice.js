@@ -17,12 +17,11 @@ export const cartSlice = createSlice({
       if (book.quantity >= 1) {
         if (type === "+") {
           book.quantity += 1;
-        } else {
+        } else if (type === "-") {
           book.quantity -= 1;
+        } else if (type === "delt") {
+          state.cartItems = state.cartItems.filter((item) => item.id !== id);
         }
-      }
-      if (book.quantity === 0) {
-        state.cartItems = state.cartItems.filter((item) => item.id !== id);
       }
     },
   },
