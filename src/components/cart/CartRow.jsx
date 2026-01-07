@@ -36,17 +36,17 @@ const CartRow = (props) => {
         </div>
         <span className="flex  items-center justify-between   mt-3">
           <button
-            className=" min-w-6 border-2 border-yellow px-3 py-2.5 rounded-l-2xl "
+            className=" min-w-6 border-2 border-yellow sm:px-3 sm:py-2.5 rounded-l-2xl "
             onClick={quantity > 1 ? handleQuantity : () => {}}
             name="-"
           >
             -
           </button>
-          <p className="min-w-6 border-2 border-yellow px-3 py-2.5 text-center">
+          <p className="min-w-6 border-2 border-yellow sm:px-3 sm:py-2.5 text-center">
             {quantity}
           </p>
           <button
-            className="min-w-6 border-2 border-yellow px-3 py-2.5 rounded-r-2xl"
+            className="min-w-6 border-2 border-yellow sm:px-3 sm:py-2.5 rounded-r-2xl"
             onClick={quantity >= 1 ? handleQuantity : () => {}}
             name="+"
           >

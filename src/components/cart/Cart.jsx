@@ -38,7 +38,7 @@ const Cart = () => {
   };
 
   return (
-    <div className="text-black sm:h-screen relative">
+    <div className="text-black h-screen relative">
       <div className="flex border-b p-4 mx-4 font-bold">
         <div className="flex-3">PRODUCT DETAILS</div>
         <div className="flex-1 text-center">QUANTITY</div>

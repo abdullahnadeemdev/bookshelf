@@ -11,18 +11,16 @@ import { useSelector } from "react-redux";
 
 const NavBar = () => {
   const user = useSelector((state) => state?.auth?.user) || "";
+  const cart = useSelector((state) => state?.cart?.cartItems) || [];
+  const books = useSelector((state) => state?.book?.items) || [];
 
   const [click, setClick] = useState(false);
   const handleClick = () => {
     setClick(!click);
   };
 
-  // let num = props.item.filter((item) => item.email === em).length;
-  // let bookmark = props?.book?.filter((item) => item.email === em).length;
-  // let num = useSelector((state) => state.cart.cartItems.length);
-  // let bookmark = useSelector((state) => state.reducerBookmark.bookMark.length);
-  let num = 2;
-  let bookmark = 2;
+  let num = cart.length;
+  let bookmark = books.length;
 
   return (
     <div className="w-full max-w-[1440px] px-4  z-50 md:sticky top-3">
@@ -77,7 +75,7 @@ const NavBar = () => {
                 {bookmark !== 0 ? (
                   <p
                     className="absolute xl:pb-7 font-bold text-xs  h-4 w-4 pb-4
-                        sm:w-3 xl:text-xl xl:w-6 lxl:h-6 -top-1.5 right-2 xl:top-1 xl:right-41 text-yellow text-center"
+                        sm:w-3 xl:text-xl xl:w-6 xl:h-6 top-3 right-2 lg:top-1.5 md:right-25 lg:right-40 xl:right-42 xl:top-1 text-yellow text-center"
                   >
                     {bookmark}
                   </p>
@@ -93,7 +91,7 @@ const NavBar = () => {
                   ) : (
                     <p
                       className="absolute xl:pb-7 font-bold text-xs  h-4 w-4 pb-4
-                        sm:w-3 xl:text-xl xl:w-6 lxl:h-6 -top-1.5 right-2 xl:top-1 xl:right-30 text-yellow text-center"
+                        sm:w-3 xl:text-xl xl:w-8 xl:h-8 top-2.5 lg:top-2 md:right-21 lg:right-33 xl:right-30  xl:top-1 2xl:right-30 text-yellow text-center"
                     >
                       {num}
                     </p>
