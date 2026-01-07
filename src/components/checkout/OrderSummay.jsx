@@ -15,7 +15,7 @@ const OrderSummay = (props) => {
       {
         title: state.title,
         quantity: 1,
-        price: state.salePrice || state.price || "$0",
+        price: state.salePrice || "$0",
       },
     ];
   }
@@ -24,11 +24,10 @@ const OrderSummay = (props) => {
 
   let totalQuantity = array.reduce((acc, item) => acc + item.quantity, 0) || 1;
 
-  let totalPrice =
-    array?.reduce((acc, item) => {
-      const price = parseFloat(item?.price?.slice(1));
-      return acc + price * item.quantity;
-    }, 0.0) || array[0].price;
+  let totalPrice = array?.reduce((acc, item) => {
+    const price = parseFloat(item?.price?.slice(1));
+    return acc + price * item.quantity;
+  }, 0.0);
 
   const handleDisc = (e) => {
     props.setDisc(e.target.value);
@@ -89,10 +88,10 @@ const OrderSummay = (props) => {
         </table>
         <span></span>
       </div>
-      <span>
+      <span className="">
         <input
           type="text"
-          className="border rounded-[20px] text-lightGrayBg p-4 bg-white h-13 mt-5 w-[75%] mr-2"
+          className="border rounded-[20px] text-lightGrayBg p-4 bg-white h-13 mt-5 w-[70%] mr-2"
           placeholder="Promocode"
           name="disCount"
           value={props.disc}

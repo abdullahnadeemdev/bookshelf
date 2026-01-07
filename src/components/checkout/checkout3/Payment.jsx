@@ -2,13 +2,19 @@ import { useState } from "react";
 import { CautionIcon } from "../../../assets/icons";
 import Button from "../../shared/button/Button";
 import { useNavigate } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { addInfo } from "../../../features/paymentSlice";
+import { removeFromCart } from "../../../features/cartSlice";
 
 const Payment = (props) => {
+  const array = useSelector((state) => state?.payment?.userInfo) || [];
+  const user = useSelector((state) => state?.auth?.user) || "";
+
+  const dispatch = useDispatch();
+
   const { paymentBtn } = props.var;
   const setOrder = props.fun;
   const navigate = useNavigate();
-
-  const array = JSON.parse(sessionStorage.getItem("paymentInfo")) || [];
 
   const [inputInfo, setInputInfo] = useState({
     methodCheck: "card",
@@ -23,6 +29,8 @@ const Payment = (props) => {
     expiry: "",
     cvv: "",
   });
+
+  const [isVisible, setIsVisible] = useState(true);
 
   const handleChange = (e) => {
     let { value, name } = e.target;
@@ -115,13 +123,9 @@ const Payment = (props) => {
 
   const handleClick = () => {
     if (validate()) {
-      sessionStorage.setItem(
-        "paymentInfo",
-        JSON.stringify([...array, inputInfo])
-      );
+      dispatch(addInfo(inputInfo));
+      dispatch(removeFromCart(user.email));
       props.fun((prev) => ({ ...prev, paymentBtn: false }));
-      navigate("/");
-      window.location.reload();
     } else {
       console.log("error running");
     }
