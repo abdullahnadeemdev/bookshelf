@@ -64,8 +64,6 @@ const NavBar = () => {
             </NavLink>
 
             <NavLink to="/books">Gift Ideas</NavLink>
-
-            {/* <Link>About Us</Link> */}
           </ul>
 
           <div className="flex items-center relative ">
@@ -73,12 +71,18 @@ const NavBar = () => {
               <SearchIcon className=" h-3.5 w-3.5  lg:h-6.5! lg:w-6! stroke-white!" />
               <NavLink to="/bookmark">
                 {bookmark !== 0 ? (
-                  <p
-                    className="absolute xl:pb-7 font-bold text-xs  h-4 w-4 pb-4  bg-black rounded-full  
-                        sm:w-3 xl:text-xl xl:w-6 xl:h-6 top-3 right-2 lg:top-1.5 md:right-25 lg:right-40 xl:right-42 xl:top-1 text-yellow text-center"
-                  >
-                    {bookmark}
-                  </p>
+                  // <p
+                  //   className="absolute xl:pb-7 font-bold text-xs  h-4 w-4 pb-4  bg-black rounded-full
+                  //       sm:w-3 xl:text-xl xl:w-6 xl:h-6 top-3 right-2 lg:top-1.5 md:right-25 lg:right-40 xl:right-42 xl:top-1 text-yellow text-center"
+                  // >
+                  //   {bookmark}
+                  // </p>
+                  <div className="absolute flex items-center justify-center bg-yellow rounded-full w-3 h-3 lg:h-5 lg:w-5 top-3 right-24 lg:top-1 lg:right-36 xl:right-38 text-black">
+                    <p className="text-[8px] lg:text-sm font-medium">
+                      {" "}
+                      {bookmark}
+                    </p>
+                  </div>
                 ) : (
                   ""
                 )}
@@ -89,12 +93,11 @@ const NavBar = () => {
                   {num === 0 ? (
                     ""
                   ) : (
-                    <p
-                      className="absolute xl:pb-7 font-bold text-xs  h-4 w-4 pb-4
-                        sm:w-3 xl:text-xl xl:w-8 xl:h-8 top-2.5 lg:top-2 md:right-21 lg:right-33 xl:right-28 bg-black rounded-full  xl:top-1 2xl:right-30 text-yellow text-center"
-                    >
-                      {num}
-                    </p>
+                    <div className="flex justify-center items-center absolute top-3 left-9 lg:left-18 lg:top-1 xl:left-24 xl:top-1  bg-yellow w-3 h-3 lg:h-5 lg:w-5 rounded-full ">
+                      <p className="text-black font-medium text-[8px] lg:text-sm">
+                        {num}
+                      </p>
+                    </div>
                   )}
 
                   <CartIcon className=" h-3.5 w-3.5 lg:h-6! lg:w-6!" />
@@ -104,12 +107,12 @@ const NavBar = () => {
             {!user ? (
               <div>
                 <NavLink to="/login">
-                  <Button className="ml:4 lg:ml-6 ">LOGIN</Button>
+                  <Button className="ml:2 lg:ml-3 ">LOGIN</Button>
                 </NavLink>
               </div>
             ) : (
               <NavLink to="/user-page">
-                <Button className="ml:2 lg:ml-4 2xl:min-w-25">USER</Button>
+                <Button className="ml:2 lg:ml-4">USER</Button>
               </NavLink>
             )}
           </div>
