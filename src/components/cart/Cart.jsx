@@ -46,7 +46,8 @@ const Cart = () => {
     <div className="text-black h-[73vh] relative max-w-[1404px] mx-auto">
       <div className="flex border-b p-4 mx-4 font-bold">
         <div className="flex-3">PRODUCT DETAILS</div>
-        <div className="flex-1 text-center">QUANTITY</div>
+        <div className="flex-3">PRICE FOR EACH</div>
+        <div className="flex-1 text-center mr-11">QUANTITY</div>
         <div className="flex-1 text-right">PRICE</div>
       </div>
 

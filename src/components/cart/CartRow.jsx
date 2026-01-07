@@ -21,8 +21,8 @@ const CartRow = (props) => {
 
   return (
     <div className="p-4 text-black">
-      <div className="flex items-center border-b py-4">
-        <div className="flex-3">
+      <div className="flex items-center border-b py-4 ">
+        <div className="flex-2 ">
           <div className="flex gap-4 items-center">
             <img src={props.image} alt="" className="w-20 h-20 object-cover" />
             <div>
@@ -34,7 +34,10 @@ const CartRow = (props) => {
             </div>
           </div>
         </div>
-        <span className="flex  items-center justify-between   mt-3">
+        <div className="flex-2 ">
+          <p className="pl-10">${props.price}</p>
+        </div>
+        <span className="flex  items-center justify-between ">
           <button
             className=" min-w-6 border-2 border-yellow sm:px-3 sm:py-2.5 rounded-l-2xl "
             onClick={quantity > 1 ? handleQuantity : () => {}}
@@ -53,7 +56,7 @@ const CartRow = (props) => {
             +
           </button>
         </span>
-        <div className="flex-1 text-right">${price * quantity}</div>
+        <div className="flex-1 text-right ">${price * quantity}</div>
       </div>
     </div>
   );
