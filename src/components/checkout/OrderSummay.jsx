@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import Button from "../shared/button/Button";
 import { useLocation } from "react-router";
+import { useSelector } from "react-redux";
 
 const OrderSummay = (props) => {
   const { state } = useLocation();
+
   let array = [];
+
   if (!state) {
-    array = JSON.parse(localStorage.getItem("cart")) || [];
+    array = useSelector((state) => state.cart?.cartItems) || [];
   } else {
     array = [
       {
@@ -38,7 +41,7 @@ const OrderSummay = (props) => {
 
   return (
     <div className="hidden md:block">
-      <div className="bg-blackC rounded-[20px] p-6 w-100 ">
+      <div className="bg-black rounded-[20px] p-6 w-100 ">
         <div className="justify-between items-center mb-2">
           <h2 className="text-2xl font-normal text-center">ORDER SUMMARY</h2>
         </div>

@@ -4,7 +4,6 @@ import Button from "../../shared/button/Button";
 import { useNavigate } from "react-router";
 
 const Payment = (props) => {
-  // console.log("props", props);
   const { paymentBtn } = props.var;
   const setOrder = props.fun;
   const navigate = useNavigate();
@@ -12,7 +11,7 @@ const Payment = (props) => {
   const array = JSON.parse(sessionStorage.getItem("paymentInfo")) || [];
 
   const [inputInfo, setInputInfo] = useState({
-    methodCheck: "",
+    methodCheck: "card",
     cardnum: "",
     expiry: "",
     cvv: "",
@@ -121,7 +120,6 @@ const Payment = (props) => {
         JSON.stringify([...array, inputInfo])
       );
       props.fun((prev) => ({ ...prev, paymentBtn: false }));
-      localStorage.removeItem("cart");
       navigate("/");
       window.location.reload();
     } else {
@@ -180,7 +178,7 @@ const Payment = (props) => {
               )}
               <div className="flex items-center gap-4">
                 <input
-                  type="text"
+                  type="date"
                   name="expiry"
                   value={inputInfo.expiry}
                   onChange={handleChange}
@@ -193,7 +191,7 @@ const Payment = (props) => {
                 )}
                 <span className="relative">
                   <input
-                    type="text"
+                    type="number"
                     name="cvv"
                     id="cvv"
                     value={inputInfo.cvv}

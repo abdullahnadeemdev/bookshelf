@@ -1,5 +1,6 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import bookmarkReducer from "../features/bookMarkSlice";
+import paymentSlice from "../features/paymentSlice";
 import cartReducer from "../features/cartSlice";
 import loginReducer from "../features/loginSlice";
 import persistReducer from "redux-persist/es/persistReducer";
@@ -11,6 +12,7 @@ const reducers = combineReducers({
   book: bookmarkReducer,
   cart: cartReducer,
   auth: loginReducer,
+  payment: paymentSlice,
 });
 
 const persistConfig = {

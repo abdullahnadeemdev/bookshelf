@@ -74,7 +74,7 @@ const NavBar = () => {
               <NavLink to="/bookmark">
                 {bookmark !== 0 ? (
                   <p
-                    className="absolute xl:pb-7 font-bold text-xs  h-4 w-4 pb-4
+                    className="absolute xl:pb-7 font-bold text-xs  h-4 w-4 pb-4  bg-black rounded-full  
                         sm:w-3 xl:text-xl xl:w-6 xl:h-6 top-3 right-2 lg:top-1.5 md:right-25 lg:right-40 xl:right-42 xl:top-1 text-yellow text-center"
                   >
                     {bookmark}
@@ -91,7 +91,7 @@ const NavBar = () => {
                   ) : (
                     <p
                       className="absolute xl:pb-7 font-bold text-xs  h-4 w-4 pb-4
-                        sm:w-3 xl:text-xl xl:w-8 xl:h-8 top-2.5 lg:top-2 md:right-21 lg:right-33 xl:right-30  xl:top-1 2xl:right-30 text-yellow text-center"
+                        sm:w-3 xl:text-xl xl:w-8 xl:h-8 top-2.5 lg:top-2 md:right-21 lg:right-33 xl:right-28 bg-black rounded-full  xl:top-1 2xl:right-30 text-yellow text-center"
                     >
                       {num}
                     </p>

@@ -14,8 +14,19 @@ export const bookMarkSlice = createSlice({
     removeBookmark: (state, action) => {
       state.items = state.items.filter((item) => item.id !== action.payload);
     },
+    addEmailBookmark: (state, action) => {
+      state.items = state.items?.map((item) => {
+        if (item.email === "") {
+          item.email = action.payload;
+          return item;
+        } else {
+          return item;
+        }
+      });
+    },
   },
 });
 
 export default bookMarkSlice.reducer;
-export const { addBookmark, removeBookmark } = bookMarkSlice.actions;
+export const { addBookmark, removeBookmark, addEmailBookmark } =
+  bookMarkSlice.actions;

@@ -75,10 +75,6 @@ const ContactInfo = (props) => {
         <div>
           <div className="flex justify-between items-center">
             <h2 className="text-2xl font-light">CONTACT INFORMATION</h2>
-            {/* <span className="flex gap-1">
-          <p className="text-greyText ">Already have an account?</p>
-          <p className="">Sign in</p>
-        </span> */}
           </div>
           <form id="contactForm">
             <input

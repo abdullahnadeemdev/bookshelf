@@ -24,8 +24,19 @@ export const cartSlice = createSlice({
         }
       }
     },
+    addEmailCart: (state, action) => {
+      state.cartItems = state.cartItems?.map((item) => {
+        if (item.email === "") {
+          item.email = action.payload;
+          return item;
+        } else {
+          return item;
+        }
+      });
+    },
   },
 });
 
 export default cartSlice.reducer;
-export const { addToCart, updateBookQuantity } = cartSlice.actions;
+export const { addToCart, updateBookQuantity, addEmailCart } =
+  cartSlice.actions;

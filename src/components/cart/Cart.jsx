@@ -11,10 +11,13 @@ const Cart = () => {
 
   const [grandTotal, setGrandTotal] = useState(0);
   const [cartItems, setCartItems] = useState([]);
+  const [isVisible, setisVisible] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     setCartItems(() => {
-      return cartArray?.filter((item) => item.email === user);
+      return cartArray?.filter((item) => item.email === user.email);
     });
   }, [cartArray]);
 
@@ -26,19 +29,21 @@ const Cart = () => {
     setGrandTotal(grandTotal);
   }, [cartItems]);
 
-  // console.log("grandTotal", grandTotal);
-
-  const navigate = useNavigate();
   const handleClick = () => {
-    if (cartItems.length > 0 && user !== "") {
-      navigate("/checkout");
+    if (cartItems.length > 0) {
+      if (user !== "") {
+        navigate("/checkout");
+      } else {
+        setisVisible(true);
+      }
     } else {
-      console.log("cart is empty");
+      alert("cart is empty");
     }
   };
 
+  console.log("cartItems", cartItems);
   return (
-    <div className="text-black h-screen relative">
+    <div className="text-black h-[73vh] relative max-w-[1404px] mx-auto">
       <div className="flex border-b p-4 mx-4 font-bold">
         <div className="flex-3">PRODUCT DETAILS</div>
         <div className="flex-1 text-center">QUANTITY</div>
@@ -74,6 +79,36 @@ const Cart = () => {
           PROCEED TO CHECKOUT
         </Button>
       </div>
+      {isVisible ? (
+        <div className="h-[80vh]  absolute backdrop-blur-xs -top-20 w-full flex items-center justify-center">
+          <div className="bg-blackC flex flex-col items-center justify-between p-3 max-w-90 rounded-2xl min-h-45 mx-auto">
+            <h1 className="text-white text-3xl font-semibold">
+              User Not Logged In
+            </h1>
+            <div className=" flex w-full justify-evenly">
+              <Button
+                className="w-30! border-red border-2 text-red"
+                variant="outline"
+                onClick={() => {
+                  setisVisible(false);
+                }}
+              >
+                Cancel
+              </Button>
+              <Button
+                className="w-30!"
+                onClick={() => {
+                  navigate("/checkout");
+                }}
+              >
+                Login
+              </Button>
+            </div>
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

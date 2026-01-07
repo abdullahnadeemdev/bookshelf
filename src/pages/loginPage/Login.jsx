@@ -3,18 +3,17 @@ import { useState } from "react";
 import Button from "../../components/shared/button/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../features/loginSlice";
+import { addEmailCart } from "../../features/cartSlice";
+import { addEmailBookmark } from "../../features/bookMarkSlice";
 
 const Login = () => {
   const dispatch = useDispatch();
 
+  const cartItems = useSelector((state) => state?.cart?.cartItems) || [];
+  const books = useSelector((state) => state?.book?.items) || [];
+  const userList = useSelector((state) => state?.auth?.userList) || [];
+
   const navigate = useNavigate();
-
-  const getItem = () => {
-    const arr = JSON.parse(localStorage.getItem("signIn")) || [];
-    return arr;
-  };
-
-  const dataArr = getItem();
 
   const [values, setValues] = useState({
     email: "",
@@ -24,65 +23,57 @@ const Login = () => {
   const [error, setError] = useState({
     email: "",
     pw: "",
+    user: "",
   });
 
   const validation = () => {
+    let tempErrors = { email: "", pw: "", user: "" };
+    let isValid = true;
+
     if (!values.email) {
-      setError((prev) => ({
-        ...prev,
-        email: "Email is empty",
-      }));
+      tempErrors.email = "Email is empty";
+      isValid = false;
     }
 
     if (!values.pw) {
-      setError((prev) => ({
-        ...prev,
-        pw: "Password is empty",
-      }));
+      tempErrors.pw = "Password is empty";
+      isValid = false;
     }
 
-    if (!values.email || !values.pw) {
-      return false;
-    } else {
-      return true;
+    if (values.email && values.pw) {
+      const userCheck = userList.some(
+        (item) => item.email === values.email && item.pw === values.pw
+      );
+
+      if (!userCheck) {
+        tempErrors.user = "User not found or wrong password";
+        isValid = false;
+      }
     }
+
+    setError(tempErrors);
+    return isValid;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (validation()) {
-      // const user = dataArr.find((item) => {
-      //   if (item.email === values.email) {
-      //     return true;
-      //   } else {
-      //     return false;
-      //   }
-      // });
+      if (cartItems?.length > 0) {
+        dispatch(addEmailCart(values.email));
+      }
 
-      // if (user.pw === values.pw) {
-      // user.isLogin = true;
-      // localStorage.setItem("logIn", JSON.stringify(user));
+      if (books?.length > 0) {
+        dispatch(addEmailBookmark(values.email));
+      }
       dispatch(login({ email: values.email, pw: values.pw }));
+
       navigate("/books");
-      // } else {
       setError({
         ...error,
         pw: "Wrong user password",
       });
-      // }
-
-      // if (user) {
-
-      // } else {
-      //   setError({
-      //     ...error,
-      //     email: "Wrong email",
-      //   });
-      // }
     } else {
-      console.log("error", error);
-      console.log("ingo", values);
     }
   };
 
@@ -118,6 +109,9 @@ const Login = () => {
               />
               {error?.email && (
                 <p className="text-red text-start">{error.email}</p>
+              )}
+              {error?.user && (
+                <p className="text-red text-start">{error.user}</p>
               )}
             </div>
             <div className="mb-1">
