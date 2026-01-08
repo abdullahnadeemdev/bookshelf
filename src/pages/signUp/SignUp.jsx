@@ -197,7 +197,7 @@ const SignUp = (props) => {
               Register
             </Button>
           </form>
-          <NavLink to="/">
+          <NavLink to="/login">
             <Button className="w-full mb-2">Log In</Button>
           </NavLink>
         </div>
