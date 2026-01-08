@@ -19,8 +19,11 @@ const NavBar = () => {
     setClick(!click);
   };
 
-  let num = cart.length;
-  let bookmark = books.length;
+  const userCart = cart.filter((item) => item.email === user.email);
+  const userBookmark = books.filter((item) => item.email === user.email);
+
+  let num = userCart.length;
+  let bookmark = userBookmark.length;
 
   return (
     <div className="w-full max-w-[1440px] px-4  z-50 md:sticky top-3">

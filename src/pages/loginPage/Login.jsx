@@ -143,6 +143,9 @@ const Login = () => {
           <NavLink to="/sign-up">
             <Button className="w-full mb-2">Sign Up</Button>
           </NavLink>
+          <NavLink to="/">
+            <Button className="w-full mb-2">Home</Button>
+          </NavLink>
         </div>
       </div>
     </div>
