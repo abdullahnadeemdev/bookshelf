@@ -30,11 +30,22 @@ export const loginSlice = createSlice({
         state.user = null;
       }
     },
-    logout: (state, action) => {
+    logout: (state) => {
       state.user = null;
+    },
+    changePw: (state, action) => {
+      const { pet, userPw } = action.payload;
+
+      const userChange = state?.userList.find(
+        (item) => item.petName?.toLowerCase() === pet
+      );
+
+      if (userChange) {
+        userChange.pw = userPw;
+      }
     },
   },
 });
 
 export default loginSlice.reducer;
-export const { login, signUp, logout } = loginSlice.actions;
+export const { login, signUp, logout, changePw } = loginSlice.actions;

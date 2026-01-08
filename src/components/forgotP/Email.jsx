@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from "../shared/button/Button";
+import { useSelector } from "react-redux";
 
 const Email = (prop) => {
   console.log("prop", prop);
@@ -11,16 +12,16 @@ const Email = (prop) => {
     email: "",
   });
 
-  const getItem = () => {
-    let val = [];
-    const arr = localStorage.getItem("signIn");
-    if (arr) {
-      val = JSON.parse(arr);
-    }
-    return val;
-  };
+  // const getItem = () => {
+  //   let val = [];
+  //   const arr = localStorage.getItem("signIn");
+  //   if (arr) {
+  //     val = JSON.parse(arr);
+  //   }
+  //   return val;
+  // };
 
-  const dataArr = getItem();
+  const dataArr = useSelector((state) => state?.auth?.userList) || [];
 
   const validation = () => {
     if (!values.email) {
@@ -43,15 +44,14 @@ const Email = (prop) => {
     if (validation()) {
       const checkEmail = dataArr.find((ele) => ele.email === values.email);
       if (checkEmail) {
-        console.log("prop", prop);
-        console.log("I am clicked", checkEmail);
+        // console.log("prop", prop);
+        // console.log("I am clicked", checkEmail);
         prop?.setNext((prev) => ({
           ...prev,
           data: checkEmail,
           show: true,
         }));
       } else {
-        console.log("I am notttt  clicked");
         setError((prev) => ({
           ...prev,
           email: "No email found",
@@ -61,8 +61,7 @@ const Email = (prop) => {
   };
   const handleChange = (e) => {
     const { name, value } = e.target;
-    // console.log("name", name);
-    // console.log("value", value);
+
     setError((prev) => ({
       ...prev,
       email: "",

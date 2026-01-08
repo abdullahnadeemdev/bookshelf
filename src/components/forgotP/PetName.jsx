@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Button from "../shared/button/Button";
 import { useNavigate } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { changePw } from "../../features/loginSlice";
 
 const PetName = (prop) => {
   const [password, setPassword] = useState(false);
@@ -15,16 +17,16 @@ const PetName = (prop) => {
     pw: "",
   });
 
-  const getItem = () => {
-    let val = [];
-    const arr = localStorage.getItem("signIn");
-    if (arr) {
-      val = JSON.parse(arr);
-    }
-    return val;
-  };
+  // const getItem = () => {
+  //   let val = [];
+  //   const arr = localStorage.getItem("signIn");
+  //   if (arr) {
+  //     val = JSON.parse(arr);
+  //   }
+  //   return val;
+  // };
 
-  const dataArr = getItem();
+  const dataArr = useSelector((state) => state?.auth?.userList) || [];
 
   const validation = () => {
     if (!values.petName) {
@@ -40,6 +42,7 @@ const PetName = (prop) => {
       return true;
     }
   };
+
   const validationPw = () => {
     let errors = {
       pw: "",
@@ -71,6 +74,8 @@ const PetName = (prop) => {
     }
   };
 
+  const dispatch = useDispatch();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validation()) {
@@ -97,26 +102,18 @@ const PetName = (prop) => {
   const handleSubmit2 = () => {
     if (validationPw()) {
       const user = dataArr.find((item) => item?.petName === values?.petName);
+      console.log("user", user);
       if (user.pw === values.pw) {
         setError((prev) => ({
           ...prev,
           pw: "same as old password",
         }));
         return;
-      } else {
-        user.pw = values.pw;
       }
+      dispatch(
+        changePw({ pet: values?.petName?.toLowerCase(), userPw: values.pw })
+      );
 
-      const newData = dataArr.map((item) => {
-        if (item?.petName?.toLowerCase() === values?.petName?.toLowerCase()) {
-          item = user;
-          return item;
-        } else {
-          return item;
-        }
-      });
-
-      localStorage.setItem("signIn", JSON.stringify(newData));
       navigate("/");
     }
   };
