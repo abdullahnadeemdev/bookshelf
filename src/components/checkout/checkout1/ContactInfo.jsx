@@ -4,8 +4,6 @@ import CloseCard from "../CloseCard";
 import { useState, useContext } from "react";
 
 const ContactInfo = (props) => {
-  // const display = useContext(PageContext);
-  // console.log("display", display);
   const { contactBtn } = props.var;
   const setOrder = props.fun;
   // console.log("props", props.fun);
@@ -58,11 +56,12 @@ const ContactInfo = (props) => {
     e.preventDefault();
 
     if (validate()) {
-      sessionStorage.setItem(
-        "contactInfo",
-        JSON.stringify([...prevInfo, inputData])
-      );
-      console.log("data uploaded");
+      props.setUser((prev) => ({
+        ...prev,
+        name: inputData.nameIN,
+        phone: inputData.phoneIN,
+      }));
+      console.log("data uploaded", props.user);
       setOrder((prev) => ({ ...prev, contactBtn: false, shipBtn: true }));
     } else {
       console.log("the error ");

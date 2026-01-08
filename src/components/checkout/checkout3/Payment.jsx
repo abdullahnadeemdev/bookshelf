@@ -31,18 +31,15 @@ const Payment = (props) => {
   });
 
   const [isVisible, setIsVisible] = useState(true);
-
   const handleChange = (e) => {
     let { value, name } = e.target;
-    setError((prev) => ({
-      ...prev,
-      [name]: "",
-    }));
 
-    setInputInfo({
-      ...inputInfo,
-      [name]: value,
-    });
+    if (name === "cardnum" || name === "cvv") {
+      value = value.replace(/\D/g, "");
+    }
+
+    setError((prev) => ({ ...prev, [name]: "" }));
+    setInputInfo({ ...inputInfo, [name]: value });
   };
 
   const validate = () => {
@@ -106,11 +103,8 @@ const Payment = (props) => {
       }));
       error2.cvvE = true;
     }
-    if (!cvvNum.match(cvvRegex)) {
-      setError((prev) => ({
-        ...prev,
-        cvv: "invalid cvv",
-      }));
+    if (!cvvRegex.test(inputInfo.cvv)) {
+      setError((prev) => ({ ...prev, cvv: "Invalid CVV" }));
       error2.cvvE = true;
     }
 
@@ -123,13 +117,21 @@ const Payment = (props) => {
 
   const handleClick = () => {
     if (validate()) {
-      dispatch(addInfo(inputInfo));
+      const updatedData = {
+        ...props.user,
+        cardNum: inputInfo.cardnum,
+        expiry: inputInfo.expiry,
+        cvv: inputInfo.cvv,
+      };
+      console.log("updatedData uploaded", updatedData);
+      dispatch(addInfo(updatedData));
       dispatch(removeFromCart(user.email));
       props.fun((prev) => ({ ...prev, paymentBtn: false }));
     } else {
       console.log("error running");
     }
   };
+
   return (
     <div className="w-150 mt-5">
       {paymentBtn ? (
@@ -195,9 +197,10 @@ const Payment = (props) => {
                 )}
                 <span className="relative">
                   <input
-                    type="number"
+                    type="text"
                     name="cvv"
                     id="cvv"
+                    maxLength="4"
                     value={inputInfo.cvv}
                     onChange={handleChange}
                     className="border h-13 p-3 bg-white rounded-[20px] w-full text-grayBg"

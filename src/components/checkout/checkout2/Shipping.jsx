@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import Button from "../../shared/button/Button";
 import CloseCard from "../CloseCard";
+// import { TimePicker } from "react-time-picker/src/TimePicker.js";
 
 const Shipping = (props) => {
   const { shipBtn } = props.var;
   const setOrder = props.fun;
+
   const [inputData, setInputData] = useState({
     address: "",
     note: "",
+    time: "",
   });
 
   const [error, setError] = useState({
@@ -40,16 +43,17 @@ const Shipping = (props) => {
     }
   };
 
-  const prevInfo = JSON.parse(sessionStorage.getItem("shipInfo")) || [];
-
   const handleClick = (e) => {
     e.preventDefault();
 
     if (validate()) {
-      sessionStorage.setItem(
-        "shipInfo",
-        JSON.stringify([...prevInfo, inputData])
-      );
+      props.setUser((prev) => ({
+        ...prev,
+        address: inputData.address,
+        note: inputData.note,
+        time: inputData.time,
+      }));
+      console.log("data uploaded", props.user);
       setOrder((prev) => ({ ...prev, shipBtn: false, paymentBtn: true }));
     } else {
       console.log("the error ");
@@ -64,7 +68,7 @@ const Shipping = (props) => {
           <form action="">
             <div id="shipForm" className="flex items-center gap-4">
               <input
-                type="text"
+                type="date"
                 name="date"
                 id="date"
                 className="border h-13 p-3 my-5 bg-white rounded-[20px] w-full text-grayBg"

@@ -9,7 +9,7 @@ import SignUp from "./pages/signUp/SignUp";
 import UserPage from "./pages/userPage/userPage";
 import AuthorsPopular from "./pages/authorPage/Index";
 import { Route, Routes, Navigate } from "react-router";
-import PageNotFound from "./pages/pageNotFound/PageNotFound";
+import Thanks from "./pages/finalPage/Index";
 import ForgotP from "./pages/forgotP/ForgotP";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -42,6 +42,11 @@ const Router = (props) => {
       <Route
         path="/user-page"
         element={user ? <UserPage /> : <Navigate to="/login" />}
+      />
+
+      <Route
+        path="/thank-you"
+        element={user ? <Thanks /> : <Navigate to="/login" />}
       />
 
       <Route path="*" element={<Navigate to="/" />} />

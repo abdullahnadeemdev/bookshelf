@@ -5,10 +5,14 @@ import { useLocation } from "react-router";
 
 const Layout = ({ children }) => {
   const loc = useLocation().pathname;
-  // console.log("loc", loc);
 
   const handleNavbar = () => {
-    if (loc === "/login" || loc === "/sign-up" || loc === "/forgot-password") {
+    if (
+      loc === "/login" ||
+      loc === "/sign-up" ||
+      loc === "/forgot-password" ||
+      loc === "/thank-you"
+    ) {
       return false;
     } else {
       return true;

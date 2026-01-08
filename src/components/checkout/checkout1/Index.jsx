@@ -5,7 +5,8 @@ import ContactInfo from "./ContactInfo";
 import CloseCard from "../CloseCard";
 import Shipping from "../checkout2/Shipping";
 import Payment from "../checkout3/Payment";
-import { Link, useLocation } from "react-router";
+import { Link } from "react-router";
+import Button from "../../shared/button/Button";
 
 const Index = () => {
   const [orderState, setOrderState] = useState({
@@ -14,10 +15,23 @@ const Index = () => {
     paymentBtn: false,
   });
 
+  const [userInfo, setUserInfo] = useState({
+    name: "",
+    phone: "",
+    time: "",
+    address: "",
+    note: "",
+    cardNum: "",
+    expiry: "",
+    cvv: "",
+  });
+
   const [disc, setDisc] = useState("");
 
+  const handleNavigate = () => {};
+
   return (
-    <div className="max-w-[1440px] rounded-[20px] m-5 h-screen text-white ">
+    <div className="w-full max-w-[1404px]  rounded-[20px]  m-5 h-[70vh] text-white ">
       <div className="p-8 rounded-[20px] bg-grayBg  ">
         <div className="flex gap-2 items-center  font-light mb-10">
           <span className="flex gap-2 items-center">
@@ -52,12 +66,27 @@ const Index = () => {
 
         <div className="flex flex-col xl:flex-row justify-between ">
           <div>
-            <ContactInfo var={orderState} fun={setOrderState} />
+            <ContactInfo
+              var={orderState}
+              fun={setOrderState}
+              user={userInfo}
+              setUser={setUserInfo}
+            />
             {!orderState.contactBtn && (
-              <>
-                <Shipping var={orderState} fun={setOrderState} />
-                <Payment var={orderState} fun={setOrderState} />
-              </>
+              <div>
+                <Shipping
+                  var={orderState}
+                  fun={setOrderState}
+                  user={userInfo}
+                  setUser={setUserInfo}
+                />
+                <Payment
+                  var={orderState}
+                  fun={setOrderState}
+                  user={userInfo}
+                  setUser={setUserInfo}
+                />
+              </div>
             )}
           </div>
           <div className="mt-10 xl:mt-0 max-w-[400px]">
