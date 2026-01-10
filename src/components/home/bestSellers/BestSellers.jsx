@@ -19,7 +19,7 @@ const BestSellers = () => {
       <h1 className="font-semibold text-xl sm:text-2xl lg:text-4xl ">
         BESTSELLERS
       </h1>
-      <div className="flex justify-between gap-3 flex-wrap">
+      <div className="flex justify-between gap-3 md:mx-1 flex-wrap">
         {newArr.map((item, index) =>
           index === num ? (
             <div

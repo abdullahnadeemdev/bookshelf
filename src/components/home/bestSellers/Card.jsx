@@ -50,36 +50,26 @@ const Card = (props) => {
         publisher: props.publisher,
       }}
     >
-      {props.title === "SEE ALL" ? (
-        <div
-          className="
-            flex
-            flex-1
-            text-black
-            bg-yellow
-            rounded-[20px]
-            items-center justify-center
-            sm:text-4xl
-            min-w-72 min-h-48 max-w-104 max-h-auto
-            sm:max-w-74
-            md:min-w-90
-            lg:min-w-[461px] lg:min-h-70
-          "
-        >
-          <h1>SEE ALL</h1>
-        </div>
-      ) : (
-        <div
-          className="
+      <div
+        className="
             flex
             flex-1
             p-5
             bg-white
             rounded-[20px]
-            xs:max-w-104 gap-2
-            sm:max-w-74
-            md:min-w-90
-            lg:min-w-[461px]
+            lg:max-w-80
+            xl:max-w-[458px]
+            gap-2
+          "
+      >
+        <div
+          className="
+            flex
+            flex-1
+            gap-2
+          bg-white
+            rounded-[20px]
+            w-full 
           "
         >
           <div
@@ -87,8 +77,9 @@ const Card = (props) => {
               overflow-hidden
               h-40 w-25
               rounded-[21px]
-              md:h-50 md:w-35
-              lg:h-56 lg:w-40
+              md:h-full md:max-h-50 md:min-w-30
+              lg:h-full lg:max-h-44 lg:min-w-32
+              xl:h-full xl:max-h-56 xl:min-w-40
             "
           >
             <img
@@ -97,53 +88,63 @@ const Card = (props) => {
               className="
                 object-cover
                 h-full w-full
+                shrink-0
               "
             />
           </div>
+
           <div
             className="
               text-black
-              sm:w-63
+              w-full max-w-[260px]
+               lg:max-h-44
             "
           >
             <div
               className="
-                flex mt-1
+                flex mt-auto
+                gap-2
                 justify-between
                 md:w-45 md:mb-4
-                lg:w-full lg:mb-6 
-             
+                lg:w-full lg:max-w-[150px]
+                xl:min-w-[16vw] xl:max-w-[18vw]  lg:mb-0
+                max-w-[260px]
               "
             >
               <span
                 className="
-                  pr-2
+                  xl:pr-2
                 "
               >
                 <p
                   className="
-                    text-xs sm:text-sm
+                    text-[11px] xl:text-sm
+                    truncate
                   "
                 >
                   {props.author}
                 </p>
                 <p
                   className="
-                    overflow-hidden
+                   truncate
                     w-26 h-7 
-                    mb-1
+                    mb-2
                     font-semibold text-wrap text-xs
                     sm:max-w-50
-                    sm:min-w-40
-                    md:text-sm
-                    lg:h-9
+                    xl:text-sm
+                    lg:w-full
+                    lg:h-5
+                    xl:h-9
                   "
                 >
                   {props.title}
                 </p>
               </span>
               <div onClick={(e) => handleBookmark(e)}>
-                <Bookmark fill={isBookmarked ? "white" : "#2a2c2e"} />
+                <Bookmark
+                  fill={isBookmarked ? "white" : "#2a2c2e"}
+                  classname="xl:h-10  xl:w-10 "
+                />
               </div>
             </div>
 
@@ -155,7 +156,7 @@ const Card = (props) => {
                 text-sm
                 border rounded-full
                 items-center gap-1
-                md:mt-0 md:p-1 md:px-3 md:text-base
+                md:mt-auto md:p-1 md:px-3 md:text-base
               "
             >
               <p>{props.comts}</p>
@@ -171,7 +172,7 @@ const Card = (props) => {
                 border rounded-full
                 items-center gap-1
                 md:p-1 md:px-3 md:mb-6 md:text-sm lg:text-base
-                lg:mb-8
+                xl:mb-8
               "
             >
               <p>{props.star}</p>
@@ -203,7 +204,7 @@ const Card = (props) => {
             </span>
           </div>
         </div>
-      )}
+      </div>
     </NavLink>
   );
 };
