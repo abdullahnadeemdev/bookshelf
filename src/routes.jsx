@@ -2,7 +2,7 @@ import Home from "./pages/home/Index";
 import Products from "./pages/products/index";
 import Bookmarks from "./pages/bookmarks/Index";
 import Cart from "./pages/cartPage/Index";
-import Index from "./components/checkout/checkout1/Index";
+import Checkout from "./components/checkout/Index";
 import ProductsDesc from "./pages/productDesc/Index";
 import Login from "./pages/loginPage/Login";
 import SignUp from "./pages/signUp/SignUp";
@@ -37,7 +37,7 @@ const Router = (props) => {
       <Route path="/authors-popular" element={<AuthorsPopular />} />
       <Route
         path="/checkout"
-        element={user ? <Index /> : <Navigate to="/login" />}
+        element={user ? <Checkout /> : <Navigate to="/login" />}
       />
       <Route
         path="/user-page"

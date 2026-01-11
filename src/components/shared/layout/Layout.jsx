@@ -1,6 +1,5 @@
-import { useRef } from "react";
-import Footer from "../components/shared/footer/Footer";
-import NavBar from "../components/shared/navBar/navBar";
+import Footer from "../footer/Footer";
+import NavBar from "../navBar/navBar";
 import { useLocation } from "react-router";
 
 const Layout = ({ children }) => {

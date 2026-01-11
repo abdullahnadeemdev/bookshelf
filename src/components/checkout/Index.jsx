@@ -1,12 +1,12 @@
 import { useState, createContext, useContext } from "react";
-import { DropArrowIcon } from "../../../assets/icons";
-import OrderSummay from "../OrderSummay";
-import ContactInfo from "./ContactInfo";
-import CloseCard from "../CloseCard";
-import Shipping from "../checkout2/Shipping";
-import Payment from "../checkout3/Payment";
+import OrderSummay from "./OrderSummay";
+import ContactInfo from "./checkout1/ContactInfo";
+import CloseCard from "./CloseCard";
+import Shipping from "./checkout2/Shipping";
+import Payment from "./checkout3/Payment";
 import { Link } from "react-router";
-import Button from "../../shared/button/Button";
+// import Button from "../../shared/button/Button";
+import { DropArrowIcon } from "../../assets/icons";
 
 const Index = () => {
   const [orderState, setOrderState] = useState({
