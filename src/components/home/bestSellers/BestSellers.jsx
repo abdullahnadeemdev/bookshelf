@@ -2,12 +2,11 @@ import Card from "./Card";
 // import Card from "../../container/CardContainerBestSellers";
 import { ArrayProducts as array } from "../../../utils/utils";
 import { useNavigate } from "react-router";
-import useWindowDimensions from "../../shared/hooks/useWindow";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const BestSellers = () => {
   const [num, setNum] = useState(8);
-  const newArr = array.slice(3);
+  const newArr = array.slice(22);
   const navigate = useNavigate();
   const handLeClick = () => {
     navigate("/books");

@@ -31,6 +31,7 @@ const Payment = (props) => {
   });
 
   const [isVisible, setIsVisible] = useState(true);
+
   const handleChange = (e) => {
     let { value, name } = e.target;
 
@@ -39,6 +40,7 @@ const Payment = (props) => {
     }
 
     setError((prev) => ({ ...prev, [name]: "" }));
+    console.log("INPUT INFO,", value + "-----" + name);
     setInputInfo({ ...inputInfo, [name]: value });
   };
 
@@ -49,8 +51,8 @@ const Payment = (props) => {
       /^(?:5[1-5][0-9]{2}|222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)[0-9]{12}$/;
     let cardNum = inputInfo.cardnum;
 
-    const expiryRegex = /^(0[1-9]|1[0-2])\/?([0-9]{2})$/;
-    let expiryD = inputInfo.expiry;
+    // const expiryRegex = /^(0[1-9]|1[0-2])\/?([0-9]{2})$/;
+    // let expiryD = inputInfo.expiry;
 
     const cvvRegex = /^[0-9]{3,4}$/;
     let cvvNum = inputInfo.cvv;
@@ -88,23 +90,26 @@ const Payment = (props) => {
       }));
       error2.expiryE = true;
     }
-    if (!expiryD.match(expiryRegex)) {
-      setError((prev) => ({
-        ...prev,
-        expiry: "invalid card expiry date",
-      }));
-      error2.expiryE = true;
-    }
+    // if (!expiryD.match(expiryRegex)) {
+    //   setError((prev) => ({
+    //     ...prev,
+    //     expiry: "invalid card expiry date",
+    //   }));
+    //   error2.expiryE = true;
+    // }
 
     if (!inputInfo.cvv) {
       setError((prev) => ({
         ...prev,
         cvv: "empty card cvv",
       }));
+
       error2.cvvE = true;
     }
-    if (!cvvRegex.test(inputInfo.cvv)) {
+
+    if (!inputInfo.cvv.match(cvvRegex)) {
       setError((prev) => ({ ...prev, cvv: "Invalid CVV" }));
+
       error2.cvvE = true;
     }
 
@@ -123,9 +128,9 @@ const Payment = (props) => {
         expiry: inputInfo.expiry,
         cvv: inputInfo.cvv,
       };
-      console.log("updatedData uploaded", updatedData);
       dispatch(addInfo(updatedData));
       dispatch(removeFromCart(user.email));
+      navigate("/");
       props.fun((prev) => ({ ...prev, paymentBtn: false }));
     } else {
       console.log("error running");
