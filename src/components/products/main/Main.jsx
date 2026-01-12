@@ -83,7 +83,11 @@ const Main = () => {
     window.scrollTo({ top: 0, behaviour: "smooth" });
     setCurrentPage((prev) => prev + 1);
   };
+
   const PrevPage = () => {
+    if (currentPage - 1 === 0) {
+      return;
+    }
     window.scrollTo({ top: 0, behaviour: "smooth" });
 
     setCurrentPage((prev) => prev - 1);
@@ -122,6 +126,7 @@ const Main = () => {
         <button
           className="rounded-full bg-searchIcon py-2 px-3"
           onClick={NextPage}
+          disabled={currentPage + 1 > totalPages ? true : false}
         >
           Next
         </button>
