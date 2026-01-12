@@ -41,7 +41,6 @@ const Cart = () => {
     }
   };
 
-  console.log("cartItems", cartItems);
   return (
     <div className="text-black h-[73vh] relative max-w-[1404px] mx-auto">
       <div className="flex border-b p-4 mx-4 font-bold">

@@ -2,7 +2,10 @@ import { useState } from "react";
 import { Bookmark, Comment, Star } from "../../../assets/icons";
 import { NavLink } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
-import { addBookmark, removeBookmark } from "../../../features/bookMarkSlice";
+import {
+  addBookmark,
+  removeBookmark,
+} from "../../../redux/features/bookMarkSlice";
 
 const Card = (props) => {
   const user = useSelector((state) => state?.auth?.user?.email) || "";

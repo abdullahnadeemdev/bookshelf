@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, updateBookQuantity } from "../../features/cartSlice";
+import { addToCart, updateBookQuantity } from "../../redux/features/cartSlice";
 
 const CartRow = (props) => {
   const cartItems = useSelector((state) => state?.cart?.cartItems);

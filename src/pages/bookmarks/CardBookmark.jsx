@@ -3,7 +3,7 @@ import { Bookmark } from "../../assets/icons/Bookmark";
 import { Comment, Star } from "../../assets/icons";
 import { NavLink } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { removeBookmark } from "../../features/bookMarkSlice";
+import { removeBookmark } from "../../redux/features/bookMarkSlice";
 
 const CardBookmark = (props) => {
   const [clr, setClr] = useState("white");

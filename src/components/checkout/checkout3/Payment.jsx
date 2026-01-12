@@ -3,8 +3,8 @@ import { CautionIcon } from "../../../assets/icons";
 import Button from "../../shared/button/Button";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { addInfo } from "../../../features/paymentSlice";
-import { removeFromCart } from "../../../features/cartSlice";
+import { addInfo } from "../../../redux/features/paymentSlice";
+import { removeFromCart } from "../../../redux/features/cartSlice";
 
 const Payment = (props) => {
   const array = useSelector((state) => state?.payment?.userInfo) || [];

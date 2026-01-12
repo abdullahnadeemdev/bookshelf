@@ -2,7 +2,7 @@ import { NavLink, useNavigate } from "react-router";
 import { useState } from "react";
 import Button from "../../components/shared/button/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { signUp } from "../../features/loginSlice";
+import { signUp } from "../../redux/features/loginSlice";
 
 const SignUp = (props) => {
   const navigate = useNavigate();

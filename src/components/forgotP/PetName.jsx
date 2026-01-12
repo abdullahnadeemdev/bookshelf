@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from "../shared/button/Button";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { changePw } from "../../features/loginSlice";
+import { changePw } from "../../redux/features/loginSlice";
 
 const PetName = (prop) => {
   const [password, setPassword] = useState(false);

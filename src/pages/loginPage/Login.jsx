@@ -2,9 +2,9 @@ import { Link, NavLink, useNavigate } from "react-router";
 import { useState } from "react";
 import Button from "../../components/shared/button/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../features/loginSlice";
-import { addEmailCart } from "../../features/cartSlice";
-import { addEmailBookmark } from "../../features/bookMarkSlice";
+import { login } from "../../redux/features/loginSlice";
+import { addEmailCart } from "../../redux/features/cartSlice";
+import { addEmailBookmark } from "../../redux/features/bookMarkSlice";
 
 const Login = () => {
   const dispatch = useDispatch();

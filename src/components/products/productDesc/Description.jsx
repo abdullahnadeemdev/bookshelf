@@ -3,8 +3,14 @@ import { Bookmark, RightArrowIcon, Star } from "../../../assets/icons";
 import Button from "../../shared/button/Button";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, updateBookQuantity } from "../../../features/cartSlice";
-import { addBookmark, removeBookmark } from "../../../features/bookMarkSlice";
+import {
+  addToCart,
+  updateBookQuantity,
+} from "../../../redux/features/cartSlice";
+import {
+  addBookmark,
+  removeBookmark,
+} from "../../../redux/features/bookMarkSlice";
 
 const Description = (props) => {
   const cartArray = useSelector((state) => state?.cart?.cartItems) || [];

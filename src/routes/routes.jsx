@@ -1,16 +1,16 @@
-import Home from "./pages/home/Index";
-import Products from "./pages/products/index";
-import Bookmarks from "./pages/bookmarks/Index";
-import Cart from "./pages/cartPage/Index";
-import Checkout from "./components/checkout/Index";
-import ProductsDesc from "./pages/productDesc/Index";
-import Login from "./pages/loginPage/Login";
-import SignUp from "./pages/signUp/SignUp";
-import UserPage from "./pages/userPage/userPage";
-import AuthorsPopular from "./pages/authorPage/Index";
+import Home from "../pages/home/Index";
+import Products from "../pages/products/index";
+import Bookmarks from "../pages/bookmarks/Index";
+import Cart from "../pages/cartPage/Index";
+import Checkout from "../components/checkout/Index";
+import ProductsDesc from "../pages/productDesc/Index";
+import Login from "../pages/loginPage/Login";
+import SignUp from "../pages/signUp/SignUp";
+import UserPage from "../pages/userPage/userPage";
+import AuthorsPopular from "../pages/authorPage/Index";
 import { Route, Routes, Navigate } from "react-router";
-import Thanks from "./pages/finalPage/Index";
-import ForgotP from "./pages/forgotP/ForgotP";
+import Thanks from "../pages/finalPage/Index";
+import ForgotP from "../pages/forgotP/ForgotP";
 import { useDispatch, useSelector } from "react-redux";
 
 const Router = (props) => {

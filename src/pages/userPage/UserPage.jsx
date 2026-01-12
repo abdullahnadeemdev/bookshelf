@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from "../../components/shared/button/Button";
 import { NavLink, useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { logout, signUp } from "../../features/loginSlice";
+import { logout, signUp } from "../../redux/features/loginSlice";
 
 const UserProfile = () => {
   const fetchData = () => {
