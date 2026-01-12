@@ -14,31 +14,41 @@ const BestSellers = () => {
   // const { height, width } = useWindowDimensions();
 
   return (
-    <div className="h-fit 2xl:h-fit py-10 max-w-[1440px] px-4">
+    <div className="h-fit 2xl:h-fit py-10 max-w-[1430px] w-full px-4">
       <h1 className="font-semibold text-xl sm:text-2xl lg:text-4xl ">
         BESTSELLERS
       </h1>
-      <div className="flex justify-between gap-3 md:mx-1 flex-wrap">
+      <div
+        className="
+        grid
+        grid-cols-1
+        sm:grid-cols-2
+        lg:grid-cols-3
+        gap-4
+        "
+      >
         {newArr.map((item, index) =>
           index === num ? (
             <div
               key={index}
               onClick={handLeClick}
               className="
-            flex
-            flex-1
-            text-black
-            bg-yellow
-            rounded-[20px]
-            items-center justify-center
-            sm:text-4xl
-            min-w-42 min-h-48 max-w-71 max-h-auto
-            sm:max-w-74
-            md:min-w-90
-            lg:min-w-113.5 lg:min-h-62
-          "
+                h-full
+                min-h-[220px]
+               bg-yellow
+                rounded-2xl
+                text-black
+                flex
+                items-center
+                justify-center
+                text-2xl
+                font-semibold
+                cursor-pointer
+                hover:scale-[1.02]
+                transition
+                  "
             >
-              <h1>SEE ALL</h1>
+              SEE ALL
             </div>
           ) : (
             <Card

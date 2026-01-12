@@ -13,8 +13,11 @@ const Card = (props) => {
 
   const dispatch = useDispatch();
 
-  const [isBookmarked, setIsBookmarked] = useState(() =>
-    currentBookmarks.some((b) => b.title === props.title && b.email === user)
+  // const [isBookmarked, setIsBookmarked] = useState(() =>
+  //   currentBookmarks.some((b) => b.title === props.title && b.email === user)
+  // );
+  const isBookmarked = currentBookmarks.some(
+    (b) => b.id === props.id && b.email === user
   );
 
   const handleBookmark = (e) => {
@@ -24,10 +27,10 @@ const Card = (props) => {
     if (!isBookmarked) {
       const updated = { ...props, email: user };
       dispatch(addBookmark(updated));
-      setIsBookmarked(true);
+      // setIsBookmarked(true);
     } else {
       dispatch(removeBookmark(props.id));
-      setIsBookmarked(false);
+      // setIsBookmarked(false);
     }
   };
 
@@ -55,34 +58,25 @@ const Card = (props) => {
     >
       <div
         className="
-            flex
-            flex-1
-            p-5
-            bg-white
-            rounded-[20px]
-            lg:max-w-80
-            xl:max-w-[458px]
-            gap-2
-          "
+      bg-white
+        rounded-2xl
+        p-4
+        h-full
+        min-h-[210px]
+        "
       >
         <div
           className="
-            flex
-            flex-1
-            gap-2
-          bg-white
-            rounded-[20px]
-            w-full 
+            flex gap-4 h-full
           "
         >
           <div
             className="
-              overflow-hidden
-              h-40 w-25
-              rounded-[21px]
-              md:h-full md:max-h-50 md:min-w-30
-              lg:h-full lg:max-h-44 lg:min-w-32
-              xl:h-full xl:max-h-56 xl:min-w-40
+            w-28
+            aspect-3/4
+            overflow-hidden
+            rounded-2xl
+            shrink-0
             "
           >
             <img
@@ -91,7 +85,6 @@ const Card = (props) => {
               className="
                 object-cover
                 h-full w-full
-                shrink-0
               "
             />
           </div>
@@ -99,8 +92,9 @@ const Card = (props) => {
           <div
             className="
               text-black
-              w-full max-w-[260px]
-               lg:max-h-44
+              flex flex-col justify-between flex-1
+              w-full max-w-full
+              lg:max-h-full
             "
           >
             <div
@@ -108,9 +102,9 @@ const Card = (props) => {
                 flex mt-auto
                 gap-2
                 justify-between
-                md:w-45 md:mb-4
-                lg:w-full lg:max-w-[150px]
-                xl:min-w-[16vw] xl:max-w-[18vw]  lg:mb-0
+                md:w-full md:mb-4
+                lg:max-w-[150px]
+                xl:min-w-53 xl:max-w-full  lg:mb-0
                 max-w-[260px]
               "
             >
@@ -127,19 +121,7 @@ const Card = (props) => {
                 >
                   {props.author}
                 </p>
-                <p
-                  className="
-                   truncate
-                    w-26 h-7 
-                    mb-2
-                    font-semibold text-wrap text-xs
-                    sm:max-w-50
-                    xl:text-sm
-                    lg:w-full
-                    lg:h-5
-                    xl:h-9
-                  "
-                >
+                <p className="text-sm font-semibold line-clamp-2">
                   {props.title}
                 </p>
               </span>
@@ -189,21 +171,10 @@ const Card = (props) => {
                 gap-1
               "
             >
-              <p
-                className="
-                  text-greyText text-lg
-                  line-through
-                "
-              >
+              <p className="text-sm text-gray-400 line-through">
                 {props.price}
               </p>
-              <p
-                className="
-                  text-lg
-                "
-              >
-                {props.saleP}
-              </p>
+              <p className="text-lg font-semibold">{props.saleP}</p>
             </span>
           </div>
         </div>
