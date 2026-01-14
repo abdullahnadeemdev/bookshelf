@@ -5,8 +5,7 @@ import CloseCard from "./CloseCard";
 import Shipping from "./checkout2/Shipping";
 import Payment from "./checkout3/Payment";
 import { Link } from "react-router";
-// import Button from "../../shared/button/Button";
-import { DropArrowIcon } from "../../assets/icons";
+import { DropArrowIcon } from "../../assets/icons/Index.js";
 
 const Index = () => {
   const [orderState, setOrderState] = useState({
