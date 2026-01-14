@@ -1,5 +1,5 @@
 import React from "react";
-import { ModuloIcon, StarIcon } from "../../../assets/icons";
+import { ModuloIcon, StarIcon } from "../../../assets/icons/Index.js";
 import { Navigate, useNavigate } from "react-router";
 
 const Recommendation = () => {

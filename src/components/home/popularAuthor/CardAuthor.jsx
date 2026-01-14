@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import { Bookmark } from "../../../assets/icons";
+import { Bookmark } from "../../../assets/icons/Index.js";
 import { useState } from "react";
 
 const CardAuthor = (props) => {

@@ -1,4 +1,4 @@
-import { Bookmark } from "../../../assets/icons";
+import { Bookmark } from "../../../assets/icons/Index.js";
 
 const SuggestCard = (props) => {
   return (

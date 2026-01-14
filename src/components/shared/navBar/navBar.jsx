@@ -1,8 +1,8 @@
-import { Logo, UserIcon } from "../../../assets/icons";
-import { CartIcon } from "../../../assets/icons";
-import { SearchIcon } from "../../../assets/icons";
-import { BookmarkIcon } from "../../../assets/icons";
-import { MenuIcon } from "../../../assets/icons";
+import { Logo, UserIcon } from "../../../assets/icons/Index.js";
+import { CartIcon } from "../../../assets/icons/Index.js";
+import { SearchIcon } from "../../../assets/icons/Index.js";
+import { BookmarkIcon } from "../../../assets/icons/Index.js";
+import { MenuIcon } from "../../../assets/icons/Index.js";
 import Button from "../button/Button";
 import { useState } from "react";
 import { menuArr } from "../../../Utils/utils";

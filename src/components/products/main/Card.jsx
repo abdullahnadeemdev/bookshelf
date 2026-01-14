@@ -1,5 +1,5 @@
 import { NavLink } from "react-router";
-import { Bookmark, Comment, Star } from "../../../assets/icons";
+import { Bookmark, Comment, Star } from "../../../assets/icons/Index.js";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {

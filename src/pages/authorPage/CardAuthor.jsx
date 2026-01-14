@@ -1,4 +1,4 @@
-import { BookmarkIcon } from "../../assets/icons";
+import { BookmarkIcon } from "../../assets/icons/Index.js";
 
 const CardAuthor = (props) => {
   return (

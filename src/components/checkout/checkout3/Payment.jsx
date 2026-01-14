@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CautionIcon } from "../../../assets/icons";
+import { CautionIcon } from "../../../assets/icons/Index.js";
 import Button from "../../shared/button/Button";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";

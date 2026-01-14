@@ -4,7 +4,7 @@ import {
   InstagramIcon,
   Logo,
   TwitterIcon,
-} from "../../../assets/icons/Index.js";
+} from "../../../assets/icons/Index.js/Index.js";
 
 const Footer = () => {
   return (

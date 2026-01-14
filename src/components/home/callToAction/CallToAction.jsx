@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
-import { ArrowIcon } from "../../../assets/icons/ArrowIcon";
-import { QuestionMarkIcon } from "../../../assets/icons";
+import { ArrowIcon } from "../../../assets/icons/Index.js/ArrowIcon";
+import { QuestionMarkIcon } from "../../../assets/icons/Index.js";
 
 const CallToAction = () => {
   const navigate = useNavigate();

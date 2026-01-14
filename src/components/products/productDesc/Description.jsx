@@ -1,5 +1,5 @@
 import { NavLink, useLocation, useNavigate } from "react-router";
-import { Bookmark, RightArrowIcon, Star } from "../../../assets/icons";
+import { Bookmark, RightArrowIcon, Star } from "../../../assets/icons/Index.js";
 import Button from "../../shared/button/Button";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";

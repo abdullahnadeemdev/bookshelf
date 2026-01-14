@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { DropArrowIcon } from "../../../assets/icons";
+import { DropArrowIcon } from "../../../assets/icons/Index.js";
 import { getTrackBackground, Range } from "react-range";
 
 const SideBar = ({ setFilter, filter }) => {

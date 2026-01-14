@@ -1,4 +1,4 @@
-import { Star } from "../../../assets/icons";
+import { Star } from "../../../assets/icons/Index.js";
 
 const ReviewCard = (props) => {
   return (

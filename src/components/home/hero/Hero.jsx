@@ -1,7 +1,7 @@
 import HeroImg from "../../../assets/images/tipo.jpg";
 import Button from "../../shared/button/Button";
-import { SearchIcon } from "../../../assets/icons";
-import { Stamp } from "../../../assets/icons";
+import { SearchIcon } from "../../../assets/icons/Index.js";
+import { Stamp } from "../../../assets/icons/Index.js";
 import { useNavigate } from "react-router";
 
 const Hero = () => {

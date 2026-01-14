@@ -1,5 +1,5 @@
 import React from "react";
-import { CloseIcon, DropArrowIcon } from "../../../assets/icons";
+import { CloseIcon, DropArrowIcon } from "../../../assets/icons/Index.js";
 import Button from "../../shared/button/Button";
 
 const FilterBar = ({ queryFunc, setFilter, filterObj, arrayNum }) => {
