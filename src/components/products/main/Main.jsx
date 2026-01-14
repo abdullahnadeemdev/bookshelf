@@ -1,6 +1,6 @@
 import FilterBar from "./filterBar";
 import SideBar from "./SideBar";
-import { ArrayProducts } from "../../../utils/utils";
+import { ArrayProducts } from "../../../Utils/utils";
 import Card from "./Card";
 import { useState } from "react";
 

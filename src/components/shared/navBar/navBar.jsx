@@ -5,7 +5,7 @@ import { BookmarkIcon } from "../../../assets/icons";
 import { MenuIcon } from "../../../assets/icons";
 import Button from "../button/Button";
 import { useState } from "react";
-import { menuArr } from "../../../utils/utils";
+import { menuArr } from "../../../Utils/utils";
 import { NavLink } from "react-router";
 import { useSelector } from "react-redux";
 

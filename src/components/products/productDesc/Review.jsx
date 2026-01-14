@@ -1,5 +1,5 @@
 import Button from "../../shared/button/Button";
-import { customerReviewArray as array } from "../../../utils/utils";
+import { customerReviewArray as array } from "../../../Utils/utils";
 import ReviewCard from "./ReviewCard";
 
 const Review = () => {

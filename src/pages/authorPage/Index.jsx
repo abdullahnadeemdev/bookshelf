@@ -1,4 +1,4 @@
-import { authorsArray } from "../../utils/utils";
+import { authorsArray } from "../../Utils/utils";
 import CardAuthor from "./CardAuthor";
 
 const Index = () => {
