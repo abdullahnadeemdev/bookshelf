@@ -1,8 +1,8 @@
 import Home from "../pages/Home/Index";
-import Products from "../pages/Products/index";
+import Products from "../pages/Products/Index";
 import Bookmarks from "../pages/Bookmarks/Index";
 import Cart from "../pages/CartPage/Index";
-import Checkout from "../components/checkout/Index";
+import Checkout from "../components/Checkout/Index";
 import ProductsDesc from "../pages/ProductDesc/Index";
 import Login from "../pages/LoginPage/Login";
 import SignUp from "../pages/SignUp/SignUp";
@@ -11,7 +11,7 @@ import AuthorsPopular from "../pages/AuthorPage/Index";
 import { Route, Routes, Navigate } from "react-router";
 import Thanks from "../pages/FinalPage/Index";
 import ForgotP from "../pages/ForgotPassword/ForgotP";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Router = (props) => {
   const user = useSelector((state) => state?.auth?.user) || null;
