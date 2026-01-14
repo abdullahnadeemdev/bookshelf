@@ -74,15 +74,8 @@ const NavBar = () => {
               <SearchIcon className=" h-3.5 w-3.5  lg:h-6.5! lg:w-6! stroke-white!" />
               <NavLink to="/bookmark">
                 {bookmark !== 0 ? (
-                  // <p
-                  //   className="absolute xl:pb-7 font-bold text-xs  h-4 w-4 pb-4  bg-black rounded-full
-                  //       sm:w-3 xl:text-xl xl:w-6 xl:h-6 top-3 right-2 lg:top-1.5 md:right-25 lg:right-40 xl:right-42 xl:top-1 text-yellow text-center"
-                  // >
-                  //   {bookmark}
-                  // </p>
                   <div className="absolute flex items-center justify-center bg-yellow rounded-full w-3 h-3 lg:h-5 lg:w-5 top-3 right-24 lg:top-1 lg:right-36 xl:right-38 text-black">
                     <p className="text-[8px] lg:text-sm font-medium">
-                      {" "}
                       {bookmark}
                     </p>
                   </div>
@@ -133,7 +126,7 @@ const NavBar = () => {
           </span>
         </div>
         <div
-          className={`absolute top-7 sm:top-11 mx-2 bg-black mt-2 rounded-lg ${
+          className={`absolute top-7 left-0 sm:top-11 mx-2 bg-black mt-2 rounded-lg ${
             click ? "border border-grey " : ""
           } w-[96%]`}
         >
