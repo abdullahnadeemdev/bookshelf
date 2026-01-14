@@ -92,9 +92,11 @@ const Login = () => {
     <div className="w-full flex items-center h-[95vh] ">
       <div className=" sm:max-w-[500px] m-4 border rounded-[20px]  bg-blackC p-4 xs:p-6 sm:p-10 md:p-16 mx-auto">
         <div className="text-center w-full p-2 ">
-          <h1 className="mb-8 xl:mb-10 text-chineseViolet font-semibold text-2xl xl:text-4xl">
-            Login
-          </h1>
+          <NavLink to="/">
+            <h1 className="mb-8 xl:mb-10 text-chineseViolet font-semibold text-2xl xl:text-4xl">
+              Login
+            </h1>
+          </NavLink>
           <form className="w-full" onSubmit={handleSubmit}>
             <div className="mb-2">
               <input
@@ -142,9 +144,6 @@ const Login = () => {
 
           <NavLink to="/sign-up">
             <Button className="w-full mb-2">Sign Up</Button>
-          </NavLink>
-          <NavLink to="/">
-            <Button className="w-full mb-2">Home</Button>
           </NavLink>
         </div>
       </div>
