@@ -8,7 +8,7 @@ const CallToAction = () => {
     navigate("/books");
   };
   return (
-    <div className="bg-grayBg rounded-[20px] relative z-0 sm:max-h-60 p-6 overflow-hidden flex flex-col sm:flex-row justify-between max-w-[1440px] px-4 mx-auto">
+    <div className="bg-grayBg rounded-[20px] relative z-0 sm:max-h-60 p-6 overflow-hidden flex flex-col sm:flex-row justify-between max-w-[1404px] px-4 mx-auto">
       <QuestionMarkIcon classname="w-30 h-30 md:h-65 md:w-80 lg:h-65 lg:w-85 absolute top-0 right-35 -z-10" />
       <div className="flex flex-col gap-8 ">
         <h1 className="text-xl md:text-2xl lg:text-4xl">
