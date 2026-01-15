@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import { ArrowIcon } from "../../../assets/icons/Index.js/ArrowIcon";
+import { ArrowIcon } from "../../../assets/icons/Index.js";
 import { QuestionMarkIcon } from "../../../assets/icons/Index.js";
 
 const CallToAction = () => {

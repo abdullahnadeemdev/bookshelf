@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Bookmark } from "../../assets/icons/Index.js/Bookmark";
+import { Bookmark } from "../../assets/icons/Index.js";
 import { Comment, Star } from "../../assets/icons/Index.js";
 import { NavLink } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
