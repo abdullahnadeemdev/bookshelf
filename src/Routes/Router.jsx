@@ -13,12 +13,74 @@ import Thanks from "../pages/FinalPage/Index";
 import ForgotP from "../pages/ForgotPassword/ForgotP";
 import { useSelector } from "react-redux";
 
-const Router = (props) => {
+const Router = () => {
   const user = useSelector((state) => state?.auth?.user) || null;
+
+  const routeArray = [
+    {
+      path: "/",
+      component: <Home />,
+    },
+    {
+      path: "/books",
+      component: <Products />,
+    },
+    {
+      path: "/books/:title",
+      component: <ProductsDesc />,
+    },
+    {
+      path: "forgot-password",
+      component: <ForgotP />,
+    },
+    {
+      path: "/cart",
+      component: <Cart />,
+    },
+    {
+      path: "/login",
+      component: !user ? <Login /> : <Navigate to="/" />,
+    },
+    {
+      path: "/sign-up",
+      component: !user ? <SignUp /> : <Navigate to="/" />,
+    },
+    {
+      path: "/bookmark",
+      component: <Bookmarks />,
+    },
+    {
+      path: "/authors-popular",
+      component: <AuthorsPopular />,
+    },
+    {
+      path: "/checkout",
+      component: user ? <Checkout /> : <Navigate to="/login" />,
+    },
+    {
+      path: "/",
+      component: <AuthorsPopular />,
+    },
+    {
+      path: "/user-page",
+      component: user ? <UserPage /> : <Navigate to="/login" />,
+    },
+    {
+      path: "/thank-you",
+      component: user ? <Thanks /> : <Navigate to="/login" />,
+    },
+    {
+      path: "*",
+      component: <Home />,
+    },
+  ];
 
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      {routeArray.map((item) => (
+        <Route path={item.path} element={item.component} />
+      ))}
+      {/* <Route path="/" element={<Home />} />
       <Route path="/books" element={<Products />} />
       <Route path="/books/:title" element={<ProductsDesc />} />
       <Route path="/forgot-password" element={<ForgotP />} />
@@ -47,7 +109,7 @@ const Router = (props) => {
         element={user ? <Thanks /> : <Navigate to="/login" />}
       />
 
-      <Route path="*" element={<Navigate to="/" />} />
+      <Route path="*" element={<Navigate to="/" />} /> */}
     </Routes>
   );
 };
