@@ -11,76 +11,63 @@ import AuthorsPopular from "../pages/AuthorPage/Index";
 import { Route, Routes, Navigate } from "react-router";
 import Thanks from "../pages/FinalPage/Index";
 import ForgotP from "../pages/ForgotPassword/ForgotP";
+import GuestGuard from "../pages/GuestGuard/Index";
+import AuthGuard from "../pages/AuthGuard/Index";
 import { useSelector } from "react-redux";
 
 const Router = () => {
   const user = useSelector((state) => state?.auth?.user) || null;
+  console.log("user", user);
+  // const user = "";
 
-  const routeArray = [
-    {
-      path: "/",
-      component: <Home />,
-    },
-    {
-      path: "/books",
-      component: <Products />,
-    },
-    {
-      path: "/books/:title",
-      component: <ProductsDesc />,
-    },
-    {
-      path: "forgot-password",
-      component: <ForgotP />,
-    },
-    {
-      path: "/cart",
-      component: <Cart />,
-    },
-    {
-      path: "/login",
-      component: !user ? <Login /> : <Navigate to="/" />,
-    },
-    {
-      path: "/sign-up",
-      component: !user ? <SignUp /> : <Navigate to="/" />,
-    },
-    {
-      path: "/bookmark",
-      component: <Bookmarks />,
-    },
-    {
-      path: "/authors-popular",
-      component: <AuthorsPopular />,
-    },
-    {
-      path: "/checkout",
-      component: user ? <Checkout /> : <Navigate to="/login" />,
-    },
-    {
-      path: "/",
-      component: <AuthorsPopular />,
-    },
-    {
-      path: "/user-page",
-      component: user ? <UserPage /> : <Navigate to="/login" />,
-    },
-    {
-      path: "/thank-you",
-      component: user ? <Thanks /> : <Navigate to="/login" />,
-    },
-    {
-      path: "*",
-      component: <Home />,
-    },
+  const publicRoutes = [
+    { path: "/", component: <Home /> },
+    { path: "/books", component: <Products /> },
+    { path: "/books/:title", component: <ProductsDesc /> },
+    { path: "/cart", component: <Cart /> },
+    { path: "/bookmark", component: <Bookmarks /> },
+    { path: "/authors-popular", component: <AuthorsPopular /> },
+  ];
+
+  const authRoutes = [
+    { path: "/login", component: <Login /> },
+    { path: "/sign-up", component: <SignUp /> },
+    { path: "/forgot-password", component: <ForgotP /> },
+  ];
+
+  const protectedRoutes = [
+    { path: "/checkout", component: <Checkout /> },
+    { path: "/user-page", component: <UserPage /> },
+    { path: "/thank-you", component: <Thanks /> },
   ];
 
   return (
     <Routes>
-      {routeArray.map((item) => (
-        <Route path={item.path} element={item.component} />
+      {publicRoutes.map((route) => (
+        <Route key={route.path} path={route.path} element={route.component} />
       ))}
-      {/* <Route path="/" element={<Home />} />
+
+      <Route element={<GuestGuard />}>
+        {authRoutes.map((route) => (
+          <Route key={route.path} path={route.path} element={route.component} />
+        ))}
+      </Route>
+
+      <Route element={<AuthGuard />}>
+        {protectedRoutes.map((route) => (
+          <Route key={route.path} path={route.path} element={route.component} />
+        ))}
+      </Route>
+
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
+  );
+};
+
+export default Router;
+
+{
+  /* <Route path="/" element={<Home />} />
       <Route path="/books" element={<Products />} />
       <Route path="/books/:title" element={<ProductsDesc />} />
       <Route path="/forgot-password" element={<ForgotP />} />
@@ -109,9 +96,5 @@ const Router = () => {
         element={user ? <Thanks /> : <Navigate to="/login" />}
       />
 
-      <Route path="*" element={<Navigate to="/" />} /> */}
-    </Routes>
-  );
-};
-
-export default Router;
+      <Route path="*" element={<Navigate to="/" />} /> */
+}
