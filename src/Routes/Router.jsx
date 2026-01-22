@@ -20,19 +20,20 @@ const Router = () => {
   console.log("user", user);
   // const user = "";
 
+  // const publicRoutes = [
+
+  // ];
+
   const publicRoutes = [
+    { path: "/login", component: <Login /> },
+    { path: "/sign-up", component: <SignUp /> },
+    { path: "/forgot-password", component: <ForgotP /> },
     { path: "/", component: <Home /> },
     { path: "/books", component: <Products /> },
     { path: "/books/:title", component: <ProductsDesc /> },
     { path: "/cart", component: <Cart /> },
     { path: "/bookmark", component: <Bookmarks /> },
     { path: "/authors-popular", component: <AuthorsPopular /> },
-  ];
-
-  const authRoutes = [
-    { path: "/login", component: <Login /> },
-    { path: "/sign-up", component: <SignUp /> },
-    { path: "/forgot-password", component: <ForgotP /> },
   ];
 
   const protectedRoutes = [
@@ -43,12 +44,8 @@ const Router = () => {
 
   return (
     <Routes>
-      {publicRoutes.map((route) => (
-        <Route key={route.path} path={route.path} element={route.component} />
-      ))}
-
       <Route element={<GuestGuard />}>
-        {authRoutes.map((route) => (
+        {publicRoutes.map((route) => (
           <Route key={route.path} path={route.path} element={route.component} />
         ))}
       </Route>
