@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router";
 
-const Index = () => {
+const ProtectedRoute = () => {
   const user = useSelector((state) => state?.auth?.user) || null;
   return user ? <Outlet /> : <Navigate to="/login" />;
 };
 
-export default Index;
+export default ProtectedRoute;

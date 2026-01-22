@@ -11,11 +11,11 @@ import AuthorsPopular from "../pages/AuthorPage/Index";
 import { Route, Routes, Navigate } from "react-router";
 import Thanks from "../pages/FinalPage/Index";
 import ForgotP from "../pages/ForgotPassword/ForgotP";
-import GuestGuard from "../pages/GuestGuard/Index";
-import AuthGuard from "../pages/AuthGuard/Index";
+import GuestRoute from "./GuestRoute";
+import ProtectedRoute from "./ProtectedRoute";
 import { useSelector } from "react-redux";
 
-const Router = () => {
+const index = () => {
   const user = useSelector((state) => state?.auth?.user) || null;
   console.log("user", user);
   // const user = "";
@@ -44,13 +44,13 @@ const Router = () => {
 
   return (
     <Routes>
-      <Route element={<GuestGuard />}>
+      <Route element={<GuestRoute />}>
         {publicRoutes.map((route) => (
           <Route key={route.path} path={route.path} element={route.component} />
         ))}
       </Route>
 
-      <Route element={<AuthGuard />}>
+      <Route element={<ProtectedRoute />}>
         {protectedRoutes.map((route) => (
           <Route key={route.path} path={route.path} element={route.component} />
         ))}
@@ -61,7 +61,7 @@ const Router = () => {
   );
 };
 
-export default Router;
+export default index;
 
 {
   /* <Route path="/" element={<Home />} />
