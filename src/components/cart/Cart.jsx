@@ -3,7 +3,7 @@ import Button from "../shared/button/Button";
 import CartRow from "./CartRow";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { id } from "../../Utils/utils";
+import { id } from "../../utils/utils";
 
 const Cart = () => {
   const cartArray = useSelector((state) => state?.cart?.cartItems) || [];

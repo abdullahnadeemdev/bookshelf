@@ -1,5 +1,5 @@
 import SuggestCard from "./SuggestCard";
-import { suggestionArray } from "../../../Utils/utils";
+import { suggestionArray } from "../../../utils/utils";
 
 const Suggestion = () => {
   return (

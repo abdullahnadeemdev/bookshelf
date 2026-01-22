@@ -1,4 +1,4 @@
-import { authorsArray } from "../../../Utils/utils";
+import { authorsArray } from "../../../utils/utils";
 import CardAuthor from "./CardAuthor";
 const PopularAuthor = () => {
   return (

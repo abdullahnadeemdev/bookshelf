@@ -1,6 +1,6 @@
 import Card from "./Card";
 // import Card from "../../container/CardContainerBestSellers";
-import { ArrayProducts as array } from "../../../Utils/utils";
+import { ArrayProducts as array } from "../../../utils/utils";
 import { useNavigate } from "react-router";
 import { useState } from "react";
 
@@ -70,7 +70,7 @@ const BestSellers = () => {
               cover={item.cover}
               publisher={item.publisher}
             />
-          )
+          ),
         )}
       </div>
     </div>
