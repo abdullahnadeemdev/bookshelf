@@ -9,6 +9,7 @@ const CardAuthor = (props) => {
             flex 
             h-[25vh]
             md:h-[20vh]
+            2xl:max-h-[191px]
             max-w-[400px]
             text-black
             bg-white
@@ -22,7 +23,7 @@ const CardAuthor = (props) => {
             justify-center
             h-full
             lg:min-w-10 lg:max-w-40 lg:max-h-59
-            flex-4
+            flex-4 
             "
           >
             <img

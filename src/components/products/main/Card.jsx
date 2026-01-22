@@ -35,7 +35,7 @@ const Card = (props) => {
   };
 
   const [isBookmarked, setIsBookmarked] = useState(() =>
-    currentBookmarks.some((b) => b.title === props.title && b.email === user)
+    currentBookmarks.some((b) => b.title === props.title && b.email === user),
   );
 
   const handleBookmark = (e) => {
@@ -55,7 +55,7 @@ const Card = (props) => {
   return (
     <NavLink
       to={`/books/${bookTitle.replace(/\s+/g, "-")}`}
-      className="bg-whiteBg p-2 lg:p-4 h-fit rounded-xl md:mt-4"
+      className="bg-whiteBg p-2 lg:p-4 h-fit rounded-xl md:mt-4 max-w-[334px] max-h-[618px]"
       state={{
         img: props.image,
         id: props.id,
@@ -75,7 +75,7 @@ const Card = (props) => {
         publisher: props.publisher,
       }}
     >
-      <div className="h-60 w-60 xs:h-40 xs:w-44 sm:h-40 sm:w-45 md:h-40 md:w-41.5 lg:h-[45vh] lg:w-[21vw]  relative">
+      <div className="h-60 w-60 xs:h-40 xs:w-44 sm:h-40 sm:w-45 md:h-40 md:w-41.5 lg:h-[45vh] lg:w-[21vw] max-w-[302px] max-h-[429px] relative">
         <img
           src={props.image}
           className="h-full w-full object-fit lg:object-fit rounded-xl"

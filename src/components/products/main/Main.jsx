@@ -144,10 +144,12 @@ const Main = () => {
           arrayNum={array.length}
         />
       </div>
+
       <div className="bg-grayBg mt-10 flex  gap-2">
         <div className="hidden md:block">
           <SideBar setFilter={setFilter} filter={filter} />
         </div>
+
         <div className="md:w-[80vw] w-full">
           {renderData()}
           <div className="bg-blackC mx-auto mt-2">{renderControls()}</div>
