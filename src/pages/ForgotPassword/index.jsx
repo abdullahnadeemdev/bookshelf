@@ -2,7 +2,7 @@ import { useState } from "react";
 import PetName from "../../components/forgotP/PetName";
 import Email from "../../components/forgotP/Email";
 
-const ForgotP = () => {
+const index = () => {
   const [next, setNext] = useState({
     show: false,
     data: "",
@@ -19,4 +19,4 @@ const ForgotP = () => {
   );
 };
 
-export default ForgotP;
+export default index;
