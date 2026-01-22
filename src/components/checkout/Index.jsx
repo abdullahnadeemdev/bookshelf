@@ -30,7 +30,7 @@ const Index = () => {
   const handleNavigate = () => {};
 
   return (
-    <div className="w-full max-w-[1404px]  rounded-[20px]  m-5 h-[70vh] text-white ">
+    <div className="w-full max-w-[1404px] mx-auto rounded-[20px]  m-5 h-[70vh] text-white ">
       <div className="p-8 rounded-[20px] bg-grayBg  ">
         <div className="flex gap-2 items-center  font-light mb-10">
           <span className="flex gap-2 items-center">
