@@ -90,9 +90,12 @@ const Login = () => {
     });
   };
   return (
-    <div className="w-full flex items-center h-[95vh]  relative">
-      <div className=" sm:max-w-[500px] m-4 border rounded-[20px]  bg-blackC p-4 xs:p-6 sm:p-10 md:p-16 mx-auto">
-        <NavLink to="/" className="absolute top-[16%] ">
+    <div className="w-full flex items-center h-[95vh] relative">
+      <div className=" sm:max-w-[500px] m-4 border rounded-[20px] flex  justify-center  bg-blackC p-4 xs:p-6 sm:p-10 md:p-16 mx-auto">
+        <NavLink
+          to="/"
+          className="absolute top-[8%] sm:-top-[1%] mx-auto lg:top-[10%] xl:top-[16%] "
+        >
           <div className="flex items-center gap-2 ">
             <Logo className="h-7 w-8 lg:h-9 lg:w-12" />
             <p className="font-semibold text-base text-black lg:text-xl xl:text-2xl">
