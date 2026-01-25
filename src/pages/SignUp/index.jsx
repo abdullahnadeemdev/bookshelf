@@ -3,6 +3,7 @@ import { useState } from "react";
 import Button from "../../components/shared/button/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { signUp } from "../../redux/features/loginSlice";
+import { Logo } from "../../assets/icons/Logo";
 
 const SignUp = (props) => {
   const navigate = useNavigate();
@@ -136,8 +137,19 @@ const SignUp = (props) => {
     });
   };
   return (
-    <div className="w-full flex items-center h-[95vh]">
-      <div className=" sm:max-w-[500px] m-4 border  bg-blackC  rounded-[20px] p-4 xs:p-6 sm:p-10 md:p-16 mx-auto">
+    <div className="w-full flex items-center h-[95vh] relative">
+      <div className=" sm:max-w-[500px] m-4 border rounded-[20px] flex  justify-center  bg-blackC p-4 xs:p-6 sm:p-10 md:p-16 mx-auto">
+        <NavLink
+          to="/"
+          className="absolute top-[2%] sm:top-[5%]  mx-auto lg:top-[5%] xl:top-[12%] "
+        >
+          <div className="flex items-center gap-2 ">
+            <Logo className="h-7 w-8 lg:h-9 lg:w-12" />
+            <p className="font-semibold text-base text-black sm:text-white lg:text-black lg:text-xl xl:text-2xl">
+              BIG BOOKSHELF
+            </p>
+          </div>
+        </NavLink>
         <div className="text-center w-full p-2 ">
           <h1 className="mb-8 xl:mb-10 text-chineseViolet font-semibold text-xl sm:text-2xl xl:text-4xl">
             SignUp
