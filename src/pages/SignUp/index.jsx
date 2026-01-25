@@ -33,7 +33,7 @@ const SignUp = (props) => {
     };
     // ^[a-zA-Z0-9_.±]+@+[a-zA-Z0-9-]+.+[a-zA-Z0-9-.]+$
     const pattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-    const pwSyntax = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+    const pwSyntax = /^(?=.*[A-Z]).{4,}$/;
     if (!values.name) {
       setError((prev) => ({
         ...prev,
@@ -185,7 +185,7 @@ const SignUp = (props) => {
               <input
                 type="password"
                 className="border block pl-1 indent-2 mx-auto rounded-lg border-chineseViolet w-full h-10 text-lg"
-                placeholder="Password"
+                placeholder="Should contain 4 characters"
                 name="pw"
                 value={values.pw}
                 onChange={handleChange}

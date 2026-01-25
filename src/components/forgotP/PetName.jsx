@@ -47,7 +47,7 @@ const PetName = (prop) => {
     let errors = {
       pw: "",
     };
-    const pwSyntax = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+    const pwSyntax = /^(?=.*[A-Z]).{4}$/;
 
     if (!values.pw) {
       setError((prev) => ({
@@ -111,7 +111,7 @@ const PetName = (prop) => {
         return;
       }
       dispatch(
-        changePw({ pet: values?.petName?.toLowerCase(), userPw: values.pw })
+        changePw({ pet: values?.petName?.toLowerCase(), userPw: values.pw }),
       );
 
       navigate("/");

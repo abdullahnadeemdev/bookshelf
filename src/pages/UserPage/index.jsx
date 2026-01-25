@@ -43,7 +43,7 @@ const UserProfile = () => {
     };
     // ^[a-zA-Z0-9_.±]+@+[a-zA-Z0-9-]+.+[a-zA-Z0-9-.]+$
     const pattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-    const pwSyntax = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+    const pwSyntax = /^(?=.*[A-Z]).{4}$/;
     if (!values.name) {
       setError((prev) => ({
         ...prev,
