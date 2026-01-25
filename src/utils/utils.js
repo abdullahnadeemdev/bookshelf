@@ -144,6 +144,32 @@ export const authorsArray = [
     book: "16 books",
   },
   {
+    image: Zola,
+    author: "Toni Morrison",
+    book: "11 books",
+  },
+  {
+    image: Don,
+    author: "Walter Isaacson",
+    book: "12 books",
+  },
+  {
+    image: JK,
+    author: "Stephen King",
+    book: "65 books",
+  },
+  {
+    image: Matthew,
+    author: "Malcolm Gladwell",
+    book: "7 books",
+  },
+  {
+    image: Mikhail,
+    author: "Leo Tolstoy",
+    book: "48 books",
+  },
+  { author: "SEE ALL" },
+  {
     image: Don,
     author: "Don Norman",
     book: "6 books",
@@ -163,7 +189,6 @@ export const authorsArray = [
     author: "Mikhail Bulgakov",
     book: "24 books",
   },
-  { author: "SEE ALL" },
 ];
 
 export const ArrayProducts = [

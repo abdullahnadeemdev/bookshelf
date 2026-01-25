@@ -24,7 +24,7 @@ const Description = (props) => {
   const [num, setNum] = useState(1);
 
   const [isBookmarked, setIsBookmarked] = useState(() =>
-    currentBookmarks.some((b) => b.title === props.title && b.email === user)
+    currentBookmarks.some((b) => b.title === props.title && b.email === user),
   );
   const [isClicked, setIsClicked] = useState(false);
 
@@ -61,7 +61,7 @@ const Description = (props) => {
     const updatedCart = { ...productInfo, email: user };
 
     dispatch(addToCart(updatedCart));
-    alert("Added to cart!");
+
     // }
   };
 

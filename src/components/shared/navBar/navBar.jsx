@@ -108,9 +108,9 @@ const NavBar = () => {
             ) : (
               <NavLink
                 to="/user-page"
-                className="min-w-[99px] bg-yellow rounded-2xl flex items-center justify-center py-1"
+                className="min-w-[59px] xl:min-w-[99px] bg-yellow rounded-2xl flex items-center justify-center py-1"
               >
-                <UserIcon />
+                <UserIcon className=" h-4.5 w-3.5 lg:h-6! lg:w-6!" />
               </NavLink>
             )}
           </div>
