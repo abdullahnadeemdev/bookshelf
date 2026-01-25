@@ -47,7 +47,7 @@ const PetName = (prop) => {
     let errors = {
       pw: "",
     };
-    const pwSyntax = /^(?=.*[A-Z]).{4}$/;
+    const pwSyntax = /^(?=.*[A-Z]).{4,}$/;
 
     if (!values.pw) {
       setError((prev) => ({
