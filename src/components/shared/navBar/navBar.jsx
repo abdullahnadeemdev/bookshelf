@@ -107,7 +107,7 @@ const NavBar = () => {
               </div>
             ) : (
               <NavLink to="/user-page">
-                <Button className="ml:2 lg:ml-4">USER</Button>
+                <UserIcon />
               </NavLink>
             )}
           </div>
