@@ -49,7 +49,7 @@ const BestSellers = () => {
                 transition
                   "
             >
-              SEE ALL
+              <h1 className="font-semibold md:text-2xl">SEE ALL</h1>
             </div>
           ) : (
             <Card

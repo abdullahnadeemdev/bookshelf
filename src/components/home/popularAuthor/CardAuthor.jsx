@@ -29,7 +29,7 @@ const CardAuthor = (props) => {
             max-w-100
           "
         >
-          <h1 className="font-bold md:text-2xl">SEE ALL</h1>
+          <h1 className="font-semibold md:text-2xl">SEE ALL</h1>
         </div>
       ) : (
         <div

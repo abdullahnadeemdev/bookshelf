@@ -14,13 +14,13 @@ import {
 
 const Description = () => {
   const cartArray = useSelector((state) => state?.cart?.cartItems) || [];
-  let user = useSelector((state) => state?.auth?.user?.email) || undefined;
+  let user = useSelector((state) => state?.auth?.user) || undefined;
   const currentBookmarks = useSelector((state) => state?.book?.items);
 
   if (user === undefined) {
     user = { email: "guest" };
   }
-  // console.log("user", user);
+  console.log("user in dex", user);
   // console.log("currentBookmarks", currentBookmarks);
 
   const dispatch = useDispatch();
