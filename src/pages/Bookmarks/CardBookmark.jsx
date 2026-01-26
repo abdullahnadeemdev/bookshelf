@@ -11,14 +11,18 @@ const CardBookmark = (props) => {
   console.log("props in cardBoookmark", props);
 
   const array = useSelector((state) => state?.book?.items) || [];
-  const user = useSelector((state) => state?.auth?.user) || "";
+  console.log("array in cardBoookmark", array);
+  let user = useSelector((state) => state?.auth?.user) || undefined;
+  if (user === undefined) {
+    user = { email: "guest" };
+  }
 
   const dispatch = useDispatch();
 
   const handleBookmark = (e) => {
     e.stopPropagation();
-    e.st;
-    clr === "white" ? setClr("#1a1b1d") : setClr("white");
+    e.preventDefault();
+    // clr === "white" ? setClr("#1a1b1d") : setClr("white");
     if (array.length > 0) {
       dispatch(removeBookmark(props.id));
     } else {

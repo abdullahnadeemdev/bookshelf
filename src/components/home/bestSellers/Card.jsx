@@ -8,8 +8,14 @@ import {
 } from "../../../redux/features/bookMarkSlice";
 
 const Card = (props) => {
-  const user = useSelector((state) => state?.auth?.user?.email) || "";
+  let user = useSelector((state) => state?.auth?.user) || undefined;
   const currentBookmarks = useSelector((state) => state?.book?.items);
+
+  if (user === undefined) {
+    user = { email: "guest" };
+  }
+
+  // console.log("user", user);
 
   const dispatch = useDispatch();
 
@@ -17,7 +23,7 @@ const Card = (props) => {
   //   currentBookmarks.some((b) => b.title === props.title && b.email === user)
   // );
   const isBookmarked = currentBookmarks.some(
-    (b) => b.id === props.id && b.email === user,
+    (b) => b.id === props.id && b.email === user.email,
   );
 
   const handleBookmark = (e) => {
@@ -25,7 +31,7 @@ const Card = (props) => {
     e.stopPropagation();
 
     if (!isBookmarked) {
-      const updated = { ...props, email: user };
+      const updated = { ...props, email: user.email };
       dispatch(addBookmark(updated));
       // setIsBookmarked(true);
     } else {
@@ -33,6 +39,8 @@ const Card = (props) => {
       // setIsBookmarked(false);
     }
   };
+
+  // console.log("props of card in bestsellers home", props);
 
   return (
     <NavLink

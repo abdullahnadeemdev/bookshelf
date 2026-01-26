@@ -14,8 +14,12 @@ import {
 
 const Description = () => {
   const cartArray = useSelector((state) => state?.cart?.cartItems) || [];
-  const user = useSelector((state) => state?.auth?.user?.email) || "guest";
+  let user = useSelector((state) => state?.auth?.user?.email) || undefined;
   const currentBookmarks = useSelector((state) => state?.book?.items);
+
+  if (user === undefined) {
+    user = { email: "guest" };
+  }
   // console.log("user", user);
   // console.log("currentBookmarks", currentBookmarks);
 
@@ -42,20 +46,21 @@ const Description = () => {
     id: state.id,
     title: state.title,
     author: state.author,
-    salePrice: state.salePrice,
-    price: state.price,
+    salePrice: state.salePrice || "",
+    price: state.price || state.salePrice,
     quantity: num,
     image: state.image,
   };
 
   // console.log("productInfo desc of products", productInfo);
+  // console.log("state desc of products", state);
 
   const handleBookmark = (e) => {
     e.preventDefault();
     e.stopPropagation();
 
     if (!isBookmarked) {
-      const updated = { ...state, email: user };
+      const updated = { ...state, email: user.email };
       dispatch(addBookmark(updated));
       setIsBookmarked(true);
     } else {
@@ -137,7 +142,7 @@ const Description = () => {
 
             <span className="flex gap-4 my-5 font-semibold text-3xl sm:text-4xl">
               <p className="text-greyText line-through">{state.salePrice}</p>
-              <p className="text-black">{state.price}</p>
+              <p className="">{state.price}</p>
             </span>
 
             <div className="flex items-center">

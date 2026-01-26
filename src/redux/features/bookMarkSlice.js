@@ -12,7 +12,7 @@ export const bookMarkSlice = createSlice({
       state.items.push(action.payload);
     },
     removeBookmark: (state, action) => {
-      state.items = state.items.filter((item) => item.id !== action.payload);
+      state.items = state?.items?.filter((item) => item.id !== action.payload);
     },
     addEmailBookmark: (state, action) => {
       state.items = state.items?.map((item) => {

@@ -16,7 +16,11 @@ import ProtectedRoute from "./ProtectedRoute";
 import { useSelector } from "react-redux";
 
 const index = () => {
-  const user = useSelector((state) => state?.auth?.user) || null;
+  let user = useSelector((state) => state?.auth?.user) || undefined;
+
+  if (user === undefined) {
+    user = { email: "guest" };
+  }
   console.log("user", user);
   // const user = "";
 

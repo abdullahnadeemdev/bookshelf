@@ -8,7 +8,11 @@ import { removeFromCart } from "../../../redux/features/cartSlice";
 
 const Payment = (props) => {
   const array = useSelector((state) => state?.payment?.userInfo) || [];
-  const user = useSelector((state) => state?.auth?.user) || "";
+  let user = useSelector((state) => state?.auth?.user) || undefined;
+
+  if (user === undefined) {
+    user = { email: "guest" };
+  }
 
   const dispatch = useDispatch();
 
@@ -123,7 +127,7 @@ const Payment = (props) => {
   const handleClick = () => {
     if (validate()) {
       const updatedData = {
-        ...props.user,
+        ...props.user.email,
         cardNum: inputInfo.cardnum,
         expiry: inputInfo.expiry,
         cvv: inputInfo.cvv,

@@ -8,7 +8,11 @@ import {
 } from "../../../redux/features/bookMarkSlice";
 
 const Card = (props) => {
-  const user = useSelector((state) => state?.auth?.user?.email) || "";
+  let user = useSelector((state) => state?.auth?.user) || undefined;
+
+  if (user === undefined) {
+    user = { email: "guest" };
+  }
 
   const bookTitle = props.title;
   const dispatch = useDispatch();
@@ -35,7 +39,9 @@ const Card = (props) => {
   };
 
   const [isBookmarked, setIsBookmarked] = useState(() =>
-    currentBookmarks.some((b) => b.title === props.title && b.email === user),
+    currentBookmarks.some(
+      (b) => b.title === props.title && b.email === user.email,
+    ),
   );
 
   const handleBookmark = (e) => {
@@ -43,7 +49,7 @@ const Card = (props) => {
     e.stopPropagation();
 
     if (!isBookmarked) {
-      const updated = { ...book, email: user };
+      const updated = { ...book, email: user.email };
       dispatch(addBookmark(updated));
       setIsBookmarked(true);
     } else {

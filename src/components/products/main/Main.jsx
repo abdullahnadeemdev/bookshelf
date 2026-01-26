@@ -38,7 +38,7 @@ const Main = () => {
     const star =
       filter.ratingCheck === "" ? true : item.star > filter.ratingCheck;
 
-    const itemPrice = parseFloat(item.salePrice.replace("$", ""));
+    const itemPrice = parseFloat(item?.salePrice?.replace("$", ""));
     const [minPrice, maxPrice] = filter.price || [0, 120];
     const matchesPrice = itemPrice >= minPrice && itemPrice <= maxPrice;
 
@@ -71,7 +71,7 @@ const Main = () => {
             star={item.star}
             people={item.people}
             price={item.price}
-            saleP={item.salePrice}
+            salePrice={item.salePrice}
             type={item.type}
             publishDate={item.publishDate}
             language={item.language}

@@ -605,6 +605,7 @@ export const ArrayProducts = [
     id: "0013",
     author: "Patrick Ness",
     title: "More Than This",
+    price: "$14",
     comments: 42,
     star: 4.4,
     people: 48,

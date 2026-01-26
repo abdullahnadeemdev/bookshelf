@@ -8,7 +8,7 @@ const Index = () => {
   return (
     <div className="bg-blackC">
       <div className=" pb-10 my-5 h-[84vh] mx-auto rounded-[20px] max-w-[1440px] px-4 ">
-        <h1 className="font-semibold text-4xl py-10">Favourite Books</h1>
+        <h1 className="font-semibold text-4xl py-10">Bookmarks</h1>
         <div className="flex justify-evenly gap-3 flex-wrap">
           {booksArray.length > 0 ? (
             booksArray?.map((item, index) => (
