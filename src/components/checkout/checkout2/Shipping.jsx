@@ -15,11 +15,13 @@ const Shipping = (props) => {
 
   const [error, setError] = useState({
     addressError: true,
+    time: true,
   });
 
   const handleChange = (e) => {
     let { value, name } = e.target;
     setError({ [name]: "" });
+
     setInputData({
       ...inputData,
       [name]: value,
@@ -27,7 +29,7 @@ const Shipping = (props) => {
   };
 
   const validate = () => {
-    let errorV = { address: false };
+    let errorV = { address: false, time: false };
     if (!inputData.address) {
       setError((prev) => ({
         ...prev,
@@ -75,7 +77,7 @@ const Shipping = (props) => {
                 placeholder="Today "
               />
               <input
-                type="text"
+                type="time"
                 name="time"
                 id="time"
                 className="border h-13 p-3 bg-white rounded-[20px] w-full text-grayBg"

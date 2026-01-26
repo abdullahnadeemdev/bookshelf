@@ -29,6 +29,7 @@ const ContactInfo = (props) => {
   };
 
   const validate = () => {
+    const regex = /^03\d{11}$/;
     let errorVal = { nameE: false, phoneE: false };
     if (!inputData.nameIN) {
       setError((prev) => ({
@@ -41,6 +42,13 @@ const ContactInfo = (props) => {
       setError((prev) => ({
         ...prev,
         phoneError: "phone number is empty",
+      }));
+      errorVal.phoneE = true;
+    }
+    if (!regex.test(inputData.phoneIN)) {
+      setError((prev) => ({
+        ...prev,
+        phoneError: "phone starts with 03 of 11 digits",
       }));
       errorVal.phoneE = true;
     }
@@ -61,7 +69,7 @@ const ContactInfo = (props) => {
         name: inputData.nameIN,
         phone: inputData.phoneIN,
       }));
-      console.log("data uploaded", props.user);
+      // console.log("data uploaded", props.user);
       setOrder((prev) => ({ ...prev, contactBtn: false, shipBtn: true }));
     } else {
       console.log("the error ");
