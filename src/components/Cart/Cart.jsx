@@ -7,7 +7,13 @@ import { id } from "../../utils/utils";
 
 const Cart = () => {
   const cartArray = useSelector((state) => state?.cart?.cartItems) || [];
-  const user = useSelector((state) => state?.auth?.user) || "";
+  let user = useSelector((state) => state?.auth?.user) || undefined;
+
+  if (user === undefined) {
+    user = { email: "guest" };
+  }
+
+  console.log("user cart", user.email);
 
   const [grandTotal, setGrandTotal] = useState(0);
   const [cartItems, setCartItems] = useState([]);
@@ -40,6 +46,8 @@ const Cart = () => {
       alert("cart is empty");
     }
   };
+  console.log("cartItems above func", cartItems);
+  console.log("cartArray above func", cartArray);
 
   return (
     <div className="text-black h-[74vh] relative max-w-[1404px] mx-auto">
@@ -48,8 +56,8 @@ const Cart = () => {
         <div className="flex-3">PRICE FOR EACH</div>
         <div className="flex-1 text-center mr-11">QUANTITY</div>
         <div className="flex-1 text-right">PRICE</div>
+        {/* {console.log("cartItems", cartItems)} */}
       </div>
-
       {cartItems.length > 0 ? (
         cartItems.map((item) => (
           <CartRow
@@ -69,7 +77,6 @@ const Cart = () => {
           Your cart is empty.
         </p>
       )}
-
       <div className="flex flex-col items-end p-4 mx-4  ">
         <div className="flex gap-10  absolute bottom-27 ">
           <p className="font-bold">TOTAL</p>

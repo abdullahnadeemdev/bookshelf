@@ -10,9 +10,13 @@ import { NavLink } from "react-router";
 import { useSelector } from "react-redux";
 
 const NavBar = () => {
-  const user = useSelector((state) => state?.auth?.user) || "";
+  let user = useSelector((state) => state?.auth?.user) || undefined;
   const cart = useSelector((state) => state?.cart?.cartItems) || [];
   const books = useSelector((state) => state?.book?.items) || [];
+
+  if (user === undefined) {
+    user = { email: "guest" };
+  }
 
   const [click, setClick] = useState(false);
   const handleClick = () => {
@@ -22,8 +26,8 @@ const NavBar = () => {
   const userCart = cart.filter((item) => item.email === user.email);
   const userBookmark = books.filter((item) => item.email === user.email);
 
-  let num = cart.length;
-  let bookmark = books.length;
+  let num = userCart.length;
+  let bookmark = userBookmark.length;
 
   return (
     <div className="w-full max-w-[1440px] px-4  z-50 md:sticky top-3">
@@ -99,7 +103,7 @@ const NavBar = () => {
                 </NavLink>
               </li>
             </ul>
-            {!user ? (
+            {user.email === "guest" ? (
               <div>
                 <NavLink to="/login">
                   <Button className="ml:2 lg:ml-3 ">LOGIN</Button>

@@ -14,7 +14,7 @@ import {
 
 const Description = (props) => {
   const cartArray = useSelector((state) => state?.cart?.cartItems) || [];
-  const user = useSelector((state) => state?.auth?.user?.email) || "";
+  const user = useSelector((state) => state?.auth?.user?.email) || "guest";
   const currentBookmarks = useSelector((state) => state?.book?.items);
 
   const dispatch = useDispatch();
