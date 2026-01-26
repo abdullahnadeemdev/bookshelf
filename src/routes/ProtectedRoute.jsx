@@ -7,7 +7,7 @@ const ProtectedRoute = () => {
   if (user === undefined) {
     user = { email: "guest" };
   }
-  return user.email ? <Outlet /> : <Navigate to="/login" />;
+  return user.email !== "guest" ? <Outlet /> : <Navigate to="/login" />;
 };
 
 export default ProtectedRoute;

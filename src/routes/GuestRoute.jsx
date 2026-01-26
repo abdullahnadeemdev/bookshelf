@@ -6,7 +6,7 @@ const GuestRoute = () => {
   if (user === undefined) {
     user = { email: "guest" };
   }
-  return !user.email ? <Outlet /> : <Navigate to="/" />;
+  return user.email === "guest" ? <Outlet /> : <Navigate to="/" />;
 };
 
 export default GuestRoute;

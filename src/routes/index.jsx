@@ -21,7 +21,6 @@ const index = () => {
   if (user === undefined) {
     user = { email: "guest" };
   }
-  console.log("user", user);
   // const user = "";
 
   const publicRoutes = [

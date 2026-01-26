@@ -12,7 +12,7 @@ const BestSellers = () => {
     navigate("/books");
   };
   // const { height, width } = useWindowDimensions();
-  console.log("newArr in bestsellers", newArr);
+  // console.log("newArr in bestsellers", newArr);
 
   return (
     <div className="h-fit 2xl:h-fit py-10 max-w-[1430px] w-full px-4">
