@@ -71,7 +71,7 @@ const Description = () => {
 
   const handleCart = () => {
     setIsClicked(true);
-    const updatedCart = { ...productInfo, email: user };
+    const updatedCart = { ...productInfo, email: user.email };
 
     dispatch(addToCart(updatedCart));
 

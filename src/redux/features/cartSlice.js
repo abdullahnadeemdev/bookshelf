@@ -26,7 +26,7 @@ export const cartSlice = createSlice({
     },
     addEmailCart: (state, action) => {
       state.cartItems = state.cartItems?.map((item) => {
-        if (item.email === "") {
+        if (item.email === "guest") {
           item.email = action.payload;
           return item;
         } else {

@@ -14,6 +14,8 @@ const Login = () => {
   const books = useSelector((state) => state?.book?.items) || [];
   const userList = useSelector((state) => state?.auth?.userList) || [];
 
+  // console.log("cartItems", cartItems);
+
   const navigate = useNavigate();
 
   const [values, setValues] = useState({

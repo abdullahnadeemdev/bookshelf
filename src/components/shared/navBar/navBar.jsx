@@ -14,11 +14,11 @@ const NavBar = () => {
   const cart = useSelector((state) => state?.cart?.cartItems) || [];
   const books = useSelector((state) => state?.book?.items) || [];
 
-  // console.log("books in navbar", books);
+  console.log("cart in navbar", cart);
   if (user === undefined) {
     user = { email: "guest" };
   }
-  // console.log("user in navbar", user);
+  console.log("user in navbar", user);
 
   const [click, setClick] = useState(false);
   const handleClick = () => {
@@ -27,7 +27,7 @@ const NavBar = () => {
 
   const userCart = cart.filter((item) => item.email === user.email);
   const userBookmark = books.filter((item) => item.email === user.email);
-  // console.log("userBookmark in navbar", userBookmark);
+  console.log("userCart in navbar", userCart);
 
   let num = userCart.length;
   let bookmark = userBookmark.length;
