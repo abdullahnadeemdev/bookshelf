@@ -12,20 +12,25 @@ import {
   removeBookmark,
 } from "../../../redux/features/bookMarkSlice";
 
-const Description = (props) => {
+const Description = () => {
   const cartArray = useSelector((state) => state?.cart?.cartItems) || [];
   const user = useSelector((state) => state?.auth?.user?.email) || "guest";
   const currentBookmarks = useSelector((state) => state?.book?.items);
+  // console.log("user", user);
+  // console.log("currentBookmarks", currentBookmarks);
 
   const dispatch = useDispatch();
 
   const { state } = useLocation();
+  // console.log("state", state);
 
   const [num, setNum] = useState(1);
 
   const [isBookmarked, setIsBookmarked] = useState(() =>
-    currentBookmarks.some((b) => b.title === props.title && b.email === user),
+    currentBookmarks.some((b) => b.title === state.title && b.email === user),
   );
+
+  // console.log("isBookmarked", isBookmarked);
   const [isClicked, setIsClicked] = useState(false);
 
   const productQuantity =
@@ -37,21 +42,24 @@ const Description = (props) => {
     id: state.id,
     title: state.title,
     author: state.author,
-    price: state.salePrice,
+    salePrice: state.salePrice,
+    price: state.price,
     quantity: num,
-    image: state.img,
+    image: state.image,
   };
+
+  // console.log("productInfo desc of products", productInfo);
 
   const handleBookmark = (e) => {
     e.preventDefault();
     e.stopPropagation();
 
     if (!isBookmarked) {
-      const updated = { ...props, email: user };
+      const updated = { ...state, email: user };
       dispatch(addBookmark(updated));
       setIsBookmarked(true);
     } else {
-      dispatch(removeBookmark(props.id));
+      dispatch(removeBookmark(state.id));
       setIsBookmarked(false);
     }
   };
@@ -82,7 +90,7 @@ const Description = (props) => {
         <div className="flex-2 flex flex-col xs:flex-row gap-5">
           <div className="xs:w-60 sm:w-80 sm:h-125 relative">
             <img
-              src={state.img}
+              src={state.image}
               alt={state.title}
               className="h-full w-full object-cover rounded-[20px]"
             />
@@ -128,8 +136,8 @@ const Description = (props) => {
             </div>
 
             <span className="flex gap-4 my-5 font-semibold text-3xl sm:text-4xl">
-              <p className="text-greyText line-through">{state.price}</p>
-              <p>{state.salePrice}</p>
+              <p className="text-greyText line-through">{state.salePrice}</p>
+              <p className="text-black">{state.price}</p>
             </span>
 
             <div className="flex items-center">
@@ -137,18 +145,18 @@ const Description = (props) => {
                 to="/checkout"
                 className="min-w-29 xs:mt-2 text-white p-2 lg:p-4 h-fit rounded-xl md:mt-4"
                 state={{
-                  img: state.image,
+                  image: state.image,
                   id: state.id,
                   author: state.author,
                   title: state.title,
-                  comments: state.comts,
+                  comments: state.comments,
                   star: state.star,
                   people: state.people,
                   price: state.price,
-                  salePrice: state.saleP,
+                  salePrice: state.salePrice,
                   type: state.type,
                   publishDate: state.publishDate,
-                  language: state.lang,
+                  language: state.language,
                   pages: state.pages,
                   readTime: state.readTime,
                   cover: state.cover,

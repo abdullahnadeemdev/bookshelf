@@ -20,14 +20,14 @@ const Card = (props) => {
     image: props.image,
     author: props.author,
     title: bookTitle,
-    comts: props.comts,
+    comments: props.comments,
     star: props.star,
     people: props.people,
     price: props.price,
-    saleP: props.saleP,
+    salePrice: props.salePrice,
     type: props.type,
     publishDate: props.publishDate,
-    lang: props.lang,
+    language: props.language,
     pages: props.pages,
     readTime: props.readTime,
     cover: props.cover,
@@ -57,18 +57,18 @@ const Card = (props) => {
       to={`/books/${bookTitle.replace(/\s+/g, "-")}`}
       className="bg-whiteBg p-2 lg:p-4 h-fit rounded-xl md:mt-4 max-w-[334px] max-h-[618px]"
       state={{
-        img: props.image,
+        image: props.image,
         id: props.id,
         author: props.author,
         title: bookTitle,
-        comments: props.comts,
+        comments: props.comments,
         star: props.star,
         people: props.people,
         price: props.price,
-        salePrice: props.saleP,
+        salePrice: props.salePrice,
         type: props.type,
         publishDate: props.publishDate,
-        language: props.lang,
+        language: props.language,
         pages: props.pages,
         readTime: props.readTime,
         cover: props.cover,
@@ -121,7 +121,7 @@ const Card = (props) => {
               className="flex w-fit px-1 text-sm border rounded-full items-center gap-0.5 md:gap-1
                           md:p-1 md:px-3 md:text-base"
             >
-              <p>{props.comts}</p>
+              <p>{props.comments}</p>
               <Comment />
             </span>
 
@@ -139,7 +139,7 @@ const Card = (props) => {
             <p className="text-greyText md:text-lg line-through">
               {props.price}
             </p>
-            <p className="md:text-lg ml-1">{props.saleP}</p>
+            <p className="md:text-lg ml-1">{props.salePrice}</p>
           </span>
         </div>
       </div>

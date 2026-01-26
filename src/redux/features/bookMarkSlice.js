@@ -16,7 +16,7 @@ export const bookMarkSlice = createSlice({
     },
     addEmailBookmark: (state, action) => {
       state.items = state.items?.map((item) => {
-        if (item.email === "") {
+        if (item.email === "guest") {
           item.email = action.payload;
           return item;
         } else {

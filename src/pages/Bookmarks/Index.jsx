@@ -3,6 +3,7 @@ import CardBookmark from "./CardBookmark";
 
 const Index = () => {
   const booksArray = useSelector((state) => state?.book?.items) || [];
+  console.log("booksArray in index Bookmark", booksArray);
 
   return (
     <div className="bg-blackC">
@@ -17,11 +18,11 @@ const Index = () => {
                 image={item.image}
                 author={item.author}
                 title={item.title}
-                comts={item.comts}
+                comments={item.comments}
                 star={item.star}
                 people={item.people}
                 price={item.price}
-                saleP={item.saleP}
+                salePrice={item.salePrice}
               />
             ))
           ) : (

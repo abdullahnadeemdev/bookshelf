@@ -22,8 +22,8 @@ const Main = () => {
   const array = ArrayProducts.filter((item) => {
     const queryCheck = item.title.toLowerCase().includes(query.toLowerCase());
 
-    const lang =
-      filter.language === "" ? true : item.lang.includes(filter.language);
+    const language =
+      filter.language === "" ? true : item.language.includes(filter.language);
 
     const year =
       !filter.yearsInput || filter.yearsInput === "none"
@@ -38,12 +38,18 @@ const Main = () => {
     const star =
       filter.ratingCheck === "" ? true : item.star > filter.ratingCheck;
 
-    const itemPrice = parseFloat(item.saleP.replace("$", ""));
+    const itemPrice = parseFloat(item.salePrice.replace("$", ""));
     const [minPrice, maxPrice] = filter.price || [0, 120];
     const matchesPrice = itemPrice >= minPrice && itemPrice <= maxPrice;
 
     return (
-      queryCheck && lang && year && publishH && cover && star && matchesPrice
+      queryCheck &&
+      language &&
+      year &&
+      publishH &&
+      cover &&
+      star &&
+      matchesPrice
     );
   });
 
@@ -61,14 +67,14 @@ const Main = () => {
             image={item.image}
             author={item.author}
             title={item.title}
-            comts={item.comts}
+            comments={item.comments}
             star={item.star}
             people={item.people}
             price={item.price}
-            saleP={item.saleP}
+            saleP={item.salePrice}
             type={item.type}
             publishDate={item.publishDate}
-            lang={item.lang}
+            language={item.language}
             pages={item.pages}
             readTime={item.readTime}
             cover={item.cover}
@@ -169,7 +175,7 @@ export default Main;
 //                 image={item.image}
 //                 author={item.author}
 //                 title={item.title}
-//                 comts={item.comts}
+//                 comments={item.comments}
 //                 star={item.star}
 //                 people={item.people}
 //                 price={item.price}

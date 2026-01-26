@@ -8,12 +8,16 @@ import { removeBookmark } from "../../redux/features/bookMarkSlice";
 const CardBookmark = (props) => {
   const [clr, setClr] = useState("white");
 
+  console.log("props in cardBoookmark", props);
+
   const array = useSelector((state) => state?.book?.items) || [];
   const user = useSelector((state) => state?.auth?.user) || "";
 
   const dispatch = useDispatch();
 
-  const handleBookmark = () => {
+  const handleBookmark = (e) => {
+    e.stopPropagation();
+    e.st;
     clr === "white" ? setClr("#1a1b1d") : setClr("white");
     if (array.length > 0) {
       dispatch(removeBookmark(props.id));
@@ -27,17 +31,17 @@ const CardBookmark = (props) => {
       to={`/books/${props.title}`}
       state={{
         id: props.id,
-        img: props.image,
+        image: props.image,
         author: props.author,
         title: props.title,
-        comments: props.comts,
+        comments: props.comments,
         star: props.star,
         people: props.people,
         price: props.price,
-        salePrice: props.saleP,
+        salePrice: props.salePrice,
         type: props.type,
         publishDate: props.publishDate,
-        language: props.lang,
+        language: props.language,
         pages: props.pages,
         readTime: props.readTime,
         cover: props.cover,
@@ -131,7 +135,7 @@ const CardBookmark = (props) => {
                 md:mt-0 md:p-1 md:px-3 md:text-base
               "
           >
-            <p>{props.comts}</p>
+            <p>{props.comments}</p>
             <Comment />
           </span>
 
@@ -171,7 +175,7 @@ const CardBookmark = (props) => {
                   text-lg
                 "
             >
-              {props.saleP}
+              {props.salePrice}
             </p>
           </span>
         </div>

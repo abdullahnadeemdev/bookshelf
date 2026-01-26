@@ -17,7 +17,7 @@ const Card = (props) => {
   //   currentBookmarks.some((b) => b.title === props.title && b.email === user)
   // );
   const isBookmarked = currentBookmarks.some(
-    (b) => b.id === props.id && b.email === user
+    (b) => b.id === props.id && b.email === user,
   );
 
   const handleBookmark = (e) => {
@@ -38,18 +38,18 @@ const Card = (props) => {
     <NavLink
       to={`/books/${props.title}`}
       state={{
-        img: props.image,
+        image: props.image,
         id: props.id,
         author: props.author,
         title: props.title,
-        comments: props.comts,
+        comments: props.comments,
         star: props.star,
         people: props.people,
         price: props.price,
-        salePrice: props.saleP,
+        salePrice: props.salePrice,
         type: props.type,
         publishDate: props.publishDate,
-        language: props.lang,
+        language: props.language,
         pages: props.pages,
         readTime: props.readTime,
         cover: props.cover,
@@ -144,7 +144,7 @@ const Card = (props) => {
                 md:mt-auto md:p-1 md:px-3 md:text-base
               "
             >
-              <p>{props.comts}</p>
+              <p>{props.comments}</p>
               <Comment />
             </span>
 
@@ -174,7 +174,7 @@ const Card = (props) => {
               <p className="text-sm text-gray-400 line-through">
                 {props.price}
               </p>
-              <p className="text-lg font-semibold">{props.saleP}</p>
+              <p className="text-lg font-semibold">{props.salePrice}</p>
             </span>
           </div>
         </div>

@@ -57,14 +57,14 @@ const BestSellers = () => {
               image={item.image}
               author={item.author}
               title={item.title}
-              comts={item.comts}
+              comments={item.comments}
               star={item.star}
               people={item.people}
               price={item.price}
-              saleP={item.saleP}
+              salePrice={item.salePrice}
               type={item.type}
               publishDate={item.publishDate}
-              lang={item.lang}
+              language={item.language}
               pages={item.pages}
               readTime={item.readTime}
               cover={item.cover}
