@@ -10,14 +10,11 @@ const CardAuthor = (props) => {
     clr === "#2a2c2e" ? setClr("white") : setClr("#2a2c2e");
   };
 
-  const handleClick = () => {
-    navigate("/authors-popular");
-  };
   return (
     <>
       {props.author === "SEE ALL" ? (
         <div
-          onClick={handleClick}
+          onClick={() => navigate("/authors-popular")}
           className="
             flex
             w-full  
