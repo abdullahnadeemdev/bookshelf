@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useCallback } from "react";
 import { Bookmark, Comment, Star } from "../../../assets/icons/Index.js";
 import { NavLink } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
@@ -8,63 +8,33 @@ import {
 } from "../../../redux/features/bookMarkSlice";
 
 const Card = (props) => {
-  let user = useSelector((state) => state?.auth?.user) || undefined;
-  const currentBookmarks = useSelector((state) => state?.book?.items);
-
-  if (user === undefined) {
-    user = { email: "guest" };
-  }
-
-  // console.log("user", user);
-
   const dispatch = useDispatch();
 
-  // const [isBookmarked, setIsBookmarked] = useState(() =>
-  //   currentBookmarks.some((b) => b.title === props.title && b.email === user)
-  // );
-  const isBookmarked = currentBookmarks.some(
-    (b) => b.id === props.id && b.email === user.email,
+  const user = useSelector((state) => state?.auth?.user) || { email: "guest" };
+
+  const isBookmarked = useSelector((state) =>
+    state?.book?.items?.some(
+      (b) => b.id === props.id && b.email === user.email,
+    ),
   );
 
-  const handleBookmark = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const handleBookmark = useCallback(
+    (e) => {
+      e.preventDefault();
+      e.stopPropagation();
 
-    if (!isBookmarked) {
-      const updated = { ...props, email: user.email };
-      dispatch(addBookmark(updated));
-      // setIsBookmarked(true);
-    } else {
-      dispatch(removeBookmark(props.id));
-      // setIsBookmarked(false);
-    }
-  };
-  const bookTitle = props.title;
-
-  // console.log("props of card in bestsellers home", props);
+      if (!isBookmarked) {
+        const updated = { ...props, email: user.email };
+        dispatch(addBookmark(updated));
+      } else {
+        dispatch(removeBookmark(props.id));
+      }
+    },
+    [dispatch, isBookmarked, props, user.email],
+  );
 
   return (
-    <NavLink
-      to={`/books/${bookTitle.replace(/\s+/g, "-")}`}
-      state={{
-        image: props.image,
-        id: props.id,
-        author: props.author,
-        title: props.title,
-        comments: props.comments,
-        star: props.star,
-        people: props.people,
-        price: props.price,
-        salePrice: props.salePrice,
-        type: props.type,
-        publishDate: props.publishDate,
-        language: props.language,
-        pages: props.pages,
-        readTime: props.readTime,
-        cover: props.cover,
-        publisher: props.publisher,
-      }}
-    >
+    <NavLink to={`/books/${props.title.replace(/\s+/g, "-")}`} state={props}>
       <div
         className="
       bg-white
@@ -180,10 +150,12 @@ const Card = (props) => {
                 gap-1
               "
             >
-              <p className="text-sm text-gray-400 line-through">
+              <p className="text-sm md:text-lg text-gray-400 line-through">
                 {props.price}
               </p>
-              <p className="text-lg font-semibold">{props.salePrice}</p>
+              <p className="text-sm md:text-lg font-semibold">
+                {props.salePrice}
+              </p>
             </span>
           </div>
         </div>

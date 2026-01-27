@@ -201,7 +201,7 @@ export const ArrayProducts = [
     star: 3.0,
     people: 100,
     price: "$15.5",
-    salePricerice: "$10.50",
+    salePrice: "$10.50",
     type: "novel",
     publishDate: "May 2007",
     language: "English",
