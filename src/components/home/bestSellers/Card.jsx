@@ -39,12 +39,13 @@ const Card = (props) => {
       // setIsBookmarked(false);
     }
   };
+  const bookTitle = props.title;
 
   // console.log("props of card in bestsellers home", props);
 
   return (
     <NavLink
-      to={`/books/${props.title}`}
+      to={`/books/${bookTitle.replace(/\s+/g, "-")}`}
       state={{
         image: props.image,
         id: props.id,
