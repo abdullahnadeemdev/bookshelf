@@ -71,11 +71,11 @@ const Login = () => {
       }
       dispatch(login({ email: values.email, pw: values.pw }));
 
-      navigate("/books");
-      setError({
-        ...error,
-        pw: "Wrong user password",
-      });
+      // navigate("/books");
+      // setError({
+      //   ...error,
+      //   pw: "Wrong user password",
+      // });
     } else {
     }
   };
